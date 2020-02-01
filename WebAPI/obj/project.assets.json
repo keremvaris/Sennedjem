@@ -10834,11 +10834,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\WebAPI\\WebAPI.csproj",
+      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\WebAPI\\obj\\",
+      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10857,8 +10857,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\src\\NewGenSource\\NorthwindBackend\\Business\\Business.csproj": {
-              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Business\\Business.csproj"
+            "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Business\\Business.csproj": {
+              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Business\\Business.csproj"
             }
           }
         }

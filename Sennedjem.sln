@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{EF53A1AE-B85E-4AFC-823A-33F55E67CB37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityFiles", "UtilityFiles", "{0319C386-EC9C-4829-8CAD-652D1E2BE471}"
+	ProjectSection(SolutionItems) = preProject
+		UtiliyFiles\Northwind.20200201.zip = UtiliyFiles\Northwind.20200201.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

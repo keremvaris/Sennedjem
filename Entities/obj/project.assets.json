@@ -10957,11 +10957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Entities\\Entities.csproj",
+      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Entities\\Entities.csproj",
+      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Entities\\obj\\",
+      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10980,8 +10980,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj": {
-              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj"
+            "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj": {
+              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj"
             }
           }
         }

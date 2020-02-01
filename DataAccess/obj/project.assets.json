@@ -11165,11 +11165,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\DataAccess\\DataAccess.csproj",
+      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\DataAccess\\obj\\",
+      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11188,11 +11188,11 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj": {
-              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj"
+            "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj": {
+              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj"
             },
-            "E:\\src\\NewGenSource\\NorthwindBackend\\Entities\\Entities.csproj": {
-              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Entities\\Entities.csproj"
+            "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Entities\\Entities.csproj": {
+              "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Entities\\Entities.csproj"
             }
           }
         }

@@ -11006,11 +11006,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj",
+      "projectUniqueName": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\Core.csproj",
+      "projectPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\kerem\\.nuget\\packages\\",
-      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Core\\obj\\",
+      "outputPath": "E:\\src\\NewGenSource\\NorthwindBackend\\Sennedjem\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
