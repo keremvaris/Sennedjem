@@ -128,7 +128,7 @@ namespace WebAPI.Controllers
         /// <param name="deleteProduct"></param>
         /// <returns></returns>
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromBody]DeleteCategoryCommand deleteProduct)
+        public async Task<IActionResult> Delete([FromBody]DeleteProductCommand deleteProduct)
         {
             var result = await _mediator.Send(deleteProduct);
             if (result.Success)
