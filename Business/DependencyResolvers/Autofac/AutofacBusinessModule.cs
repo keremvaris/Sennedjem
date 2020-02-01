@@ -5,6 +5,7 @@ using Castle.DynamicProxy;
 using Autofac.Extras.DynamicProxy;
 using Core.Utilities.Interceptors;
 using DataAccess.Concrete.NpgSql;
+using DataAccess.Concrete.NpgSql.Contexts;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -12,16 +13,13 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.RegisterType<ProductManager>().As<IProductService>();
+            builder.RegisterType<NorthwindNPgSqlDbContext>().InstancePerLifetimeScope();
+
             builder.RegisterType<PgProductDal>().As<IProductDal>();
-
-            //builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<PgCategoryDal>().As<ICategoryDal>();
-
-            //builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<PgUserDal>().As<IUserDal>();
 
-            //builder.RegisterType<AuthManager>().As<IAuthService>();
+
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

@@ -9,7 +9,10 @@ using DataAccess.Concrete.NpgSql.Contexts;
 using Entities.Concrete;
 
 namespace DataAccess.Concrete.NpgSql {
-    public class PgProductDal : EfEntityRepositoryBase<Product, NorthwindNPgSqlDbContext>, IProductDal {
-
+    public class PgProductDal : EfEntityRepositoryBase<Product, NorthwindNPgSqlDbContext>, IProductDal
+    {
+        public PgProductDal(NorthwindNPgSqlDbContext context) : base(context)
+        {
+        }
     }
 }

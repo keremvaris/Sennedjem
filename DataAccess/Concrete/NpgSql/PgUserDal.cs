@@ -8,6 +8,10 @@ using DataAccess.Concrete.NpgSql.Contexts;
 
 namespace DataAccess.Concrete.NpgSql {
     public class PgUserDal : EfEntityRepositoryBase<User, NorthwindNPgSqlDbContext>, IUserDal {
+        public PgUserDal(NorthwindNPgSqlDbContext context) : base(context)
+        {
+        }
+
         public List<OperationClaim> GetClaims (User user) {
             using (var context = new NorthwindNPgSqlDbContext ()) {
                 var result = from operationClaim in context.OperationClaims

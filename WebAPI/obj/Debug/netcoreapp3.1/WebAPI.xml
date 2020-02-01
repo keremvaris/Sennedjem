@@ -106,7 +106,7 @@
             <param name="updateProduct"></param>
             <returns></returns>
         </member>
-        <member name="M:WebAPI.Controllers.ProductsController.Delete(Business.Handlers.Products.Commands.DeleteProduct.DeleteCategoryCommand)">
+        <member name="M:WebAPI.Controllers.ProductsController.Delete(Business.Handlers.Products.Commands.DeleteProduct.DeleteProductCommand)">
             <summary>
             Ürün Siler.
             </summary>

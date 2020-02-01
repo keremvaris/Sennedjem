@@ -7,6 +7,10 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework {
     public class EfUserDal : EfEntityRepositoryBase<User, NorthwindContext>, IUserDal {
+        public EfUserDal(NorthwindContext context) : base(context)
+        {
+        }
+
         public List<OperationClaim> GetClaims (User user) {
             using (var context = new NorthwindContext ()) {
                 var result = from operationClaim in context.OperationClaims
