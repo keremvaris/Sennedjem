@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Products.Commands.DeleteProduct
 {
-    public class DeleteCategoryCommand : IRequest<IResult>
+    public class DeleteProductCommand : IRequest<IResult>
     {
         public int ProductID { get; set; }
 
-        public class DeleteProductCommandHandler : IRequestHandler<DeleteCategoryCommand, IResult>
+        public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, IResult>
         {
             private readonly IProductDal _productDal;
 
@@ -23,7 +23,7 @@ namespace Business.Handlers.Products.Commands.DeleteProduct
                 _productDal = productDal;
             }
 
-            public async Task<IResult> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
             {
                 var productToDelete = _productDal.Get(p => p.ProductID == request.ProductID);
 

@@ -172,11 +172,11 @@ E:\src\NewGenSource\NorthwindBackend\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcAp
 E:\src\NewGenSource\NorthwindBackend\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
 E:\src\NewGenSource\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\log4net.config
 E:\src\NewGenSource\NorthwindBackend\WebAPI\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\log4net.config
+E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\nlog.config
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\appsettings.json
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\log4net.config
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\nlog.config
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.exe
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.deps.json
 E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\bin\Debug\netcoreapp3.1\WebAPI.runtimeconfig.json
