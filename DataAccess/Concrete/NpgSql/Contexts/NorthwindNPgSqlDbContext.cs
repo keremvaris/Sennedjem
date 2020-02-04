@@ -10,7 +10,7 @@ namespace DataAccess.Concrete.NpgSql.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"Host=localhost;Database=Northwind;Username=postgres;Password=test");
+                optionsBuilder.UseNpgsql(@"Host=localhost;Database=Northwind;Username=postgres;Password=testx");
             }
 
         }

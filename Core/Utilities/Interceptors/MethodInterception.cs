@@ -1,5 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using System;
+using System.Threading.Tasks;
 
 namespace Core.Utilities.Interceptors
 {
@@ -16,6 +17,8 @@ namespace Core.Utilities.Interceptors
             try
             {
                 invocation.Proceed();
+                var result = invocation.ReturnValue as Task;
+                result.Wait();
             }
             catch (Exception e)
             {

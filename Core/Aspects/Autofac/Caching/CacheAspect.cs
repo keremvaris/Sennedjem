@@ -12,9 +12,9 @@ namespace Core.Aspects.Autofac.Caching
 {
     public class CacheAspect : MethodInterception
     {
-        private int _duration;
-        private ICacheManager _cacheManager;
-        public CacheAspect(int duration=60)
+        private readonly int _duration;
+        private readonly ICacheManager _cacheManager;
+        public CacheAspect(int duration = 60)
         {
             _duration = duration;
             _cacheManager = ServiceTool.ServiceProvider.GetService<ICacheManager>();
@@ -30,7 +30,7 @@ namespace Core.Aspects.Autofac.Caching
                 return;
             }
             invocation.Proceed();
-            _cacheManager.Add(key,invocation.ReturnValue,_duration);
+            _cacheManager.Add(key, invocation.ReturnValue, _duration);
         }
     }
 }
