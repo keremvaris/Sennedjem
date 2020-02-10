@@ -12,13 +12,11 @@ namespace Business.Handlers.Products.Queries.GetProductByCategoryId
 {
     public class GetProductByCategoryIdQuery : IRequest<IDataResult<IEnumerable<Product>>>
     {
-
         public int CategoryId { get; set; }
 
         class GetProductQueryHandler : IRequestHandler<GetProductByCategoryIdQuery, IDataResult<IEnumerable<Product>>>
         {
             private readonly IProductDal _productDal;
-
 
             public GetProductQueryHandler(IProductDal productDal)
             {

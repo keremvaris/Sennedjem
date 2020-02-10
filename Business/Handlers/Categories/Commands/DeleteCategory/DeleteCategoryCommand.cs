@@ -1,4 +1,7 @@
 ﻿using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -19,7 +22,8 @@ namespace Business.Handlers.Categories.Commands.DeleteCategory
             {
                 _categoryDal = categoryDal;
             }
-
+            [CacheRemoveAspect("Get")]
+            [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
             {
                 var categoryToDelete = _categoryDal.Get(p => p.CategoryId == request.CategoryId);

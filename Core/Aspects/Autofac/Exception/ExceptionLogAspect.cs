@@ -11,7 +11,7 @@ namespace Core.Aspects.Autofac.Exception
 {
     public class ExceptionLogAspect : MethodInterception
     {
-        private LoggerServiceBase _loggerServiceBase;
+        private readonly LoggerServiceBase _loggerServiceBase;
 
         public ExceptionLogAspect(Type loggerService)
         {

@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
     public class AuthController : Controller
     {
         //private IAuthService _authService;
-        private IMediator _mediator;
+        private readonly IMediator _mediator;
 
         /// <summary>
         /// Dependency injection constructor injection ile sağlanır.

@@ -8,12 +8,12 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
 {
     public class MqQueueHelper : IMessageBrokerHelper
     {
-        IConfiguration Configuration;
-        MessageBrokerOptions _brokerOptions;
+        private readonly IConfiguration _configuration;
+        private readonly MessageBrokerOptions _brokerOptions;
         public MqQueueHelper(IConfiguration configuration)
         {
-            Configuration = configuration;
-            _brokerOptions = Configuration.GetSection("MessageBrokerOptions").Get<MessageBrokerOptions>();
+            _configuration = configuration;
+            _brokerOptions = _configuration.GetSection("MessageBrokerOptions").Get<MessageBrokerOptions>();
         }
 
         public void QueueMessage()
@@ -28,16 +28,16 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
             using (var channel = connection.CreateModel())
             {
                 channel.QueueDeclare(
-                        queue:"Queue",
-                        durable:false,
-                        exclusive:false,
-                        autoDelete:false,
-                        arguments:null);
+                        queue: "Queue",
+                        durable: false,
+                        exclusive: false,
+                        autoDelete: false,
+                        arguments: null);
 
                 var message = "This message came from other side of universe";
                 var body = Encoding.UTF8.GetBytes(message);
 
-                channel.BasicPublish(exchange: "", routingKey:"Queue", basicProperties: null, body: body);
+                channel.BasicPublish(exchange: "", routingKey: "Queue", basicProperties: null, body: body);
             }
         }
     }

@@ -20,10 +20,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.ProductName).Must(StartsWithA);
         }
 
-        private bool StartsWithA(string arg)
-        {
-            return arg.StartsWith("A");
-        }
+        private bool StartsWithA(string arg) => arg.StartsWith("A");
     }
     public class UpdateProductValidator : AbstractValidator<UpdateProductCommand>
     {
@@ -37,9 +34,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.ProductName).Must(StartsWithA);
         }
 
-        private bool StartsWithA(string arg)
-        {
-            return arg.StartsWith("A");
-        }
+        private bool StartsWithA(string arg) => arg.StartsWith("A");
     }
 }

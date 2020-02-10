@@ -11,7 +11,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 {
     public class MemoryCacheManager : ICacheManager
     {
-        private IMemoryCache _cache;
+        private readonly IMemoryCache _cache;
         public MemoryCacheManager()
         {
             _cache = ServiceTool.ServiceProvider.GetService<IMemoryCache>();

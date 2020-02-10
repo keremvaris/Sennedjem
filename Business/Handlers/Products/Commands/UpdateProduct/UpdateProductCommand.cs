@@ -1,4 +1,5 @@
 ﻿using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,12 +22,12 @@ namespace Business.Handlers.Products.Commands.UpdateProduct
         {
             private readonly IProductDal _productDal;
 
-
             public UpdateProductCommandHandler(IProductDal productDal)
             {
                 _productDal = productDal;
             }
 
+            [CacheRemoveAspect("Get")]
             public async Task<IResult> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
             {
                 var productExits = await _productDal.GetAsync(u => u.ProductName == request.ProductName);

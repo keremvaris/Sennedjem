@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Business.Handlers.Categories.Commands.CreateCategory;
+using Business.Handlers.Categories.Commands.DeleteCategory;
+using Business.Handlers.Categories.Commands.UpdateCategory;
 using Business.Handlers.Categories.Queries.GetCategories;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +49,36 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Add([FromBody]CreateCategoryCommand createCategory)
         {
             var result = await _mediator.Send(createCategory);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+        /// <summary>
+        /// Category Günceller.
+        /// </summary>
+        /// <param name="updateCategory"></param>
+        /// <returns></returns>
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody]UpdateCategoryCommand updateCategory)
+        {
+            var result = await _mediator.Send(updateCategory);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+        /// <summary>
+        /// Category Günceller.
+        /// </summary>
+        /// <param name="deleteCategory"></param>
+        /// <returns></returns>
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete([FromBody]DeleteCategoryCommand deleteCategory)
+        {
+            var result = await _mediator.Send(deleteCategory);
             if (result.Success)
             {
                 return Ok(result.Message);

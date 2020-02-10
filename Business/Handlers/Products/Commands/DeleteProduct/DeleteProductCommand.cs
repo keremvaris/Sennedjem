@@ -1,4 +1,7 @@
 ﻿using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -22,7 +25,8 @@ namespace Business.Handlers.Products.Commands.DeleteProduct
             {
                 _productDal = productDal;
             }
-
+            [CacheRemoveAspect("Get")]
+            [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
             {
                 var productToDelete = _productDal.Get(p => p.ProductID == request.ProductID);

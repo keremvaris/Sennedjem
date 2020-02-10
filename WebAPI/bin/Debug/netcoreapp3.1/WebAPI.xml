@@ -53,6 +53,20 @@
             <param name="createCategory"></param>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.CategoriesController.Update(Business.Handlers.Categories.Commands.UpdateCategory.UpdateCategoryCommand)">
+            <summary>
+            Category Günceller.
+            </summary>
+            <param name="updateCategory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.CategoriesController.Delete(Business.Handlers.Categories.Commands.DeleteCategory.DeleteCategoryCommand)">
+            <summary>
+            Category Günceller.
+            </summary>
+            <param name="deleteCategory"></param>
+            <returns></returns>
+        </member>
         <member name="T:WebAPI.Controllers.ProductsController">
             <summary>
             Products Controller

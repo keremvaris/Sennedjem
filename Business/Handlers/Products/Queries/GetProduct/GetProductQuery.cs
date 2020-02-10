@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Products.Queries.GetProduct
 {
-
     public class GetProductQuery : IRequest<IDataResult<Product>>
     {
-
-
         public int ProductId { get; set; }
 
         class GetProductQueryHandler : IRequestHandler<GetProductQuery, IDataResult<Product>>
         {
-            IProductDal _productDal;
+            private readonly IProductDal _productDal;
 
             public GetProductQueryHandler(IProductDal productDal)
             {

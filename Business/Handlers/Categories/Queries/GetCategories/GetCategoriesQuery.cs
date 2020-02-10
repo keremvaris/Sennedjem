@@ -25,7 +25,7 @@ namespace Business.Handlers.Categories.Queries.GetCategories
             }
 
             [PerformanceAspect(5)]
-            //[CacheAspect(10)]
+            [CacheAspect(10)]
             public async Task<IDataResult<IEnumerable<Category>>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
             {
                 return new SuccessDataResult<IEnumerable<Category>>(await _categoryDal.GetListAsync());

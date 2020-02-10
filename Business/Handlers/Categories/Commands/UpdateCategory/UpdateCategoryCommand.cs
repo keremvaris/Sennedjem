@@ -20,14 +20,10 @@ namespace Business.Handlers.Categories.Commands.UpdateCategory
         {
             private readonly ICategoryDal _categoryDal;
 
-
-
             public UpdateCategoryCommandHandler(ICategoryDal categoryDal)
             {
                 _categoryDal = categoryDal;
             }
-
-
 
             //[ValidationAspect(typeof(CreateCategoryValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]

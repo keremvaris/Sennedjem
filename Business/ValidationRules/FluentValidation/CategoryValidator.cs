@@ -18,7 +18,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.CategoryName).Length(2, 30);
 
         }
-
     }
     public class UpdateCategoryValidator : AbstractValidator<UpdateCategoryCommand>
     {

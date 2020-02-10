@@ -27,7 +27,6 @@ namespace Business.Handlers.Products.Commands.CreateProduct
         {
             private readonly IProductDal _productDal;
 
-
             public CreateProductCommandHandler(IProductDal productDal)
             {
                 _productDal = productDal;

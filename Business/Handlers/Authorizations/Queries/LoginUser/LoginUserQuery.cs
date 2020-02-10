@@ -23,8 +23,8 @@ namespace Business.Handlers.Authorizations.Queries.LoginUser
 
         public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, IDataResult<AccessToken>>
         {
-            IUserDal _userDal;
-            ITokenHelper _tokenHelper;
+            private readonly IUserDal _userDal;
+            private readonly ITokenHelper _tokenHelper;
 
             public LoginUserQueryHandler(IUserDal userDal, ITokenHelper tokenHelper)
             {

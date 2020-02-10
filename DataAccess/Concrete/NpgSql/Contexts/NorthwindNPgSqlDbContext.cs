@@ -1,6 +1,7 @@
 using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.NpgSql.Contexts
 {
@@ -10,7 +11,7 @@ namespace DataAccess.Concrete.NpgSql.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"Host=localhost;Database=Northwind;Username=postgres;Password=testx");
+                optionsBuilder.UseNpgsql(@"Host=localhost;Database=Northwind;Username=postgres;Password=test");
             }
 
         }

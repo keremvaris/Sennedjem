@@ -7,8 +7,8 @@ namespace Core.DataAccess.EntityFramework
     public class EfQueryableRepositoryBase<T> : IQueryableRepositoryBase<T>
         where T : class, IEntity, new()
     {
-        DbContext _context;
-        DbSet<T> _entities;
+        private readonly DbContext _context;
+        private DbSet<T> _entities;
         public EfQueryableRepositoryBase(DbContext context)
         {
             _context = context;
