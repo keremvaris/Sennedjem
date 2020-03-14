@@ -1,5 +1,6 @@
 # Sennedjem
 Sennedjem CQRS (Command Query Responsibility Segregation) yaklaşımını benimseyen ve SOLID prensiplerini ve Clean Architecture yöntemlerini odaklayan bir yazılım geliştirme alt yapısıdır.
+
 UtilityFiles Klasörü altında Türkçe dokümantasyonuna, kod üretecine ulaşabilirsiniz. 
 
 Kod üretecinin geliştirilmesinde örnek olarak Halil İbrahim Duymaz'ın https://github.com/irpg7/NLayeredCommandMenu bu deposundan faydalanılmıştır.
