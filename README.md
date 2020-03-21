@@ -8,4 +8,4 @@ Sennedjemgen.vsix dosyası Sennedjem Framework için tüm katmanların kod üret
 
 Her türlü desteğini gece gündüz esirgemeden veren https://github.com/irpg7 **Halil İbrahim Duymaz** kardeşime,
 
-Geliştirmede öncülük ettiğin için https://github.com/Engindemirog **Engin Demiroğ** Hocamıza çok özel teşekkürler..
+Geliştirmede öncülük ettiği için https://github.com/Engindemirog **Engin Demiroğ** Hocamıza çok özel teşekkürler..
