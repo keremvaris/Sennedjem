@@ -6,11 +6,3 @@ E:\src\NewGenSource\NorthwindBackend\Core\obj\Debug\netstandard2.1\Core.Assembly
 E:\src\NewGenSource\NorthwindBackend\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
 E:\src\NewGenSource\NorthwindBackend\Core\obj\Debug\netstandard2.1\Core.dll
 E:\src\NewGenSource\NorthwindBackend\Core\obj\Debug\netstandard2.1\Core.pdb
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\bin\Debug\netstandard2.1\Core.deps.json
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\bin\Debug\netstandard2.1\Core.dll
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\bin\Debug\netstandard2.1\Core.pdb
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\obj\Debug\netstandard2.1\Core.csprojAssemblyReference.cache
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\obj\Debug\netstandard2.1\Core.AssemblyInfoInputs.cache
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\obj\Debug\netstandard2.1\Core.AssemblyInfo.cs
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\obj\Debug\netstandard2.1\Core.dll
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\obj\Debug\netstandard2.1\Core.pdb

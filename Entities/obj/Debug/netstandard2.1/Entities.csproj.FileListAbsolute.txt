@@ -9,14 +9,3 @@ E:\src\NewGenSource\NorthwindBackend\Entities\obj\Debug\netstandard2.1\Entities.
 E:\src\NewGenSource\NorthwindBackend\Entities\obj\Debug\netstandard2.1\Entities.csproj.CopyComplete
 E:\src\NewGenSource\NorthwindBackend\Entities\obj\Debug\netstandard2.1\Entities.dll
 E:\src\NewGenSource\NorthwindBackend\Entities\obj\Debug\netstandard2.1\Entities.pdb
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\bin\Debug\netstandard2.1\Entities.deps.json
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\bin\Debug\netstandard2.1\Entities.dll
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\bin\Debug\netstandard2.1\Entities.pdb
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\bin\Debug\netstandard2.1\Core.dll
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\bin\Debug\netstandard2.1\Core.pdb
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.csprojAssemblyReference.cache
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.AssemblyInfoInputs.cache
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.AssemblyInfo.cs
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.csproj.CopyComplete
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.dll
-E:\src\NewGenSource\NorthwindBackend\Sennedjem\Entities\obj\Debug\netstandard2.1\Entities.pdb
