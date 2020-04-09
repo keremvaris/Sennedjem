@@ -1,6 +1,8 @@
 ﻿using Business.Constants;
+using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
@@ -38,7 +40,7 @@ namespace Business.Handlers.Authorizations.Commands.RegisterAuth
 
 
 
-            //[ValidationAspect(typeof(CreateCategoryValidator), Priority = 1)]
+            [ValidationAspect(typeof(RegisterUserValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
             [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(Command request, CancellationToken cancellationToken)
