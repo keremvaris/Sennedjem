@@ -13,7 +13,7 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<NorthwindNPgSqlDbContext>().InstancePerLifetimeScope();
+
 
             builder.RegisterType<PgProductDal>().As<IProductDal>();
             builder.RegisterType<PgCategoryDal>().As<ICategoryDal>();

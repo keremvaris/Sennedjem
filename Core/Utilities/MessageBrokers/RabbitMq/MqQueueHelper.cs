@@ -16,7 +16,7 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
             _brokerOptions = _configuration.GetSection("MessageBrokerOptions").Get<MessageBrokerOptions>();
         }
 
-        public void QueueMessage()
+        public void QueueMessage(string messageText)
         {
             var factory = new ConnectionFactory
             {
@@ -40,5 +40,7 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
                 channel.BasicPublish(exchange: "", routingKey: "Queue", basicProperties: null, body: body);
             }
         }
+
+
     }
 }

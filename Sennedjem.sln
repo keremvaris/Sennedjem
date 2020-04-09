@@ -16,9 +16,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityFiles", "UtilityFiles", "{0319C386-EC9C-4829-8CAD-652D1E2BE471}"
 	ProjectSection(SolutionItems) = preProject
 		UtiliyFiles\Northwind.20200201.zip = UtiliyFiles\Northwind.20200201.zip
+		..\..\..\vs.net2019\SennedjemGen\SennedjemGen\bin\Debug\Sennedjemgen.vsix = ..\..\..\vs.net2019\SennedjemGen\SennedjemGen\bin\Debug\Sennedjemgen.vsix
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SennedjemUtilities", "SennedjemUtilities\SennedjemUtilities.csproj", "{0C638E43-567E-43DA-B660-5FDDA0FF1E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SennedjemUtilities", "SennedjemUtilities\SennedjemUtilities.csproj", "{0C638E43-567E-43DA-B660-5FDDA0FF1E30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
