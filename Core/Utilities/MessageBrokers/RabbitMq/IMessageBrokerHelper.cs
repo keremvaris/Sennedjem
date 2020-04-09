@@ -6,6 +6,6 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
 {
     public interface IMessageBrokerHelper
     {
-        void QueueMessage();
+        void QueueMessage(string messageText);
     }
 }
