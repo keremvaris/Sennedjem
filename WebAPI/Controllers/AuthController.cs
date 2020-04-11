@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.Authorizations.Commands.RegisterAuth;
 using Business.Handlers.Authorizations.Queries.LoginUser;
+using Business.Handlers.Authorizations.Queries.VerifyCid;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -37,6 +38,22 @@ namespace WebAPI.Controllers
             var result = await _mediator.Send(loginModel);
             if (result.Success)
                 return Ok(result.Data);
+
+            return BadRequest(result.Message);
+        }
+
+        /// <summary>
+        /// Kişi TC Kimlik No Doğrulama.
+        /// </summary>
+        /// <param name="verifyCid"></param>
+        /// <returns></returns>  
+
+        [HttpPost("verifycid")]
+        public async Task<IActionResult> VerifyCid([FromBody]VerifyCidQuery verifyCid)
+        {
+            var result = await _mediator.Send(verifyCid);
+            if (result.Success)
+                return Ok(result.Message);
 
             return BadRequest(result.Message);
         }

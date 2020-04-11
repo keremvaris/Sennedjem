@@ -4,16 +4,19 @@ using Core.DataAccess.EntityFramework;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Contexts;
+using DataAccess.Concrete.NpgSql.Contexts;
 
-namespace DataAccess.Concrete.EntityFramework
+namespace DataAccess.Concrete.NpgSql
 {
-    public class EfUserDal : EfEntityRepositoryBase<User, NorthwindContext>, IUserDal
+    public class PgUserDal : EfEntityRepositoryBase<User, NorthwindNPgSqlDbContext>, IUserDal
     {
-
+        public PgUserDal(NorthwindNPgSqlDbContext context) : base(context)
+        {
+        }
 
         public List<OperationClaim> GetClaims(User user)
         {
-            using (var context = new NorthwindContext())
+            using (var context = new NorthwindNPgSqlDbContext())
             {
                 var result = from operationClaim in context.OperationClaims
                              join userOperationClaim in context.UserOperationClaims

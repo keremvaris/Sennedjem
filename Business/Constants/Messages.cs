@@ -5,6 +5,9 @@ namespace Business.Constants
 
     public static class Messages
     {
+        // g
+        public static readonly string UnknownLookupName = "{0} adlı lookup bilinmiyor!";
+        //k
         public static string AuthorizationsDenied = "Yetkiniz Olmayan Bir Alana Giriş Yapmaya Çalıştığınız Tespit Edildi!";
         public static string ProductAdded = "Ürün başarıyla eklendi.";
         public static string ProductDeleted = "Ürün başarıyla silindi.";
@@ -21,7 +24,7 @@ namespace Business.Constants
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
 
         public static string NameAlreadyExist = "Oluşturmaya Çalıştığınız Nesne Zaten Var.";
-
-
+        public static string VerifyCid = "Kişi TC Kimlik No Servisi Tarafından Doğrulandı";
+        public static string CouldNotBeVerifyCid = "Kişi TC Kimlik No Servisi Tarafından Doğrulanamadı";
     }
 }

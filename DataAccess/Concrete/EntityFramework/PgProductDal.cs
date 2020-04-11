@@ -12,6 +12,8 @@ namespace DataAccess.Concrete.NpgSql
 {
     public class PgProductDal : EfEntityRepositoryBase<Product, NorthwindNPgSqlDbContext>, IProductDal
     {
-
+        public PgProductDal(NorthwindNPgSqlDbContext context) : base(context)
+        {
+        }
     }
 }

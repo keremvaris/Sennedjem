@@ -11,6 +11,8 @@ namespace DataAccess.Concrete.NpgSql
 {
     public class PgCategoryDal : EfEntityRepositoryBase<Category, NorthwindNPgSqlDbContext>, ICategoryDal
     {
-
+        public PgCategoryDal(NorthwindNPgSqlDbContext context) : base(context)
+        {
+        }
     }
 }
