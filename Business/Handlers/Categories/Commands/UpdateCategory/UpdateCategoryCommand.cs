@@ -30,17 +30,12 @@ namespace Business.Handlers.Categories.Commands.UpdateCategory
             [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
             {
-                var categoryExits = await _categoryDal.GetAsync(u => u.CategoryName == request.CategoryName);
+                var categoryToUpdate = await _categoryDal.GetAsync(u => u.CategoryId == request.CategoryId);
 
-                if (categoryExits != null)
-                    return new ErrorResult(Messages.NameAlreadyExist);
+                categoryToUpdate.CategoryName = request.CategoryName;
+                categoryToUpdate.CategoryId = request.CategoryId;
 
-                var category = new Category
-                {
-                    CategoryName = request.CategoryName,
-                    CategoryId = request.CategoryId
-                };
-                await _categoryDal.UpdateAsync(category);
+                await _categoryDal.UpdateAsync(categoryToUpdate);
                 return new SuccessResult(Messages.Updated);
             }
         }

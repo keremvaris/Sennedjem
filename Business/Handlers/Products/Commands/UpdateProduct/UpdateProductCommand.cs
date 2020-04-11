@@ -30,19 +30,15 @@ namespace Business.Handlers.Products.Commands.UpdateProduct
             [CacheRemoveAspect("Get")]
             public async Task<IResult> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
             {
-                var productExits = await _productDal.GetAsync(u => u.ProductName == request.ProductName);
+                var productToUpdate = await _productDal.GetAsync(u => u.ProductID == request.ProductID);
 
-                if (productExits != null)
-                    return new ErrorResult(Messages.NameAlreadyExist);
 
-                var productToUpdate = new Product
-                {
-                    CategoryId = request.CategoryId,
-                    ProductName = request.ProductName,
-                    QuantityPerUnit = request.QuantityPerUnit,
-                    UnitPrice = request.UnitPrice,
-                    UnitsInStock = request.UnitsInStock
-                };
+                productToUpdate.CategoryId = request.CategoryId;
+                productToUpdate.ProductName = request.ProductName;
+                productToUpdate.QuantityPerUnit = request.QuantityPerUnit;
+                productToUpdate.UnitPrice = request.UnitPrice;
+                productToUpdate.UnitsInStock = request.UnitsInStock;
+
                 await _productDal.UpdateAsync(productToUpdate);
                 return new SuccessResult(Messages.ProductUpdated);
             }
