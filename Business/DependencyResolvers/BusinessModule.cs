@@ -6,12 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Business.DependencyResolvers
 {
-  public class BusinessModule : ICoreModule
-  {
-    public void Load(IServiceCollection services)
+    public class BusinessModule : ICoreModule
     {
-      services.AddSingleton<ProjectDbContext>();
-      services.AddSingleton<IOperationClaimDal, PgOperationClaimDal>();
+        public void Load(IServiceCollection services)
+        {
+            //services.AddSingleton<ProjectDbContext>();
+            //services.AddSingleton<IOperationClaimDal, PgOperationClaimDal>();
+            services.AddDbContext<ProjectDbContext, MsDbContext>();
+            services.AddSingleton<IOperationClaimDal, PgOperationClaimDal>();
+        }
     }
-  }
 }

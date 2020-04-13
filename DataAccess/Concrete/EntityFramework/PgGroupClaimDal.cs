@@ -5,8 +5,10 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-  public class PgGroupClaimDal : EfEntityRepositoryBase<GroupClaim, ProjectDbContext>, IGroupClaimDal
-  {
-
-  }
+    public class PgGroupClaimDal : EfEntityRepositoryBase<GroupClaim, ProjectDbContext>, IGroupClaimDal
+    {
+        public PgGroupClaimDal(ProjectDbContext context) : base(context)
+        {
+        }
+    }
 }

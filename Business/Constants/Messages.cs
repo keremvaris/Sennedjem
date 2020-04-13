@@ -5,6 +5,10 @@
     /// </summary>
     public static class Messages
     {
+        // g
+        public static readonly string UnknownLookupName = "{0} adlı lookup bilinmiyor!";
+
+        // k
         public static string OperationClaimExists => "Bu Operasyon izni zaten mevcut";
         public static string AuthorizationsDenied = "Yetkiniz Olmayan Bir Alana Giriş Yapmaya Çalıştığınız Tespit Edildi!";
 
@@ -39,11 +43,11 @@
         public static string SmsServiceNotFound = "SMS Servisine Ulaşılamıyor.";
         public static string IsCidValid = "Geçerli Bir T.C.Kimlik Numarası Giriniz!";
         public static string SmsServiceNotFoundForAppointment = "Randevu Oluşturuldu Ancak SMS Servisine Ulaşılamıyor!";
-        internal static string CouldNotBeVerifyCid = "TC Kimlik Sistemi Tarafından Doğrulanamadı.";
-        internal static string VerifyCid = "TC Kimlik Sistemi Tarafından Doğrulandı.";
-        internal static string ProductUpdated;
-        internal static string ProductDeleted;
-        internal static string ProductAdded;
+        public static string CouldNotBeVerifyCid = "TC Kimlik Sistemi Tarafından Doğrulanamadı.";
+        public static string VerifyCid = "TC Kimlik Sistemi Tarafından Doğrulandı.";
+        public static string ProductUpdated = "Ürün Güncellendi";
+        public static string ProductDeleted = "Ürün Silindi";
+        public static string ProductAdded = "Ürün Eklendi";
 
         public static string UserExists => "Bu İsimde Kullanıcı mevcut.";
         public static string WrongPassword => "Şifre Hatalı";

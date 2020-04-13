@@ -2,12 +2,30 @@ using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Concrete.Configurations;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
-
+    /// <summary>
+    /// Bu context birden fazla provider için migration takibi yapýldýðý için
+    /// varsayýlan olarak Postg db'si üzerinden çalýþýr. Eðer sql geçmek isterseniz
+    /// AddDbContext eklerken bundan türeyen MsDbContext'i kullanýnýz.
+    /// </summary>
     public class ProjectDbContext : DbContext
     {
+        protected readonly IConfiguration configuration;
+
+        /// <summary>
+        /// constructor da IConfiguration alýyoruz ki, birden fazla db ye parallel olarak
+        /// migration yaratabiliyoruz.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="configuration"></param>
+        public ProjectDbContext(DbContextOptions options, IConfiguration configuration)
+          : base(options)
+        {
+            this.configuration = configuration;
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
@@ -23,8 +41,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"Server=localhost;Port=5432;Database=Northwind;Username=postgres;Password=test;");
-                //optionsBuilder.UseSqlServer(@"Server=NEPTUN\DVLP2008;Port=5432;Database=OAS;Username=sa;Password=test;");
+                base.OnConfiguring(optionsBuilder.UseNpgsql(configuration.GetConnectionString("OASPgContext")));
             }
         }
 

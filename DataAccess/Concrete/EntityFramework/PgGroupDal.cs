@@ -5,8 +5,10 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-  public class PgGroupDal : EfEntityRepositoryBase<Group, ProjectDbContext>, IGroupDal
-  {
-
-  }
+    public class PgGroupDal : EfEntityRepositoryBase<Group, ProjectDbContext>, IGroupDal
+    {
+        public PgGroupDal(ProjectDbContext context) : base(context)
+        {
+        }
+    }
 }

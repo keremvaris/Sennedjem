@@ -1,5 +1,7 @@
 ﻿
 using Business.BusinessAspects.Autofac;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -22,7 +24,7 @@ namespace Business.Handlers.Animals.Queries
             {
                 _animalDal = animalDal;
             }
-
+            [LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<Animal>> Handle(GetAnimalQuery request, CancellationToken cancellationToken)
             {
                 var animal = await _animalDal.GetAsync(p => p.AnimalId == request.AnimalId);

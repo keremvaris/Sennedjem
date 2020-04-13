@@ -6,6 +6,7 @@ using Autofac.Extras.DynamicProxy;
 using Core.Utilities.Interceptors;
 using DataAccess.Concrete.EntityFramework;
 using Core.Utilities.MessageBrokers.RabbitMq;
+using DataAccess.Concrete.NpgSql;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -19,12 +20,11 @@ namespace Business.DependencyResolvers.Autofac
         /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
-            // builder.RegisterType<NorthwindNPgSqlDbContext>().InstancePerLifetimeScope();
-
             builder.RegisterType<PgUserDal>().As<IUserDal>();
             builder.RegisterType<PgAnimalDal>().As<IAnimalDal>();
+            builder.RegisterType<PgProductDal>().As<IProductDal>();
+            builder.RegisterType<PgCategoryDal>().As<ICategoryDal>();
             builder.RegisterType<PgUserClaimDal>().As<IUserClaimDal>();
-            builder.RegisterType<PgOperationClaimDal>().As<IOperationClaimDal>();
 
 
 

@@ -17,7 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IO;
 using System.Reflection;
 
-namespace OAS.WebAPI
+namespace WebAPI
 {
     /// <summary>
     /// 
@@ -103,7 +103,7 @@ namespace OAS.WebAPI
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/WebAPI/swagger/v1/swagger.json", "OAS");
+                c.SwaggerEndpoint("/WebAPI/swagger/v1/swagger.json", "SennedjemFw");
                 //c.RoutePrefix = string.Empty;
             });
             app.UseCors("AllowOrigin");

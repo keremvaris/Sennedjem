@@ -8,12 +8,12 @@ namespace Core.Extensions
         public static IRuleBuilder<T, string> Password<T>(this IRuleBuilder<T, string> ruleBuilder, int minimumLength = 8)
         {
             var options = ruleBuilder
-                .NotEmpty().WithMessage("Parola Boş Olamaz!")
-                .MinimumLength(minimumLength).WithMessage("Minimum 8 Karakter Uzunluğunda Olmalıdır!")
-                .Matches("[A-Z]").WithMessage("En Az 1 Büyük Harf İçermeledir!")
-                .Matches("[a-z]").WithMessage("En Az 1 Küçük Harf İçermeledir!")
-                .Matches("[0-9]").WithMessage("En Az 1 Rakam İçermeledir!")
-                .Matches("[^a-zA-Z0-9]").WithMessage("En Az 1 Simge İçermelidir!");
+           .NotEmpty().WithMessage(ValidationExtensionMessages.PasswordEmpty)
+           .MinimumLength(minimumLength).WithMessage(ValidationExtensionMessages.PasswordLength)
+           .Matches("[A-Z]").WithMessage(ValidationExtensionMessages.PasswordUppercaseLetter)
+           .Matches("[a-z]").WithMessage(ValidationExtensionMessages.PasswordLowercaseLetter)
+           .Matches("[0-9]").WithMessage(ValidationExtensionMessages.PasswordDigit)
+           .Matches("[^a-zA-Z0-9]").WithMessage(ValidationExtensionMessages.PasswordSpecialCharacter);
             return options;
         }
     }

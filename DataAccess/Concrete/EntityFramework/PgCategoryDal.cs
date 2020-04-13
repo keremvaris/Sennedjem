@@ -7,7 +7,7 @@ namespace DataAccess.Concrete.NpgSql
 {
     public class PgCategoryDal : EfEntityRepositoryBase<Category, ProjectDbContext>, ICategoryDal
     {
-        public PgCategoryDal()
+        public PgCategoryDal(ProjectDbContext context) : base(context)
         {
         }
     }

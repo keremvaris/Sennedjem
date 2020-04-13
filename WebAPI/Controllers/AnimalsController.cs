@@ -17,6 +17,7 @@ namespace WebAPI.Controllers
         private readonly IMediator _mediator;
         ///<summary>
         ///CRUD Controller for Animals       
+        ///</summary>
         /// <param name="mediator"></param>     
 
         public AnimalsController(IMediator mediator)

@@ -12,6 +12,8 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class PgProductDal : EfEntityRepositoryBase<Product, ProjectDbContext>, IProductDal
     {
-        
+        public PgProductDal(ProjectDbContext context) : base(context)
+        {
+        }
     }
 }
