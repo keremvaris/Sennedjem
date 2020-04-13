@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
-    public sealed class MsDbContext : ProjectDbContext
+    public sealed class InMemoryContext : ProjectDbContext
     {
-        public MsDbContext(DbContextOptions options, IConfiguration configuration) : base(options, configuration)
+        public InMemoryContext(DbContextOptions options, IConfiguration configuration) : base(options, configuration)
         {
         }
 
@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                base.OnConfiguring(optionsBuilder.UseSqlServer(configuration.GetConnectionString("OASMsContext")));
+                base.OnConfiguring(optionsBuilder.UseInMemoryDatabase(databaseName: configuration.GetConnectionString("OASInMemoryContext").ToString()));
             }
         }
     }
