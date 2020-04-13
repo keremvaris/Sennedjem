@@ -42,7 +42,7 @@ namespace Business.Handlers.Authorizations.Queries.LoginUser
                 if (!HashingHelper.VerifyPasswordHash(request.Password, user.PasswordSalt, user.PasswordHash))
                     return new ErrorDataResult<AccessToken>(Messages.PasswordError);
 
-                var claims = _userDal.GetClaims(user);
+                var claims = _userDal.GetClaims(user.UserId);
                 var accessToken = _tokenHelper.CreateToken(user, claims);
 
                 return new SuccessDataResult<AccessToken>(accessToken, Messages.SuccessfulLogin);

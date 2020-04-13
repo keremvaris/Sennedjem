@@ -11,35 +11,35 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Commands
 {
-    public class UpdateUserGroupCommand : IRequest<IResult>
+  public class UpdateUserGroupCommand : IRequest<IResult>
+  {
+    public int Id { get; set; }
+    public int UserId { get; set; }
+    public int GroupId { get; set; }
+
+    public class UpdateUserGroupCommandHandler : IRequestHandler<UpdateUserGroupCommand, IResult>
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public int GroupId { get; set; }
+      private readonly IUserGroupDal _userGroupDal;
 
-        public class UpdateUserGroupCommandHandler : IRequestHandler<UpdateUserGroupCommand, IResult>
+      public UpdateUserGroupCommandHandler(IUserGroupDal userGroupDal)
+      {
+        _userGroupDal = userGroupDal;
+      }
+
+      public async Task<IResult> Handle(UpdateUserGroupCommand request, CancellationToken cancellationToken)
+      {
+        var userGroupToUpdate = new UserGroup
         {
-            private readonly IUserGroupDal _userGroupDal;
+          GroupId = request.GroupId,
+          UserId = request.UserId,
+          Id = request.Id
+        };
 
-            public UpdateUserGroupCommandHandler(IUserGroupDal userGroupDal)
-            {
-                _userGroupDal = userGroupDal;
-            }
+        await _userGroupDal.UpdateAsync(userGroupToUpdate);
 
-            public async Task<IResult> Handle(UpdateUserGroupCommand request, CancellationToken cancellationToken)
-            {
-                var userGroupToUpdate = new UserGroup
-                {
-                    GroupId = request.GroupId,
-                    UserId = request.UserId,
-                    Id = request.Id
-                };
+        return new SuccessResult(Messages.UserGroupUpdated);
 
-                await _userGroupDal.UpdateAsync(userGroupToUpdate);
-
-                return new SuccessResult(Messages.UserGroupUpdated);
-
-            }
-        }
+      }
     }
+  }
 }

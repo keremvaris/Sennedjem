@@ -4,28 +4,39 @@ using Core.DataAccess.EntityFramework;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Contexts;
-using DataAccess.Concrete.NpgSql.Contexts;
 
-namespace DataAccess.Concrete.NpgSql
+namespace DataAccess.Concrete.EntityFramework
 {
-    public class PgUserDal : EfEntityRepositoryBase<User, NorthwindNPgSqlDbContext>, IUserDal
+  public class PgUserDal : EfEntityRepositoryBase<User, ProjectDbContext>, IUserDal
+  {
+
+
+    public List<OperationClaim> GetClaims(int userId)
     {
-        public PgUserDal(NorthwindNPgSqlDbContext context) : base(context)
-        {
-        }
+      using (var context = new ProjectDbContext())
+      {
+        var result = (from user in context.Users
+                      join userGroup in context.UserGroups on user.UserId equals userGroup.UserId
+                      join groupClaim in context.GroupClaims on userGroup.GroupId equals groupClaim.GroupId
+                      join operationClaim in context.OperationClaims on groupClaim.ClaimId equals operationClaim.Id
+                      where user.UserId == userId
+                      select new
+                      {
+                        operationClaim.Name
+                      }).
+                      Union(from user in context.Users
+                            join userClaim in context.UserClaims on user.UserId equals userClaim.UserId
+                            join operationClaim in context.OperationClaims on userClaim.ClaimId equals operationClaim.Id
+                            where user.UserId == userId
 
-        public List<OperationClaim> GetClaims(User user)
-        {
-            using (var context = new NorthwindNPgSqlDbContext())
-            {
-                var result = from operationClaim in context.OperationClaims
-                             join userOperationClaim in context.UserOperationClaims
-                             on operationClaim.Id equals userOperationClaim.OperationClaimId
-                             where userOperationClaim.UserId == user.Id
-                             select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
-                return result.ToList();
-
-            }
-        }
+                            select new
+                            {
+                              operationClaim.Name
+                            }
+                  );
+        return result.Select(x => new OperationClaim { Name = x.Name })
+            .ToList();
+      }
     }
+  }
 }

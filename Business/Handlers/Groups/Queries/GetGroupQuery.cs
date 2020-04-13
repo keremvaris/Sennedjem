@@ -10,25 +10,25 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Groups.Queries
 {
-    public class GetGroupQuery : IRequest<IDataResult<Group>>
+  public class GetGroupQuery : IRequest<IDataResult<Group>>
+  {
+    public int GroupId { get; set; }
+
+    public class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, IDataResult<Group>>
     {
-        public int GroupId { get; set; }
+      private readonly IGroupDal _groupDal;
 
-        public class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, IDataResult<Group>>
-        {
-            private readonly IGroupDal _groupDal;
+      public GetGroupQueryHandler(IGroupDal groupDal)
+      {
+        _groupDal = groupDal;
+      }
 
-            public GetGroupQueryHandler(IGroupDal groupDal)
-            {
-                _groupDal = groupDal;
-            }
+      public async Task<IDataResult<Group>> Handle(GetGroupQuery request, CancellationToken cancellationToken)
+      {
+        var group = await _groupDal.GetAsync(x => x.Id == request.GroupId);
 
-            public async Task<IDataResult<Group>> Handle(GetGroupQuery request, CancellationToken cancellationToken)
-            {
-                var group = await _groupDal.GetAsync(x => x.Id == request.GroupId);
-
-                return new SuccessDataResult<Group>(group);
-            }
-        }
+        return new SuccessDataResult<Group>(group);
+      }
     }
+  }
 }

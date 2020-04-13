@@ -11,33 +11,33 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Commands
 {
-    public class CreateUserGroupCommand:IRequest<IResult>
+  public class CreateUserGroupCommand : IRequest<IResult>
+  {
+
+    public int GroupId { get; set; }
+    public int UserId { get; set; }
+
+    public class CreateUserGroupCommandHandler : IRequestHandler<CreateUserGroupCommand, IResult>
     {
+      private readonly IUserGroupDal _userGroupDal;
 
-        public int GroupId { get; set; }
-        public int UserId { get; set; }
+      public CreateUserGroupCommandHandler(IUserGroupDal userGroupDal)
+      {
+        _userGroupDal = userGroupDal;
+      }
 
-        public class CreateUserGroupCommandHandler : IRequestHandler<CreateUserGroupCommand, IResult>
+      public async Task<IResult> Handle(CreateUserGroupCommand request, CancellationToken cancellationToken)
+      {
+        var userGroup = new UserGroup
         {
-            private readonly IUserGroupDal _userGroupDal;
+          GroupId = request.GroupId,
+          UserId = request.UserId
+        };
 
-            public CreateUserGroupCommandHandler(IUserGroupDal userGroupDal)
-            {
-                _userGroupDal = userGroupDal;
-            }
+        await _userGroupDal.AddAsync(userGroup);
 
-            public async Task<IResult> Handle(CreateUserGroupCommand request, CancellationToken cancellationToken)
-            {
-                var userGroup = new UserGroup
-                {
-                    GroupId = request.GroupId,
-                    UserId = request.UserId
-                };
-
-                await _userGroupDal.AddAsync(userGroup);
-
-                return new SuccessResult(Messages.UserGroupAdded);
-            }
-        }
+        return new SuccessResult(Messages.UserGroupAdded);
+      }
     }
+  }
 }

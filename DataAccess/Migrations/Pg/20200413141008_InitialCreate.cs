@@ -9,6 +9,19 @@ namespace DataAccess.Migrations.Pg
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Animals",
+                columns: table => new
+                {
+                    AnimalId = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AnimalName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Animals", x => x.AnimalId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
@@ -69,7 +82,7 @@ namespace DataAccess.Migrations.Pg
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -122,31 +135,36 @@ namespace DataAccess.Migrations.Pg
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserOperationClaims",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(nullable: false),
-                    OperationClaimId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserOperationClaims", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    HemActId = table.Column<int>(nullable: true),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     Email = table.Column<string>(maxLength: 50, nullable: false),
                     PasswordSalt = table.Column<byte[]>(nullable: false),
                     PasswordHash = table.Column<byte[]>(nullable: false),
-                    Status = table.Column<bool>(nullable: false)
+                    Status = table.Column<bool>(nullable: false),
+                    SporKulubuId = table.Column<int>(nullable: false),
+                    HaberlesmeTercihiId = table.Column<int>(nullable: false),
+                    MeslekId = table.Column<int>(nullable: false),
+                    EgitimId = table.Column<int>(nullable: false),
+                    NufusKayitIl = table.Column<int>(nullable: false),
+                    TCKimlikNo = table.Column<long>(nullable: false),
+                    AnneAdi = table.Column<string>(nullable: true),
+                    BabaAdi = table.Column<string>(nullable: true),
+                    DogumTarihi = table.Column<DateTime>(nullable: false),
+                    DogumYeri = table.Column<string>(nullable: true),
+                    Cinsiyet = table.Column<int>(nullable: false),
+                    KayitTarihi = table.Column<DateTime>(nullable: false),
+                    Adres = table.Column<string>(nullable: true),
+                    CepTelefonu = table.Column<string>(nullable: true),
+                    EvTelefonu = table.Column<string>(nullable: true),
+                    IsTelefonu = table.Column<string>(nullable: true),
+                    Notlar = table.Column<string>(nullable: true),
+                    UpdateContactDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -156,6 +174,9 @@ namespace DataAccess.Migrations.Pg
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Animals");
+
             migrationBuilder.DropTable(
                 name: "Categories");
 
@@ -179,9 +200,6 @@ namespace DataAccess.Migrations.Pg
 
             migrationBuilder.DropTable(
                 name: "UserGroups");
-
-            migrationBuilder.DropTable(
-                name: "UserOperationClaims");
 
             migrationBuilder.DropTable(
                 name: "Users");

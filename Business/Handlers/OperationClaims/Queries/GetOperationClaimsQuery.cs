@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.OperationClaims.Queries
 {
-    public class GetOperationClaimsQuery : IRequest<IDataResult<IEnumerable<OperationClaim>>>
+  public class GetOperationClaimsQuery : IRequest<IDataResult<IEnumerable<OperationClaim>>>
+  {
+    public class GetOperationClaimsQueryHandler : IRequestHandler<GetOperationClaimsQuery, IDataResult<IEnumerable<OperationClaim>>>
     {
-        public class GetOperationClaimsQueryHandler : IRequestHandler<GetOperationClaimsQuery, IDataResult<IEnumerable<OperationClaim>>>
-        {
-            private readonly IOperationClaimDal _operationClaimDal;
+      private readonly IOperationClaimDal _operationClaimDal;
 
-            public GetOperationClaimsQueryHandler(IOperationClaimDal operationClaimDal)
-            {
-                _operationClaimDal = operationClaimDal;
-            }
+      public GetOperationClaimsQueryHandler(IOperationClaimDal operationClaimDal)
+      {
+        _operationClaimDal = operationClaimDal;
+      }
 
-            public async Task<IDataResult<IEnumerable<OperationClaim>>> Handle(GetOperationClaimsQuery request, CancellationToken cancellationToken)
-            {
-                return new SuccessDataResult<IEnumerable<OperationClaim>>(await _operationClaimDal.GetListAsync());
-            }
-        }
+      public async Task<IDataResult<IEnumerable<OperationClaim>>> Handle(GetOperationClaimsQuery request, CancellationToken cancellationToken)
+      {
+        return new SuccessDataResult<IEnumerable<OperationClaim>>(await _operationClaimDal.GetListAsync());
+      }
     }
+  }
 }

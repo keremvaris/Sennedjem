@@ -1,19 +1,19 @@
 ﻿
 using Castle.DynamicProxy;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Utilities.Interceptors
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public abstract class MethodInterceptionBaseAttribute : Attribute, IInterceptor
+  /// <summary>
+  /// Priority özelliği Aspectlerin metodlar üzerinde çalışması sırasını belirlemek için kullanılabilir.
+  /// </summary>
+  [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Assembly, AllowMultiple = true, Inherited = true)]
+  public abstract class MethodInterceptionBaseAttribute : Attribute, IInterceptor
+  {
+    public int Priority { get; set; }
+
+    public virtual void Intercept(IInvocation invocation)
     {
-        public int Priority { get; set; }
-
-        public virtual void Intercept(IInvocation invocation)
-        {
-
-        }
     }
+  }
 }

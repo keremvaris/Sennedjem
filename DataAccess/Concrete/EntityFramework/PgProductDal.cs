@@ -5,15 +5,13 @@ using System.Text;
 using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Contexts;
-using DataAccess.Concrete.NpgSql.Contexts;
+
 using Entities.Concrete;
 
-namespace DataAccess.Concrete.NpgSql
+namespace DataAccess.Concrete.EntityFramework
 {
-    public class PgProductDal : EfEntityRepositoryBase<Product, NorthwindNPgSqlDbContext>, IProductDal
+    public class PgProductDal : EfEntityRepositoryBase<Product, ProjectDbContext>, IProductDal
     {
-        public PgProductDal(NorthwindNPgSqlDbContext context) : base(context)
-        {
-        }
+        
     }
 }

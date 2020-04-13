@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Handlers.UserGroups.Queries
 {
-    class GetUserGroupQuery
-    {
-    }
+  class GetUserGroupQuery
+  {
+  }
 }

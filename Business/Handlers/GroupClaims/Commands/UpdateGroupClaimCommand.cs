@@ -11,32 +11,32 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Commands
 {
-    public class UpdateGroupClaimCommand : IRequest<IResult>
+  public class UpdateGroupClaimCommand : IRequest<IResult>
+  {
+    public int Id { get; set; }
+    public int GroupId { get; set; }
+    public int ClaimId { get; set; }
+    public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
     {
-        public int Id { get; set; }
-        public int GroupId { get; set; }
-        public int ClaimId { get; set; }
-        public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
+      private readonly IGroupClaimDal _groupClaimDal;
+
+      public UpdateGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
+      {
+        _groupClaimDal = groupClaimDal;
+      }
+
+      public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
+      {
+        var entityToUpdate = new GroupClaim
         {
-            private readonly IGroupClaimDal _groupClaimDal;
+          ClaimId = request.ClaimId,
+          GroupId = request.GroupId,
+          Id = request.Id
+        };
+        await _groupClaimDal.UpdateAsync(entityToUpdate);
 
-            public UpdateGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
-            {
-                _groupClaimDal = groupClaimDal;
-            }
-
-            public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
-            {
-                var entityToUpdate = new GroupClaim
-                {
-                    ClaimId = request.ClaimId,
-                    GroupId = request.GroupId,
-                    Id = request.Id
-                };
-                await _groupClaimDal.UpdateAsync(entityToUpdate);
-
-                return new SuccessResult(Messages.GroupClaimUpdated);
-            }
-        }
+        return new SuccessResult(Messages.GroupClaimUpdated);
+      }
     }
+  }
 }

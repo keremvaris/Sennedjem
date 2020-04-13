@@ -1,8 +1,12 @@
+﻿using Business.BusinessAspects.Autofac;
+using Business.DependencyResolvers;
+using Business.Helpers;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,9 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.IO;
+using System.Reflection;
 
-
-namespace WebAPI
+namespace OAS.WebAPI
 {
     /// <summary>
     /// 
@@ -46,32 +50,34 @@ namespace WebAPI
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:61270", "http://localhost:51458"));
+                                                                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = tokenOptions.Issuer,
-                        ValidAudience = tokenOptions.Audience,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                    };
-                });
+                            .AddJwtBearer(options =>
+                            {
+                                options.TokenValidationParameters = new TokenValidationParameters
+                                {
+                                    ValidateIssuer = true,
+                                    ValidateAudience = true,
+                                    ValidateLifetime = true,
+                                    ValidIssuer = tokenOptions.Issuer,
+                                    ValidAudience = tokenOptions.Audience,
+                                    ValidateIssuerSigningKey = true,
+                                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                                };
+                            });
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
             });
+            services.AddMediatR(Assembly.GetAssembly(typeof(SecuredOperation)));
             services.AddDependencyResolvers(new ICoreModule[]
             {
-                new CoreModule()
+                                                                new BusinessModule(),
+                                                                new CoreModule()
             });
 
         }
@@ -89,17 +95,18 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
 
             }
-            app.ConfigureCustomExceptionMiddleware();
+            //app.ConfigureCustomExceptionMiddleware();
+            app.UseDbOperationClaimCreator();
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sennedjem");
+                c.SwaggerEndpoint("/WebAPI/swagger/v1/swagger.json", "OAS");
                 //c.RoutePrefix = string.Empty;
             });
-            app.UseCors(builder => builder.WithOrigins("http://localhost:61270", "http://localhost:51458").AllowAnyHeader());
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 
@@ -115,6 +122,7 @@ namespace WebAPI
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

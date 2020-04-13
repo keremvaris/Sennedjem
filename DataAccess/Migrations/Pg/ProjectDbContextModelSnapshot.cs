@@ -62,7 +62,9 @@ namespace DataAccess.Migrations.Pg
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -76,20 +78,68 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<string>("Adres")
+                        .HasColumnType("text");
+
+                    b.Property<string>("AnneAdi")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BabaAdi")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CepTelefonu")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Cinsiyet")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("DogumTarihi")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("DogumYeri")
+                        .HasColumnType("text");
+
+                    b.Property<int>("EgitimId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
+
+                    b.Property<string>("EvTelefonu")
+                        .HasColumnType("text");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("HaberlesmeTercihiId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("HemActId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("IsTelefonu")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("KayitTarihi")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
+
+                    b.Property<int>("MeslekId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Notlar")
+                        .HasColumnType("text");
+
+                    b.Property<int>("NufusKayitIl")
+                        .HasColumnType("integer");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()
@@ -99,8 +149,17 @@ namespace DataAccess.Migrations.Pg
                         .IsRequired()
                         .HasColumnType("bytea");
 
+                    b.Property<int>("SporKulubuId")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("Status")
                         .HasColumnType("boolean");
+
+                    b.Property<long>("TCKimlikNo")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("UpdateContactDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("UserId");
 
@@ -143,22 +202,19 @@ namespace DataAccess.Migrations.Pg
                     b.ToTable("UserGroups");
                 });
 
-            modelBuilder.Entity("Core.Entities.Concrete.UserOperationClaim", b =>
+            modelBuilder.Entity("Entities.Concrete.Animal", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AnimalId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("OperationClaimId")
-                        .HasColumnType("integer");
+                    b.Property<string>("AnimalName")
+                        .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.HasKey("AnimalId");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("UserOperationClaims");
+                    b.ToTable("Animals");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Category", b =>

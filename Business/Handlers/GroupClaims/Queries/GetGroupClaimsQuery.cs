@@ -10,22 +10,22 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Queries
 {
-    public class GetGroupClaimsQuery:IRequest<IDataResult<IEnumerable<GroupClaim>>>
+  public class GetGroupClaimsQuery : IRequest<IDataResult<IEnumerable<GroupClaim>>>
+  {
+
+    public class GetGroupClaimsQueryHandler : IRequestHandler<GetGroupClaimsQuery, IDataResult<IEnumerable<GroupClaim>>>
     {
+      private readonly IGroupClaimDal _groupClaimDal;
 
-        public class GetGroupClaimsQueryHandler : IRequestHandler<GetGroupClaimsQuery, IDataResult<IEnumerable<GroupClaim>>>
-        {
-            private readonly IGroupClaimDal _groupClaimDal;
+      public GetGroupClaimsQueryHandler(IGroupClaimDal groupClaimDal)
+      {
+        _groupClaimDal = groupClaimDal;
+      }
 
-            public GetGroupClaimsQueryHandler(IGroupClaimDal groupClaimDal)
-            {
-                _groupClaimDal = groupClaimDal;
-            }
-
-            public async Task<IDataResult<IEnumerable<GroupClaim>>> Handle(GetGroupClaimsQuery request, CancellationToken cancellationToken)
-            {
-                return new SuccessDataResult<IEnumerable<GroupClaim>>(await _groupClaimDal.GetListAsync());
-            }
-        }
+      public async Task<IDataResult<IEnumerable<GroupClaim>>> Handle(GetGroupClaimsQuery request, CancellationToken cancellationToken)
+      {
+        return new SuccessDataResult<IEnumerable<GroupClaim>>(await _groupClaimDal.GetListAsync());
+      }
     }
+  }
 }
