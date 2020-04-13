@@ -1,4 +1,5 @@
 ﻿
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
@@ -14,6 +15,8 @@ namespace Business.Handlers.Animals.Commands
     /// <summary>
     /// CQRS yaklaşımında oluşturulmuş bir Command sınıfıdır. Bir kategorinin silinmesini sağlar
     /// </summary>
+    
+    [SecuredOperation]
     public class DeleteAnimalCommand : IRequest<IResult>
     {
         public int AnimalId { get; set; }
