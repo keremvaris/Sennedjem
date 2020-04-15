@@ -28,6 +28,8 @@
     <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="MFramework.Services.FakeData" Version="1.0.18" />
     <PackageReference Include="Refit" Version="5.1.27" />
+    <PackageReference Include="SqlKata" Version="1.1.7" />
+    <PackageReference Include="SqlKata.Execution" Version="1.1.7" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0" />

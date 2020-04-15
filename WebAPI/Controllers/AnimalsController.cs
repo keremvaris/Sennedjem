@@ -41,6 +41,22 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+        ///<summary>
+        ///Animals listeler
+        ///</summary>
+        ///<remarks>bla bla bla Animals</remarks>
+        ///<return>Animals Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getallrawquery")]
+        public async Task<IActionResult> GetListRawQuery()
+        {
+            var result = await _mediator.Send(new GetAnimalsQueryFromRawSql());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
 
         ///<summary>
         ///Id sine göre detaylarını getirir.
