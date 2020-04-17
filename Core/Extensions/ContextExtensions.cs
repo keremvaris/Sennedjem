@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
@@ -94,22 +95,32 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             if (parameters.Any())
                 command.Parameters.AddRange(parameters);
 
-            if (command.Connection.State != ConnectionState.Open)
-                command.Connection.Open();
+            ConnectionControl(command);
 
             await using var dataReader = await command.ExecuteReaderAsync();
 
             var dataRow = ReadData(dataReader);
 
-            if (command.Connection.State == ConnectionState.Open)
-                command.Connection.Close();
+            IsConnectionOpen(command);
 
             return dataRow;
         }
 
+        private static void IsConnectionOpen(DbCommand command)
+        {
+            if (command.Connection.State == ConnectionState.Open)
+                command.Connection.Close();
+        }
+
+        private static void ConnectionControl(DbCommand command)
+        {
+            if (command.Connection.State != ConnectionState.Open)
+                command.Connection.Open();
+        }
+
         /// <summary>
         /// Datayı okur Expando Object ile özelliklerini yakalar
-        /// dataliste ekler
+        /// dataliste Dictionary olarak ekler
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>

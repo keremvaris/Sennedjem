@@ -31,7 +31,8 @@ namespace Business.Handlers.Products.Commands.DeleteProduct
             {
                 var productToDelete = _productDal.Get(p => p.ProductID == request.ProductID);
 
-                await _productDal.DeleteAsync(productToDelete);
+                _productDal.Delete(productToDelete);
+                await _productDal.SaveChangesAsync();
                 return new SuccessResult(Messages.ProductDeleted);
             }
         }

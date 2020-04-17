@@ -11,32 +11,32 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Commands
 {
-  public class UpdateGroupClaimCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-    public int GroupId { get; set; }
-    public int ClaimId { get; set; }
-    public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
+    public class UpdateGroupClaimCommand : IRequest<IResult>
     {
-      private readonly IGroupClaimDal _groupClaimDal;
-
-      public UpdateGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
-      {
-        _groupClaimDal = groupClaimDal;
-      }
-
-      public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
-      {
-        var entityToUpdate = new GroupClaim
+        public int Id { get; set; }
+        public int GroupId { get; set; }
+        public int ClaimId { get; set; }
+        public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
         {
-          ClaimId = request.ClaimId,
-          GroupId = request.GroupId,
-          Id = request.Id
-        };
-        await _groupClaimDal.UpdateAsync(entityToUpdate);
+            private readonly IGroupClaimDal _groupClaimDal;
 
-        return new SuccessResult(Messages.GroupClaimUpdated);
-      }
+            public UpdateGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
+            {
+                _groupClaimDal = groupClaimDal;
+            }
+
+            public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
+            {
+                var entityToUpdate = new GroupClaim
+                {
+                    ClaimId = request.ClaimId,
+                    GroupId = request.GroupId,
+                    Id = request.Id
+                };
+                _groupClaimDal.Update(entityToUpdate);
+                await _groupClaimDal.SaveChangesAsync();
+                return new SuccessResult(Messages.GroupClaimUpdated);
+            }
+        }
     }
-  }
 }

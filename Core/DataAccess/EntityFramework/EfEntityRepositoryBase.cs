@@ -16,7 +16,7 @@ namespace Core.DataAccess.EntityFramework
     /// <typeparam name="TContext"></typeparam>
     public class EfEntityRepositoryBase<TEntity, TContext>
             : IEntityRepository<TEntity>
-            where TEntity : class, IEntity, new()
+            where TEntity : class, IEntity
             where TContext : DbContext
     {
         protected readonly TContext context;
@@ -28,32 +28,18 @@ namespace Core.DataAccess.EntityFramework
 
         public TEntity Add(TEntity entity)
         {
-            var addedEntity = context.Entry(entity);
-            addedEntity.State = EntityState.Added;
-            context.SaveChanges();
-            return entity;
+            return context.Add(entity).Entity;
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public TEntity Update(TEntity entity)
         {
-            var addedEntity = context.Entry(entity);
-            addedEntity.State = EntityState.Added;
-            await context.SaveChangesAsync();
+            context.Update(entity);
             return entity;
         }
 
         public void Delete(TEntity entity)
         {
-            var deletedEntity = context.Entry(entity);
-            deletedEntity.State = EntityState.Deleted;
-            context.SaveChanges();
-        }
-
-        public async Task DeleteAsync(TEntity entity)
-        {
-            var deletedEntity = context.Entry(entity);
-            deletedEntity.State = EntityState.Deleted;
-            await context.SaveChangesAsync();
+            context.Remove(entity);
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> expression)
@@ -77,20 +63,24 @@ namespace Core.DataAccess.EntityFramework
                  await context.Set<TEntity>().Where(expression).ToListAsync();
         }
 
-        public TEntity Update(TEntity entity)
+        public int SaveChanges()
         {
-            var modifiedEntity = context.Entry(entity);
-            modifiedEntity.State = EntityState.Modified;
-            context.SaveChanges();
-            return entity;
+            return context.SaveChanges();
         }
 
-        public async Task<TEntity> UpdateAsync(TEntity entity)
+        public Task<int> SaveChangesAsync()
         {
-            var modifiedEntity = context.Entry(entity);
-            modifiedEntity.State = EntityState.Modified;
-            await context.SaveChangesAsync();
-            return entity;
+            return context.SaveChangesAsync();
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            return context.Set<TEntity>();
+        }
+
+        public Task<int> Execute(FormattableString interpolatedQueryString)
+        {
+            return context.Database.ExecuteSqlInterpolatedAsync(interpolatedQueryString);
         }
     }
 }

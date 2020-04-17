@@ -39,7 +39,8 @@ namespace Business.Handlers.Products.Commands.UpdateProduct
                 productToUpdate.UnitPrice = request.UnitPrice;
                 productToUpdate.UnitsInStock = request.UnitsInStock;
 
-                await _productDal.UpdateAsync(productToUpdate);
+                _productDal.Update(productToUpdate);
+                await _productDal.SaveChangesAsync();
                 return new SuccessResult(Messages.ProductUpdated);
             }
         }

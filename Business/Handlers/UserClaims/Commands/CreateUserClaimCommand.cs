@@ -11,30 +11,30 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserClaims.Commands
 {
-  public class CreateUserClaimCommand : IRequest<IResult>
-  {
-    public int UserId { get; set; }
-    public int ClaimId { get; set; }
-    public class CreateUserClaimCommandHandler : IRequestHandler<CreateUserClaimCommand, IResult>
+    public class CreateUserClaimCommand : IRequest<IResult>
     {
-      private readonly IUserClaimDal _userClaimDal;
-
-      public CreateUserClaimCommandHandler(IUserClaimDal userClaimDal)
-      {
-        _userClaimDal = userClaimDal;
-      }
-
-      public async Task<IResult> Handle(CreateUserClaimCommand request, CancellationToken cancellationToken)
-      {
-        var userClaim = new UserClaim
+        public int UserId { get; set; }
+        public int ClaimId { get; set; }
+        public class CreateUserClaimCommandHandler : IRequestHandler<CreateUserClaimCommand, IResult>
         {
-          ClaimId = request.ClaimId,
-          UserId = request.UserId
-        };
-        await _userClaimDal.AddAsync(userClaim);
+            private readonly IUserClaimDal _userClaimDal;
 
-        return new SuccessResult(Messages.UserClaimCreated);
-      }
+            public CreateUserClaimCommandHandler(IUserClaimDal userClaimDal)
+            {
+                _userClaimDal = userClaimDal;
+            }
+
+            public async Task<IResult> Handle(CreateUserClaimCommand request, CancellationToken cancellationToken)
+            {
+                var userClaim = new UserClaim
+                {
+                    ClaimId = request.ClaimId,
+                    UserId = request.UserId
+                };
+                _userClaimDal.Add(userClaim);
+                await _userClaimDal.SaveChangesAsync();
+                return new SuccessResult(Messages.UserClaimCreated);
+            }
+        }
     }
-  }
 }

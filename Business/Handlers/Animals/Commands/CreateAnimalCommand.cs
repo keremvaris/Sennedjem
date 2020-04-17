@@ -55,7 +55,8 @@ namespace Business.Handlers.Animals.Commands
                     AnimalName = request.AnimalName
 
                 };
-                await _animalDal.AddAsync(animal);
+                _animalDal.Add(animal);
+                await _animalDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
         }

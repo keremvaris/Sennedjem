@@ -10,28 +10,48 @@ using System.Reflection;
 
 namespace Business.Helpers
 {
-  public static class OperationClaimCreatorMiddleware
-  {
-    public static void UseDbOperationClaimCreator(this IApplicationBuilder app)
+    public static class OperationClaimCreatorMiddleware
     {
-      var mediator = ServiceTool.ServiceProvider.GetService<IMediator>();
-
-      foreach (var operationName in GetOperationNames())
-      {
-        mediator.Send(new CreateOperationClaimCommand
+        public static void UseDbOperationClaimCreator(this IApplicationBuilder app)
         {
-          ClaimName = operationName
-        });
-      }
-    }
+            var mediator = ServiceTool.ServiceProvider.GetService<IMediator>();
 
-    private static IEnumerable<string> GetOperationNames()
-    {
-      var assemblyNames = Assembly.GetExecutingAssembly().GetTypes()
-          .Where(x => x.Namespace.StartsWith("Business.Handlers") && (x.Name.EndsWith("Command") || x.Name.EndsWith("Query"))
-        && x.CustomAttributes.Any(a => a.AttributeType == typeof(SecuredOperation)))
-      .Select(x => x.Name);
-      return assemblyNames;
+            try
+            {
+                foreach (var operationName in GetOperationNames())
+                {
+                    mediator.Send(new CreateOperationClaimCommand
+                    {
+                        ClaimName = operationName
+                    });
+                }
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        //private static IEnumerable<string> GetOperationNames()
+        //{
+        //  var assemblyNames = Assembly.GetExecutingAssembly().GetTypes()
+        //      .Where(x => x.Namespace.StartsWith("Business.Handlers") && (x.Name.EndsWith("Command") || x.Name.EndsWith("Query"))
+        //    && x.CustomAttributes.Any(a => a.AttributeType == typeof(SecuredOperation)))
+        //  .Select(x => x.Name);
+        //  return assemblyNames;
+        //}
+
+        private static IEnumerable<string> GetOperationNames()
+        {
+            var assemblyNames = Assembly.GetExecutingAssembly().GetTypes()
+                .Where(x =>
+                // runtime generated anonmous type'larin assemblysi olmadigi icin null cek yap
+                x.Namespace != null && x.Namespace.StartsWith("Business.Handlers") && (x.Name.EndsWith("Command") || x.Name.EndsWith("Query"))
+              && x.CustomAttributes.Any(a => a.AttributeType == typeof(SecuredOperation)))
+            .Select(x => x.Name);
+            return assemblyNames;
+        }
     }
-  }
 }

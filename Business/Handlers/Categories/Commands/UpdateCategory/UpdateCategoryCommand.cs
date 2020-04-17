@@ -35,7 +35,8 @@ namespace Business.Handlers.Categories.Commands.UpdateCategory
                 categoryToUpdate.CategoryName = request.CategoryName;
                 categoryToUpdate.CategoryId = request.CategoryId;
 
-                await _categoryDal.UpdateAsync(categoryToUpdate);
+                _categoryDal.Update(categoryToUpdate);
+                await _categoryDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Updated);
             }
         }

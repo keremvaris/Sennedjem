@@ -63,7 +63,8 @@ namespace Business.Handlers.Authorizations.Commands.RegisterAuth
                     Status = true
                 };
 
-                await _userDal.AddAsync(user);
+                _userDal.Add(user);
+                await _userDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
         }

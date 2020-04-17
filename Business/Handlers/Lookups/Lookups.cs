@@ -1,12 +1,10 @@
 ﻿using Core.Utilities.Results;
-using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using Entities.Dtos;
 using MediatR;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Business.Constants;

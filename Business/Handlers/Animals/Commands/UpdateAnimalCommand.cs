@@ -49,7 +49,8 @@ namespace Business.Handlers.Animals.Commands
                 //Tüm alanlar aşağıdaki örnekteki gibi yazılacak
                 isanimalExits.AnimalName = request.AnimalName;
 
-                await _animalDal.UpdateAsync(isanimalExits);
+                _animalDal.Update(isanimalExits);
+                await _animalDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Updated);
             }
         }

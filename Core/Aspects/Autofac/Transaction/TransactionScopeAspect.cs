@@ -4,26 +4,25 @@ using System.Transactions;
 
 namespace Core.Aspects.Autofac.Transaction
 {
-  /// <summary>
-  /// TransactionScopeAspect
-  /// </summary>
-  public class TransactionScopeAspect : MethodInterception
-  {
-    public override void Intercept(IInvocation invocation)
+    /// <summary>
+    /// TransactionScopeAspect
+    /// </summary>
+    public class TransactionScopeAspect : MethodInterception
     {
-      using (TransactionScope transactionScope = new TransactionScope())
-      {
-        try
+        public override void Intercept(IInvocation invocation)
         {
-          invocation.Proceed();
-          transactionScope.Complete();
+            using (TransactionScope transactionScope = new TransactionScope())
+            {
+                try
+                {
+                    invocation.Proceed();
+                    transactionScope.Complete();
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
+            }
         }
-        catch (System.Exception)
-        {
-          transactionScope.Dispose();
-          throw;
-        }
-      }
     }
-  }
 }

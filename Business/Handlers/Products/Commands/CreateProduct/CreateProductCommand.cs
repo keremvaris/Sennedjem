@@ -50,7 +50,8 @@ namespace Business.Handlers.Products.Commands.CreateProduct
                     UnitPrice = request.UnitPrice,
                     UnitsInStock = request.UnitsInStock
                 };
-                await _productDal.AddAsync(productToCreate);
+                _productDal.Add(productToCreate);
+                await _productDal.SaveChangesAsync();
                 return new SuccessResult(Messages.ProductAdded);
             }
         }

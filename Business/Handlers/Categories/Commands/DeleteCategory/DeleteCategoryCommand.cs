@@ -28,7 +28,8 @@ namespace Business.Handlers.Categories.Commands.DeleteCategory
             {
                 var categoryToDelete = _categoryDal.Get(p => p.CategoryId == request.CategoryId);
 
-                await _categoryDal.DeleteAsync(categoryToDelete);
+                _categoryDal.Delete(categoryToDelete);
+                await _categoryDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Deleted);
             }
         }

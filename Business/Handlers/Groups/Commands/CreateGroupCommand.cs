@@ -11,27 +11,28 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Groups.Commands
 {
-  public class CreateGroupCommand : IRequest<IResult>
-  {
-    public string GroupName { get; set; }
-    public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, IResult>
+    public class CreateGroupCommand : IRequest<IResult>
     {
-      private readonly IGroupDal _groupDal;
-
-      public CreateGroupCommandHandler(IGroupDal groupDal)
-      {
-        _groupDal = groupDal;
-      }
-
-      public async Task<IResult> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
-      {
-        var group = new Group
+        public string GroupName { get; set; }
+        public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, IResult>
         {
-          GroupName = request.GroupName
-        };
-        await _groupDal.AddAsync(group);
-        return new SuccessResult(Messages.GroupAdded);
-      }
+            private readonly IGroupDal _groupDal;
+
+            public CreateGroupCommandHandler(IGroupDal groupDal)
+            {
+                _groupDal = groupDal;
+            }
+
+            public async Task<IResult> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
+            {
+                var group = new Group
+                {
+                    GroupName = request.GroupName
+                };
+                _groupDal.Add(group);
+                await _groupDal.SaveChangesAsync();
+                return new SuccessResult(Messages.GroupAdded);
+            }
+        }
     }
-  }
 }

@@ -18,7 +18,7 @@ namespace Business.DependencyResolvers
             Eğer InMemoryDb kullanılacaksa
             services.AddDbContext<ProjectDbContext, InMemoryContext>();
             */
-            services.AddDbContext<ProjectDbContext, MsDbContext>();
+            services.AddDbContext<ProjectDbContext>();
 
             //[SecuredOperation] eklenen metodun otomatik taranarak db ye yetki olarak eklenmesi için burası gereklidir.   
             services.AddSingleton<IOperationClaimDal, PgOperationClaimDal>();

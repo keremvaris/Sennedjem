@@ -46,7 +46,8 @@ namespace Business.Handlers.Categories.Commands.CreateCategory
                 {
                     CategoryName = request.CategoryName
                 };
-                await _categoryDal.AddAsync(category);
+                _categoryDal.Add(category);
+                await _categoryDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
         }

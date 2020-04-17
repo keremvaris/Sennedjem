@@ -11,31 +11,32 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Groups.Commands
 {
-  public class UpdateGroupCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-    public string GroupName { get; set; }
-
-    public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, IResult>
+    public class UpdateGroupCommand : IRequest<IResult>
     {
-      private readonly IGroupDal _groupDal;
+        public int Id { get; set; }
+        public string GroupName { get; set; }
 
-      public UpdateGroupCommandHandler(IGroupDal groupDal)
-      {
-        _groupDal = groupDal;
-      }
-
-      public async Task<IResult> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
-      {
-        var groupToUpdate = new Group
+        public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, IResult>
         {
-          Id = request.Id,
-          GroupName = request.GroupName
-        };
+            private readonly IGroupDal _groupDal;
 
-        await _groupDal.UpdateAsync(groupToUpdate);
-        return new SuccessResult(Messages.GroupUpdated);
-      }
+            public UpdateGroupCommandHandler(IGroupDal groupDal)
+            {
+                _groupDal = groupDal;
+            }
+
+            public async Task<IResult> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
+            {
+                var groupToUpdate = new Group
+                {
+                    Id = request.Id,
+                    GroupName = request.GroupName
+                };
+
+                _groupDal.Update(groupToUpdate);
+                await _groupDal.SaveChangesAsync();
+                return new SuccessResult(Messages.GroupUpdated);
+            }
+        }
     }
-  }
 }

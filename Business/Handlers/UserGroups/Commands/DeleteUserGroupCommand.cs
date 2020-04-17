@@ -10,27 +10,27 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Commands
 {
-  public class DeleteUserGroupCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-
-    public class DeleteUserGroupCommandHandler : IRequestHandler<DeleteUserGroupCommand, IResult>
+    public class DeleteUserGroupCommand : IRequest<IResult>
     {
-      private readonly IUserGroupDal _userGroupDal;
+        public int Id { get; set; }
 
-      public DeleteUserGroupCommandHandler(IUserGroupDal userGroupDal)
-      {
-        _userGroupDal = userGroupDal;
-      }
+        public class DeleteUserGroupCommandHandler : IRequestHandler<DeleteUserGroupCommand, IResult>
+        {
+            private readonly IUserGroupDal _userGroupDal;
 
-      public async Task<IResult> Handle(DeleteUserGroupCommand request, CancellationToken cancellationToken)
-      {
-        var entityToDelete = await _userGroupDal.GetAsync(x => x.Id == request.Id);
+            public DeleteUserGroupCommandHandler(IUserGroupDal userGroupDal)
+            {
+                _userGroupDal = userGroupDal;
+            }
 
-        await _userGroupDal.DeleteAsync(entityToDelete);
+            public async Task<IResult> Handle(DeleteUserGroupCommand request, CancellationToken cancellationToken)
+            {
+                var entityToDelete = await _userGroupDal.GetAsync(x => x.Id == request.Id);
 
-        return new SuccessResult(Messages.UserGroupDeleted);
-      }
+                _userGroupDal.Delete(entityToDelete);
+                await _userGroupDal.SaveChangesAsync();
+                return new SuccessResult(Messages.UserGroupDeleted);
+            }
+        }
     }
-  }
 }

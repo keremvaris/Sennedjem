@@ -11,28 +11,28 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Commands
 {
-  [SecuredOperation]
-  public class DeleteGroupClaimCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-
-    public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
+    [SecuredOperation]
+    public class DeleteGroupClaimCommand : IRequest<IResult>
     {
-      private readonly IGroupClaimDal _groupClaimDal;
+        public int Id { get; set; }
 
-      public DeleteGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
-      {
-        _groupClaimDal = groupClaimDal;
-      }
+        public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
+        {
+            private readonly IGroupClaimDal _groupClaimDal;
 
-      public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
-      {
-        var groupClaimToDelete = await _groupClaimDal.GetAsync(x => x.Id == request.Id);
+            public DeleteGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
+            {
+                _groupClaimDal = groupClaimDal;
+            }
 
-        await _groupClaimDal.DeleteAsync(groupClaimToDelete);
+            public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
+            {
+                var groupClaimToDelete = await _groupClaimDal.GetAsync(x => x.Id == request.Id);
 
-        return new SuccessResult(Messages.GroupClaimDeleted);
-      }
+                _groupClaimDal.Delete(groupClaimToDelete);
+                await _groupClaimDal.SaveChangesAsync();
+                return new SuccessResult(Messages.GroupClaimDeleted);
+            }
+        }
     }
-  }
 }

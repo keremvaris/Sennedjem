@@ -11,25 +11,25 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.OperationClaims.Commands
 {
-  public class DeleteOperationClaimCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-    public class DeleteOperationClaimCommandHandler : IRequestHandler<DeleteOperationClaimCommand, IResult>
+    public class DeleteOperationClaimCommand : IRequest<IResult>
     {
-      private readonly IOperationClaimDal _operationClaimDal;
+        public int Id { get; set; }
+        public class DeleteOperationClaimCommandHandler : IRequestHandler<DeleteOperationClaimCommand, IResult>
+        {
+            private readonly IOperationClaimDal _operationClaimDal;
 
-      public DeleteOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
-      {
-        _operationClaimDal = operationClaimDal;
-      }
+            public DeleteOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            {
+                _operationClaimDal = operationClaimDal;
+            }
 
-      public async Task<IResult> Handle(DeleteOperationClaimCommand request, CancellationToken cancellationToken)
-      {
-        var claimToDelete = await _operationClaimDal.GetAsync(x => x.Id == request.Id);
-        await _operationClaimDal.DeleteAsync(claimToDelete);
-
-        return new SuccessResult(Messages.OperationClaimDeleted);
-      }
+            public async Task<IResult> Handle(DeleteOperationClaimCommand request, CancellationToken cancellationToken)
+            {
+                var claimToDelete = await _operationClaimDal.GetAsync(x => x.Id == request.Id);
+                _operationClaimDal.Delete(claimToDelete);
+                await _operationClaimDal.SaveChangesAsync();
+                return new SuccessResult(Messages.OperationClaimDeleted);
+            }
+        }
     }
-  }
 }

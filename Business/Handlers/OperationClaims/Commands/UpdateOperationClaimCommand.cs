@@ -11,30 +11,30 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.OperationClaims.Commands
 {
-  public class UpdateOperationClaimCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-    public string ClaimName { get; set; }
-    public class UpdateOperationClaimCommandHandler : IRequestHandler<UpdateOperationClaimCommand, IResult>
+    public class UpdateOperationClaimCommand : IRequest<IResult>
     {
-      private readonly IOperationClaimDal _operationClaimDal;
-
-      public UpdateOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
-      {
-        _operationClaimDal = operationClaimDal;
-      }
-
-      public async Task<IResult> Handle(UpdateOperationClaimCommand request, CancellationToken cancellationToken)
-      {
-        var claimToUpdate = new OperationClaim
+        public int Id { get; set; }
+        public string ClaimName { get; set; }
+        public class UpdateOperationClaimCommandHandler : IRequestHandler<UpdateOperationClaimCommand, IResult>
         {
-          Id = request.Id,
-          Name = request.ClaimName
-        };
-        await _operationClaimDal.UpdateAsync(claimToUpdate);
+            private readonly IOperationClaimDal _operationClaimDal;
 
-        return new SuccessResult(Messages.OperationClaimUpdated);
-      }
+            public UpdateOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            {
+                _operationClaimDal = operationClaimDal;
+            }
+
+            public async Task<IResult> Handle(UpdateOperationClaimCommand request, CancellationToken cancellationToken)
+            {
+                var claimToUpdate = new OperationClaim
+                {
+                    Id = request.Id,
+                    Name = request.ClaimName
+                };
+                _operationClaimDal.Update(claimToUpdate);
+                await _operationClaimDal.SaveChangesAsync();
+                return new SuccessResult(Messages.OperationClaimUpdated);
+            }
+        }
     }
-  }
 }

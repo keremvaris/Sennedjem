@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         ///<summary>
-        ///Animals listeler
+        ///Animals Raw Sql Example
         ///</summary>
         ///<remarks>bla bla bla Animals</remarks>
         ///<return>Animals Listesi</return>
@@ -50,13 +50,14 @@ namespace WebAPI.Controllers
         [HttpGet("getallrawquery")]
         public async Task<IActionResult> GetListRawQuery()
         {
-            var result = await _mediator.Send(new GetAnimalsQueryFromRawSql());
+            var result = await _mediator.Send(new GetAnimalsFromRawSqlQuery());
             if (result.Success)
             {
                 return Ok(result.Data);
             }
             return BadRequest(result.Message);
         }
+
 
         ///<summary>
         ///Id sine göre detaylarını getirir.

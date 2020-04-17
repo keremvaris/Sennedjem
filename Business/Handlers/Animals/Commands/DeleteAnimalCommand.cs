@@ -15,7 +15,7 @@ namespace Business.Handlers.Animals.Commands
     /// <summary>
     /// CQRS yaklaşımında oluşturulmuş bir Command sınıfıdır. Bir kategorinin silinmesini sağlar
     /// </summary>
-    
+
     [SecuredOperation]
     public class DeleteAnimalCommand : IRequest<IResult>
     {
@@ -44,7 +44,8 @@ namespace Business.Handlers.Animals.Commands
             {
                 var animalToDelete = _animalDal.Get(p => p.AnimalId == request.AnimalId);
 
-                await _animalDal.DeleteAsync(animalToDelete);
+                _animalDal.Delete(animalToDelete);
+                await _animalDal.SaveChangesAsync();
                 return new SuccessResult(Messages.Deleted);
             }
         }
