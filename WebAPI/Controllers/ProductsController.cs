@@ -95,7 +95,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="createProduct"></param>
         /// <returns></returns>
-        [HttpPost("add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody]CreateProductCommand createProduct)
         {
             var result = await _mediator.Send(createProduct);
@@ -111,7 +111,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="updateProduct"></param>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody]UpdateProductCommand updateProduct)
         {
             var result = await _mediator.Send(updateProduct);
@@ -127,7 +127,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="deleteProduct"></param>
         /// <returns></returns>
-        [HttpDelete("delete")]
+        [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeleteProductCommand deleteProduct)
         {
             var result = await _mediator.Send(deleteProduct);

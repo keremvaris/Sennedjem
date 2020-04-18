@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="createCategory"></param>
         /// <returns></returns>
-        [HttpPost("add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody]CreateCategoryCommand createCategory)
         {
             var result = await _mediator.Send(createCategory);
@@ -60,7 +60,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="updateCategory"></param>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody]UpdateCategoryCommand updateCategory)
         {
             var result = await _mediator.Send(updateCategory);
@@ -75,7 +75,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="deleteCategory"></param>
         /// <returns></returns>
-        [HttpDelete("delete")]
+        [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeleteCategoryCommand deleteCategory)
         {
             var result = await _mediator.Send(deleteCategory);

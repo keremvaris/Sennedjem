@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="createAnimal"></param>
         /// <returns></returns>
-        [HttpPost("add")]
+        [HttpPost]
         public async Task<IActionResult> Add([FromBody]CreateAnimalCommand createAnimal)
         {
             var result = await _mediator.Send(createAnimal);
@@ -97,7 +97,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="updateAnimal"></param>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody]UpdateAnimalCommand updateAnimal)
         {
             var result = await _mediator.Send(updateAnimal);
@@ -113,7 +113,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="deleteAnimal"></param>
         /// <returns></returns>
-        [HttpDelete("delete")]
+        [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeleteAnimalCommand deleteAnimal)
         {
             var result = await _mediator.Send(deleteAnimal);
