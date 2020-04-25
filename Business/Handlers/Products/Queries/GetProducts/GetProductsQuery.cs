@@ -20,16 +20,16 @@ namespace Business.Handlers.Products.Queries.GetProducts
     {
         class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, IDataResult<IEnumerable<Product>>>
         {
-            readonly IProductDal _productDal;
+            readonly IProductRepository _productDal;
             private readonly IMessageBrokerHelper _messageBrokerHelper;
 
-            public GetProductsQueryHandler(IProductDal productDal, IMessageBrokerHelper messageBrokerHelper)
+            public GetProductsQueryHandler(IProductRepository productDal, IMessageBrokerHelper messageBrokerHelper)
             {
                 _productDal = productDal;
                 _messageBrokerHelper = messageBrokerHelper;
             }
             //[SecuredOperation("Product.List,Admin")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             [CacheAspect(10)]
             public async Task<IDataResult<IEnumerable<Product>>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
             {

@@ -18,16 +18,16 @@ namespace Business.Handlers.Categories.Commands.UpdateCategory
         public string CategoryName { get; set; }
         public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, IResult>
         {
-            private readonly ICategoryDal _categoryDal;
+            private readonly ICategoryRepository _categoryDal;
 
-            public UpdateCategoryCommandHandler(ICategoryDal categoryDal)
+            public UpdateCategoryCommandHandler(ICategoryRepository categoryDal)
             {
                 _categoryDal = categoryDal;
             }
 
             //[ValidationAspect(typeof(CreateCategoryValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IResult> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
             {
                 var categoryToUpdate = await _categoryDal.GetAsync(u => u.CategoryId == request.CategoryId);

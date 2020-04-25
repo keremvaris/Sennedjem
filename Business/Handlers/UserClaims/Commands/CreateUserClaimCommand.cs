@@ -17,9 +17,9 @@ namespace Business.Handlers.UserClaims.Commands
         public int ClaimId { get; set; }
         public class CreateUserClaimCommandHandler : IRequestHandler<CreateUserClaimCommand, IResult>
         {
-            private readonly IUserClaimDal _userClaimDal;
+            private readonly IUserClaimRepository _userClaimDal;
 
-            public CreateUserClaimCommandHandler(IUserClaimDal userClaimDal)
+            public CreateUserClaimCommandHandler(IUserClaimRepository userClaimDal)
             {
                 _userClaimDal = userClaimDal;
             }

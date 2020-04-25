@@ -19,14 +19,14 @@ namespace Business.Handlers.Products.Commands.DeleteProduct
 
         public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, IResult>
         {
-            private readonly IProductDal _productDal;
+            private readonly IProductRepository _productDal;
 
-            public DeleteProductCommandHandler(IProductDal productDal)
+            public DeleteProductCommandHandler(IProductRepository productDal)
             {
                 _productDal = productDal;
             }
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IResult> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
             {
                 var productToDelete = _productDal.Get(p => p.ProductID == request.ProductID);

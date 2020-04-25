@@ -25,16 +25,16 @@ namespace Business.Handlers.Products.Commands.CreateProduct
 
         public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, IResult>
         {
-            private readonly IProductDal _productDal;
+            private readonly IProductRepository _productDal;
 
-            public CreateProductCommandHandler(IProductDal productDal)
+            public CreateProductCommandHandler(IProductRepository productDal)
             {
                 _productDal = productDal;
             }
 
             [ValidationAspect(typeof(CreateProductValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
             {
                 var productExits = await _productDal.GetAsync(u => u.ProductName == request.ProductName);

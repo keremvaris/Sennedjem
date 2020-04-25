@@ -16,18 +16,18 @@ namespace Business.Handlers.Animals.Queries
     {
         public class GetAnimalsQueryHandler : IRequestHandler<GetAnimalsQuery, IDataResult<IEnumerable<Animal>>>
         {
-            private readonly IAnimalDal _animalDal;
+            private readonly IAnimalRepository _animalRepository;
 
-            public GetAnimalsQueryHandler(IAnimalDal animalDal)
+            public GetAnimalsQueryHandler(IAnimalRepository animalRepository)
             {
-                _animalDal = animalDal;
+                _animalRepository = animalRepository;
             }
 
             [PerformanceAspect(5)]
             //[CacheAspect(10)]
             public async Task<IDataResult<IEnumerable<Animal>>> Handle(GetAnimalsQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<IEnumerable<Animal>>(await _animalDal.GetListAsync());
+                return new SuccessDataResult<IEnumerable<Animal>>(await _animalRepository.GetListAsync());
             }
         }
     }

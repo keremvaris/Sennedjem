@@ -5,6 +5,7 @@ using Business.Handlers.Products.Queries.GetProduct;
 using Business.Handlers.Products.Queries.GetProductByCategoryId;
 using Business.Handlers.Products.Queries.GetProducts;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace WebAPI.Controllers
     /// <summary>
     /// Products Controller
     /// </summary>
+    /// 
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

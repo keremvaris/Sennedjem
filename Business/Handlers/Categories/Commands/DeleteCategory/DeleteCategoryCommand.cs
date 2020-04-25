@@ -16,14 +16,14 @@ namespace Business.Handlers.Categories.Commands.DeleteCategory
 
         public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, IResult>
         {
-            private readonly ICategoryDal _categoryDal;
+            private readonly ICategoryRepository _categoryDal;
 
-            public DeleteCategoryCommandHandler(ICategoryDal categoryDal)
+            public DeleteCategoryCommandHandler(ICategoryRepository categoryDal)
             {
                 _categoryDal = categoryDal;
             }
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IResult> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
             {
                 var categoryToDelete = _categoryDal.Get(p => p.CategoryId == request.CategoryId);

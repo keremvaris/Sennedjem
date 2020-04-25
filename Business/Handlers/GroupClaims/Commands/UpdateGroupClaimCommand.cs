@@ -18,9 +18,9 @@ namespace Business.Handlers.GroupClaims.Commands
         public int ClaimId { get; set; }
         public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
         {
-            private readonly IGroupClaimDal _groupClaimDal;
+            private readonly IGroupClaimRepository _groupClaimDal;
 
-            public UpdateGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
+            public UpdateGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
             {
                 _groupClaimDal = groupClaimDal;
             }

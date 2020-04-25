@@ -33,16 +33,6 @@ namespace Business.Helpers
             }
         }
 
-
-        //private static IEnumerable<string> GetOperationNames()
-        //{
-        //  var assemblyNames = Assembly.GetExecutingAssembly().GetTypes()
-        //      .Where(x => x.Namespace.StartsWith("Business.Handlers") && (x.Name.EndsWith("Command") || x.Name.EndsWith("Query"))
-        //    && x.CustomAttributes.Any(a => a.AttributeType == typeof(SecuredOperation)))
-        //  .Select(x => x.Name);
-        //  return assemblyNames;
-        //}
-
         private static IEnumerable<string> GetOperationNames()
         {
             var assemblyNames = Assembly.GetExecutingAssembly().GetTypes()

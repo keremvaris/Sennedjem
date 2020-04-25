@@ -3,13 +3,8 @@ using System;
 
 namespace Core.Utilities.IoC
 {
-  public static class ServiceTool
-  {
-    public static IServiceProvider ServiceProvider { get; set; }
-    public static IServiceCollection Create(IServiceCollection services)
+    public static class ServiceTool
     {
-      ServiceProvider = services.BuildServiceProvider();
-      return services;
+        public static IServiceProvider ServiceProvider { get; set; }
     }
-  }
 }

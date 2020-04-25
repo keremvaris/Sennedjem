@@ -15,9 +15,9 @@ namespace Business.Handlers.UserClaims.Queries
     public int Id { get; set; }
     public class GetUserClaimQueryHandler : IRequestHandler<GetUserClaimQuery, IDataResult<UserClaim>>
     {
-      private readonly IUserClaimDal _userClaimDal;
+      private readonly IUserClaimRepository _userClaimDal;
 
-      public GetUserClaimQueryHandler(IUserClaimDal userClaimDal)
+      public GetUserClaimQueryHandler(IUserClaimRepository userClaimDal)
       {
         _userClaimDal = userClaimDal;
       }

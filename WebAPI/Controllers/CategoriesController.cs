@@ -4,6 +4,7 @@ using Business.Handlers.Categories.Commands.DeleteCategory;
 using Business.Handlers.Categories.Commands.UpdateCategory;
 using Business.Handlers.Categories.Queries.GetCategories;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -11,6 +12,7 @@ namespace WebAPI.Controllers
     /// <summary>
     /// 
     /// </summary>
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

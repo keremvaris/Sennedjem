@@ -8,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public sealed class MsDbContext : ProjectDbContext
     {
-        public MsDbContext(DbContextOptions options, IConfiguration configuration) : base(options, configuration)
+        public MsDbContext(DbContextOptions<MsDbContext> options, IConfiguration configuration) : base(options, configuration)
         {
         }
 

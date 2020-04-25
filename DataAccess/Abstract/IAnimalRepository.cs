@@ -4,7 +4,7 @@ using Core.DataAccess;
 using Entities.Concrete;
 namespace DataAccess.Abstract
 {
-    public interface IAnimalDal : IEntityRepository<Animal>
+    public interface IAnimalRepository : IEntityRepository<Animal>
     {
     }
 }

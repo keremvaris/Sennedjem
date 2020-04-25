@@ -18,9 +18,9 @@ namespace Business.Handlers.Groups.Commands
 
         public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, IResult>
         {
-            private readonly IGroupDal _groupDal;
+            private readonly IGroupRepository _groupDal;
 
-            public UpdateGroupCommandHandler(IGroupDal groupDal)
+            public UpdateGroupCommandHandler(IGroupRepository groupDal)
             {
                 _groupDal = groupDal;
             }

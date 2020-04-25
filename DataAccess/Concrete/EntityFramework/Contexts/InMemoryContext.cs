@@ -8,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public sealed class InMemoryContext : ProjectDbContext
     {
-        public InMemoryContext(DbContextOptions options, IConfiguration configuration) : base(options, configuration)
+        public InMemoryContext(DbContextOptions<InMemoryContext> options, IConfiguration configuration) : base(options, configuration)
         {
         }
 

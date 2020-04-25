@@ -13,9 +13,9 @@ namespace Business.Handlers.Products.Queries.GetProduct
 
         class GetProductQueryHandler : IRequestHandler<GetProductQuery, IDataResult<Product>>
         {
-            private readonly IProductDal _productDal;
+            private readonly IProductRepository _productDal;
 
-            public GetProductQueryHandler(IProductDal productDal)
+            public GetProductQueryHandler(IProductRepository productDal)
             {
                 _productDal = productDal;
             }

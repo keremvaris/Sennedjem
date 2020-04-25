@@ -9,7 +9,7 @@
         public static string ContactName = "Kerem VARIŞ";
         public static string LicenceName = "Use under LICX";
         public static string ContactEMail = "Use under LICX";
-        public static string ContactUrl = "http://keremvaris.com";
+        public static string ContactUrl = "https://www.linkedin.com/in/keremvaris/";
         public static string LicenceUrl = "https://example.com/license";
     }
 }

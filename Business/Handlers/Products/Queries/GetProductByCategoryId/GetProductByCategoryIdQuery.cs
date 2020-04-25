@@ -16,15 +16,15 @@ namespace Business.Handlers.Products.Queries.GetProductByCategoryId
 
         class GetProductQueryHandler : IRequestHandler<GetProductByCategoryIdQuery, IDataResult<IEnumerable<Product>>>
         {
-            private readonly IProductDal _productDal;
+            private readonly IProductRepository _productDal;
 
-            public GetProductQueryHandler(IProductDal productDal)
+            public GetProductQueryHandler(IProductRepository productDal)
             {
                 _productDal = productDal;
             }
 
             //[SecuredOperation("Product.List,Admin")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IDataResult<IEnumerable<Product>>> Handle(GetProductByCategoryIdQuery request, CancellationToken cancellationToken)
             {
                 var product = await _productDal.GetListAsync(p => p.CategoryId == request.CategoryId);

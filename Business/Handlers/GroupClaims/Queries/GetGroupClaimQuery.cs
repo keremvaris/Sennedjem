@@ -16,9 +16,9 @@ namespace Business.Handlers.GroupClaims.Queries
 
     public class GetGroupClaimQueryHandler : IRequestHandler<GetGroupClaimQuery, IDataResult<GroupClaim>>
     {
-      private readonly IGroupClaimDal _groupClaimDal;
+      private readonly IGroupClaimRepository _groupClaimDal;
 
-      public GetGroupClaimQueryHandler(IGroupClaimDal groupClaimDal)
+      public GetGroupClaimQueryHandler(IGroupClaimRepository groupClaimDal)
       {
         _groupClaimDal = groupClaimDal;
       }

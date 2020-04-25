@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.Lookups;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -9,6 +10,8 @@ namespace WebAPI.Controllers
     /// Sistem genelindeki basit lookupların her biri içi bir controller yazmak
     /// yerine lookup isminden liste almak için kullanılır.
     /// </summary>
+    /// 
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LookupController : ControllerBase

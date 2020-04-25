@@ -13,6 +13,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace Business.Handlers.Animals.Commands
 {
     /// <summary>
@@ -27,11 +28,11 @@ namespace Business.Handlers.Animals.Commands
 
         public class CreateAnimalCommandHandler : IRequestHandler<CreateAnimalCommand, IResult>
         {
-            private readonly IAnimalDal _animalDal;
+            private readonly IAnimalRepository _animalRepository;
 
-            public CreateAnimalCommandHandler(IAnimalDal animalDal)
+            public CreateAnimalCommandHandler(IAnimalRepository animalRepository)
             {
-                _animalDal = animalDal;
+                _animalRepository = animalRepository;
             }
             /// <summary>
             ///            
@@ -44,7 +45,7 @@ namespace Business.Handlers.Animals.Commands
             [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(CreateAnimalCommand request, CancellationToken cancellationToken)
             {
-                var isAnimalExits = await _animalDal.GetAsync(u => u.AnimalName == request.AnimalName);
+                var isAnimalExits = await _animalRepository.GetAsync(u => u.AnimalName == request.AnimalName);
 
                 if (isAnimalExits != null)
                     return new ErrorResult(Messages.NameAlreadyExist);
@@ -52,11 +53,11 @@ namespace Business.Handlers.Animals.Commands
                 var animal = new Animal
                 {
                     //classın özellikleri buraya yazılır.
-                    AnimalName = request.AnimalName
+                    //AnimalName = request.AnimalName
 
                 };
-                _animalDal.Add(animal);
-                await _animalDal.SaveChangesAsync();
+                _animalRepository.Add(animal);
+                await _animalRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
         }

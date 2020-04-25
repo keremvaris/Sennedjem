@@ -23,15 +23,15 @@ namespace Business.Handlers.Authorizations.Queries.LoginUser
 
         public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, IDataResult<AccessToken>>
         {
-            private readonly IUserDal _userDal;
+            private readonly IUserRepository _userDal;
             private readonly ITokenHelper _tokenHelper;
 
-            public LoginUserQueryHandler(IUserDal userDal, ITokenHelper tokenHelper)
+            public LoginUserQueryHandler(IUserRepository userDal, ITokenHelper tokenHelper)
             {
                 _userDal = userDal;
                 _tokenHelper = tokenHelper;
             }
-            [LogAspect(typeof(FileLogger))]
+            //[LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<AccessToken>> Handle(LoginUserQuery request, CancellationToken cancellationToken)
             {
                 var user = await _userDal.GetAsync(u => u.Email == request.Email);

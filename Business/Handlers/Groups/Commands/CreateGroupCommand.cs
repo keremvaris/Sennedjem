@@ -16,9 +16,9 @@ namespace Business.Handlers.Groups.Commands
         public string GroupName { get; set; }
         public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, IResult>
         {
-            private readonly IGroupDal _groupDal;
+            private readonly IGroupRepository _groupDal;
 
-            public CreateGroupCommandHandler(IGroupDal groupDal)
+            public CreateGroupCommandHandler(IGroupRepository groupDal)
             {
                 _groupDal = groupDal;
             }

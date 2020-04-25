@@ -8,7 +8,7 @@ namespace DataAccess.Abstract
   /// Bu sýnýf Repository pattern kullanýr IEntityRepository'den implemente edilir T generic tipinde nesne alýr.
   /// sýnýfa özel operasyonlar bu sýnýf içinde tanýmlanýr. örneðini IUserDal interface i içinde bulabilirsiniz.
   /// </summary>
-  public interface IUserDal : IEntityRepository<User>
+  public interface IUserRepository : IEntityRepository<User>
   {
     List<OperationClaim> GetClaims(int userId);
   }

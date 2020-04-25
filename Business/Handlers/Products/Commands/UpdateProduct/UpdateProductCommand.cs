@@ -20,9 +20,9 @@ namespace Business.Handlers.Products.Commands.UpdateProduct
         public short UnitsInStock { get; set; }
         public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, IResult>
         {
-            private readonly IProductDal _productDal;
+            private readonly IProductRepository _productDal;
 
-            public UpdateProductCommandHandler(IProductDal productDal)
+            public UpdateProductCommandHandler(IProductRepository productDal)
             {
                 _productDal = productDal;
             }

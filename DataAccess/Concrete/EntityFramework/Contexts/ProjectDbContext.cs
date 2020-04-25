@@ -15,17 +15,31 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
     {
         protected readonly IConfiguration configuration;
 
+
         /// <summary>
         /// constructor da IConfiguration alýyoruz ki, birden fazla db ye parallel olarak
         /// migration yaratabiliyoruz.
         /// </summary>
         /// <param name="options"></param>
         /// <param name="configuration"></param>
-        public ProjectDbContext(DbContextOptions options, IConfiguration configuration)
+        public ProjectDbContext(DbContextOptions<ProjectDbContext> options, IConfiguration configuration)
           : base(options)
         {
             this.configuration = configuration;
         }
+
+        /// <summary>
+        /// Genel versiyonu da implement edelim.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="configuration"></param>
+        protected ProjectDbContext(DbContextOptions options, IConfiguration configuration)
+          : base(options)
+        {
+            this.configuration = configuration;
+        }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
@@ -34,11 +48,11 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new UserClaimEntityConfiguration());
             modelBuilder.ApplyConfiguration(new GroupClaimEntityConfiguration());
             modelBuilder.ApplyConfiguration(new OperationClaimEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new MobileLoginEntityConfiguration());
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             if (!optionsBuilder.IsConfigured)
             {
                 base.OnConfiguring(optionsBuilder.UseNpgsql(configuration.GetConnectionString("OASPgContext")));
@@ -52,8 +66,9 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<GroupClaim> GroupClaims { get; set; }
         public DbSet<Log> Logs { get; set; }
+        // public DbSet<Animal> Animals { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Animal> Animals { get; set; }
+        public DbSet<MobileLogin> MobileLogins { get; set; }
     }
 }

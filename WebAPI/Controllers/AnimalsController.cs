@@ -4,12 +4,14 @@ using Business.Handlers.Animals.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
     /// <summary>
     /// Animal Controller
     /// </summary>
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AnimalsController : ControllerBase
@@ -17,7 +19,6 @@ namespace WebAPI.Controllers
         private readonly IMediator _mediator;
         ///<summary>
         ///CRUD Controller for Animals       
-        ///</summary>
         /// <param name="mediator"></param>     
 
         public AnimalsController(IMediator mediator)
@@ -41,23 +42,6 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        ///<summary>
-        ///Animals Raw Sql Example
-        ///</summary>
-        ///<remarks>bla bla bla Animals</remarks>
-        ///<return>Animals Listesi</return>
-        ///<response code="200"></response>  
-        [HttpGet("getallrawquery")]
-        public async Task<IActionResult> GetListRawQuery()
-        {
-            var result = await _mediator.Send(new GetAnimalsFromRawSqlQuery());
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result.Message);
-        }
-
 
         ///<summary>
         ///Id sine göre detaylarını getirir.

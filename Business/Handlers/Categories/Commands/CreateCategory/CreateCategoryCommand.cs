@@ -21,11 +21,11 @@ namespace Business.Handlers.Categories.Commands.CreateCategory
 
         public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, IResult>
         {
-            private readonly ICategoryDal _categoryDal;
+            private readonly ICategoryRepository _categoryDal;
 
 
 
-            public CreateCategoryCommandHandler(ICategoryDal categoryDal)
+            public CreateCategoryCommandHandler(ICategoryRepository categoryDal)
             {
                 _categoryDal = categoryDal;
             }
@@ -34,7 +34,7 @@ namespace Business.Handlers.Categories.Commands.CreateCategory
 
             [ValidationAspect(typeof(CreateCategoryValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(PgSqlLogger))]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IResult> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
             {
                 var categoryExits = await _categoryDal.GetAsync(u => u.CategoryName == request.CategoryName);

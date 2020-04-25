@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\Authentication\StaffAuthenticationProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ValidationRules\FluentValidation\ProductValidator.cs~RF3d0324.TMP" />
   </ItemGroup>
 
@@ -24,10 +28,11 @@
     <PackageReference Include="Autofac" Version="5.1.2" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="MFramework.Services.FakeData" Version="1.0.18" />
-    <PackageReference Include="Refit" Version="5.1.27" />
+    <PackageReference Include="Refit" Version="5.1.67" />
     <PackageReference Include="SqlKata" Version="1.1.7" />
     <PackageReference Include="SqlKata.Execution" Version="1.1.7" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />

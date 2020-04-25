@@ -1,5 +1,6 @@
 ﻿
 using Business.Constants;
+using Business.BusinessAspects.Autofac;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
@@ -15,6 +16,7 @@ namespace Business.Handlers.Animals.Commands
     /// <summary>
     /// CQRS yaklaşımında oluşturulmuş bir Command sınıfıdır. Bir kategorinin güncellenmesini sağlar
     /// </summary>
+    [SecuredOperation]
     public class UpdateAnimalCommand : IRequest<IResult>
     {
 
@@ -22,11 +24,11 @@ namespace Business.Handlers.Animals.Commands
         public string AnimalName { get; set; }
         public class UpdateAnimalCommandHandler : IRequestHandler<UpdateAnimalCommand, IResult>
         {
-            private readonly IAnimalDal _animalDal;
+            private readonly IAnimalRepository _animalRepository;
 
-            public UpdateAnimalCommandHandler(IAnimalDal animalDal)
+            public UpdateAnimalCommandHandler(IAnimalRepository animalRepository)
             {
-                _animalDal = animalDal;
+                _animalRepository = animalRepository;
             }
 
             /// <summary>
@@ -44,13 +46,13 @@ namespace Business.Handlers.Animals.Commands
             [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(UpdateAnimalCommand request, CancellationToken cancellationToken)
             {
-                var isanimalExits = await _animalDal.GetAsync(u => u.AnimalId == request.AnimalId);
+                var isanimalExits = await _animalRepository.GetAsync(u => u.AnimalId == request.AnimalId);
 
                 //Tüm alanlar aşağıdaki örnekteki gibi yazılacak
-                isanimalExits.AnimalName = request.AnimalName;
+                //isanimalExits.AnimalName = request.AnimalName,               
 
-                _animalDal.Update(isanimalExits);
-                await _animalDal.SaveChangesAsync();
+                _animalRepository.Update(isanimalExits);
+                await _animalRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.Updated);
             }
         }

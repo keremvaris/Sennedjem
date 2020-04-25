@@ -16,9 +16,9 @@ namespace Business.Handlers.Groups.Queries
 
     public class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, IDataResult<Group>>
     {
-      private readonly IGroupDal _groupDal;
+      private readonly IGroupRepository _groupDal;
 
-      public GetGroupQueryHandler(IGroupDal groupDal)
+      public GetGroupQueryHandler(IGroupRepository groupDal)
       {
         _groupDal = groupDal;
       }

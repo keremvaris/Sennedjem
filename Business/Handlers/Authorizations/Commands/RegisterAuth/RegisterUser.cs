@@ -28,10 +28,10 @@ namespace Business.Handlers.Authorizations.Commands.RegisterAuth
         }
         public class RegisterUserCommandHandler : IRequestHandler<Command, IResult>
         {
-            private readonly IUserDal _userDal;
+            private readonly IUserRepository _userDal;
             private readonly ITokenHelper _tokenHelper;
 
-            public RegisterUserCommandHandler(IUserDal userDal, ITokenHelper tokenHelper)
+            public RegisterUserCommandHandler(IUserRepository userDal, ITokenHelper tokenHelper)
             {
                 _userDal = userDal;
                 _tokenHelper = tokenHelper;

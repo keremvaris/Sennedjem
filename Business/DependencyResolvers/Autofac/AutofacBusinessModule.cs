@@ -1,44 +1,45 @@
 ﻿using Autofac;
-using Core.Utilities.Security.Jwt;
-using DataAccess.Abstract;
 using Castle.DynamicProxy;
 using Autofac.Extras.DynamicProxy;
 using Core.Utilities.Interceptors;
-using DataAccess.Concrete.EntityFramework;
-using Core.Utilities.MessageBrokers.RabbitMq;
-using DataAccess.Concrete.NpgSql;
+using Microsoft.Extensions.Configuration;
 
 namespace Business.DependencyResolvers.Autofac
 {
     public class AutofacBusinessModule : Module
     {
+        private readonly IConfiguration configuration;
+
+        public AutofacBusinessModule(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
         /// <summary>
-        /// builder.RegisterType<NorthwindNPgSqlDbContext>().InstancePerLifetimeScope();
-        /// DbContext her yeni uygulamaya göre değişir.
-        /// Tüm Dal interfaceleri buradan register edilir. Böylelikle Autofac'ın yönetimine tabi olur
         /// </summary>
         /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<PgUserDal>().As<IUserDal>();
-            builder.RegisterType<PgAnimalDal>().As<IAnimalDal>();
-            builder.RegisterType<PgProductDal>().As<IProductDal>();
-            builder.RegisterType<PgCategoryDal>().As<ICategoryDal>();
-            builder.RegisterType<PgUserClaimDal>().As<IUserClaimDal>();
 
 
-
-            //user işlerini takip ettiği için bu hep burada register olacak
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
-            //RabbitMq
-            builder.RegisterType<MqQueueHelper>().As<IMessageBrokerHelper>();
-            builder.RegisterType<MqConsumerHelper>().As<IMessageConsumer>();
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            // Test ya da production durumuna göre diğer interfacleri register et.
+            // Handlerlari register et.
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
-                {
-                    Selector = new AspectInterceptorSelector()
-                }).SingleInstance();
+                    // Fakeler ve handlerlar.
+                    .Where(t => t.FullName.StartsWith("Business.Handlers"))
+                    .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+                    {
+                        Selector = new AspectInterceptorSelector()
+                    }) // Handler interceptorlari single instance
+                    .SingleInstance();
+
+
+
+            // Diger butun servisler.
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                            // Fakeler disnda tum servisler.
+                            .Where(t => !t.FullName.StartsWith("Business.Fakes") && !t.FullName.StartsWith("Business.Handlers"));
         }
     }
 }

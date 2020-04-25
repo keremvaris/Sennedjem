@@ -14,9 +14,9 @@ namespace Business.Handlers.GroupClaims.Commands
 
         public class CreateGroupClaimCommandHandler : IRequestHandler<CreateGroupClaimCommand, IResult>
         {
-            private readonly IOperationClaimDal _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimDal;
 
-            public CreateGroupClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            public CreateGroupClaimCommandHandler(IOperationClaimRepository operationClaimDal)
             {
                 _operationClaimDal = operationClaimDal;
             }

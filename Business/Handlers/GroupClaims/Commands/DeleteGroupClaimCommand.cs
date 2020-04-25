@@ -18,9 +18,9 @@ namespace Business.Handlers.GroupClaims.Commands
 
         public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
         {
-            private readonly IGroupClaimDal _groupClaimDal;
+            private readonly IGroupClaimRepository _groupClaimDal;
 
-            public DeleteGroupClaimCommandHandler(IGroupClaimDal groupClaimDal)
+            public DeleteGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
             {
                 _groupClaimDal = groupClaimDal;
             }

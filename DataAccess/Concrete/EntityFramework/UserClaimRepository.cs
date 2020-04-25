@@ -5,9 +5,9 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class PgGroupDal : EfEntityRepositoryBase<Group, ProjectDbContext>, IGroupDal
+    public class UserClaimRepository : EfEntityRepositoryBase<UserClaim, ProjectDbContext>, IUserClaimRepository
     {
-        public PgGroupDal(ProjectDbContext context) : base(context)
+        public UserClaimRepository(ProjectDbContext context) : base(context)
         {
         }
     }

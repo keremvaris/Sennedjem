@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using System.Transactions;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -81,6 +82,37 @@ namespace Core.DataAccess.EntityFramework
         public Task<int> Execute(FormattableString interpolatedQueryString)
         {
             return context.Database.ExecuteSqlInterpolatedAsync(interpolatedQueryString);
+        }
+
+        public TResult InTransaction<TResult>(Func<TResult> action, Action successAction = null, Action<Exception> exceptionAction = null)
+        {
+            TResult result = default(TResult);
+            try
+            {
+                using (var tx = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        result = action();
+                        this.SaveChanges();
+                        tx.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        tx.Rollback();
+                        throw;
+                    }
+                }
+                successAction?.Invoke();
+            }
+            catch (Exception ex)
+            {
+                if (exceptionAction == null)
+                    throw;
+                else
+                    exceptionAction(ex);
+            }
+            return result;
         }
     }
 }

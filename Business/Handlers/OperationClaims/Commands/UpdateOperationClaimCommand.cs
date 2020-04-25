@@ -17,9 +17,9 @@ namespace Business.Handlers.OperationClaims.Commands
         public string ClaimName { get; set; }
         public class UpdateOperationClaimCommandHandler : IRequestHandler<UpdateOperationClaimCommand, IResult>
         {
-            private readonly IOperationClaimDal _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimDal;
 
-            public UpdateOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            public UpdateOperationClaimCommandHandler(IOperationClaimRepository operationClaimDal)
             {
                 _operationClaimDal = operationClaimDal;
             }

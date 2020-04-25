@@ -16,9 +16,9 @@ namespace Business.Handlers.OperationClaims.Commands
         public int Id { get; set; }
         public class DeleteOperationClaimCommandHandler : IRequestHandler<DeleteOperationClaimCommand, IResult>
         {
-            private readonly IOperationClaimDal _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimDal;
 
-            public DeleteOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            public DeleteOperationClaimCommandHandler(IOperationClaimRepository operationClaimDal)
             {
                 _operationClaimDal = operationClaimDal;
             }

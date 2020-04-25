@@ -1,7 +1,5 @@
 ﻿
 using Business.BusinessAspects.Autofac;
-using Core.Aspects.Autofac.Logging;
-using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,16 +16,16 @@ namespace Business.Handlers.Animals.Queries
 
         class GetAnimalQueryHandler : IRequestHandler<GetAnimalQuery, IDataResult<Animal>>
         {
-            private readonly IAnimalDal _animalDal;
+            private readonly IAnimalRepository _animalRepository;
 
-            public GetAnimalQueryHandler(IAnimalDal animalDal)
+            public GetAnimalQueryHandler(IAnimalRepository animalRepository)
             {
-                _animalDal = animalDal;
+                _animalRepository = animalRepository;
             }
-            [LogAspect(typeof(FileLogger))]
+
             public async Task<IDataResult<Animal>> Handle(GetAnimalQuery request, CancellationToken cancellationToken)
             {
-                var animal = await _animalDal.GetAsync(p => p.AnimalId == request.AnimalId);
+                var animal = await _animalRepository.GetAsync(p => p.AnimalId == request.AnimalId);
                 return new SuccessDataResult<Animal>(animal);
             }
         }

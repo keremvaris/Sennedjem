@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-  public interface IUserClaimDal : IEntityRepository<UserClaim>
+  public interface IUserClaimRepository : IEntityRepository<UserClaim>
   {
   }
 }

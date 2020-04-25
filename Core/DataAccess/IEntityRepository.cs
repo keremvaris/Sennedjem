@@ -21,5 +21,6 @@ namespace Core.DataAccess
         Task<int> SaveChangesAsync();
         IQueryable<T> Query();
         Task<int> Execute(FormattableString interpolatedQueryString);
+        TResult InTransaction<TResult>(Func<TResult> action, Action successAction = null, Action<Exception> exceptionAction = null);
     }
 }

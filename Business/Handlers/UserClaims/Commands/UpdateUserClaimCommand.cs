@@ -19,9 +19,9 @@ namespace Business.Handlers.UserClaims.Commands
 
         public class UpdateUserClaimCommandHandler : IRequestHandler<UpdateUserClaimCommand, IResult>
         {
-            private readonly IUserClaimDal _userClaimDal;
+            private readonly IUserClaimRepository _userClaimDal;
 
-            public UpdateUserClaimCommandHandler(IUserClaimDal userClaimDal)
+            public UpdateUserClaimCommandHandler(IUserClaimRepository userClaimDal)
             {
                 _userClaimDal = userClaimDal;
             }

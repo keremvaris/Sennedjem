@@ -19,14 +19,14 @@ namespace Business.Handlers.OperationClaims.Commands
 
         public class CreateOperationClaimCommandHandler : IRequestHandler<CreateOperationClaimCommand, IResult>
         {
-            private readonly IOperationClaimDal _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimDal;
 
-            public CreateOperationClaimCommandHandler(IOperationClaimDal operationClaimDal)
+            public CreateOperationClaimCommandHandler(IOperationClaimRepository operationClaimDal)
             {
                 _operationClaimDal = operationClaimDal;
             }
 
-            [LogAspect(typeof(FileLogger))]
+            
             public async Task<IResult> Handle(CreateOperationClaimCommand request, CancellationToken cancellationToken)
             {
                 if (IsClaimExists(request.ClaimName))

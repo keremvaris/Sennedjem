@@ -15,9 +15,9 @@ namespace Business.Handlers.Groups.Commands
         public int Id { get; set; }
         public class DeleteGroupCommandHandler : IRequestHandler<DeleteGroupCommand, IResult>
         {
-            private readonly IGroupDal _groupDal;
+            private readonly IGroupRepository _groupDal;
 
-            public DeleteGroupCommandHandler(IGroupDal groupDal)
+            public DeleteGroupCommandHandler(IGroupRepository groupDal)
             {
                 _groupDal = groupDal;
             }

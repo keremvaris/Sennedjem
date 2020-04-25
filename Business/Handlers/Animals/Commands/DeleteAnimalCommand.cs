@@ -1,7 +1,7 @@
 ﻿
-using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
+using Business.BusinessAspects.Autofac;
 using Core.Aspects.Autofac.Logging;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
@@ -15,7 +15,6 @@ namespace Business.Handlers.Animals.Commands
     /// <summary>
     /// CQRS yaklaşımında oluşturulmuş bir Command sınıfıdır. Bir kategorinin silinmesini sağlar
     /// </summary>
-
     [SecuredOperation]
     public class DeleteAnimalCommand : IRequest<IResult>
     {
@@ -23,11 +22,11 @@ namespace Business.Handlers.Animals.Commands
 
         public class DeleteAnimalCommandHandler : IRequestHandler<DeleteAnimalCommand, IResult>
         {
-            private readonly IAnimalDal _animalDal;
+            private readonly IAnimalRepository _animalRepository;
 
-            public DeleteAnimalCommandHandler(IAnimalDal animalDal)
+            public DeleteAnimalCommandHandler(IAnimalRepository animalRepository)
             {
-                _animalDal = animalDal;
+                _animalRepository = animalRepository;
             }
             /// <summary>
             /// Aspectler her zaman hadler üzerinde kullanılmalıdır.
@@ -42,10 +41,10 @@ namespace Business.Handlers.Animals.Commands
             [LogAspect(typeof(PgSqlLogger))]
             public async Task<IResult> Handle(DeleteAnimalCommand request, CancellationToken cancellationToken)
             {
-                var animalToDelete = _animalDal.Get(p => p.AnimalId == request.AnimalId);
+                var animalToDelete = _animalRepository.Get(p => p.AnimalId == request.AnimalId);
 
-                _animalDal.Delete(animalToDelete);
-                await _animalDal.SaveChangesAsync();
+                _animalRepository.Delete(animalToDelete);
+                await _animalRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.Deleted);
             }
         }

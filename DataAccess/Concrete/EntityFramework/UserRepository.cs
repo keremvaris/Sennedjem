@@ -7,9 +7,9 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class PgUserDal : EfEntityRepositoryBase<User, ProjectDbContext>, IUserDal
+    public class UserRepository : EfEntityRepositoryBase<User, ProjectDbContext>, IUserRepository
     {
-        public PgUserDal(ProjectDbContext context) : base(context)
+        public UserRepository(ProjectDbContext context) : base(context)
         {
         }
 

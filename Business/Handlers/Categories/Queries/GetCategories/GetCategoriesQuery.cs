@@ -17,9 +17,9 @@ namespace Business.Handlers.Categories.Queries.GetCategories
     {
         public class GetCategoriesQueryHandler : IRequestHandler<GetCategoriesQuery, IDataResult<IEnumerable<Category>>>
         {
-            private readonly ICategoryDal _categoryDal;
+            private readonly ICategoryRepository _categoryDal;
 
-            public GetCategoriesQueryHandler(ICategoryDal categoryDal)
+            public GetCategoriesQueryHandler(ICategoryRepository categoryDal)
             {
                 _categoryDal = categoryDal;
             }
