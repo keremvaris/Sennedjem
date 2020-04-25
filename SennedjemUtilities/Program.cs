@@ -19,7 +19,8 @@ namespace SennedjemUtilities
 
         public static async Task<bool> SendAsist(string text, string cellPhone)
         {
-            
+            Thread.Sleep(1000);
+            return await Task.FromResult(true);
 
         }
     }
