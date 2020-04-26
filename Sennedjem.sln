@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityFiles", "UtilityFile
 		..\..\..\vs.net2019\SennedjemGen\SennedjemGen\bin\Debug\Sennedjemgen.vsix = ..\..\..\vs.net2019\SennedjemGen\SennedjemGen\bin\Debug\Sennedjemgen.vsix
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SennedjemUtilities", "SennedjemUtilities\SennedjemUtilities.csproj", "{0C638E43-567E-43DA-B660-5FDDA0FF1E30}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{EF53A1AE-B85E-4AFC-823A-33F55E67CB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF53A1AE-B85E-4AFC-823A-33F55E67CB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF53A1AE-B85E-4AFC-823A-33F55E67CB37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C638E43-567E-43DA-B660-5FDDA0FF1E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C638E43-567E-43DA-B660-5FDDA0FF1E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C638E43-567E-43DA-B660-5FDDA0FF1E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C638E43-567E-43DA-B660-5FDDA0FF1E30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
