@@ -23,8 +23,9 @@ namespace Core.Aspects.Autofac.Exception
             {
                 throw new System.Exception(AspectMessages.WrongLoggerType);
             }
-            // DI _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
-            _loggerServiceBase = (LoggerServiceBase)ServiceTool.ServiceProvider.GetService(loggerService);
+            // DI 
+            _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
+            //_loggerServiceBase = (LoggerServiceBase)ServiceTool.ServiceProvider.GetService(loggerService);
         }
 
         protected override void OnException(IInvocation invocation, System.Exception e)

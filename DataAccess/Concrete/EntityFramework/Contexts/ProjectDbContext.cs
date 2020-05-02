@@ -66,7 +66,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<GroupClaim> GroupClaims { get; set; }
         public DbSet<Log> Logs { get; set; }
-        // public DbSet<Animal> Animals { get; set; }
+        public DbSet<Animal> Animals { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<MobileLogin> MobileLogins { get; set; }
