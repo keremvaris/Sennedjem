@@ -53,7 +53,7 @@ namespace Business.Handlers.Animals.Commands
                 var animal = new Animal
                 {
                     //classın özellikleri buraya yazılır.
-                    //AnimalName = request.AnimalName
+                    AnimalName = request.AnimalName
 
                 };
                 _animalRepository.Add(animal);
