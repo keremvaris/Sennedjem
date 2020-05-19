@@ -25,6 +25,8 @@ namespace Core.DependencyResolvers
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Stopwatch>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            
+            services.AddSingleton<IElasticSearch, ElasticSearchManager>();
 
             services.AddSwaggerGen(c =>
             {
