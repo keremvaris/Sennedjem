@@ -130,6 +130,7 @@ namespace Core.Utilities.ElasticSearch
                                      message: response.IsValid ? "Success" : response.ServerError.Error.Reason);
         }
 
+
         private void ControlIndexNameNullOrEmpty(string indexName)
         {
             if (string.IsNullOrEmpty(indexName))
@@ -137,6 +138,7 @@ namespace Core.Utilities.ElasticSearch
                 throw new ArgumentNullException("Index name cannot be null or empty ");
             }
         }
+
 
         private ElasticClient GetElasticClient(string indexName)
         {

@@ -15,6 +15,7 @@ namespace Core.Utilities.ElasticSearch
         Results.Result InsertMany(string indexName, object[] items);
         IReadOnlyDictionary<IndexName, IndexState> GetIndexList();
         List<T> GetAllSearch<T>(string indexName, int from = 0, int size = 10) where T : class;
+
         List<T> GetSearchByField<T>(string indexName, string field, string value, int from = 0, int size = 10) where T : class;
 
     }

@@ -10,9 +10,11 @@ namespace Core.Utilities.ElasticSearch.Models
         public string AliasName { get; set; }
         public int NumberOfReplicas { get; set; }
         public int NumberOfShards { get; set; }
+        
         public IndexModel()
         {
             NumberOfReplicas = 1;
+
             NumberOfShards = 3;
         }
     }
