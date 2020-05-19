@@ -16,7 +16,7 @@ namespace Business.Adapters.PersonService
 
         public async Task<bool> VerifyCid(long TCKimlikNo, string Ad, string Soyad, int DogumYili)
         {
-            KPSPublicSoapClient svc = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
+            var svc = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
             {
                 //bu pahalı bir işlem olduğu için statik olarak yaratıyoruz.
                 var locale = new CultureInfo("tr-TR", false);

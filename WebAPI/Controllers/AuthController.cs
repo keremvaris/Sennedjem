@@ -56,6 +56,7 @@ namespace WebAPI.Controllers
         /// <returns></returns>  
 
         [HttpPost("verifycid")]
+        [AllowAnonymous]
         public async Task<IActionResult> VerifyCid([FromBody]VerifyCidQuery verifyCid)
         {
             var result = await _mediator.Send(verifyCid);

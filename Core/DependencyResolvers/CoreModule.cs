@@ -11,7 +11,6 @@ using MediatR;
 using System.Reflection;
 using Core.Utilities.Mail;
 using Microsoft.Extensions.Configuration;
-using Core.Utilities.ElasticSearch;
 
 namespace Core.DependencyResolvers
 {
