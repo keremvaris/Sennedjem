@@ -10,10 +10,10 @@ namespace Business.Handlers.Authorizations.Queries.VerifyCid
 {
     public class VerifyCidQuery : IRequest<IDataResult<bool>>
     {
-        public string Ad { get; set; }
-        public string Soyad { get; set; }
-        public long TCKimlikNo { get; set; }
-        public int DogumYili { get; set; }
+        public long CitizenId { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int BirthYear { get; set; }
 
         public class VerifyCidQueryHandler : IRequestHandler<VerifyCidQuery, IDataResult<bool>>
         {
@@ -26,7 +26,7 @@ namespace Business.Handlers.Authorizations.Queries.VerifyCid
 
             public async Task<IDataResult<bool>> Handle(VerifyCidQuery request, CancellationToken cancellationToken)
             {
-                var result = await _personService.VerifyCid(request.TCKimlikNo, request.Ad, request.Soyad, request.DogumYili);
+                var result = await _personService.VerifyCid(request.CitizenId, request.Name, request.Surname, request.BirthYear);
                 if (result != true)
                 {
                     return new ErrorDataResult<bool>(result, Messages.CouldNotBeVerifyCid);

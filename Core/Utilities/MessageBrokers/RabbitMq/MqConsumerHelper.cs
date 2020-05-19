@@ -36,7 +36,7 @@ namespace Core.Utilities.MessageBrokers.RabbitMq
 
                 consumer.Received += (model, mq) =>
                 {
-                    var body = mq.Body;
+                    var body = mq.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
 
                     Console.WriteLine($"Message: {message}");

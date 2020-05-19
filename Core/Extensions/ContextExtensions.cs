@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete.EntityFramework.Contexts
+namespace Core.Extensions
 {
     public static class ContextExtensions
     {

@@ -7,6 +7,6 @@ namespace Business.Adapters.PersonService
 {
     public interface IPersonService
     {
-        Task<bool> VerifyCid(long TCKimlikNo, string Ad, string Soyad, int DogumYili);
+        Task<bool> VerifyCid(long CitizenId, string Name, string Surname, int BirthDate);
     }
 }

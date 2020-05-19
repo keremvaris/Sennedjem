@@ -11,7 +11,6 @@ using MediatR;
 using System.Reflection;
 using Core.Utilities.Mail;
 using Microsoft.Extensions.Configuration;
-using Core.Utilities.ElasticSearch;
 
 namespace Core.DependencyResolvers
 {
@@ -26,7 +25,6 @@ namespace Core.DependencyResolvers
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Stopwatch>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddSingleton<IElasticSearch, ElasticSearchManager>();
 
             services.AddSwaggerGen(c =>
             {
