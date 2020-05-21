@@ -6,6 +6,8 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
+using Core.Utilities.ElasticSearch;
+using Core.Utilities.ElasticSearch.Models;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -29,10 +31,12 @@ namespace Business.Handlers.Animals.Commands
         public class CreateAnimalCommandHandler : IRequestHandler<CreateAnimalCommand, IResult>
         {
             private readonly IAnimalRepository _animalRepository;
+            private readonly IElasticSearch _elasticSearch;
 
-            public CreateAnimalCommandHandler(IAnimalRepository animalRepository)
+            public CreateAnimalCommandHandler(IAnimalRepository animalRepository, IElasticSearch elasticSearch)
             {
                 _animalRepository = animalRepository;
+                _elasticSearch = elasticSearch;
             }
             /// <summary>
             ///            
@@ -56,8 +60,12 @@ namespace Business.Handlers.Animals.Commands
                     AnimalName = request.AnimalName
 
                 };
-                _animalRepository.Add(animal);
+
+                var animalIndexModel = new IndexModel { AliasName = "animal-alias", IndexName = "animal" };
+                _elasticSearch.CreateNewIndex(animalIndexModel);
+                _elasticSearch.Insert(animal.AnimalName, _animalRepository.Add(animal));
                 await _animalRepository.SaveChangesAsync();
+
                 return new SuccessResult(Messages.Added);
             }
         }
