@@ -81,7 +81,7 @@ değişiklik yapmanıza **gerek yoktur**.
 
 Bu işlemden sonra aşağıdaki komutu çalıştırmayı lütfen unutmayın.
 
-Update-Database -context ProjectDbContext
+**Update-Database -context ProjectDbContext**
 
 Business Katmanı
 ================
