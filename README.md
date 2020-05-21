@@ -16,28 +16,24 @@ SennedjemFw Nasıl Kullanılır.
 kullanılacağıyla ilgili bir örnek yapmak istiyorum.
 
 Öncelikle **SennedjemGen** isimli Visual Studio Extension
-kurulur.![](./sfwMedia/media/image1.png){width="5.989583333333333in"
-height="1.0729166666666667in"}
+kurulur.![](./sfwMedia/media/image1.png)
 
 Bir **Entity** sınıfı oluşturulur ve **IEntity** **Interface**
 kullanılarak **implemente** edilir. Örnek olarak basit bir Car Sınıfı
 oluşturulmuştur.
 
-![](./sfwMedia/media/image2.png){width="4.947916666666667in"
-height="2.4583333333333335in"}
+![](./sfwMedia/media/image2.png)
 
 Bu sınıf üzerinde **Solution Explorer** üzerinde sağ tıklanır ve
 **Sennedjem Generate All Layers For Entity** yardımıyla sınıfa ait tüm
 proje ağacı oluşturulur gerekli klasörleriyle birlikte oluşturulur.
 
-![](./sfwMedia/media/image3.png){width="2.5495199037620297in"
-height="3.325in"}
+![](./sfwMedia/media/image3.png)
 
 Aşağıdaki gibi bir splash screen devreye girer bununla birlikte tüm
 katmanlarda gerekli olan sınıflar ve kodlar yaratılır.
 
-![](./sfwMedia/media/image4.png){width="4.733333333333333in"
-height="1.6925634295713037in"}
+![](./sfwMedia/media/image4.png)
 
 Bununla birlikte örnek sınıf için yaratılan sınıfların ekran görüntüsü
 aşağıda belirtilmiştir.
@@ -54,9 +50,7 @@ DataAccess Katmanı
 **DataAccess-\>Concrete-\>EntityFramework-\>Contexts-\>ProjectDbContext**
 içine **DbSet** Tanımlama işleminin yapılması gerekir.
 
-![](./sfwMedia/media/image6.png){width="4.166666666666667in"
-height="0.5in"}
-
+![](./sfwMedia/media/image6.png)
 Buna ek olarak özel bir mapping yapılacaksa
 **DataAccess-\>Concrete-\>Configurations** klasörü altında yapılabilir
 özel bir durum yoksa yapılmasına gerek yoktur.
@@ -81,8 +75,11 @@ Migration işlemlerini yaparken **Default Project** kısmında
 **değiştirdiğinize** emin olun. **İlk defa migration yapıyorsanız**
 değişiklik yapmanıza **gerek yoktur**.
 
-![](./sfwMedia/media/image7.png){width="6.3in"
-height="1.4569444444444444in"}
+![](./sfwMedia/media/image7.png)
+
+Bu işlemden sonra aşağıdaki komutu çalıştırmayı lütfen unutmayın.
+
+Update-Database -context ProjectDbContext
 
 Business Katmanı
 ================
@@ -93,33 +90,26 @@ Business Katmanı
 **Autofac** için gerekli olan **Register** işlemi burada konfigüre
 edilir.
 
-![](./sfwMedia/media/image8.png){width="6.270833333333333in"
-height="0.5208333333333334in"}
+![](./sfwMedia/media/image8.png)
 
 Bu sınıf aynı zaman da sistemin hangi veritabanı altyapısıyla
 çalışacağının da belirtildiği yerdir. **SennedjemFw** default olarak 3
 veri tabanına ayrı ayrı veya **multipleDb** şeklinde destek verebilir.
 **PostgreSql**, **MsSql** ve **InMemoryDb**
 
-![](./sfwMedia/media/image9.png){width="4.8125in"
-height="0.3541666666666667in"}
+![](./sfwMedia/media/image9.png)
 
 Şekilde ki gibi bırakılırsa **PostgreSql** default veritabanı ile
 çalışır. Bu konfigürasyonu ise WebAPI katmanında **appsettings** dosyası
 içinden okur.
 
-![](./sfwMedia/media/image10.png){width="6.3in"
-height="0.7729166666666667in"}
-
+![](./sfwMedia/media/image10.png)
 MsSql için aşağıdaki şekilde ve
 
-![](./sfwMedia/media/image11.png){width="6.3in"
-height="0.4361111111111111in"}
-
+![](./sfwMedia/media/image11.png)
 InMemory için aşağıdaki şekilde konfigüre edilir.
 
-![](./sfwMedia/media/image12.png){width="6.270833333333333in"
-height="0.5833333333333334in"}
+![](./sfwMedia/media/image12.png)
 
 Bu aşamaları takiben **Solution Explorer** altında
 **Business-\>Handlers-\>Cars-\>Commands** klasörüne gelinir.
@@ -128,14 +118,12 @@ Bu aşamaları takiben **Solution Explorer** altında
 uygulamalarından gelmesi beklenen alanlar burada tanımlanır. Test
 amacıyla api katmanında **Swagger** tanımlıdır.
 
-![](./sfwMedia/media/image13.png){width="5.598589238845144in"
-height="2.45in"}
+![](./sfwMedia/media/image13.png)
 
 Daha sonra aynı sınıf içindeki **Handle** Metodunun içi sınıfındaki
 özelliklerine göre gerekli tanımlamalar yapılır.
 
-![](./sfwMedia/media/image14.png){width="6.3in"
-height="2.892361111111111in"}
+![](./sfwMedia/media/image14.png)
 
 **Business-\>Handlers-\>Cars** klasörü altında **Commands** ve **Query**
 klasörlerinde bulunan tüm sınıflar için yukarıda bahsedilen kontrollerin
@@ -157,9 +145,13 @@ Swagger üzerinden api dökümantasyonunu zenginleştirmek isterseniz
 Controllerlar üzerinde bulunan summaryleri düzgünce yazmanız apiyi
 kullanacak olan geliştiriciler için faydalı olacaktır.
 
-![](./sfwMedia/media/image15.png){width="6.3in"
-height="5.124305555555556in"}
-
+![](./sfwMedia/media/image15.png)
 appsettings dosyası içinde tüm konfigürasyon yönetimi yapılır. Örneğin
 RabbitMq,ElasticSearch,Mail, Veritabanı bağlantısı vb.
+
+Sonuç olarak swagger üzerinde aşağıdaki ekran görüntüsünü almayı
+beklemekteyiz.
+
+![](./sfwMedia/media/image16.png)
+
 
