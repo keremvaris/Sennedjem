@@ -62,17 +62,17 @@ Buna ek olarak özel bir mapping yapılacaksa
 Migrations için kullanacağınız veritabanına göre aşağıdaki komutları
 çalıştırarak migrationlarınızı yapabilirsiniz.
 
-// PostgreSQL
+**// PostgreSQL**
 
 Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg
 
 Update-Database -context ProjectDbContext
 
-// Ms Sql Server
+**// Ms Sql Server**
 
 Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
 
-Update-Database -context MsDbContext
+*Update-Database -context MsDbContext
 
 Migration işlemlerini yaparken **Default Project** kısmında
 **DataAccess** seçili olduğuna ve migrationun ismini
