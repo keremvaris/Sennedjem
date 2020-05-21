@@ -17,7 +17,7 @@ SennedjemFw Nasıl Kullanılır.
 **SennedjemFw** nasıl
 kullanılacağıyla ilgili bir örnek yapmak istiyorum.
 
-Öncelikle **SennedjemGen** isimli Visual Studio Extension
+Öncelikle **UtiliyFiles** klasörü altında bulunan ve sürekli güncellemeye çalıştığım **SennedjemGen** isimli Visual Studio Extension
 kurulur.![](./sfwMedia/media/image1.png)
 
 Bir **Entity** sınıfı oluşturulur ve **IEntity** **Interface**
