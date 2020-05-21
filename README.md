@@ -42,8 +42,7 @@ katmanlarda gerekli olan sınıflar ve kodlar yaratılır.
 Bununla birlikte örnek sınıf için yaratılan sınıfların ekran görüntüsü
 aşağıda belirtilmiştir.
 
-![](./sfwMedia/media/image5.png){width="2.325in"
-height="2.316666666666667in"}
+![](./sfwMedia/media/image5.png)
 
 Şablon Sınıflar otomatik olarak yaratıldıktan sonra şu an için manuel
 olarak yapılması gereken işlemler aşağıdaki gibi tanımlanacaktır.
@@ -55,6 +54,7 @@ DataAccess Katmanı
 içine **DbSet** Tanımlama işleminin yapılması gerekir.
 
 ![](./sfwMedia/media/image6.png)
+
 Buna ek olarak özel bir mapping yapılacaksa
 **DataAccess-\>Concrete-\>Configurations** klasörü altında yapılabilir
 özel bir durum yoksa yapılmasına gerek yoktur.
@@ -72,7 +72,7 @@ Update-Database -context ProjectDbContext
 
 Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
 
-*Update-Database -context MsDbContext
+Update-Database -context MsDbContext
 
 Migration işlemlerini yaparken **Default Project** kısmında
 **DataAccess** seçili olduğuna ve migrationun ismini
@@ -108,9 +108,11 @@ veri tabanına ayrı ayrı veya **multipleDb** şeklinde destek verebilir.
 içinden okur.
 
 ![](./sfwMedia/media/image10.png)
+
 MsSql için aşağıdaki şekilde ve
 
 ![](./sfwMedia/media/image11.png)
+
 InMemory için aşağıdaki şekilde konfigüre edilir.
 
 ![](./sfwMedia/media/image12.png)
@@ -150,6 +152,7 @@ Controllerlar üzerinde bulunan summaryleri düzgünce yazmanız apiyi
 kullanacak olan geliştiriciler için faydalı olacaktır.
 
 ![](./sfwMedia/media/image15.png)
+
 appsettings dosyası içinde tüm konfigürasyon yönetimi yapılır. Örneğin
 RabbitMq,ElasticSearch,Mail, Veritabanı bağlantısı vb.
 
