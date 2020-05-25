@@ -7,6 +7,6 @@ namespace Business.Services.Authentication
 	public interface IAuthenticationProvider
 	{
 		Task<LoginUserResult> Login(LoginUserCommand command);
-		Task<IDataResult<AccessToken>> Verify(VerifyOTPCommand request);
+		Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand request);
 	}
 }

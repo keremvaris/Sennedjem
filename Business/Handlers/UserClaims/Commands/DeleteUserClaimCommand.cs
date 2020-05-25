@@ -10,26 +10,27 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserClaims.Commands
 {
-    public class DeleteUserClaimCommand : IRequest<IResult>
+  public class DeleteUserClaimCommand : IRequest<IResult>
+  {
+    public int Id { get; set; }
+    public class DeleteUserClaimCommandHandler : IRequestHandler<DeleteUserClaimCommand, IResult>
     {
-        public int Id { get; set; }
-        public class DeleteUserClaimCommandHandler : IRequestHandler<DeleteUserClaimCommand, IResult>
-        {
-            private readonly IUserClaimRepository _userClaimDal;
+      private readonly IUserClaimRepository _userClaimDal;
 
-            public DeleteUserClaimCommandHandler(IUserClaimRepository userClaimDal)
-            {
-                _userClaimDal = userClaimDal;
-            }
+      public DeleteUserClaimCommandHandler(IUserClaimRepository userClaimDal)
+      {
+        _userClaimDal = userClaimDal;
+      }
 
-            public async Task<IResult> Handle(DeleteUserClaimCommand request, CancellationToken cancellationToken)
-            {
-                var entityToDelete = await _userClaimDal.GetAsync(x => x.Id == request.Id);
+      public async Task<IResult> Handle(DeleteUserClaimCommand request, CancellationToken cancellationToken)
+      {
+        var entityToDelete = await _userClaimDal.GetAsync(x => x.UserId == request.Id);
 
-                _userClaimDal.Delete(entityToDelete);
-                await _userClaimDal.SaveChangesAsync();
-                return new SuccessResult(Messages.UserClaimDeleted);
-            }
-        }
+        _userClaimDal.Delete(entityToDelete);
+        await _userClaimDal.SaveChangesAsync();
+
+        return new SuccessResult(Messages.UserClaimDeleted);
+      }
     }
+  }
 }

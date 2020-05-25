@@ -1,12 +1,13 @@
-﻿namespace Business.Constants
+﻿using System;
+
+namespace Business.Constants
 {
     /// <summary>
     /// Bu sınıf magic stringlerden kurtulmak daha okunur bir kod yazmak için oluşturulmuştur.
     /// </summary>
     public static class Messages
     {
-        // g
-        public static readonly string UnknownLookupName = "{0} adlı lookup bilinmiyor!";
+
 
         // k
         public static string OperationClaimExists => "Bu Operasyon izni zaten mevcut";
@@ -43,11 +44,8 @@
         public static string SmsServiceNotFound = "SMS Servisine Ulaşılamıyor.";
         public static string IsCidValid = "Geçerli Bir T.C.Kimlik Numarası Giriniz!";
         public static string SmsServiceNotFoundForAppointment = "Randevu Oluşturuldu Ancak SMS Servisine Ulaşılamıyor!";
-        public static string CouldNotBeVerifyCid = "TC Kimlik Sistemi Tarafından Doğrulanamadı.";
-        public static string VerifyCid = "TC Kimlik Sistemi Tarafından Doğrulandı.";
-        public static string ProductUpdated = "Ürün Güncellendi";
-        public static string ProductDeleted = "Ürün Silindi";
-        public static string ProductAdded = "Ürün Eklendi";
+        public static string RecordNotFoundInCidService = "Kayıt vatandaşlık servisinde bulunamadı.";
+
 
         public static string UserExists => "Bu İsimde Kullanıcı mevcut.";
         public static string WrongPassword => "Şifre Hatalı";

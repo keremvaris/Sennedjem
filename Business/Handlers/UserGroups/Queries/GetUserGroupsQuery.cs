@@ -14,9 +14,9 @@ namespace Business.Handlers.UserGroups.Queries
   {
     class GetUserGroupsQueryHandler : IRequestHandler<GetUserGroupsQuery, IDataResult<IEnumerable<UserGroup>>>
     {
-      private readonly IUserGroupDal _userGroupDal;
+      private readonly IUserGroupRepository _userGroupDal;
 
-      public GetUserGroupsQueryHandler(IUserGroupDal userGroupDal)
+      public GetUserGroupsQueryHandler(IUserGroupRepository userGroupDal)
       {
         _userGroupDal = userGroupDal;
       }

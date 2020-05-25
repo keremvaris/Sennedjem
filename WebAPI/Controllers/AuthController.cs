@@ -1,24 +1,24 @@
-﻿using Business.Handlers.Authorizations.Commands.ForgotPassword;
+﻿
+using Business.Handlers.Authorizations.Commands;
 using Business.Handlers.Authorizations.Commands.RegisterAuth;
-using Business.Handlers.Authorizations.Queries.LoginUser;
-using Business.Handlers.Authorizations.Queries.VerifyCid;
+using Business.Services.Authentication;
+using Core.Utilities.Security.Jwt;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Core.Utilities.Security.Jwt;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     /// <summary>
     /// Authorization işlemlerini yapar
+    /// </summary>
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : Controller
     {
-
         private readonly IMediator _mediator;
         private readonly IConfiguration configuration;
 
@@ -38,6 +38,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="loginModel"></param>
         /// <returns></returns>  
+        [ProducesResponseType(typeof(LoginUserResult), 200)]
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]LoginUserQuery loginModel)
@@ -45,25 +46,24 @@ namespace WebAPI.Controllers
             var result = await _mediator.Send(loginModel);
             if (result.Success)
                 return Ok(result.Data);
-
-            return BadRequest(result.Message);
+            return Unauthorized(result.Message);
         }
 
+
         /// <summary>
-        /// Kişi TC Kimlik No Doğrulama.
+        /// Mobil Giriş.
         /// </summary>
-        /// <param name="verifyCid"></param>
-        /// <returns></returns>  
-
-        [HttpPost("verifycid")]
+        /// <param name="mobileLogin"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(SFwToken), 200)]
         [AllowAnonymous]
-        public async Task<IActionResult> VerifyCid([FromBody]VerifyCidQuery verifyCid)
+        [HttpPost("verify")]
+        public async Task<IActionResult> Verification([FromBody]VerifyOTPCommand mobileLogin)
         {
-            var result = await _mediator.Send(verifyCid);
+            var result = await _mediator.Send(mobileLogin);
             if (result.Success)
-                return Ok(result.Message);
-
-            return BadRequest(result.Message);
+                return Ok(result.Data);
+            return Unauthorized(result.Message);
         }
 
         /// <summary>
@@ -96,6 +96,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+
         /// <summary>
         /// Sisteme giriş yapıldıktan sonra erişilebilen ve token gerektiren kaynak.
         /// </summary>
@@ -107,5 +109,41 @@ namespace WebAPI.Controllers
             var token = new JwtHelper(configuration).DecodeToken(auth);
             return Ok(token);
         }
+
+        /*
+
+				/// <summary>
+				///  Kullanıcı Kayıt İşlemlerini yapar.
+				/// </summary>
+				/// <param name="createUser"></param>
+				/// <returns></returns>
+				[AllowAnonymous]
+				[HttpPost("register")]
+				public async Task<IActionResult> Register([FromBody]RegisterUser.Command createUser)
+				{
+					var result = await _mediator.Send(createUser);
+					if (result.Success)
+						return Ok(result);
+
+					return BadRequest(result);
+				}
+
+				///<summary>
+				///Parolamı Unuttum.
+				///</summary>
+				///<remarks>tckimlikno</remarks>
+				///<return></return>
+				///<response code="200"></response>   
+				[HttpPut("forgotpassword")]
+				public async Task<IActionResult> ForgotPassword([FromBody]ForgotPasswordCommand forgotPassword)
+				{
+					var result = await _mediator.Send(forgotPassword);
+					if (result.Success)
+						return Ok(result);
+
+					return BadRequest(result);
+				}
+
+			*/
     }
 }

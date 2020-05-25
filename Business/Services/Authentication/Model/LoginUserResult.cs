@@ -1,7 +1,7 @@
 ﻿using Business.Services.Authentication;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Jwt;
-using Entities.Concrete;
+using DataAccess.Entities;
 using MediatR;
 
 namespace Business.Services.Authentication

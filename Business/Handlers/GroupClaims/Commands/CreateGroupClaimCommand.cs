@@ -8,37 +8,38 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Commands
 {
-    public class CreateGroupClaimCommand : IRequest<IResult>
+  public class CreateGroupClaimCommand : IRequest<IResult>
+  {
+    public string ClaimName { get; set; }
+
+    public class CreateGroupClaimCommandHandler : IRequestHandler<CreateGroupClaimCommand, IResult>
     {
-        public string ClaimName { get; set; }
+      private readonly IOperationClaimRepository _operationClaimDal;
 
-        public class CreateGroupClaimCommandHandler : IRequestHandler<CreateGroupClaimCommand, IResult>
+      public CreateGroupClaimCommandHandler(IOperationClaimRepository operationClaimDal)
+      {
+        _operationClaimDal = operationClaimDal;
+      }
+
+      public async Task<IResult> Handle(CreateGroupClaimCommand request, CancellationToken cancellationToken)
+      {
+
+        if (IsClaimExists(request.ClaimName))
+          return new ErrorResult(Messages.OperationClaimExists);
+
+        var operationClaim = new OperationClaim
         {
-            private readonly IOperationClaimRepository _operationClaimDal;
+          Name = request.ClaimName
+        };
+        _operationClaimDal.Add(operationClaim);
+        await _operationClaimDal.SaveChangesAsync();
 
-            public CreateGroupClaimCommandHandler(IOperationClaimRepository operationClaimDal)
-            {
-                _operationClaimDal = operationClaimDal;
-            }
-
-            public async Task<IResult> Handle(CreateGroupClaimCommand request, CancellationToken cancellationToken)
-            {
-
-                if (IsClaimExists(request.ClaimName))
-                    return new ErrorResult(Messages.OperationClaimExists);
-
-                var operationClaim = new OperationClaim
-                {
-                    Name = request.ClaimName
-                };
-                _operationClaimDal.Add(operationClaim);
-                await _operationClaimDal.SaveChangesAsync();
-                return new SuccessResult(Messages.OperationClaimAdded);
-            }
-            private bool IsClaimExists(string claimName)
-            {
-                return _operationClaimDal.Get(x => x.Name == claimName) is null ? false : true;
-            }
-        }
+        return new SuccessResult(Messages.OperationClaimAdded);
+      }
+      private bool IsClaimExists(string claimName)
+      {
+        return _operationClaimDal.Get(x => x.Name == claimName) is null ? false : true;
+      }
     }
+  }
 }

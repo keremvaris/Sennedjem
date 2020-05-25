@@ -25,7 +25,7 @@ namespace Business.Handlers.GroupClaims.Queries
 
       public async Task<IDataResult<GroupClaim>> Handle(GetGroupClaimQuery request, CancellationToken cancellationToken)
       {
-        return new SuccessDataResult<GroupClaim>(await _groupClaimDal.GetAsync(x => x.Id == request.Id));
+        return new SuccessDataResult<GroupClaim>(await _groupClaimDal.GetAsync(x => x.GroupId == request.Id));
       }
     }
   }

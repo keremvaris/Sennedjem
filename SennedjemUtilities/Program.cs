@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace SennedjemUtilities
 {
@@ -6,12 +7,7 @@ namespace SennedjemUtilities
     {
         static void Main(string[] args)
         {
-            SonyaJoystick sonyaJoystick = new SonyaJoystick();
-            sonyaJoystick.OyunuBaslat();
-            Console.WriteLine("\r\n###############################################\r\n");
-            FiiJoystick fiiJoystick = new FiiJoystick();
-            fiiJoystick.OyunuBaslat();
-
+        
             Console.ReadLine();
         }
     }

@@ -14,9 +14,10 @@ namespace Business.Services.Authentication
 			throw new NotImplementedException();
 		}
 
-		public Task<IDataResult<AccessToken>> Verify(VerifyOTPCommand request)
+		public virtual async Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand command)
 		{
 			throw new NotImplementedException();
 		}
+
 	}
 }

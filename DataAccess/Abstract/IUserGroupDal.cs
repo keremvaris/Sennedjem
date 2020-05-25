@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-  public interface IUserGroupDal : IEntityRepository<UserGroup>
+  public interface IUserGroupRepository : IEntityRepository<UserGroup>
   {
   }
 }

@@ -1,4 +1,4 @@
-﻿using Entities.Concrete;
+﻿using DataAccess.Entities;
 
 namespace Business.Services.Authentication
 {

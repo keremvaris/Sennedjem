@@ -1,35 +1,94 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities.Concrete
 {
-  public class User : IEntity
-  {
-    public int UserId { get; set; }
-    public int? HemActId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
-    public byte[] PasswordSalt { get; set; }
-    public byte[] PasswordHash { get; set; }
-    public bool Status { get; set; }
-    public int SporKulubuId { get; set; }
-    public int HaberlesmeTercihiId { get; set; }
-    public int MeslekId { get; set; }
-    public int EgitimId { get; set; }
-    public int NufusKayitIl { get; set; }
-    public long TCKimlikNo { get; set; }
-    public string AnneAdi { get; set; }
-    public string BabaAdi { get; set; }
-    public DateTime DogumTarihi { get; set; }
-    public string DogumYeri { get; set; }
-    public int Cinsiyet { get; set; }
-    public DateTime KayitTarihi { get; set; }
-    public string Adres { get; set; }
-    public string CepTelefonu { get; set; }
-    public string EvTelefonu { get; set; }
-    public string IsTelefonu { get; set; }
-    public string Notlar { get; set; }
-    public DateTime? UpdateContactDate { get; set; }
+	/// <summary>
+	/// Bağışçı ya da potansiyel bağışçı nesnesidir.
+	/// </summary>
+	public class User : IEntity
+	{
+		/// <summary>
+		/// Kullanıcının sistem içindeki anahtarıdır.
+		/// </summary>
+		public int UserId { get; set; }
+		/// <summary>
+		/// Vatandaşlık no
+		/// </summary>
+		public long CitizenId { get; set; }
+		/// <summary>
+		/// Kullanıcının tam adıdır.
+		/// </summary>
+		public string FullName { get; set; }
+		/// <summary>
+		/// Eposta adresi.
+		/// </summary>
+		public string Email { get; set; }
+		/// <summary>
+		/// Cep telefonu
+		/// </summary>
+		public string MobilePhones { get; set; }
+		/// <summary>
+		/// Durum.
+		/// </summary>
+		public bool Status { get; set; }
+		/// <summary>
+		/// Doğum tarihi.
+		/// </summary>
+		public DateTime BirthDate { get; set; }
+		/// <summary>
+		/// Cinsiyet
+		/// </summary>
+		public int Gender { get; set; }
+		/// <summary>
+		/// Kayıt tarihi
+		/// </summary>
+		public DateTime RecordDate { get; set; }
+		/// <summary>
+		/// Adres
+		/// </summary>
+		public string Address { get; set; }
+		/// <summary>
+		/// Notlar
+		/// </summary>		
+		public string Notes { get; set; }
+		/// <summary>
+		/// Bağlantı bilgilerinin son güncellenme tarihi.
+		/// </summary>
+		public DateTime UpdateContactDate { get; set; }
 
-  }
+		/// <summary>
+		/// Bu token encode ederken gerekiyor. Db'de yok. Varsayılanı Person.
+		/// </summary>
+		[NotMapped]
+		public string AuthenticationProviderType { get; set; } = "Person";
+
+
+		/// <summary>
+		/// Şifre ek bilgisi.
+		/// </summary>
+		public byte[] PasswordSalt { get; set; }
+		/// <summary>
+		/// Şifrenin çözülemeyecek şekilde kodlanmış hali.
+		/// </summary>
+		public byte[] PasswordHash { get; set; }
+
+		public User()
+		{
+			UpdateContactDate = RecordDate = DateTime.Now;
+			Status = true;
+		}
+
+		public bool UpdateMobilePhone(string mobilePhone)
+		{
+			if (mobilePhone != MobilePhones)
+			{
+				MobilePhones = MobilePhones;
+				return true;
+			}
+			else
+				return false;
+		}
+
+	}
 }

@@ -24,7 +24,7 @@ namespace Business.Handlers.UserClaims.Queries
 
       public async Task<IDataResult<UserClaim>> Handle(GetUserClaimQuery request, CancellationToken cancellationToken)
       {
-        return new SuccessDataResult<UserClaim>(await _userClaimDal.GetAsync(x => x.Id == request.Id));
+        return new SuccessDataResult<UserClaim>(await _userClaimDal.GetAsync(x => x.UserId == request.Id));
       }
     }
   }

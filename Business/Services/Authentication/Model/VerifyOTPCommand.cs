@@ -1,6 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Core.Utilities.Security.Jwt;
-using Entities.Concrete;
+using DataAccess.Entities;
 using MediatR;
 
 namespace Business.Services.Authentication
@@ -8,9 +8,14 @@ namespace Business.Services.Authentication
 	/// <summary>
 	/// Kullanıcıya gönderilen One Time Password'ü kontrol etmek gönderilen komuttur.
 	/// </summary>
-	public class VerifyOTPCommand : IRequest<IDataResult<AccessToken>>
+	public class VerifyOTPCommand : IRequest<IDataResult<SFwToken>>
   {
 		public AuthenticationProviderType Provider { get; set; }
+		/// <summary>
+		/// Aynı provider kullanıcısın farklı sistemlerden girebilmesini
+		/// sağlamak için alt türü belirtir.
+		/// </summary>
+		public string ProviderSubType { get; set; }
     public string ExternalUserId { get; set; }
     public int Code { get; set; }
   }

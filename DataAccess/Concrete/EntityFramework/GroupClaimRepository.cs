@@ -5,10 +5,10 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class GroupClaimRepository : EfEntityRepositoryBase<GroupClaim, ProjectDbContext>, IGroupClaimRepository
+  public class GroupClaimRepository : EfEntityRepositoryBase<GroupClaim, ProjectDbContext>, IGroupClaimRepository
+  {
+    public GroupClaimRepository(ProjectDbContext context) : base(context)
     {
-        public GroupClaimRepository(ProjectDbContext context) : base(context)
-        {
-        }
     }
+  }
 }

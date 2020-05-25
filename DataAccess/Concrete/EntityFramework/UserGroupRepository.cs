@@ -5,10 +5,10 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class UserGroupRepository : EfEntityRepositoryBase<UserGroup, ProjectDbContext>, IUserGroupDal
+  public class UserGroupRepository : EfEntityRepositoryBase<UserGroup, ProjectDbContext>, IUserGroupRepository
+  {
+    public UserGroupRepository(ProjectDbContext context) : base(context)
     {
-        public UserGroupRepository(ProjectDbContext context) : base(context)
-        {
-        }
     }
+  }
 }
