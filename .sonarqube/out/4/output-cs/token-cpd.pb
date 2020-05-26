@@ -3207,213 +3207,213 @@ PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Fakes\SFw\SFwInMemory.c
 } 
 } Ä
 qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\ForgotPasswordCommand.cs
-	namespace 	
-Business
+	namespace 	
+Business
  
-. 
-Handlers 
-. 
-Authorizations *
-.* +
-Commands+ 3
-{ 
-[ 
-SecuredOperation 
-] 
-public 
+. 
+Handlers 
+. 
+Authorizations *
+.* +
+Commands+ 3
+{ 
+[ 
+SecuredOperation 
+] 
+public 
 
-class !
-ForgotPasswordCommand &
-:' (
-IRequest) 1
-<1 2
-IResult2 9
->9 :
-{ 
+class !
+ForgotPasswordCommand &
+:' (
+IRequest) 1
+<1 2
+IResult2 9
+>9 :
+{ 
+public 
+string 
+
+TCKimlikNo  
+{! "
+get# &
+;& '
+set( +
+;+ ,
+}- .
 public 
-string 
+string 
+Email 
+{ 
+get !
+;! "
+set# &
+;& '
+}( )
+public 
+class (
+ForgotPasswordCommandHandler 1
+:2 3
+IRequestHandler4 C
+<C D!
+ForgotPasswordCommandD Y
+,Y Z
+IResult[ b
+>b c
+{ 	
+private 
+readonly 
+IUserRepository ,
+_userDal- 5
+;5 6
+public (
+ForgotPasswordCommandHandler /
+(/ 0
+IUserRepository0 ?
+userDal@ G
+)G H
+{ 
+_userDal 
+= 
+userDal "
+;" #
+} 
+[.. 
+CacheRemoveAspect.. 
+(.. 
+$str.. $
+)..$ %
+]..% &
+[// 
+	LogAspect// 
+(// 
+typeof// 
+(// 
+DbLogger// &
+)//& '
+)//' (
+]//( )
+public00 
+async00 
+Task00 
+<00 
+IResult00 %
+>00% &
+Handle00' -
+(00- .!
+ForgotPasswordCommand00. C
+request00D K
+,00K L
+CancellationToken00M ^
+cancellationToken00_ p
+)00p q
+{11 
+var22 
+user22 
+=22 
+await22  
+_userDal22! )
+.22) *
+GetAsync22* 2
+(222 3
+u223 4
+=>225 7
+u228 9
+.229 :
+	CitizenId22: C
+==22D F
+Convert22G N
+.22N O
+ToInt6422O V
+(22V W
+request22W ^
+.22^ _
 
-TCKimlikNo  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-string 
-Email 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-class (
-ForgotPasswordCommandHandler 1
-:2 3
-IRequestHandler4 C
-<C D!
-ForgotPasswordCommandD Y
-,Y Z
-IResult[ b
->b c
-{ 	
-private 
-readonly 
-IUserRepository ,
-_userDal- 5
-;5 6
-public (
-ForgotPasswordCommandHandler /
-(/ 0
-IUserRepository0 ?
-userDal@ G
-)G H
-{ 
-_userDal 
-= 
-userDal "
-;" #
-}   
-[// 
-CacheRemoveAspect// 
-(// 
-$str// $
-)//$ %
-]//% &
-[00 
-	LogAspect00 
-(00 
-typeof00 
-(00 
-DbLogger00 &
-)00& '
-)00' (
-]00( )
-public11 
-async11 
-Task11 
-<11 
-IResult11 %
->11% &
-Handle11' -
-(11- .!
-ForgotPasswordCommand11. C
-request11D K
-,11K L
-CancellationToken11M ^
-cancellationToken11_ p
-)11p q
-{22 
-var33 
-user33 
-=33 
-await33  
-_userDal33! )
-.33) *
-GetAsync33* 2
-(332 3
-u333 4
-=>335 7
-u338 9
-.339 :
-	CitizenId33: C
-==33D F
-Convert33G N
-.33N O
-ToInt6433O V
-(33V W
-request33W ^
-.33^ _
-
-TCKimlikNo33_ i
-)33i j
-)33j k
-;33k l
-if55 
-(55 
-user55 
-==55 
-null55  
-)55  !
-return66 
-new66 
-ErrorResult66 *
-(66* +
-Messages66+ 3
-.663 4
-WrongCID664 <
-)66< =
-;66= >
-var77 
-generatedPassword77 %
-=77& '
-RandomPassword77( 6
-.776 7 
-CreateRandomPassword777 K
-(77K L
-$num77L N
-)77N O
-;77O P
-HashingHelper88 
-.88 
-CreatePasswordHash88 0
-(880 1
-generatedPassword881 B
-,88B C
-out88D G
-byte88H L
-[88L M
-]88M N
-passwordSalt88O [
-,88[ \
-out88] `
-byte88a e
-[88e f
-]88f g
-passwordHash88h t
-)88t u
-;88u v
-_userDal<< 
-.<< 
-Update<< 
-(<<  
-user<<  $
-)<<$ %
-;<<% &
-return>> 
-new>> 
-SuccessResult>> (
-(>>( )
-Messages>>) 1
-.>>1 2
-SendPassword>>2 >
-+>>? @
-$str>>A P
-+>>Q R
-generatedPassword>>S d
-+>>e f
-$str>>g u
-+>>v w
-passwordHash	>>x Ñ
+TCKimlikNo22_ i
+)22i j
+)22j k
+;22k l
+if44 
+(44 
+user44 
+==44 
+null44  
+)44  !
+return55 
+new55 
+ErrorResult55 *
+(55* +
+Messages55+ 3
+.553 4
+WrongCID554 <
+)55< =
+;55= >
+var66 
+generatedPassword66 %
+=66& '
+RandomPassword66( 6
+.666 7 
+CreateRandomPassword667 K
+(66K L
+$num66L N
+)66N O
+;66O P
+HashingHelper77 
+.77 
+CreatePasswordHash77 0
+(770 1
+generatedPassword771 B
+,77B C
+out77D G
+byte77H L
+[77L M
+]77M N
+passwordSalt77O [
+,77[ \
+out77] `
+byte77a e
+[77e f
+]77f g
+passwordHash77h t
+)77t u
+;77u v
+_userDal;; 
+.;; 
+Update;; 
+(;;  
+user;;  $
+);;$ %
+;;;% &
+return== 
+new== 
+SuccessResult== (
+(==( )
+Messages==) 1
+.==1 2
+SendPassword==2 >
++==? @
+$str==A P
++==Q R
+generatedPassword==S d
++==e f
+$str==g u
++==v w
+passwordHash	==x Ñ
 +
->>Ö Ü
+==Ö Ü
 $str
->>á ï
+==á ï
 +
->>ñ ó
+==ñ ó
 passwordSalt
->>ò §
+==ò §
 )
->>§ •
+==§ •
 ;
->>• ¶
-}?? 
-}@@ 	
-}AA 
-}BB ¶ 
+==• ¶
+}>> 
+}?? 	
+}@@ 
+}AA ¶ 
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\LoginUserQuery.cs
 	namespace 	
 Business
@@ -4189,128 +4189,118 @@ IsCidValid% /
 }** 
 },, £
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\MobileLoginValidator.cs
-	namespace 	
-Business
+	namespace 	
+Business
  
-. 
-ValidationRules "
-." #
-FluentValidation# 3
-{ 
-public 
-class	  
-MobileLoginValidator #
-:$ %
-AbstractValidator& 7
-<7 8
-VerifyOTPCommand8 H
->H I
-{		 
-public
+. 
+ValidationRules "
+." #
+FluentValidation# 3
+{ 
+public 
+
+class  
+MobileLoginValidator %
+:& '
+AbstractValidator( 9
+<9 :
+VerifyOtpCommand: J
+>J K
+{ 
+public		  
+MobileLoginValidator		 #
+(		# $
+)		$ %
+{
 
- 
- 
-MobileLoginValidator
-
- 
-(
-
-  
-)
-
-  !
-{ 
-RuleFor 
-( 
-p 
-=> 
-p 
-. 
-ExternalUserId #
-)# $
-.$ %
-NotEmpty% -
-(- .
-). /
-;/ 0
-RuleFor 
-( 
-m 
-=> 
-m 
-. 
-Code 
-) 
-. 
-Must 
-(  
-(  !
-instance! )
-,) *
-value+ 0
-)0 1
-=>2 4
-{ 
-switch 
-( 
-instance 
-. 
-Provider !
-)! "
-{ 	
-case
- &
-AuthenticationProviderType )
-.) *
-Person* 0
-:0 1
-return 
-value 
-> 
-$num 
-; 
-case
- &
-AuthenticationProviderType )
-.) *
-Staff* /
-:/ 0
-return 
-value 
-> 
-$num 
-; 
-case
- &
-AuthenticationProviderType )
-.) *
-Agent* /
-:/ 0
-return 
-value 
-== 
-$num 
-; 
-default
- 
-: 
-break 
-; 
-} 	
-return 
-false 
-; 
-} 
-) 
-. 
-WithMessage 
-( 
-$str  
-)  !
-;! "
-} 
-} 
-}   Á
+ 	
+RuleFor 
+( 
+p 
+=> 
+p 
+. 
+ExternalUserId )
+)) *
+.* +
+NotEmpty+ 3
+(3 4
+)4 5
+;5 6
+RuleFor 
+( 
+m 
+=> 
+m 
+. 
+Code 
+)  
+.  !
+Must! %
+(% &
+(& '
+instance' /
+,/ 0
+value1 6
+)6 7
+=>8 :
+{ 
+switch 
+( 
+instance  
+.  !
+Provider! )
+)) *
+{ 
+case &
+AuthenticationProviderType 3
+.3 4
+Person4 :
+:: ;
+return 
+value $
+>% &
+$num' (
+;( )
+case &
+AuthenticationProviderType 3
+.3 4
+Staff4 9
+:9 :
+return 
+value $
+>% &
+$num' (
+;( )
+case &
+AuthenticationProviderType 3
+.3 4
+Agent4 9
+:9 :
+return 
+value $
+==% '
+$num( )
+;) *
+default 
+: 
+break 
+; 
+} 
+return 
+false 
+; 
+} 
+) 
+. 
+WithMessage 
+( 
+$str &
+)& '
+;' (
+} 	
+} 
+} Á
 kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\LoginUserHandler.cs
 	namespace		 	
 Business		
@@ -4451,7 +4441,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 <
 
 3 4
-VerifyOTPCommand
+VerifyOtpCommand
 
 4 D
 ,
@@ -4503,7 +4493,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 >/ 0
 Handle1 7
 (7 8
-VerifyOTPCommand8 H
+VerifyOtpCommand8 H
 requestI P
 ,P Q
 CancellationTokenR c
@@ -5730,2000 +5720,2091 @@ fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Command
 } 
 } 	
 } 
-} Ë
+} Î
 aE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Queries\GetGroupsQuery.cs
-	namespace 	
-Business
+	namespace		 	
+Business		
  
-. 
-Handlers 
-. 
-Groups "
-." #
-Queries# *
-{ 
-public 
-class	 
-GetGroupsQuery 
-: 
-IRequest  (
-<( )
-IDataResult) 4
-<4 5
-IEnumerable5 @
-<@ A
-GroupA F
->F G
->G H
->H I
-{ 
-public 
-
-class !
-GetGroupsQueryHandler &
-:' (
-IRequestHandler) 8
-<8 9
-GetGroupsQuery9 G
-,G H
-IDataResultI T
-<T U
-IEnumerableU `
-<` a
-Groupa f
->f g
->g h
->h i
-{ 
-private 
-readonly 
-IGroupRepository '
-	_groupDal( 1
-;1 2
-public !
-GetGroupsQueryHandler "
-(" #
-IGroupRepository# 3
-groupDal4 <
-)< =
-{ 
-	_groupDal 
-= 
-groupDal 
-; 
-} 
-public 
-async 
-Task 
-< 
-IDataResult #
-<# $
-IEnumerable$ /
-</ 0
-Group0 5
->5 6
->6 7
->7 8
-Handle9 ?
-(? @
-GetGroupsQuery@ N
-requestO V
-,V W
-CancellationTokenX i
-cancellationTokenj {
-){ |
-{ 
-return 
-new 
-SuccessDataResult $
-<$ %
-IEnumerable% 0
-<0 1
-Group1 6
->6 7
->7 8
-(8 9
-await9 >
-	_groupDal? H
-.H I
-GetListAsyncI U
-(U V
-)V W
-)W X
-;X Y
-} 
-} 
-} 
-} ˛
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\CreateOperationClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-OperationClaims +
-.+ ,
-Commands, 4
-{ 
-public 
-
-class '
-CreateOperationClaimCommand ,
-:- .
-IRequest/ 7
-<7 8
-IResult8 ?
->? @
-{ 
-public 
-string 
-	ClaimName 
-{  !
-get" %
-;% &
-set' *
-;* +
-}, -
-public 
-class .
-"CreateOperationClaimCommandHandler 7
-:8 9
-IRequestHandler: I
-<I J'
-CreateOperationClaimCommandJ e
-,e f
-IResultg n
->n o
-{ 	
-private 
-readonly %
-IOperationClaimRepository 6
-_operationClaimDal7 I
-;I J
-public .
-"CreateOperationClaimCommandHandler 5
-(5 6%
-IOperationClaimRepository6 O
-operationClaimDalP a
-)a b
-{ 
-_operationClaimDal "
-=# $
-operationClaimDal% 6
-;6 7
-} 
-public 
-async 
-Task 
-< 
-IResult %
->% &
-Handle' -
-(- .'
-CreateOperationClaimCommand. I
-requestJ Q
-,Q R
-CancellationTokenS d
-cancellationTokene v
-)v w
-{ 
-if 
-( 
-IsClaimExists !
-(! "
-request" )
-.) *
-	ClaimName* 3
-)3 4
-)4 5
-return 
-new 
-ErrorResult *
-(* +
-Messages+ 3
-.3 4 
-OperationClaimExists4 H
-)H I
-;I J
-var!! 
-operationClaim!! "
-=!!# $
-new!!% (
-OperationClaim!!) 7
-{"" 
-Name## 
-=## 
-request## "
-.##" #
-	ClaimName### ,
-}$$ 
-;$$ 
-_operationClaimDal%% "
-.%%" #
-Add%%# &
-(%%& '
-operationClaim%%' 5
-)%%5 6
-;%%6 7
-await&& 
-_operationClaimDal&& (
-.&&( )
-SaveChangesAsync&&) 9
-(&&9 :
-)&&: ;
-;&&; <
-return(( 
-new(( 
-SuccessResult(( (
-(((( )
-Messages(() 1
-.((1 2
-OperationClaimAdded((2 E
-)((E F
-;((F G
-})) 
-private** 
-bool** 
-IsClaimExists** &
-(**& '
-string**' -
-	claimName**. 7
-)**7 8
-{++ 
-return,, 
-_operationClaimDal,, )
-.,,) *
-Query,,* /
-(,,/ 0
-),,0 1
-.,,1 2
-Any,,2 5
-(,,5 6
-x,,6 7
-=>,,8 :
-x,,; <
-.,,< =
-Name,,= A
-==,,B D
-	claimName,,E N
-),,N O
-;,,O P
-}-- 
-}.. 	
-}// 
-}00 £
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\DeleteOperationClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-OperationClaims +
-.+ ,
-Commands, 4
-{ 
-public 
-class	 '
-DeleteOperationClaimCommand *
-:+ ,
-IRequest- 5
-<5 6
-IResult6 =
->= >
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-class .
-"DeleteOperationClaimCommandHandler 3
-:4 5
-IRequestHandler6 E
-<E F'
-DeleteOperationClaimCommandF a
-,a b
-IResultc j
->j k
-{ 
-private 
-readonly %
-IOperationClaimRepository 0
-_operationClaimDal1 C
-;C D
-public .
-"DeleteOperationClaimCommandHandler /
-(/ 0%
-IOperationClaimRepository0 I
-operationClaimDalJ [
-)[ \
-{ 
-_operationClaimDal 
-= 
-operationClaimDal .
-;. /
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ('
-DeleteOperationClaimCommand( C
-requestD K
-,K L
-CancellationTokenM ^
-cancellationToken_ p
-)p q
-{ 
-var 
-claimToDelete 
-= 
-await !
-_operationClaimDal" 4
-.4 5
-GetAsync5 =
-(= >
-x> ?
-=>@ B
-xC D
-.D E
-IdE G
-==H J
-requestK R
-.R S
-IdS U
-)U V
-;V W
-_operationClaimDal 
-. 
-Delete !
-(! "
-claimToDelete" /
-)/ 0
-;0 1
-await 
-_operationClaimDal  
-.  !
-SaveChangesAsync! 1
-(1 2
-)2 3
-;3 4
-return   
-new   
-SuccessResult    
-(    !
-Messages  ! )
-.  ) *!
-OperationClaimDeleted  * ?
-)  ? @
-;  @ A
-}!! 
-}"" 
-}## 
-}$$ ¬
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\UpdateOperationClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-OperationClaims +
-.+ ,
-Commands, 4
-{ 
-public 
-class	 '
-UpdateOperationClaimCommand *
-:+ ,
-IRequest- 5
-<5 6
-IResult6 =
->= >
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-string 
-	ClaimName 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-
-class .
-"UpdateOperationClaimCommandHandler 3
-:4 5
-IRequestHandler6 E
-<E F'
-UpdateOperationClaimCommandF a
-,a b
-IResultc j
->j k
-{ 
-private 
-readonly %
-IOperationClaimRepository 0
-_operationClaimDal1 C
-;C D
-public .
-"UpdateOperationClaimCommandHandler /
-(/ 0%
-IOperationClaimRepository0 I
-operationClaimDalJ [
-)[ \
-{ 
-_operationClaimDal 
-= 
-operationClaimDal .
-;. /
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ('
-UpdateOperationClaimCommand( C
-requestD K
-,K L
-CancellationTokenM ^
-cancellationToken_ p
-)p q
-{ 
-var 
-claimToUpdate 
-= 
-new 
-OperationClaim  .
-{ 	
-Id
- 
-= 
-request 
-. 
-Id 
-, 
-Name  
- 
-=   
-request   
-.   
-	ClaimName   "
-}!! 	
-;!!	 
-
-_operationClaimDal"" 
-."" 
-Update"" !
-(""! "
-claimToUpdate""" /
-)""/ 0
-;""0 1
-await## 
-_operationClaimDal##  
-.##  !
-SaveChangesAsync##! 1
-(##1 2
-)##2 3
-;##3 4
-return%% 
-new%% 
-SuccessResult%%  
-(%%  !
-Messages%%! )
-.%%) *!
-OperationClaimUpdated%%* ?
-)%%? @
-;%%@ A
-}&& 
-}'' 
-}(( 
-})) “
-rE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-OperationClaims +
-.+ ,
-Queries, 3
-{ 
-public 
-class	 "
-GetOperationClaimQuery %
-:& '
-IRequest( 0
-<0 1
-IDataResult1 <
-<< =
-OperationClaim= K
->K L
->L M
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-class )
-GetOperationClaimQueryHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-GetOperationClaimQueryA W
-,W X
-IDataResultY d
-<d e
-OperationClaime s
->s t
->t u
-{ 
-private 
-readonly %
-IOperationClaimRepository 0
-_operationClaimDal1 C
-;C D
-public )
-GetOperationClaimQueryHandler *
-(* +%
-IOperationClaimRepository+ D
-operationClaimDalE V
-)V W
-{ 
-_operationClaimDal 
-= 
-operationClaimDal .
-;. /
-} 
-public 
-async 
-Task 
-< 
-IDataResult #
-<# $
-OperationClaim$ 2
->2 3
->3 4
-Handle5 ;
-(; <"
-GetOperationClaimQuery< R
-requestS Z
-,Z [
-CancellationToken\ m
-cancellationTokenn 
-)	 Ä
-{ 
-return 
-new 
-SuccessDataResult $
-<$ %
-OperationClaim% 3
->3 4
-(4 5
-await5 :
-_operationClaimDal; M
-.M N
-GetAsyncN V
-(V W
-xW X
-=>Y [
-x\ ]
-.] ^
-Id^ `
-==a c
-requestd k
-.k l
-Idl n
-)n o
-)o p
-;p q
-} 
-} 
-} 
-} ù
-sE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimsQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-OperationClaims +
-.+ ,
-Queries, 3
-{ 
-public 
-class	 #
-GetOperationClaimsQuery &
-:' (
-IRequest) 1
-<1 2
-IDataResult2 =
-<= >
-IEnumerable> I
-<I J
-OperationClaimJ X
->X Y
->Y Z
->Z [
-{ 
-public 
-
-class *
-GetOperationClaimsQueryHandler /
-:0 1
-IRequestHandler2 A
-<A B#
-GetOperationClaimsQueryB Y
-,Y Z
-IDataResult[ f
-<f g
-IEnumerableg r
-<r s
-OperationClaim	s Å
->
-Å Ç
->
-Ç É
->
-É Ñ
-{ 
-private 
-readonly %
-IOperationClaimRepository 0
-_operationClaimDal1 C
-;C D
-public *
-GetOperationClaimsQueryHandler +
-(+ ,%
-IOperationClaimRepository, E
-operationClaimDalF W
-)W X
-{ 
-_operationClaimDal 
-= 
-operationClaimDal .
-;. /
-} 
-public 
-async 
-Task 
-< 
-IDataResult #
-<# $
-IEnumerable$ /
-</ 0
-OperationClaim0 >
->> ?
->? @
->@ A
-HandleB H
-(H I#
-GetOperationClaimsQueryI `
-requesta h
-,h i
-CancellationTokenj {
-cancellationToken	| ç
-)
-ç é
-{ 
-return 
-new 
-SuccessDataResult $
-<$ %
-IEnumerable% 0
-<0 1
-OperationClaim1 ?
->? @
->@ A
-(A B
-awaitB G
-_operationClaimDalH Z
-.Z [
-GetListAsync[ g
-(g h
-)h i
-)i j
-;j k
-} 
-} 
-} 
-} Â
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\CreateUserClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserClaims &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-CreateUserClaimCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-UserId 
-{ 
-get 
-; 
-set  
-;  !
-}" #
-public 
-
-int 
-ClaimId 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-class )
-CreateUserClaimCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-CreateUserClaimCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserClaimRepository +
-_userClaimDal, 9
-;9 :
-public )
-CreateUserClaimCommandHandler *
-(* + 
-IUserClaimRepository+ ?
-userClaimDal@ L
-)L M
-{ 
-_userClaimDal 
-= 
-userClaimDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-CreateUserClaimCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-	userClaim 
-= 
-new 
-	UserClaim %
-{ 	
-ClaimId
- 
-= 
-request 
-. 
-ClaimId #
-,# $
-UserId  
- 
-=   
-request   
-.   
-UserId   !
-}!! 	
-;!!	 
-
-_userClaimDal"" 
-."" 
-Add"" 
-("" 
-	userClaim"" #
-)""# $
-;""$ %
-await## 
-_userClaimDal## 
-.## 
-SaveChangesAsync## ,
-(##, -
-)##- .
-;##. /
-return%% 
-new%% 
-SuccessResult%%  
-(%%  !
-Messages%%! )
-.%%) *
-UserClaimCreated%%* :
-)%%: ;
-;%%; <
-}&& 
-}'' 
-}(( 
-})) œ
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\DeleteUserClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserClaims &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-DeleteUserClaimCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-class )
-DeleteUserClaimCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-DeleteUserClaimCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserClaimRepository +
-_userClaimDal, 9
-;9 :
-public )
-DeleteUserClaimCommandHandler *
-(* + 
-IUserClaimRepository+ ?
-userClaimDal@ L
-)L M
-{ 
-_userClaimDal 
-= 
-userClaimDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-DeleteUserClaimCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-entityToDelete 
-= 
-await "
-_userClaimDal# 0
-.0 1
-GetAsync1 9
-(9 :
-x: ;
-=>< >
-x? @
-.@ A
-UserIdA G
-==H J
-requestK R
-.R S
-IdS U
-)U V
-;V W
-_userClaimDal 
-. 
-Delete 
-( 
-entityToDelete +
-)+ ,
-;, -
-await 
-_userClaimDal 
-. 
-SaveChangesAsync ,
-(, -
-)- .
-;. /
-return   
-new   
-SuccessResult    
-(    !
-Messages  ! )
-.  ) *
-UserClaimDeleted  * :
-)  : ;
-;  ; <
-}!! 
-}"" 
-}## 
-}$$ ã
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\UpdateUserClaimCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserClaims &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-UpdateUserClaimCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-int 
-UserId 
-{ 
-get 
-; 
-set  
-;  !
-}" #
-public 
-
-int 
-ClaimId 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-class )
-UpdateUserClaimCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-UpdateUserClaimCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserClaimRepository +
-_userClaimDal, 9
-;9 :
-public )
-UpdateUserClaimCommandHandler *
-(* + 
-IUserClaimRepository+ ?
-userClaimDal@ L
-)L M
-{ 
-_userClaimDal 
-= 
-userClaimDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-UpdateUserClaimCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-userClaimToUpdate 
-= 
-new  #
-	UserClaim$ -
-{   	
-ClaimId!!
- 
-=!! 
-request!! 
-.!! 
-ClaimId!! #
-,!!# $
-UserId""
- 
-="" 
-request"" 
-."" 
-UserId"" !
-}## 	
-;##	 
-
-_userClaimDal$$ 
-.$$ 
-Update$$ 
-($$ 
-userClaimToUpdate$$ .
-)$$. /
-;$$/ 0
-await%% 
-_userClaimDal%% 
-.%% 
-SaveChangesAsync%% ,
-(%%, -
-)%%- .
-;%%. /
-return'' 
-new'' 
-SuccessResult''  
-(''  !
-Messages''! )
-.'') *
-UserClaimUpdated''* :
-)'': ;
-;''; <
-}(( 
-})) 
-}** 
-}++ ˆ
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserClaims &
-.& '
-Queries' .
-{ 
-public 
-class	 
-GetUserClaimQuery  
-:! "
-IRequest# +
-<+ ,
-IDataResult, 7
-<7 8
-	UserClaim8 A
->A B
->B C
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-class $
-GetUserClaimQueryHandler )
-:* +
-IRequestHandler, ;
-<; <
-GetUserClaimQuery< M
-,M N
-IDataResultO Z
-<Z [
-	UserClaim[ d
->d e
->e f
-{ 
-private 
-readonly  
-IUserClaimRepository +
-_userClaimDal, 9
-;9 :
-public $
-GetUserClaimQueryHandler %
-(% & 
-IUserClaimRepository& :
-userClaimDal; G
-)G H
-{ 
-_userClaimDal 
-= 
-userClaimDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IDataResult #
-<# $
-	UserClaim$ -
->- .
->. /
-Handle0 6
-(6 7
-GetUserClaimQuery7 H
-requestI P
-,P Q
-CancellationTokenR c
-cancellationTokend u
-)u v
-{ 
-return 
-new 
-SuccessDataResult $
-<$ %
-	UserClaim% .
->. /
-(/ 0
-await0 5
-_userClaimDal6 C
-.C D
-GetAsyncD L
-(L M
-xM N
-=>O Q
-xR S
-.S T
-UserIdT Z
-==[ ]
-request^ e
-.e f
-Idf h
-)h i
-)i j
-;j k
-} 
-} 
-} 
-} ∑
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimsQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserClaims &
-.& '
-Queries' .
-{ 
-public 
-class	 
-GetUserClaimsQuery !
-:" #
-IRequest$ ,
-<, -
-IDataResult- 8
-<8 9
-IEnumerable9 D
-<D E
-	UserClaimE N
->N O
->O P
->P Q
-{ 
-public 
-
-class %
-GetUserClaimsQueryHandler *
-:+ ,
-IRequestHandler- <
-<< =
-GetUserClaimsQuery= O
-,O P
-IDataResultQ \
-<\ ]
-IEnumerable] h
-<h i
-	UserClaimi r
->r s
->s t
->t u
-{ 
-private 
-readonly  
-IUserClaimRepository +
-_userClaimDal, 9
-;9 :
-public %
-GetUserClaimsQueryHandler &
-(& ' 
-IUserClaimRepository' ;
-userClaimDal< H
-)H I
-{ 
-_userClaimDal 
-= 
-userClaimDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IDataResult #
-<# $
-IEnumerable$ /
-</ 0
-	UserClaim0 9
->9 :
->: ;
->; <
-Handle= C
-(C D
-GetUserClaimsQueryD V
-requestW ^
-,^ _
-CancellationToken` q
-cancellationToken	r É
-)
-É Ñ
-{ 
-return 
-new 
-SuccessDataResult $
-<$ %
-IEnumerable% 0
-<0 1
-	UserClaim1 :
->: ;
->; <
-(< =
-await= B
-_userClaimDalC P
-.P Q
-GetListAsyncQ ]
-(] ^
-)^ _
-)_ `
-;` a
-} 
-} 
-} 
-} „
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\CreateUserGroupCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserGroups &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-CreateUserGroupCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-GroupId 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-int 
-UserId 
-{ 
-get 
-; 
-set  
-;  !
-}" #
-public 
-
-class )
-CreateUserGroupCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-CreateUserGroupCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserGroupRepository +
-_userGroupDal, 9
-;9 :
-public )
-CreateUserGroupCommandHandler *
-(* + 
-IUserGroupRepository+ ?
-userGroupDal@ L
-)L M
-{ 
-_userGroupDal 
-= 
-userGroupDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-CreateUserGroupCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-	userGroup 
-= 
-new 
-	UserGroup %
-{   	
-GroupId!!
- 
-=!! 
-request!! 
-.!! 
-GroupId!! #
-,!!# $
-UserId""
- 
-="" 
-request"" 
-."" 
-UserId"" !
-}## 	
-;##	 
-
-_userGroupDal%% 
-.%% 
-Add%% 
-(%% 
-	userGroup%% #
-)%%# $
-;%%$ %
-await&& 
-_userGroupDal&& 
-.&& 
-SaveChangesAsync&& ,
-(&&, -
-)&&- .
-;&&. /
-return(( 
-new(( 
-SuccessResult((  
-(((  !
-Messages((! )
-.(() *
-UserGroupAdded((* 8
-)((8 9
-;((9 :
-})) 
-}** 
-}++ 
-},, œ
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\DeleteUserGroupCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserGroups &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-DeleteUserGroupCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-class )
-DeleteUserGroupCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-DeleteUserGroupCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserGroupRepository +
-_userGroupDal, 9
-;9 :
-public )
-DeleteUserGroupCommandHandler *
-(* + 
-IUserGroupRepository+ ?
-userGroupDal@ L
-)L M
-{ 
-_userGroupDal 
-= 
-userGroupDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-DeleteUserGroupCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-entityToDelete 
-= 
-await "
-_userGroupDal# 0
-.0 1
-GetAsync1 9
-(9 :
-x: ;
-=>< >
-x? @
-.@ A
-UserIdA G
-==H J
-requestK R
-.R S
-IdS U
-)U V
-;V W
-_userGroupDal 
-. 
-Delete 
-( 
-entityToDelete +
-)+ ,
-;, -
-await 
-_userGroupDal 
-. 
-SaveChangesAsync ,
-(, -
-)- .
-;. /
-return!! 
-new!! 
-SuccessResult!!  
-(!!  !
-Messages!!! )
-.!!) *
-UserGroupDeleted!!* :
-)!!: ;
-;!!; <
-}"" 
-}## 
-}$$ 
-}%% ö
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\UpdateUserGroupCommand.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserGroups &
-.& '
-Commands' /
-{ 
-public 
-class	 "
-UpdateUserGroupCommand %
-:& '
-IRequest( 0
-<0 1
-IResult1 8
->8 9
-{ 
-public 
-
-int 
-Id 
-{ 
-get 
-; 
-set 
-; 
-} 
-public 
-
-int 
-UserId 
-{ 
-get 
-; 
-set  
-;  !
-}" #
-public 
-
-int 
-GroupId 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-class )
-UpdateUserGroupCommandHandler .
-:/ 0
-IRequestHandler1 @
-<@ A"
-UpdateUserGroupCommandA W
-,W X
-IResultY `
->` a
-{ 
-private 
-readonly  
-IUserGroupRepository +
-_userGroupDal, 9
-;9 :
-public )
-UpdateUserGroupCommandHandler *
-(* + 
-IUserGroupRepository+ ?
-userGroupDal@ L
-)L M
-{ 
-_userGroupDal 
-= 
-userGroupDal $
-;$ %
-} 
-public 
-async 
-Task 
-< 
-IResult 
->  
-Handle! '
-(' ("
-UpdateUserGroupCommand( >
-request? F
-,F G
-CancellationTokenH Y
-cancellationTokenZ k
-)k l
-{ 
-var 
-userGroupToUpdate 
-= 
-new  #
-	UserGroup$ -
-{   	
-GroupId!!
- 
-=!! 
-request!! 
-.!! 
-GroupId!! #
-,!!# $
-UserId""
- 
-="" 
-request"" 
-."" 
-UserId"" !
-,""! "
-}## 	
-;##	 
-
-_userGroupDal%% 
-.%% 
-Update%% 
-(%% 
-userGroupToUpdate%% .
-)%%. /
-;%%/ 0
-await&& 
-_userGroupDal&& 
-.&& 
-SaveChangesAsync&& ,
-(&&, -
-)&&- .
-;&&. /
-return'' 
-new'' 
-SuccessResult''  
-(''  !
-Messages''! )
-.'') *
-UserGroupUpdated''* :
-)'': ;
-;''; <
-})) 
-}** 
-}++ 
-},, Ô
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserGroups &
-.& '
-Queries' .
-{ 
-class 
-GetUserGroupQuery 
-{ 
-}		 
-}
+.		 
+Handlers		 
+.		 
+Groups		 "
+.		" #
+Queries		# *
+{
 
- ∑
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupsQuery.cs
-	namespace 	
-Business
- 
-. 
-Handlers 
-. 
-
-UserGroups &
-.& '
-Queries' .
-{ 
-public 
+ 
+public 
 
-class 
-GetUserGroupsQuery #
-:$ %
-IRequest& .
-<. /
-IDataResult/ :
-<: ;
-IEnumerable; F
-<F G
-	UserGroupG P
->P Q
->Q R
->R S
-{ 
+class 
+GetGroupsQuery 
+:  !
+IRequest" *
+<* +
+IDataResult+ 6
+<6 7
+IEnumerable7 B
+<B C
+GroupC H
+>H I
+>I J
+>J K
+{ 
+public 
+class !
+GetGroupsQueryHandler *
+:+ ,
+IRequestHandler- <
+<< =
+GetGroupsQuery= K
+,K L
+IDataResultM X
+<X Y
+IEnumerableY d
+<d e
+Groupe j
+>j k
+>k l
+>l m
+{ 	
+private 
+readonly 
+IGroupRepository -
+	_groupDal. 7
+;7 8
+public !
+GetGroupsQueryHandler (
+(( )
+IGroupRepository) 9
+groupDal: B
+)B C
+{ 
+	_groupDal 
+= 
+groupDal $
+;$ %
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+IEnumerable* 5
+<5 6
+Group6 ;
+>; <
+>< =
+>= >
+Handle? E
+(E F
+GetGroupsQueryF T
+requestU \
+,\ ]
+CancellationToken^ o
+cancellationToken	p Å
+)
+Å Ç
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+IEnumerable- 8
+<8 9
+Group9 >
+>> ?
+>? @
+(@ A
+awaitA F
+	_groupDalG P
+.P Q
+GetListAsyncQ ]
+(] ^
+)^ _
+)_ `
+;` a
+} 
+} 	
+} 
+} ˛
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\CreateOperationClaimCommand.cs
+	namespace
+
+ 	
+Business
+
+
+ 
+.
+
+ 
+Handlers
+
+ 
+.
+
+ 
+OperationClaims
+
+ +
+.
+
++ ,
+Commands
+
+, 4
+{ 
+public 
+
+class '
+CreateOperationClaimCommand ,
+:- .
+IRequest/ 7
+<7 8
+IResult8 ?
+>? @
+{ 
+public 
+string 
+	ClaimName 
+{  !
+get" %
+;% &
+set' *
+;* +
+}, -
+public 
+class .
+"CreateOperationClaimCommandHandler 7
+:8 9
+IRequestHandler: I
+<I J'
+CreateOperationClaimCommandJ e
+,e f
+IResultg n
+>n o
+{ 	
+private 
+readonly %
+IOperationClaimRepository 6
+_operationClaimDal7 I
+;I J
+public .
+"CreateOperationClaimCommandHandler 5
+(5 6%
+IOperationClaimRepository6 O
+operationClaimDalP a
+)a b
+{ 
+_operationClaimDal "
+=# $
+operationClaimDal% 6
+;6 7
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- .'
+CreateOperationClaimCommand. I
+requestJ Q
+,Q R
+CancellationTokenS d
+cancellationTokene v
+)v w
+{ 
+if 
+( 
+IsClaimExists !
+(! "
+request" )
+.) *
+	ClaimName* 3
+)3 4
+)4 5
+return 
+new 
+ErrorResult *
+(* +
+Messages+ 3
+.3 4 
+OperationClaimExists4 H
+)H I
+;I J
+var 
+operationClaim "
+=# $
+new% (
+OperationClaim) 7
+{ 
+Name   
+=   
+request   "
+.  " #
+	ClaimName  # ,
+}!! 
+;!! 
+_operationClaimDal"" "
+.""" #
+Add""# &
+(""& '
+operationClaim""' 5
+)""5 6
+;""6 7
+await## 
+_operationClaimDal## (
+.##( )
+SaveChangesAsync##) 9
+(##9 :
+)##: ;
+;##; <
+return%% 
+new%% 
+SuccessResult%% (
+(%%( )
+Messages%%) 1
+.%%1 2
+OperationClaimAdded%%2 E
+)%%E F
+;%%F G
+}&& 
+private'' 
+bool'' 
+IsClaimExists'' &
+(''& '
+string''' -
+	claimName''. 7
+)''7 8
+{(( 
+return)) 
+_operationClaimDal)) )
+.))) *
+Query))* /
+())/ 0
+)))0 1
+.))1 2
+Any))2 5
+())5 6
+x))6 7
+=>))8 :
+x)); <
+.))< =
+Name))= A
+==))B D
+	claimName))E N
+)))N O
+;))O P
+}** 
+}++ 	
+},, 
+}-- £
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\DeleteOperationClaimCommand.cs
+	namespace 	
+Business
+ 
+. 
+Handlers 
+. 
+OperationClaims +
+.+ ,
+Commands, 4
+{		 
+public
+
+ 
+
+class
+
+ '
+DeleteOperationClaimCommand
+
+ ,
+:
+
+- .
+IRequest
+
+/ 7
+<
+
+7 8
+IResult
+
+8 ?
+>
+
+? @
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+class .
+"DeleteOperationClaimCommandHandler 7
+:8 9
+IRequestHandler: I
+<I J'
+DeleteOperationClaimCommandJ e
+,e f
+IResultg n
+>n o
+{ 	
+private 
+readonly %
+IOperationClaimRepository 6
+_operationClaimDal7 I
+;I J
+public .
+"DeleteOperationClaimCommandHandler 5
+(5 6%
+IOperationClaimRepository6 O
+operationClaimDalP a
+)a b
+{ 
+_operationClaimDal "
+=# $
+operationClaimDal% 6
+;6 7
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- .'
+DeleteOperationClaimCommand. I
+requestJ Q
+,Q R
+CancellationTokenS d
+cancellationTokene v
+)v w
+{ 
+var 
+claimToDelete !
+=" #
+await$ )
+_operationClaimDal* <
+.< =
+GetAsync= E
+(E F
+xF G
+=>H J
+xK L
+.L M
+IdM O
+==P R
+requestS Z
+.Z [
+Id[ ]
+)] ^
+;^ _
+_operationClaimDal "
+." #
+Delete# )
+() *
+claimToDelete* 7
+)7 8
+;8 9
+await 
+_operationClaimDal (
+.( )
+SaveChangesAsync) 9
+(9 :
+): ;
+;; <
+return 
+new 
+SuccessResult (
+(( )
+Messages) 1
+.1 2!
+OperationClaimDeleted2 G
+)G H
+;H I
+} 
+} 	
+} 
+}   ¬
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\UpdateOperationClaimCommand.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+OperationClaims		 +
+.		+ ,
+Commands		, 4
+{
+
+ 
+public 
+
+class '
+UpdateOperationClaimCommand ,
+:- .
+IRequest/ 7
+<7 8
+IResult8 ?
+>? @
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+string 
+	ClaimName 
+{  !
+get" %
+;% &
+set' *
+;* +
+}, -
 public 
-class %
-GetUserGroupsQueryHandler .
-:/ 0
-IRequestHandler1 @
-<@ A
-GetUserGroupsQueryA S
-,S T
-IDataResultU `
-<` a
-IEnumerablea l
-<l m
-	UserGroupm v
->v w
->w x
->x y
+class .
+"UpdateOperationClaimCommandHandler 7
+:8 9
+IRequestHandler: I
+<I J'
+UpdateOperationClaimCommandJ e
+,e f
+IResultg n
+>n o
+{ 	
+private 
+readonly %
+IOperationClaimRepository 6
+_operationClaimDal7 I
+;I J
+public .
+"UpdateOperationClaimCommandHandler 5
+(5 6%
+IOperationClaimRepository6 O
+operationClaimDalP a
+)a b
+{ 
+_operationClaimDal "
+=# $
+operationClaimDal% 6
+;6 7
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- .'
+UpdateOperationClaimCommand. I
+requestJ Q
+,Q R
+CancellationTokenS d
+cancellationTokene v
+)v w
+{ 
+var 
+claimToUpdate !
+=" #
+new$ '
+OperationClaim( 6
+{ 
+Id 
+= 
+request  
+.  !
+Id! #
+,# $
+Name 
+= 
+request "
+." #
+	ClaimName# ,
+} 
+; 
+_operationClaimDal "
+." #
+Update# )
+() *
+claimToUpdate* 7
+)7 8
+;8 9
+await   
+_operationClaimDal   (
+.  ( )
+SaveChangesAsync  ) 9
+(  9 :
+)  : ;
+;  ; <
+return"" 
+new"" 
+SuccessResult"" (
+(""( )
+Messages"") 1
+.""1 2!
+OperationClaimUpdated""2 G
+)""G H
+;""H I
+}## 
+}$$ 	
+}%% 
+}&& ‘
+rE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimQuery.cs
+	namespace 	
+Business
+ 
+. 
+Handlers 
+. 
+OperationClaims +
+.+ ,
+Queries, 3
+{		 
+public
+
+ 
+
+class
+
+ "
+GetOperationClaimQuery
+
+ '
+:
+
+( )
+IRequest
+
+* 2
+<
+
+2 3
+IDataResult
+
+3 >
+<
+
+> ?
+OperationClaim
+
+? M
+>
+
+M N
+>
+
+N O
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+class )
+GetOperationClaimQueryHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+GetOperationClaimQueryE [
+,[ \
+IDataResult] h
+<h i
+OperationClaimi w
+>w x
+>x y
+{ 	
+private 
+readonly %
+IOperationClaimRepository 6
+_operationClaimDal7 I
+;I J
+public )
+GetOperationClaimQueryHandler 0
+(0 1%
+IOperationClaimRepository1 J
+operationClaimDalK \
+)\ ]
+{ 
+_operationClaimDal "
+=# $
+operationClaimDal% 6
+;6 7
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+OperationClaim* 8
+>8 9
+>9 :
+Handle; A
+(A B"
+GetOperationClaimQueryB X
+requestY `
+,` a
+CancellationTokenb s
+cancellationToken	t Ö
+)
+Ö Ü
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+OperationClaim- ;
+>; <
+(< =
+await= B
+_operationClaimDalC U
+.U V
+GetAsyncV ^
+(^ _
+x_ `
+=>a c
+xd e
+.e f
+Idf h
+==i k
+requestl s
+.s t
+Idt v
+)v w
+)w x
+;x y
+} 
+} 	
+} 
+} ü
+sE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimsQuery.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+OperationClaims		 +
+.		+ ,
+Queries		, 3
+{
+
+ 
+public 
+
+class #
+GetOperationClaimsQuery (
+:) *
+IRequest+ 3
+<3 4
+IDataResult4 ?
+<? @
+IEnumerable@ K
+<K L
+OperationClaimL Z
+>Z [
+>[ \
+>\ ]
+{ 
+public 
+class *
+GetOperationClaimsQueryHandler 3
+:4 5
+IRequestHandler6 E
+<E F#
+GetOperationClaimsQueryF ]
+,] ^
+IDataResult_ j
+<j k
+IEnumerablek v
+<v w
+OperationClaim	w Ö
+>
+Ö Ü
+>
+Ü á
+>
+á à
+{ 	
+private 
+readonly %
+IOperationClaimRepository 6
+_operationClaimDal7 I
+;I J
+public *
+GetOperationClaimsQueryHandler 1
+(1 2%
+IOperationClaimRepository2 K
+operationClaimDalL ]
+)] ^
+{ 
+_operationClaimDal "
+=# $
+operationClaimDal% 6
+;6 7
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+IEnumerable* 5
+<5 6
+OperationClaim6 D
+>D E
+>E F
+>F G
+HandleH N
+(N O#
+GetOperationClaimsQueryO f
+requestg n
+,n o
+CancellationToken	p Å
+cancellationToken
+Ç ì
+)
+ì î
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+IEnumerable- 8
+<8 9
+OperationClaim9 G
+>G H
+>H I
+(I J
+awaitJ O
+_operationClaimDalP b
+.b c
+GetListAsyncc o
+(o p
+)p q
+)q r
+;r s
+} 
+} 	
+} 
+} Â
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\CreateUserClaimCommand.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserClaims		 &
+.		& '
+Commands		' /
+{
+
+ 
+public 
+
+class "
+CreateUserClaimCommand '
+:( )
+IRequest* 2
+<2 3
+IResult3 :
+>: ;
+{ 
+public 
+int 
+UserId 
+{ 
+get 
+;  
+set! $
+;$ %
+}& '
+public 
+int 
+ClaimId 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+class )
+CreateUserClaimCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+CreateUserClaimCommandE [
+,[ \
+IResult] d
+>d e
 { 	
 private 
 readonly  
-IUserGroupRepository 1
-_userGroupDal2 ?
+IUserClaimRepository 1
+_userClaimDal2 ?
 ;? @
-public %
-GetUserGroupsQueryHandler ,
-(, - 
-IUserGroupRepository- A
-userGroupDalB N
-)N O
+public )
+CreateUserClaimCommandHandler 0
+(0 1 
+IUserClaimRepository1 E
+userClaimDalF R
+)R S
 { 
-_userGroupDal 
+_userClaimDal 
 = 
-userGroupDal  ,
+userClaimDal  ,
 ;, -
 } 
 public 
 async 
 Task 
-< 
-IDataResult )
-<) *
-IEnumerable* 5
-<5 6
-	UserGroup6 ?
->? @
->@ A
->A B
-HandleC I
-(I J
-GetUserGroupsQueryJ \
-request] d
-,d e
-CancellationTokenf w
-cancellationToken	x â
-)
-â ä
-{ 
-return 
-new 
-SuccessDataResult ,
-<, -
-IEnumerable- 8
-<8 9
-	UserGroup9 B
->B C
->C D
-(D E
-awaitE J
-_userGroupDalK X
-.X Y
-GetListAsyncY e
-(e f
-)f g
-)g h
-;h i
-} 
-} 	
-} 
-} ü
-PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\AwaitableLock.cs
-	namespace 	
-Business
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+CreateUserClaimCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+	userClaim 
+= 
+new  #
+	UserClaim$ -
+{ 
+ClaimId 
+= 
+request %
+.% &
+ClaimId& -
+,- .
+UserId 
+= 
+request $
+.$ %
+UserId% +
+} 
+; 
+_userClaimDal 
+. 
+Add !
+(! "
+	userClaim" +
+)+ ,
+;, -
+await   
+_userClaimDal   #
+.  # $
+SaveChangesAsync  $ 4
+(  4 5
+)  5 6
+;  6 7
+return"" 
+new"" 
+SuccessResult"" (
+(""( )
+Messages"") 1
+.""1 2
+UserClaimCreated""2 B
+)""B C
+;""C D
+}## 
+}$$ 	
+}%% 
+}&& œ
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\DeleteUserClaimCommand.cs
+	namespace 	
+Business
  
-. 
-Helpers 
-{ 
-public 
-class 
-AwaitableLock 
-{ 
-private 	
-readonly
- 
-SemaphoreSlim  
-toLock! '
-;' (
-public 
-AwaitableLock	 
-( 
-) 
-{ 
-toLock 	
-=
- 
-new 
-SemaphoreSlim 
-( 
-$num 
-,  
-$num! "
-)" #
-;# $
-} 
-public 
-async	 
-Task 
-< 
-LockReleaser  
->  !
-Lock" &
-(& '
-TimeSpan' /
-timeout0 7
-)7 8
-{ 
-if 
-( 
-await 
-toLock 
-. 
-	WaitAsync 
-( 
-timeout %
-)% &
-)& '
-{ 
-return 
-
-new 
-LockReleaser 
-( 
-toLock "
-)" #
-;# $
-} 
-throw 
-new	 
-TimeoutException 
-( 
-) 
-;  
-} 
-public 
-struct	 
-LockReleaser 
-: 
-IDisposable *
-{   
-private!! 
-
-readonly!! 
-SemaphoreSlim!! !
-	toRelease!!" +
-;!!+ ,
-public## 	
-LockReleaser##
- 
-(## 
-SemaphoreSlim## $
-	toRelease##% .
-)##. /
-{$$ 
-this%% 
-.%% 	
-	toRelease%%	 
-=%% 
-	toRelease%% 
-;%% 
-}&& 
-public'' 	
-void''
- 
-Dispose'' 
-('' 
-)'' 
-{(( 
-	toRelease)) 
-.)) 
-Release)) 
-()) 
-))) 
-;)) 
-}** 
-}++ 
-},, 
-}-- Ù
+. 
+Handlers 
+. 
+
+UserClaims &
+.& '
+Commands' /
+{		 
+public
+
+ 
+
+class
+
+ "
+DeleteUserClaimCommand
+
+ '
+:
+
+( )
+IRequest
+
+* 2
+<
+
+2 3
+IResult
+
+3 :
+>
+
+: ;
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+class )
+DeleteUserClaimCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+DeleteUserClaimCommandE [
+,[ \
+IResult] d
+>d e
+{ 	
+private 
+readonly  
+IUserClaimRepository 1
+_userClaimDal2 ?
+;? @
+public )
+DeleteUserClaimCommandHandler 0
+(0 1 
+IUserClaimRepository1 E
+userClaimDalF R
+)R S
+{ 
+_userClaimDal 
+= 
+userClaimDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+DeleteUserClaimCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+entityToDelete "
+=# $
+await% *
+_userClaimDal+ 8
+.8 9
+GetAsync9 A
+(A B
+xB C
+=>D F
+xG H
+.H I
+UserIdI O
+==P R
+requestS Z
+.Z [
+Id[ ]
+)] ^
+;^ _
+_userClaimDal 
+. 
+Delete $
+($ %
+entityToDelete% 3
+)3 4
+;4 5
+await 
+_userClaimDal #
+.# $
+SaveChangesAsync$ 4
+(4 5
+)5 6
+;6 7
+return 
+new 
+SuccessResult (
+(( )
+Messages) 1
+.1 2
+UserClaimDeleted2 B
+)B C
+;C D
+} 
+} 	
+}   
+}!! ã
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\UpdateUserClaimCommand.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserClaims		 &
+.		& '
+Commands		' /
+{
+
+ 
+public 
+
+class "
+UpdateUserClaimCommand '
+:( )
+IRequest* 2
+<2 3
+IResult3 :
+>: ;
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+int 
+UserId 
+{ 
+get 
+;  
+set! $
+;$ %
+}& '
+public 
+int 
+ClaimId 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+class )
+UpdateUserClaimCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+UpdateUserClaimCommandE [
+,[ \
+IResult] d
+>d e
+{ 	
+private 
+readonly  
+IUserClaimRepository 1
+_userClaimDal2 ?
+;? @
+public )
+UpdateUserClaimCommandHandler 0
+(0 1 
+IUserClaimRepository1 E
+userClaimDalF R
+)R S
+{ 
+_userClaimDal 
+= 
+userClaimDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+UpdateUserClaimCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+userClaimToUpdate %
+=& '
+new( +
+	UserClaim, 5
+{ 
+ClaimId 
+= 
+request %
+.% &
+ClaimId& -
+,- .
+UserId 
+= 
+request $
+.$ %
+UserId% +
+}   
+;   
+_userClaimDal!! 
+.!! 
+Update!! $
+(!!$ %
+userClaimToUpdate!!% 6
+)!!6 7
+;!!7 8
+await"" 
+_userClaimDal"" #
+.""# $
+SaveChangesAsync""$ 4
+(""4 5
+)""5 6
+;""6 7
+return$$ 
+new$$ 
+SuccessResult$$ (
+($$( )
+Messages$$) 1
+.$$1 2
+UserClaimUpdated$$2 B
+)$$B C
+;$$C D
+}%% 
+}&& 	
+}'' 
+}(( ˆ
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimQuery.cs
+	namespace 	
+Business
+ 
+. 
+Handlers 
+. 
+
+UserClaims &
+.& '
+Queries' .
+{		 
+public
+
+ 
+
+class
+
+ 
+GetUserClaimQuery
+
+ "
+:
+
+# $
+IRequest
+
+% -
+<
+
+- .
+IDataResult
+
+. 9
+<
+
+9 :
+	UserClaim
+
+: C
+>
+
+C D
+>
+
+D E
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+class $
+GetUserClaimQueryHandler -
+:. /
+IRequestHandler0 ?
+<? @
+GetUserClaimQuery@ Q
+,Q R
+IDataResultS ^
+<^ _
+	UserClaim_ h
+>h i
+>i j
+{ 	
+private 
+readonly  
+IUserClaimRepository 1
+_userClaimDal2 ?
+;? @
+public $
+GetUserClaimQueryHandler +
+(+ , 
+IUserClaimRepository, @
+userClaimDalA M
+)M N
+{ 
+_userClaimDal 
+= 
+userClaimDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+	UserClaim* 3
+>3 4
+>4 5
+Handle6 <
+(< =
+GetUserClaimQuery= N
+requestO V
+,V W
+CancellationTokenX i
+cancellationTokenj {
+){ |
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+	UserClaim- 6
+>6 7
+(7 8
+await8 =
+_userClaimDal> K
+.K L
+GetAsyncL T
+(T U
+xU V
+=>W Y
+xZ [
+.[ \
+UserId\ b
+==c e
+requestf m
+.m n
+Idn p
+)p q
+)q r
+;r s
+} 
+} 	
+} 
+} ∑
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimsQuery.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserClaims		 &
+.		& '
+Queries		' .
+{
+
+ 
+public 
+
+class 
+GetUserClaimsQuery #
+:$ %
+IRequest& .
+<. /
+IDataResult/ :
+<: ;
+IEnumerable; F
+<F G
+	UserClaimG P
+>P Q
+>Q R
+>R S
+{ 
+public 
+class %
+GetUserClaimsQueryHandler .
+:/ 0
+IRequestHandler1 @
+<@ A
+GetUserClaimsQueryA S
+,S T
+IDataResultU `
+<` a
+IEnumerablea l
+<l m
+	UserClaimm v
+>v w
+>w x
+>x y
+{ 	
+private 
+readonly  
+IUserClaimRepository 1
+_userClaimDal2 ?
+;? @
+public %
+GetUserClaimsQueryHandler ,
+(, - 
+IUserClaimRepository- A
+userClaimDalB N
+)N O
+{ 
+_userClaimDal 
+= 
+userClaimDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+IEnumerable* 5
+<5 6
+	UserClaim6 ?
+>? @
+>@ A
+>A B
+HandleC I
+(I J
+GetUserClaimsQueryJ \
+request] d
+,d e
+CancellationTokenf w
+cancellationToken	x â
+)
+â ä
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+IEnumerable- 8
+<8 9
+	UserClaim9 B
+>B C
+>C D
+(D E
+awaitE J
+_userClaimDalK X
+.X Y
+GetListAsyncY e
+(e f
+)f g
+)g h
+;h i
+} 
+} 	
+} 
+} „
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\CreateUserGroupCommand.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserGroups		 &
+.		& '
+Commands		' /
+{
+
+ 
+public 
+
+class "
+CreateUserGroupCommand '
+:( )
+IRequest* 2
+<2 3
+IResult3 :
+>: ;
+{ 
+public 
+int 
+GroupId 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+int 
+UserId 
+{ 
+get 
+;  
+set! $
+;$ %
+}& '
+public 
+class )
+CreateUserGroupCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+CreateUserGroupCommandE [
+,[ \
+IResult] d
+>d e
+{ 	
+private 
+readonly  
+IUserGroupRepository 1
+_userGroupDal2 ?
+;? @
+public )
+CreateUserGroupCommandHandler 0
+(0 1 
+IUserGroupRepository1 E
+userGroupDalF R
+)R S
+{ 
+_userGroupDal 
+= 
+userGroupDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+CreateUserGroupCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+	userGroup 
+= 
+new  #
+	UserGroup$ -
+{ 
+GroupId 
+= 
+request %
+.% &
+GroupId& -
+,- .
+UserId 
+= 
+request $
+.$ %
+UserId% +
+}   
+;   
+_userGroupDal"" 
+."" 
+Add"" !
+(""! "
+	userGroup""" +
+)""+ ,
+;"", -
+await## 
+_userGroupDal## #
+.### $
+SaveChangesAsync##$ 4
+(##4 5
+)##5 6
+;##6 7
+return%% 
+new%% 
+SuccessResult%% (
+(%%( )
+Messages%%) 1
+.%%1 2
+UserGroupAdded%%2 @
+)%%@ A
+;%%A B
+}&& 
+}'' 	
+}(( 
+})) œ
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\DeleteUserGroupCommand.cs
+	namespace 	
+Business
+ 
+. 
+Handlers 
+. 
+
+UserGroups &
+.& '
+Commands' /
+{		 
+public
+
+ 
+
+class
+
+ "
+DeleteUserGroupCommand
+
+ '
+:
+
+( )
+IRequest
+
+* 2
+<
+
+2 3
+IResult
+
+3 :
+>
+
+: ;
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+class )
+DeleteUserGroupCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+DeleteUserGroupCommandE [
+,[ \
+IResult] d
+>d e
+{ 	
+private 
+readonly  
+IUserGroupRepository 1
+_userGroupDal2 ?
+;? @
+public )
+DeleteUserGroupCommandHandler 0
+(0 1 
+IUserGroupRepository1 E
+userGroupDalF R
+)R S
+{ 
+_userGroupDal 
+= 
+userGroupDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+DeleteUserGroupCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+entityToDelete "
+=# $
+await% *
+_userGroupDal+ 8
+.8 9
+GetAsync9 A
+(A B
+xB C
+=>D F
+xG H
+.H I
+UserIdI O
+==P R
+requestS Z
+.Z [
+Id[ ]
+)] ^
+;^ _
+_userGroupDal 
+. 
+Delete $
+($ %
+entityToDelete% 3
+)3 4
+;4 5
+await 
+_userGroupDal #
+.# $
+SaveChangesAsync$ 4
+(4 5
+)5 6
+;6 7
+return 
+new 
+SuccessResult (
+(( )
+Messages) 1
+.1 2
+UserGroupDeleted2 B
+)B C
+;C D
+} 
+}   	
+}!! 
+}"" ö
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\UpdateUserGroupCommand.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserGroups		 &
+.		& '
+Commands		' /
+{
+
+ 
+public 
+
+class "
+UpdateUserGroupCommand '
+:( )
+IRequest* 2
+<2 3
+IResult3 :
+>: ;
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+int 
+UserId 
+{ 
+get 
+;  
+set! $
+;$ %
+}& '
+public 
+int 
+GroupId 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+class )
+UpdateUserGroupCommandHandler 2
+:3 4
+IRequestHandler5 D
+<D E"
+UpdateUserGroupCommandE [
+,[ \
+IResult] d
+>d e
+{ 	
+private 
+readonly  
+IUserGroupRepository 1
+_userGroupDal2 ?
+;? @
+public )
+UpdateUserGroupCommandHandler 0
+(0 1 
+IUserGroupRepository1 E
+userGroupDalF R
+)R S
+{ 
+_userGroupDal 
+= 
+userGroupDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IResult %
+>% &
+Handle' -
+(- ."
+UpdateUserGroupCommand. D
+requestE L
+,L M
+CancellationTokenN _
+cancellationToken` q
+)q r
+{ 
+var 
+userGroupToUpdate %
+=& '
+new( +
+	UserGroup, 5
+{ 
+GroupId 
+= 
+request %
+.% &
+GroupId& -
+,- .
+UserId 
+= 
+request $
+.$ %
+UserId% +
+,+ ,
+}   
+;   
+_userGroupDal"" 
+."" 
+Update"" $
+(""$ %
+userGroupToUpdate""% 6
+)""6 7
+;""7 8
+await## 
+_userGroupDal## #
+.### $
+SaveChangesAsync##$ 4
+(##4 5
+)##5 6
+;##6 7
+return$$ 
+new$$ 
+SuccessResult$$ (
+($$( )
+Messages$$) 1
+.$$1 2
+UserGroupUpdated$$2 B
+)$$B C
+;$$C D
+}&& 
+}'' 	
+}(( 
+})) Ô
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupQuery.cs
+	namespace 	
+Business
+ 
+. 
+Handlers 
+. 
+
+UserGroups &
+.& '
+Queries' .
+{ 
+class 	
+GetUserGroupQuery
+ 
+{ 
+} 
+} ∑
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupsQuery.cs
+	namespace		 	
+Business		
+ 
+.		 
+Handlers		 
+.		 
+
+UserGroups		 &
+.		& '
+Queries		' .
+{
+
+ 
+public 
+
+class 
+GetUserGroupsQuery #
+:$ %
+IRequest& .
+<. /
+IDataResult/ :
+<: ;
+IEnumerable; F
+<F G
+	UserGroupG P
+>P Q
+>Q R
+>R S
+{ 
+public 
+class %
+GetUserGroupsQueryHandler .
+:/ 0
+IRequestHandler1 @
+<@ A
+GetUserGroupsQueryA S
+,S T
+IDataResultU `
+<` a
+IEnumerablea l
+<l m
+	UserGroupm v
+>v w
+>w x
+>x y
+{ 	
+private 
+readonly  
+IUserGroupRepository 1
+_userGroupDal2 ?
+;? @
+public %
+GetUserGroupsQueryHandler ,
+(, - 
+IUserGroupRepository- A
+userGroupDalB N
+)N O
+{ 
+_userGroupDal 
+= 
+userGroupDal  ,
+;, -
+} 
+public 
+async 
+Task 
+< 
+IDataResult )
+<) *
+IEnumerable* 5
+<5 6
+	UserGroup6 ?
+>? @
+>@ A
+>A B
+HandleC I
+(I J
+GetUserGroupsQueryJ \
+request] d
+,d e
+CancellationTokenf w
+cancellationToken	x â
+)
+â ä
+{ 
+return 
+new 
+SuccessDataResult ,
+<, -
+IEnumerable- 8
+<8 9
+	UserGroup9 B
+>B C
+>C D
+(D E
+awaitE J
+_userGroupDalK X
+.X Y
+GetListAsyncY e
+(e f
+)f g
+)g h
+;h i
+} 
+} 	
+} 
+} ü
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\AwaitableLock.cs
+	namespace 	
+Business
+ 
+. 
+Helpers 
+{ 
+public 
+
+class 
+AwaitableLock 
+{ 
+private 
+readonly 
+SemaphoreSlim &
+toLock' -
+;- .
+public 
+AwaitableLock 
+( 
+) 
+{ 	
+toLock 
+= 
+new 
+SemaphoreSlim &
+(& '
+$num' (
+,( )
+$num* +
+)+ ,
+;, -
+} 	
+public 
+async 
+Task 
+< 
+LockReleaser &
+>& '
+Lock( ,
+(, -
+TimeSpan- 5
+timeout6 =
+)= >
+{ 	
+if 
+( 
+await 
+toLock 
+. 
+	WaitAsync &
+(& '
+timeout' .
+). /
+)/ 0
+{ 
+return 
+new 
+LockReleaser '
+(' (
+toLock( .
+). /
+;/ 0
+} 
+throw 
+new 
+TimeoutException &
+(& '
+)' (
+;( )
+} 	
+public 
+struct 
+LockReleaser "
+:# $
+IDisposable% 0
+{ 	
+private 
+readonly 
+SemaphoreSlim *
+	toRelease+ 4
+;4 5
+public!! 
+LockReleaser!! 
+(!!  
+SemaphoreSlim!!  -
+	toRelease!!. 7
+)!!7 8
+{"" 
+this## 
+.## 
+	toRelease## 
+=##  
+	toRelease##! *
+;##* +
+}$$ 
+public%% 
+void%% 
+Dispose%% 
+(%%  
+)%%  !
+{&& 
+	toRelease'' 
+.'' 
+Release'' !
+(''! "
+)''" #
+;''# $
+}(( 
+})) 	
+}** 
+}++ Ù
 bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\OperationClaimCreatorMiddleware.cs
 	namespace 	
 Business
@@ -7889,595 +7970,602 @@ StartsWith!!3 =
 }&& 
 }'' ˚<
 WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\ValidationExtensions.cs
+	namespace 	
+Business
+ 
+. 
+ValidationRules "
+{ 
+public 
+
+static 
+class  
+ValidationExtensions ,
+{ 
+public 
+static 
+bool 
+
+IsCidValid %
+(% &
+this& *
+string+ 1
+	citizenId2 ;
+); <
+{ 	
+if 
+( 
+	citizenId 
+!= 
+null !
+&&" $
+	citizenId% .
+.. /
+Length/ 5
+==6 8
+$num9 ;
+); <
+return 
+
+IsCidValid !
+(! "
+long" &
+.& '
+Parse' ,
+(, -
+	citizenId- 6
+)6 7
+)7 8
+;8 9
+else		 
+return
+
+ 
+false
+
+ 
+;
+
+ 
+} 	
+public 
+static 
+long 
+AddChecksumToCid +
+(+ ,
+long, 0
+cidWithoutChecksum1 C
+)C D
+{ 	
+var 
+checksum 
+= 
+ComputeCidChecksum -
+(- .
+cidWithoutChecksum. @
+)@ A
+;A B
+return 
+( 
+cidWithoutChecksum &
+/' (
+$num) ,
+), -
+*. /
+$num0 3
++4 5
+checksum6 >
+;> ?
+} 	
+public 
+static 
+bool 
+
+IsCidValid %
+(% &
+this& *
+long+ /
+	citizenId0 9
+)9 :
+{ 	
+long 
+TcNo 
+= 
+	citizenId !
+;! "
+var 
+ATCNO 
+= 
+TcNo 
+/ 
+$num "
+;" #
+var 
+checksum 
+= 
+ComputeCidChecksum -
+(- .
+	citizenId. 7
+)7 8
+;8 9
+var 
+returnValue 
+= 
+( 
+ATCNO $
+*% &
+$num' *
+++ ,
+checksum- 5
+)5 6
+==7 9
+TcNo: >
+;> ?
+return 
+returnValue 
+; 
+} 	
+public 
+static 
+long 
+ComputeCidChecksum -
+(- .
+this. 2
+long3 7
+	citizenId8 A
+)A B
+{ 	
+long 
+TcNo 
+= 
+	citizenId !
+;! "
+long   
+ATCNO   
+,   
+BTCNO   
+;   
+long!! 
+C1!! 
+,!! 
+C2!! 
+,!! 
+C3!! 
+,!! 
+C4!! 
+,!!  
+C5!!! #
+,!!# $
+C6!!% '
+,!!' (
+C7!!) +
+,!!+ ,
+C8!!- /
+,!!/ 0
+C9!!1 3
+,!!3 4
+Q1!!5 7
+,!!7 8
+Q2!!9 ;
+;!!; <
+ATCNO"" 
+="" 
+TcNo"" 
+/"" 
+$num"" 
+;"" 
+BTCNO""  %
+=""& '
+TcNo""( ,
+/""- .
+$num""/ 2
+;""2 3
+C1""4 6
+=""7 8
+ATCNO""9 >
+%""? @
+$num""A C
+;""C D
+ATCNO""E J
+=""K L
+ATCNO""M R
+/""S T
+$num""U W
+;""W X
+C2""Y [
+=""\ ]
+ATCNO""^ c
+%""d e
+$num""f h
+;""h i
+ATCNO""j o
+=""p q
+ATCNO""r w
+/""x y
+$num""z |
+;""| }
+C3## 
+=## 
+ATCNO## 
+%## 
+$num## 
+;## 
+ATCNO## "
+=### $
+ATCNO##% *
+/##+ ,
+$num##- /
+;##/ 0
+C4##1 3
+=##4 5
+ATCNO##6 ;
+%##< =
+$num##> @
+;##@ A
+ATCNO##B G
+=##H I
+ATCNO##J O
+/##P Q
+$num##R T
+;##T U
+C5##V X
+=##Y Z
+ATCNO##[ `
+%##a b
+$num##c e
+;##e f
+ATCNO##g l
+=##m n
+ATCNO##o t
+/##u v
+$num##w y
+;##y z
+C6$$ 
+=$$ 
+ATCNO$$ 
+%$$ 
+$num$$ 
+;$$ 
+ATCNO$$ "
+=$$# $
+ATCNO$$% *
+/$$+ ,
+$num$$- /
+;$$/ 0
+C7$$1 3
+=$$4 5
+ATCNO$$6 ;
+%$$< =
+$num$$> @
+;$$@ A
+ATCNO$$B G
+=$$H I
+ATCNO$$J O
+/$$P Q
+$num$$R T
+;$$T U
+C8$$V X
+=$$Y Z
+ATCNO$$[ `
+%$$a b
+$num$$c e
+;$$e f
+ATCNO$$g l
+=$$m n
+ATCNO$$o t
+/$$u v
+$num$$w y
+;$$y z
+C9%% 
+=%% 
+ATCNO%% 
+%%% 
+$num%% 
+;%% 
+ATCNO%% "
+=%%# $
+ATCNO%%% *
+/%%+ ,
+$num%%- /
+;%%/ 0
+Q1&& 
+=&& 
+(&& 
+(&& 
+$num&& 
+-&& 
+(&& 
+(&& 
+(&& 
+(&& 
+C1&& 
++&&  
+C3&&! #
++&&$ %
+C5&&& (
++&&) *
+C7&&+ -
++&&. /
+C9&&0 2
+)&&2 3
+*&&4 5
+$num&&6 7
+)&&7 8
++&&9 :
+(&&; <
+C2&&< >
++&&? @
+C4&&A C
++&&D E
+C6&&F H
++&&I J
+C8&&K M
+)&&M N
+)&&N O
+%&&P Q
+$num&&R T
+)&&T U
+)&&U V
+%&&W X
+$num&&Y [
+)&&[ \
+;&&\ ]
+Q2'' 
+='' 
+('' 
+('' 
+$num'' 
+-'' 
+('' 
+('' 
+('' 
+('' 
+('' 
+C2'' 
++''  !
+C4''" $
++''% &
+C6''' )
++''* +
+C8'', .
+)''. /
++''0 1
+Q1''2 4
+)''4 5
+*''6 7
+$num''8 9
+)''9 :
++''; <
+(''= >
+C1''> @
++''A B
+C3''C E
++''F G
+C5''H J
++''K L
+C7''M O
++''P Q
+C9''R T
+)''T U
+)''U V
+%''W X
+$num''Y [
+)''[ \
+)''\ ]
+%''^ _
+$num''` b
+)''b c
+;''c d
+var(( 
+returnValue(( 
+=(( 
+Q1((  
+*((! "
+$num((# %
++((& '
+Q2((( *
+;((* +
+return** 
+returnValue** 
+;** 
+}++ 	
+public-- 
+static-- 
+bool-- 
+IsPhoneValid-- '
+(--' (
+this--( ,
+string--- 3
+mobilePhone--4 ?
+)--? @
+{.. 	
+if// 
+(// 
+string// 
+.// 
+IsNullOrWhiteSpace// )
+(//) *
+mobilePhone//* 5
+)//5 6
+)//6 7
+return00 
+false00 
+;00 
+else11 
+{22 
+mobilePhone33 
+=33 
+System33 $
+.33$ %
+Text33% )
+.33) *
+RegularExpressions33* <
+.33< =
+Regex33= B
+.33B C
+Replace33C J
+(33J K
+mobilePhone33K V
+,33V W
+$str33X `
+,33` a
+$str33b d
+)33d e
+;33e f
+return44 
+mobilePhone44 "
+.44" #
+
+StartsWith44# -
+(44- .
+$str44. 2
+)442 3
+&&444 6
+mobilePhone447 B
+.44B C
+Length44C I
+==44J L
+$num44M O
+;44O P
+}55 
+}66 	
+}77 
+}88 ü	
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AgentAuthenticationProvider.cs
 	namespace 	
 Business
  
-. 
-ValidationRules "
+. 
+Services 
+. 
+Authentication *
 { 
-public 
-static 
-class  
-ValidationExtensions )
-{ 
-public		 
-static			 
-bool		 
-
-IsCidValid		 
-(		  
-this		  $
-string		% +
-	citizenId		, 5
-)		5 6
+public 
+
+class '
+AgentAuthenticationProvider ,
+:- .#
+IAuthenticationProvider/ F
+{ 
+public		 
+Task		 
+<		 
+LoginUserResult		 #
+>		# $
+Login		% *
+(		* +
+LoginUserCommand		+ ;
+command		< C
+)		C D
 {
 
- 
-if 
-( 
-	citizenId 
-!= 
-null 
-&& 
-	citizenId %
-.% &
-Length& ,
-==- /
-$num0 2
-)2 3
-return 
-
-
-IsCidValid 
-( 
-long 
-. 
-Parse  
-(  !
-	citizenId! *
-)* +
-)+ ,
-;, -
-else 
-return 
-
-false 
-; 
-} 
-public 
-static	 
-long 
-AddChecksumToCid %
-(% &
-long& *
-cidWithoutChecksum+ =
-)= >
-{ 
-var 
-checksum 
-= 
-ComputeCidChecksum $
-($ %
-cidWithoutChecksum% 7
-)7 8
-;8 9
-return 	
-(
- 
-cidWithoutChecksum 
-/ 
-$num  #
-)# $
-*% &
-$num' *
-++ ,
-checksum- 5
-;5 6
-} 
-public 
-static	 
-bool 
-
-IsCidValid 
-(  
-this  $
-long% )
-	citizenId* 3
-)3 4
-{ 
-long 
-TcNo 
-= 
-	citizenId 
-; 
-var 
-ATCNO 
-= 
-TcNo 
-/ 
-$num 
-; 
-var 
-checksum 
-= 
-ComputeCidChecksum $
-($ %
-	citizenId% .
-). /
-;/ 0
-var 
-returnValue 
-= 
-( 
-ATCNO 
-* 
-$num !
-+" #
-checksum$ ,
-), -
-==. 0
-TcNo1 5
-;5 6
-return 	
-returnValue
- 
-; 
-} 
-public!! 
-static!!	 
-long!! 
-ComputeCidChecksum!! '
-(!!' (
-this!!( ,
-long!!- 1
-	citizenId!!2 ;
-)!!; <
-{"" 
-long## 
-TcNo## 
-=## 
-	citizenId## 
-;## 
-long$$ 
-ATCNO$$ 
-,$$ 
-BTCNO$$ 
-;$$ 
-long%% 
-C1%% 
-
-,%%
- 
-C2%% 
-,%% 
-C3%% 
-,%% 
-C4%% 
-,%% 
-C5%% 
-,%% 
-C6%% 
-,%% 
-C7%%  "
-,%%" #
-C8%%$ &
-,%%& '
-C9%%( *
-,%%* +
-Q1%%, .
-,%%. /
-Q2%%0 2
-;%%2 3
-ATCNO&& 
-=&&	 
-
-TcNo&& 
-/&& 
-$num&& 
-;&& 
-BTCNO&& 
-=&& 
-TcNo&& #
-/&&$ %
-$num&&& )
-;&&) *
-C1&&+ -
-=&&. /
-ATCNO&&0 5
-%&&6 7
-$num&&8 :
-;&&: ;
-ATCNO&&< A
-=&&B C
-ATCNO&&D I
-/&&J K
-$num&&L N
-;&&N O
-C2&&P R
-=&&S T
-ATCNO&&U Z
-%&&[ \
-$num&&] _
-;&&_ `
-ATCNO&&a f
-=&&g h
-ATCNO&&i n
-/&&o p
-$num&&q s
-;&&s t
-C3'' 
-='' 
-ATCNO'' 
-%'' 
-$num'' 
-;'' 
-ATCNO'' 
-='' 
-ATCNO'' !
-/''" #
-$num''$ &
-;''& '
-C4''( *
-=''+ ,
-ATCNO''- 2
-%''3 4
-$num''5 7
-;''7 8
-ATCNO''9 >
-=''? @
-ATCNO''A F
-/''G H
-$num''I K
-;''K L
-C5''M O
-=''P Q
-ATCNO''R W
-%''X Y
-$num''Z \
-;''\ ]
-ATCNO''^ c
-=''d e
-ATCNO''f k
-/''l m
-$num''n p
-;''p q
-C6(( 
-=(( 
-ATCNO(( 
-%(( 
-$num(( 
-;(( 
-ATCNO(( 
-=(( 
-ATCNO(( !
-/((" #
-$num(($ &
-;((& '
-C7((( *
-=((+ ,
-ATCNO((- 2
-%((3 4
-$num((5 7
-;((7 8
-ATCNO((9 >
-=((? @
-ATCNO((A F
-/((G H
-$num((I K
-;((K L
-C8((M O
-=((P Q
-ATCNO((R W
-%((X Y
-$num((Z \
-;((\ ]
-ATCNO((^ c
-=((d e
-ATCNO((f k
-/((l m
-$num((n p
-;((p q
-C9)) 
-=)) 
-ATCNO)) 
-%)) 
-$num)) 
-;)) 
-ATCNO)) 
-=)) 
-ATCNO)) !
-/))" #
-$num))$ &
-;))& '
-Q1** 
-=** 
-(** 	
-(**	 
-
-$num**
- 
--** 
-(** 
-(** 
-(** 
-(** 
-C1** 
-+** 
-C3** 
-+** 
-C5** 
-+**  !
-C7**" $
-+**% &
-C9**' )
-)**) *
-***+ ,
-$num**- .
-)**. /
-+**0 1
-(**2 3
-C2**3 5
-+**6 7
-C4**8 :
-+**; <
-C6**= ?
-+**@ A
-C8**B D
-)**D E
-)**E F
-%**G H
-$num**I K
-)**K L
-)**L M
-%**N O
-$num**P R
-)**R S
-;**S T
-Q2++ 
-=++ 
-(++ 	
-(++	 
-
-$num++
- 
--++ 
-(++ 
-(++ 
-(++ 
-(++ 
-(++ 
-C2++ 
-+++ 
-C4++ 
-+++ 
-C6++  
-+++! "
-C8++# %
-)++% &
-+++' (
-Q1++) +
-)+++ ,
-*++- .
-$num++/ 0
-)++0 1
-+++2 3
-(++4 5
-C1++5 7
-+++8 9
-C3++: <
-+++= >
-C5++? A
-+++B C
-C7++D F
-+++G H
-C9++I K
-)++K L
-)++L M
-%++N O
-$num++P R
-)++R S
-)++S T
-%++U V
-$num++W Y
-)++Y Z
-;++Z [
-var,, 
-returnValue,, 
-=,, 
-Q1,, 
-*,, 
-$num,, 
-+,, 
-Q2,, !
-;,,! "
-return.. 	
-returnValue..
- 
-;.. 
-}// 
-public11 
-static11	 
-bool11 
-IsPhoneValid11 !
-(11! "
-this11" &
-string11' -
-mobilePhone11. 9
-)119 :
-{22 
-if33 
-(33 
-string33 
-.33 
-IsNullOrWhiteSpace33 !
-(33! "
-mobilePhone33" -
-)33- .
-)33. /
-return44 
-false44 
-;44 
-else55 
-{66 
-mobilePhone77 
-=77 
-System77 
-.77 
-Text77 
-.77 
-RegularExpressions77 1
-.771 2
-Regex772 7
-.777 8
-Replace778 ?
-(77? @
-mobilePhone77@ K
-,77K L
-$str77M U
-,77U V
-$str77W Y
-)77Y Z
-;77Z [
-return88 
-mobilePhone88 
-.88 
-
-StartsWith88 "
-(88" #
-$str88# '
-)88' (
-&&88) +
-mobilePhone88, 7
-.887 8
-Length888 >
-==88? A
-$num88B D
-;88D E
-}99 
-}:: 
-};; 
-}<< ü	
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AgentAuthenticationProvider.cs
-	namespace 	
-Business
- 
-. 
-Services 
-. 
-Authentication *
-{		 
-public
-
- 
-
-class
-
- '
-AgentAuthenticationProvider
-
- ,
-:
-
-- .#
-IAuthenticationProvider
-
-/ F
-{ 
-public 
-Task 
-< 
-LoginUserResult #
-># $
-Login% *
-(* +
-LoginUserCommand+ ;
-command< C
-)C D
-{ 	
-throw 
-new #
-NotImplementedException -
-(- .
-). /
-;/ 0
-} 	
-public 
-virtual 
-Task 
-< 
-IDataResult '
-<' (
-SFwToken( 0
->0 1
->1 2
-Verify3 9
-(9 :
-VerifyOTPCommand: J
-commandK R
-)R S
-{ 	
-throw 
-new #
-NotImplementedException -
-(- .
-). /
-;/ 0
-} 	
-} 
-} ®
+ 	
+throw 
+new #
+NotImplementedException -
+(- .
+). /
+;/ 0
+} 	
+public 
+virtual 
+Task 
+< 
+IDataResult '
+<' (
+SFwToken( 0
+>0 1
+>1 2
+Verify3 9
+(9 :
+VerifyOtpCommand: J
+commandK R
+)R S
+{ 	
+throw 
+new #
+NotImplementedException -
+(- .
+). /
+;/ 0
+} 	
+} 
+} ®
 lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationCoordinator.cs
-	namespace 	
-Business
+	namespace 	
+Business
  
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
+. 
+Services 
+. 
+Authentication *
+{ 
+public		 
 
-class %
-AuthenticationCoordinator *
-:+ ,&
-IAuthenticationCoordinator- G
-{ 
-private 
-readonly 
-IServiceProvider )
-serviceProvider* 9
-;9 :
-public %
-AuthenticationCoordinator (
-(( )
-IServiceProvider) 9
-serviceProvider: I
-)I J
-{ 	
-this 
-. 
-serviceProvider  
-=! "
-serviceProvider# 2
-;2 3
-} 	
-public #
-IAuthenticationProvider &
-SelectProvider' 5
-(5 6&
-AuthenticationProviderType6 P
-typeQ U
-)U V
-{ 	
-switch 
-( 
-type 
-) 
-{ 
+class		 %
+AuthenticationCoordinator		 *
+:		+ ,&
+IAuthenticationCoordinator		- G
+{
+
+ 
+private 
+readonly 
+IServiceProvider )
+serviceProvider* 9
+;9 :
+public %
+AuthenticationCoordinator (
+(( )
+IServiceProvider) 9
+serviceProvider: I
+)I J
+{ 	
+this 
+. 
+serviceProvider  
+=! "
+serviceProvider# 2
+;2 3
+} 	
+public #
+IAuthenticationProvider &
+SelectProvider' 5
+(5 6&
+AuthenticationProviderType6 P
+typeQ U
+)U V
+{ 	
+switch 
+( 
+type 
+) 
+{ 
+case &
+AuthenticationProviderType /
+./ 0
+Person0 6
+:6 7
+return 
+( #
+IAuthenticationProvider 3
+)3 4
+serviceProvider4 C
+.C D
+
+GetServiceD N
+(N O
+typeofO U
+(U V(
+PersonAuthenticationProviderV r
+)r s
+)s t
+;t u
 case &
 AuthenticationProviderType /
-./ 0
-Person0 6
-:6 7
+./ 0
+Agent0 5
+:5 6
 return 
 ( #
 IAuthenticationProvider 3
@@ -8488,505 +8576,485 @@ lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication
 GetServiceD N
 (N O
 typeofO U
-(U V(
-PersonAuthenticationProviderV r
+(U V'
+AgentAuthenticationProviderV q
+)q r
 )r s
-)s t
-;t u
-case &
-AuthenticationProviderType /
-./ 0
-Agent0 5
-:5 6
-return 
-( #
-IAuthenticationProvider 3
-)3 4
-serviceProvider4 C
-.C D
-
-GetServiceD N
-(N O
-typeofO U
-(U V'
-AgentAuthenticationProviderV q
-)q r
-)r s
-;s t
-default 
-: 
-throw 
-new  
-ApplicationException 2
-(2 3
-$"3 5/
-#Authentication provider not found: 5 X
-{X Y
-typeY ]
-}] ^
-"^ _
-)_ `
-;` a
-}   
-}!! 	
-}"" 
-}$$ áA
+;s t
+default 
+: 
+throw 
+new  
+ApplicationException 2
+(2 3
+$"3 5/
+#Authentication provider not found: 5 X
+{X Y
+typeY ]
+}] ^
+"^ _
+)_ `
+;` a
+} 
+} 	
+}   
+}"" áA
 mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationProviderBase.cs
-	namespace 	
-Business
+	namespace 	
+Business
  
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
+. 
+Services 
+. 
+Authentication *
+{ 
+public 
 
-abstract 
-class &
-AuthenticationProviderBase 4
-:5 6#
-IAuthenticationProvider7 N
-{ 
+abstract 
+class &
+AuthenticationProviderBase 4
+:5 6#
+IAuthenticationProvider7 N
+{ 
+private 
+readonly "
+IMobileLoginRepository /
+_logins0 7
+;7 8
 private 
-readonly "
-IMobileLoginRepository /
-_logins0 7
-;7 8
-private 
-readonly 
-ISmsService $
-_smsService% 0
-;0 1
-	protected &
-AuthenticationProviderBase ,
-(, -"
-IMobileLoginRepository- C
-loginsD J
-,J K
-ISmsServiceL W
+readonly 
+ISmsService $
+_smsService% 0
+;0 1
+	protected &
+AuthenticationProviderBase ,
+(, -"
+IMobileLoginRepository- C
+loginsD J
+,J K
+ISmsServiceL W
 
-smsServiceX b
-)b c
-{ 	
-_logins 
-= 
-logins 
-; 
-_smsService 
-= 
+smsServiceX b
+)b c
+{ 	
+_logins 
+= 
+logins 
+; 
+_smsService 
+= 
 
-smsService $
-;$ %
-} 	
+smsService $
+;$ %
+} 	
+public 
+abstract 
+Task 
+< 
+LoginUserResult ,
+>, -
+Login. 3
+(3 4
+LoginUserCommand4 D
+commandE L
+)L M
+;M N
 public 
 abstract 
 Task 
-< 
-LoginUserResult ,
->, -
-Login. 3
-(3 4
-LoginUserCommand4 D
-commandE L
-)L M
-;M N
-public 
-abstract 
-Task 
-< 
-SFwToken %
->% &
-CreateToken' 2
-(2 3
-VerifyOTPCommand3 C
-commandD K
-)K L
-;L M
-	protected 
-virtual 
-async 
-Task  $
-<$ %
-LoginUserResult% 4
->4 5"
-PrepareOneTimePassword6 L
-(L M&
-AuthenticationProviderTypeM g
-providerTypeh t
-,t u
-stringv |
-	cellPhone	} Ü
+< 
+SFwToken %
+>% &
+CreateToken' 2
+(2 3
+VerifyOtpCommand3 C
+commandD K
+)K L
+;L M
+	protected 
+virtual 
+async 
+Task  $
+<$ %
+LoginUserResult% 4
+>4 5"
+PrepareOneTimePassword6 L
+(L M&
+AuthenticationProviderTypeM g
+providerTypeh t
+,t u
+stringv |
+	cellPhone	} Ü
 ,
-Ü á
+Ü á
 string
-à é
+à é
 externalUserId
-è ù
+è ù
 )
-ù û
-{ 	
-var 
-oneTimePassword 
-=  !
-await" '
-_logins( /
-./ 0
-Query0 5
-(5 6
-)6 7
-. 
-Where "
-(" #
-m# $
-=>% '
-m( )
-.) *
-Provider* 2
-==3 5
-providerType6 B
-&&C E
-mF G
-.G H
-ExternalUserIdH V
-==W Y
-externalUserIdZ h
-&&i k
-ml m
-.m n
-IsUsedn t
-==u w
-falsex }
-)} ~
-.   
-Select   #
-(  # $
-m  $ %
-=>  & (
-m  ) *
-.  * +
-Code  + /
-)  / 0
-.!! 
-FirstOrDefaultAsync!! 0
-(!!0 1
-)!!1 2
-;!!2 3
-int"" 
+ù û
+{ 	
+var 
+oneTimePassword 
+=  !
+await" '
+_logins( /
+./ 0
+Query0 5
+(5 6
+)6 7
+. 
+Where "
+(" #
+m# $
+=>% '
+m( )
+.) *
+Provider* 2
+==3 5
+providerType6 B
+&&C E
+mF G
+.G H
+ExternalUserIdH V
+==W Y
+externalUserIdZ h
+&&i k
+ml m
+.m n
+IsUsedn t
+==u w
+falsex }
+)} ~
+. 
+Select #
+(# $
+m$ %
+=>& (
+m) *
+.* +
+Code+ /
+)/ 0
+.   
+FirstOrDefaultAsync   0
+(  0 1
+)  1 2
+;  2 3
+int!! 
 
-mobileCode"" 
-;"" 
-if## 
-(## 
-oneTimePassword## 
-==##  "
-default### *
-)##* +
-{$$ 
+mobileCode!! 
+;!! 
+if"" 
+("" 
+oneTimePassword"" 
+==""  "
+default""# *
+)""* +
+{## 
 
-mobileCode%% 
-=%% 
-RandomPassword%% +
-.%%+ ,!
-RandomNumberGenerator%%, A
-(%%A B
-)%%B C
-;%%C D
-try&& 
-{'' 
-var(( 
-sendSms(( 
-=((  !
-await((" '
-_smsService((( 3
-.((3 4
-	SendAsist((4 =
-(((= >
-$"((> @
-SAAT ((@ E
-{((E F
-DateTime((F N
-.((N O
-Now((O R
-.((R S
-ToShortTimeString((S d
-(((d e
-)((e f
-}((f g
- TALEP ETTIGINIZ((g w
-"((w x
-+((y z
-$"))$ &(
-24 SAAT GECERLI PAROLANIZ : ))& B
-{))B C
+mobileCode$$ 
+=$$ 
+RandomPassword$$ +
+.$$+ ,!
+RandomNumberGenerator$$, A
+($$A B
+)$$B C
+;$$C D
+try%% 
+{&& 
+var'' 
+sendSms'' 
+=''  !
+await''" '
+_smsService''( 3
+.''3 4
+	SendAsist''4 =
+(''= >
+$"''> @
+SAAT ''@ E
+{''E F
+DateTime''F N
+.''N O
+Now''O R
+.''R S
+ToShortTimeString''S d
+(''d e
+)''e f
+}''f g
+ TALEP ETTIGINIZ''g w
+"''w x
++''y z
+$"(($ &(
+24 SAAT GECERLI PAROLANIZ : ((& B
+{((B C
 
-mobileCode))C M
-}))M N
-"))N O
-,))O P
-	cellPhone))Q Z
-)))Z [
-;))[ \
-_logins** 
-.** 
-Add** 
-(**  
-new**  #
-MobileLogin**$ /
-{++ 
-Code,, 
-=,, 
+mobileCode((C M
+}((M N
+"((N O
+,((O P
+	cellPhone((Q Z
+)((Z [
+;(([ \
+_logins)) 
+.)) 
+Add)) 
+())  
+new))  #
+MobileLogin))$ /
+{** 
+Code++ 
+=++ 
 
-mobileCode,, )
-,,,) *
-IsSend-- 
-=--  
-sendSms--! (
-,--( )
-SendDate..  
-=..! "
-DateTime..# +
-...+ ,
-Now.., /
-,../ 0
-ExternalUserId// &
-=//' (
-externalUserId//) 7
-,//7 8
-Provider00  
-=00! "
-providerType00# /
-,00/ 0
-IsUsed11 
-=11  
-false11! &
-}22 
-)22 
-;22 
-await33 
-_logins33 !
-.33! "
-SaveChangesAsync33" 2
-(332 3
-)333 4
-;334 5
-}44 
-catch55 
-{66 
-return77 
-new77 
-LoginUserResult77 .
-{77/ 0
-Message771 8
-=779 :
-Messages77; C
-.77C D
-SmsServiceNotFound77D V
-,77V W
-Status77X ^
-=77_ `
-LoginUserResult77a p
-.77p q
-LoginStatus77q |
-.77| }
-ServiceError	77} â
+mobileCode++ )
+,++) *
+IsSend,, 
+=,,  
+sendSms,,! (
+,,,( )
+SendDate--  
+=--! "
+DateTime--# +
+.--+ ,
+Now--, /
+,--/ 0
+ExternalUserId.. &
+=..' (
+externalUserId..) 7
+,..7 8
+Provider//  
+=//! "
+providerType//# /
+,/// 0
+IsUsed00 
+=00  
+false00! &
+}11 
+)11 
+;11 
+await22 
+_logins22 !
+.22! "
+SaveChangesAsync22" 2
+(222 3
+)223 4
+;224 5
+}33 
+catch44 
+{55 
+return66 
+new66 
+LoginUserResult66 .
+{66/ 0
+Message661 8
+=669 :
+Messages66; C
+.66C D
+SmsServiceNotFound66D V
+,66V W
+Status66X ^
+=66_ `
+LoginUserResult66a p
+.66p q
+LoginStatus66q |
+.66| }
+ServiceError	66} â
 }
-77ä ã
+66ä ã
 ;
-77ã å
-}88 
-}99 
-else:: 
-{;; 
+66ã å
+}77 
+}88 
+else99 
+{:: 
 
-mobileCode<< 
-=<< 
-oneTimePassword<< ,
-;<<, -
-}== 
-return>> 
-new>> 
-LoginUserResult>> &
-{>>' (
-Message>>) 0
-=>>1 2
-Messages>>3 ;
-.>>; <
-SendMobileCode>>< J
-+>>K L
+mobileCode;; 
+=;; 
+oneTimePassword;; ,
+;;;, -
+}<< 
+return== 
+new== 
+LoginUserResult== &
+{==' (
+Message==) 0
+===1 2
+Messages==3 ;
+.==; <
+SendMobileCode==< J
++==K L
 
-mobileCode>>M W
-,>>W X
-Status>>Y _
-=>>` a
-LoginUserResult>>b q
-.>>q r
-LoginStatus>>r }
-.>>} ~
-Ok	>>~ Ä
+mobileCode==M W
+,==W X
+Status==Y _
+===` a
+LoginUserResult==b q
+.==q r
+LoginStatus==r }
+.==} ~
+Ok	==~ Ä
 }
->>Å Ç
+==Å Ç
 ;
->>Ç É
-}?? 	
-publicAA 
-virtualAA 
-asyncAA 
-TaskAA !
-<AA! "
-IDataResultAA" -
-<AA- .
-SFwTokenAA. 6
->AA6 7
->AA7 8
-VerifyAA9 ?
-(AA? @
-VerifyOTPCommandAA@ P
-commandAAQ X
-)AAX Y
-{BB 	
-varCC 
-externalUserIdCC 
-=CC  
-commandCC! (
-.CC( )
-ExternalUserIdCC) 7
-;CC7 8
-varDD 
-dateDD 
-=DD 
-DateTimeDD 
-.DD  
-NowDD  #
-;DD# $
-varEE 
-loginEE 
-=EE 
-awaitEE 
-_loginsEE %
-.EE% &
-GetAsyncEE& .
-(EE. /
-mEE/ 0
-=>EE1 3
-mEE4 5
-.EE5 6
-ProviderEE6 >
-==EE? A
-commandEEB I
-.EEI J
-ProviderEEJ R
-&&EES U
-mEEV W
-.EEW X
-CodeEEX \
-==EE] _
-commandEE` g
-.EEg h
-CodeEEh l
-&&EEm o
-mGG 
-.GG 
-ExternalUserIdGG  
-==GG! #
-externalUserIdGG$ 2
-&&GG3 5
-mGG6 7
-.GG7 8
-SendDateGG8 @
-.GG@ A
+==Ç É
+}>> 	
+public@@ 
+virtual@@ 
+async@@ 
+Task@@ !
+<@@! "
+IDataResult@@" -
+<@@- .
+SFwToken@@. 6
+>@@6 7
+>@@7 8
+Verify@@9 ?
+(@@? @
+VerifyOtpCommand@@@ P
+command@@Q X
+)@@X Y
+{AA 	
+varBB 
+externalUserIdBB 
+=BB  
+commandBB! (
+.BB( )
+ExternalUserIdBB) 7
+;BB7 8
+varCC 
+dateCC 
+=CC 
+DateTimeCC 
+.CC  
+NowCC  #
+;CC# $
+varDD 
+loginDD 
+=DD 
+awaitDD 
+_loginsDD %
+.DD% &
+GetAsyncDD& .
+(DD. /
+mDD/ 0
+=>DD1 3
+mDD4 5
+.DD5 6
+ProviderDD6 >
+==DD? A
+commandDDB I
+.DDI J
+ProviderDDJ R
+&&DDS U
+mDDV W
+.DDW X
+CodeDDX \
+==DD] _
+commandDD` g
+.DDg h
+CodeDDh l
+&&DDm o
+mFF 
+.FF 
+ExternalUserIdFF  
+==FF! #
+externalUserIdFF$ 2
+&&FF3 5
+mFF6 7
+.FF7 8
+SendDateFF8 @
+.FF@ A
 
-AddSecondsGGA K
-(GGK L
-$numGGL O
-)GGO P
->GGQ R
-dateGGS W
-)GGW X
-;GGX Y
-ifII 
-(II 
-loginII 
-==II 
-nullII 
-)II 
-{JJ 
-returnKK 
-newKK 
-ErrorDataResultKK *
-<KK* +
-SFwTokenKK+ 3
->KK3 4
-(KK4 5
-MessagesKK5 =
-.KK= >
-InvalidCodeKK> I
-)KKI J
-;KKJ K
-}LL 
-varMM 
-accessTokenMM 
-=MM 
-awaitMM #
-CreateTokenMM$ /
-(MM/ 0
-commandMM0 7
-)MM7 8
-;MM8 9
-ifPP 
-(PP 
-accessTokenPP 
-.PP 
-ProviderPP $
-==PP% '&
-AuthenticationProviderTypePP( B
-.PPB C
-UnknownPPC J
-)PPJ K
-throwQQ 
-newQQ 
-ArgumentExceptionQQ +
-(QQ+ ,
-$strQQ, H
-)QQH I
-;QQI J
-loginSS 
-.SS 
-IsUsedSS 
-=SS 
-trueSS 
-;SS  
-_loginsTT 
-.TT 
-UpdateTT 
-(TT 
-loginTT  
-)TT  !
-;TT! "
-awaitUU 
-_loginsUU 
-.UU 
-SaveChangesAsyncUU *
-(UU* +
-)UU+ ,
-;UU, -
-returnXX 
-newXX 
-SuccessDataResultXX (
-<XX( )
-SFwTokenXX) 1
->XX1 2
-(XX2 3
-accessTokenXX3 >
-,XX> ?
-MessagesXX@ H
-.XXH I
-SuccessfulLoginXXI X
-)XXX Y
-;XXY Z
-}YY 	
-}ZZ 
-}[[ ù
+AddSecondsFFA K
+(FFK L
+$numFFL O
+)FFO P
+>FFQ R
+dateFFS W
+)FFW X
+;FFX Y
+ifHH 
+(HH 
+loginHH 
+==HH 
+nullHH 
+)HH 
+{II 
+returnJJ 
+newJJ 
+ErrorDataResultJJ *
+<JJ* +
+SFwTokenJJ+ 3
+>JJ3 4
+(JJ4 5
+MessagesJJ5 =
+.JJ= >
+InvalidCodeJJ> I
+)JJI J
+;JJJ K
+}KK 
+varLL 
+accessTokenLL 
+=LL 
+awaitLL #
+CreateTokenLL$ /
+(LL/ 0
+commandLL0 7
+)LL7 8
+;LL8 9
+ifOO 
+(OO 
+accessTokenOO 
+.OO 
+ProviderOO $
+==OO% '&
+AuthenticationProviderTypeOO( B
+.OOB C
+UnknownOOC J
+)OOJ K
+throwPP 
+newPP 
+ArgumentExceptionPP +
+(PP+ ,
+$strPP, H
+)PPH I
+;PPI J
+loginRR 
+.RR 
+IsUsedRR 
+=RR 
+trueRR 
+;RR  
+_loginsSS 
+.SS 
+UpdateSS 
+(SS 
+loginSS  
+)SS  !
+;SS! "
+awaitTT 
+_loginsTT 
+.TT 
+SaveChangesAsyncTT *
+(TT* +
+)TT+ ,
+;TT, -
+returnWW 
+newWW 
+SuccessDataResultWW (
+<WW( )
+SFwTokenWW) 1
+>WW1 2
+(WW2 3
+accessTokenWW3 >
+,WW> ?
+MessagesWW@ H
+.WWH I
+SuccessfulLoginWWI X
+)WWX Y
+;WWY Z
+}XX 	
+}YY 
+}ZZ ù
 mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationCoordinator.cs
 	namespace 	
 Business
@@ -9010,6 +9078,224 @@ mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication
 } 
 }		 †
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationProvider.cs
+	namespace 	
+Business
+ 
+. 
+Services 
+. 
+Authentication *
+{ 
+public 
+
+	interface #
+IAuthenticationProvider ,
+{ 
+Task 
+< 
+LoginUserResult 
+> 
+Login #
+(# $
+LoginUserCommand$ 4
+command5 <
+)< =
+;= >
+Task		 
+<		 
+IDataResult		 
+<		 
+SFwToken		 !
+>		! "
+>		" #
+Verify		$ *
+(		* +
+VerifyOtpCommand		+ ;
+command		< C
+)		C D
+;		D E
+}
+
+ 
+} Û
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\ILoginDataProvider.cs
+	namespace 	
+Business
+ 
+. 
+Services 
+. 
+Authentication *
+{ 
+public
+
+ 
+
+	interface
+
+ 
+ILoginDataProvider
+
+ '
+{ 
+Task 
+< #
+LoginDataProviderResult $
+>$ %
+Verify& ,
+(, -
+string- 3
+accessToken4 ?
+)? @
+;@ A
+} 
+public 
+
+class #
+LoginDataProviderResult (
+{ 
+public 
+bool 
+	IsSuccess 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+string 
+Message 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+ExternalUser 
+ExternalUser (
+{) *
+get+ .
+;. /
+set0 3
+;3 4
+}5 6
+} 
+public 
+
+class 
+ExternalUser 
+{ 
+public## 
+string## 
+AgentUserId## !
+{##" #
+get##$ '
+;##' (
+set##) ,
+;##, -
+}##. /
+public(( 
+long(( 
+	CitizenId(( 
+{(( 
+get((  #
+;((# $
+set((% (
+;((( )
+}((* +
+public-- 
+string-- 
+Email-- 
+{-- 
+get-- !
+;--! "
+set--# &
+;--& '
+}--( )
+public22 
+string22 
+MobilePhone22 !
+{22" #
+get22$ '
+;22' (
+set22) ,
+;22, -
+}22. /
+public77 
+string77 
+Address77 
+{77 
+get77  #
+;77# $
+set77% (
+;77( )
+}77* +
+public<< 
+string<< 
+Notes<< 
+{<< 
+get<< !
+;<<! "
+set<<# &
+;<<& '
+}<<( )
+public>> 
+void>> 
+CleanRecord>> 
+(>>  
+)>>  !
+{?? 	
+ifBB 
+(BB 
+!BB 
+stringBB 
+.BB 
+IsNullOrWhiteSpaceBB *
+(BB* +
+MobilePhoneBB+ 6
+)BB6 7
+)BB7 8
+{CC 
+ifEE 
+(EE 
+!EE 
+MobilePhoneEE  
+.EE  !
+
+StartsWithEE! +
+(EE+ ,
+$strEE, /
+)EE/ 0
+)EE0 1
+MobilePhoneFF 
+=FF  !
+$strFF" %
++FF& '
+MobilePhoneFF( 3
+;FF3 4
+MobilePhoneGG 
+=GG 
+MobilePhoneGG )
+.GG) *
+SplitGG* /
+(GG/ 0
+$charGG0 3
+)GG3 4
+[GG4 5
+$numGG5 6
+]GG6 7
+.GG7 8
+TrimGG8 <
+(GG< =
+)GG= >
+;GG> ?
+}HH 
+}II 	
+}JJ 
+}KK Ç
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserCommand.cs
 	namespace 	
 Business
  
@@ -9018,855 +9304,652 @@ jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication
 . 
 Authentication *
 { 
-public 
-
-	interface #
-IAuthenticationProvider ,
-{ 
-Task		 
-<		 
-LoginUserResult		 
->		 
-Login		 #
-(		# $
-LoginUserCommand		$ 4
-command		5 <
-)		< =
-;		= >
-Task
+public
 
- 
+ 
+
+class
+
+ 
+LoginUserCommand
+
+ !
+:
+
+" #
+IRequest
+
+$ ,
 <
 
- 
+, -
 IDataResult
 
- 
+- 8
 <
 
- 
+8 9
+LoginUserResult
+
+9 H
+>
+
+H I
+>
+
+I J
+{ 
+public 
+string 
+ExternalUserId $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
+public 
+string 
+MobilePhone !
+{" #
+get$ '
+;' (
+set) ,
+;, -
+}. /
+public 
+string 
+Password 
+{  
+get! $
+;$ %
+set& )
+;) *
+}+ ,
+public &
+AuthenticationProviderType )
+Provider* 2
+{3 4
+get5 8
+;8 9
+set: =
+;= >
+}? @
+public 
+bool 
+IsPhoneValid  
+{ 	
+get 
+{   
+if!! 
+(!! 
+string!! 
+.!! 
+IsNullOrWhiteSpace!! -
+(!!- .
+MobilePhone!!. 9
+)!!9 :
+)!!: ;
+return"" 
+false""  
+;""  !
+else## 
+{$$ 
+PostProcess%% 
+(%%  
+)%%  !
+;%%! "
+MobilePhone&& 
+=&&  !
+System&&" (
+.&&( )
+Text&&) -
+.&&- .
+RegularExpressions&&. @
+.&&@ A
+Regex&&A F
+.&&F G
+Replace&&G N
+(&&N O
+MobilePhone&&O Z
+,&&Z [
+$str&&\ d
+,&&d e
+$str&&f h
+)&&h i
+;&&i j
+return'' 
+MobilePhone'' &
+.''& '
+
+StartsWith''' 1
+(''1 2
+$str''2 6
+)''6 7
+&&''8 :
+MobilePhone''; F
+.''F G
+Length''G M
+==''N P
+$num''Q S
+;''S T
+}(( 
+})) 
+}** 	
+public++ 
+long++ 
+AsCitizenId++ 
+(++  
+)++  !
+=>++" $
+long++% )
+.++) *
+Parse++* /
+(++/ 0
+ExternalUserId++0 >
+)++> ?
+;++? @
+public// 
+void// 
+PostProcess// 
+(//  
+)//  !
+{00 	
+MobilePhone11 
+=11 
+System11  
+.11  !
+Text11! %
+.11% &
+RegularExpressions11& 8
+.118 9
+Regex119 >
+.11> ?
+Replace11? F
+(11F G
+MobilePhone11G R
+,11R S
+$str11T \
+,11\ ]
+$str11^ `
+)11` a
+;11a b
+}22 	
+}33 
+}44 ı
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserResult.cs
+	namespace 	
+Business
+ 
+. 
+Services 
+. 
+Authentication *
+{ 
+public 
+
+class 
+LoginUserResult  
+{ 
+public 
+LoginStatus 
+Status !
+{" #
+get$ '
+;' (
+set) ,
+;, -
+}. /
+public 
+string 
+Message 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+string 
+[ 
+] 
+MobilePhones $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
+public 
+enum 
+LoginStatus 
+{ 	
+UserNotFound 
+, 
+WrongCredentials 
+, 
+PhoneNumberRequired 
+,  
+ServiceError 
+, 
+Ok 
+} 	
+} 
+} ˝
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOtpCommand.cs
+	namespace 	
+Business
+ 
+. 
+Services 
+. 
+Authentication *
+{ 
+public
+
+ 
+
+class
+
+ 
+VerifyOtpCommand
+
+ !
+:
+
+" #
+IRequest
+
+$ ,
+<
+
+, -
+IDataResult
+
+- 8
+<
+
+8 9
 SFwToken
 
- !
+9 A
 >
 
-! "
+A B
 >
 
-" #
-Verify
-
-$ *
-(
-
-* +
-VerifyOTPCommand
-
-+ ;
-command
-
-< C
-)
-
-C D
-;
-
-D E
-} 
-} Û
-eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\ILoginDataProvider.cs
-	namespace 	
-Business
- 
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
-	interface 
-ILoginDataProvider $
-{ 
-Task 
-< #
-LoginDataProviderResult 
-> 
-Verify  &
-(& '
-string' -
-accessToken. 9
-)9 :
-;: ;
-} 
-public 
-class #
-LoginDataProviderResult %
-{ 
-public 
-bool	 
-	IsSuccess 
-{ 
-get 
-; 
-set "
-;" #
-}$ %
-public 
-string	 
-Message 
-{ 
-get 
-; 
-set "
-;" #
-}$ %
-public 
-ExternalUser	 
-ExternalUser "
-{# $
-get% (
-;( )
-set* -
-;- .
-}/ 0
-} 
-public!! 
-class!! 
-ExternalUser!! 
-{"" 
-public&& 
-string&&	 
-AgentUserId&& 
-{&& 
-get&& !
-;&&! "
-set&&# &
-;&&& '
-}&&( )
-public++ 
-long++	 
-	CitizenId++ 
-{++ 
-get++ 
-;++ 
-set++ "
-;++" #
-}++$ %
-public00 
-string00	 
-Email00 
-{00 
-get00 
-;00 
-set00  
-;00  !
-}00" #
-public55 
-string55	 
-MobilePhone55 
-{55 
-get55 !
-;55! "
-set55# &
-;55& '
-}55( )
-public:: 
-string::	 
-Address:: 
-{:: 
-get:: 
-;:: 
-set:: "
-;::" #
-}::$ %
-public?? 
-string??	 
-Notes?? 
-{?? 
-get?? 
-;?? 
-set??  
-;??  !
-}??" #
-publicAA 
-voidAA	 
-CleanRecordAA 
-(AA 
-)AA 
-{BB 
-ifEE 
-(EE 
-!EE 
-stringEE 
-.EE 
-IsNullOrWhiteSpaceEE !
-(EE! "
-MobilePhoneEE" -
-)EE- .
-)EE. /
-{FF 
-ifHH 
-(HH 
-!HH 	
-MobilePhoneHH	 
-.HH 
-
-StartsWithHH 
-(HH  
-$strHH  #
-)HH# $
-)HH$ %
-MobilePhoneII 
-=II 
-$strII 
-+II 
-MobilePhoneII $
-;II$ %
-MobilePhoneJJ 
-=JJ 
-MobilePhoneJJ 
-.JJ 
-SplitJJ #
-(JJ# $
-$charJJ$ '
-)JJ' (
-[JJ( )
-$numJJ) *
-]JJ* +
-.JJ+ ,
-TrimJJ, 0
-(JJ0 1
-)JJ1 2
-;JJ2 3
-}KK 
-}LL 
-}MM 
-}NN Ç
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserCommand.cs
-	namespace 	
-Business
- 
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
-class 
-LoginUserCommand 
-:  
-IRequest! )
-<) *
-IDataResult* 5
-<5 6
-LoginUserResult6 E
->E F
->F G
-{ 
-public 
-string	 
-ExternalUserId 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-string	 
-MobilePhone 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-string	 
-Password 
-{ 
-get 
-; 
-set  #
-;# $
-}% &
-public &
-AuthenticationProviderType	 #
-Provider$ ,
-{- .
-get/ 2
-;2 3
-set4 7
-;7 8
-}9 :
-public 
-bool	 
-IsPhoneValid 
-{   
-get!! 
-{"" 
-if## 
-(## 
-string## 
-.## 
-IsNullOrWhiteSpace## !
-(##! "
-MobilePhone##" -
-)##- .
-)##. /
-return$$ 
-false$$ 
-;$$ 
-else%% 
-{&& 
-PostProcess'' 
-('' 
-)'' 
-;'' 
-MobilePhone(( 
-=(( 
-System(( 
-.(( 
-Text(( 
-.(( 
-RegularExpressions(( 1
-.((1 2
-Regex((2 7
-.((7 8
-Replace((8 ?
-(((? @
-MobilePhone((@ K
-,((K L
-$str((M U
-,((U V
-$str((W Y
-)((Y Z
-;((Z [
-return)) 
-MobilePhone)) 
-.)) 
-
-StartsWith)) "
-())" #
-$str))# '
-)))' (
-&&))) +
-MobilePhone)), 7
-.))7 8
-Length))8 >
-==))? A
-$num))B D
-;))D E
-}** 
-}++ 
-},, 
-public-- 
-long--	 
-AsCitizenId-- 
-(-- 
-)-- 
-=>-- 
-long-- #
-.--# $
-Parse--$ )
-(--) *
-ExternalUserId--* 8
-)--8 9
-;--9 :
-public11 
-void11	 
-PostProcess11 
-(11 
-)11 
-{22 
-MobilePhone33 
-=33 
-System33 
-.33 
-Text33 
-.33 
-RegularExpressions33 /
-.33/ 0
-Regex330 5
-.335 6
-Replace336 =
-(33= >
-MobilePhone33> I
-,33I J
-$str33K S
-,33S T
-$str33U W
-)33W X
-;33X Y
-}44 
-}55 
-}66 ı
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserResult.cs
-	namespace 	
-Business
- 
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
-class	 
-LoginUserResult 
-{ 
-public 
-
-LoginStatus 
-Status 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public 
-
-string 
-Message 
-{ 
-get 
-;  
-set! $
-;$ %
-}& '
-public 
-
-string 
-[ 
-] 
-MobilePhones  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-
-enum 
-LoginStatus 
-{ 
-UserNotFound 
-, 
-WrongCredentials 
-, 
-PhoneNumberRequired 
-, 
-ServiceError   
-,   
-Ok!! 
-}"" 
-}## 
-}$$ ˝
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOTPCommand.cs
-	namespace 	
-Business
- 
-. 
-Services 
-. 
-Authentication *
-{ 
-public 
-class 
-VerifyOTPCommand 
-:  
-IRequest! )
-<) *
-IDataResult* 5
-<5 6
-SFwToken6 >
->> ?
->? @
-{ 
-public &
-AuthenticationProviderType	 #
-Provider$ ,
-{- .
-get/ 2
-;2 3
-set4 7
-;7 8
-}9 :
-public 
-string	 
-ProviderSubType 
-{  !
-get" %
-;% &
-set' *
-;* +
-}, -
-public 
-
-string 
-ExternalUserId  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-
-int 
-Code 
-{ 
-get 
-; 
-set 
-; 
-}  !
-} 
-} Â
+B C
+{ 
+public &
+AuthenticationProviderType )
+Provider* 2
+{3 4
+get5 8
+;8 9
+set: =
+;= >
+}? @
+public 
+string 
+ProviderSubType %
+{& '
+get( +
+;+ ,
+set- 0
+;0 1
+}2 3
+public 
+string 
+ExternalUserId $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
+public 
+int 
+Code 
+{ 
+get 
+; 
+set "
+;" #
+}$ %
+} 
+} Â
 [E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\OASToken.cs
-	namespace 	
-Business
+	namespace 	
+Business
  
-. 
-Services 
-. 
-Authentication *
-{ 
-public		 
-class		 
-SFwToken		 
-:		 
-AccessToken		 $
-{
-
- 
-public 
-string	 
-ExternalUserId 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public &
-AuthenticationProviderType	 #
-Provider$ ,
-{- .
-get/ 2
-;2 3
-set4 7
-;7 8
-}9 :
-public 
-string	 
-
-OnBehalfOf 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-} 
-} å)
-oE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\PersonAuthenticationProvider.cs
-	namespace
-
- 	
-Business
-
-
- 
-.
-
- 
-Services
-
- 
-.
-
- 
-Authentication
-
- *
-{ 
-public 
+. 
+Services 
+. 
+Authentication *
+{ 
+public 
 
-class (
-PersonAuthenticationProvider -
-:. /&
-AuthenticationProviderBase0 J
-,J K#
-IAuthenticationProviderL c
-{ 
-private 
-readonly 
-IUserRepository (
-_users) /
-;/ 0
-private 
-readonly 
-ITokenHelper %
-_tokenHelper& 2
-;2 3
-public &
-AuthenticationProviderType )
-ProviderType* 6
-{7 8
-get9 <
-;< =
-}> ?
-public (
-PersonAuthenticationProvider +
-(+ ,&
-AuthenticationProviderType, F
-providerTypeG S
-,S T
-IUserRepositoryU d
-userse j
-,j k#
-IMobileLoginRepository	l Ç
+class 
+SFwToken 
+: 
+AccessToken '
+{ 
+public 
+string 
+ExternalUserId $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
+public &
+AuthenticationProviderType )
+Provider* 2
+{3 4
+get5 8
+;8 9
+set: =
+;= >
+}? @
+public 
+string 
+
+OnBehalfOf  
+{! "
+get# &
+;& '
+set( +
+;+ ,
+}- .
+} 
+} å)
+oE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\PersonAuthenticationProvider.cs
+	namespace		 	
+Business		
+ 
+.		 
+Services		 
+.		 
+Authentication		 *
+{
+
+ 
+public 
+
+class (
+PersonAuthenticationProvider -
+:. /&
+AuthenticationProviderBase0 J
+,J K#
+IAuthenticationProviderL c
+{ 
+private 
+readonly 
+IUserRepository (
+_users) /
+;/ 0
+private 
+readonly 
+ITokenHelper %
+_tokenHelper& 2
+;2 3
+public &
+AuthenticationProviderType )
+ProviderType* 6
+{7 8
+get9 <
+;< =
+}> ?
+public (
+PersonAuthenticationProvider +
+(+ ,&
+AuthenticationProviderType, F
+providerTypeG S
+,S T
+IUserRepositoryU d
+userse j
+,j k#
+IMobileLoginRepository	l Ç
 mobileLogins
-É è
+É è
 ,
-è ê
+è ê
 ITokenHelper
-ë ù
+ë ù
 tokenHelper
-û ©
+û ©
 ,
-© ™
+© ™
 ISmsService
-´ ∂
+´ ∂
 
 smsService
-∑ ¡
+∑ ¡
 )
-¡ ¬
-: 
-base 
-( 
-mobileLogins +
-,+ ,
+¡ ¬
+: 
+base 
+( 
+mobileLogins +
+,+ ,
 
-smsService- 7
-)7 8
-{ 	
-_users 
-= 
-users 
-; 
-ProviderType 
-= 
-providerType '
-;' (
-_tokenHelper 
-= 
-tokenHelper &
-;& '
-} 	
-public 
-override 
-async 
-Task "
-<" #
-LoginUserResult# 2
->2 3
-Login4 9
-(9 :
-LoginUserCommand: J
-commandK R
-)R S
-{ 	
-var 
-	citizenId 
-= 
-command #
-.# $
-AsCitizenId$ /
-(/ 0
-)0 1
-;1 2
-var   
-user   
-=   
-await   
-_users   #
-.  # $
-Query  $ )
-(  ) *
-)  * +
-.!! 
-Where!! "
-(!!" #
-u!!# $
-=>!!% '
-u!!( )
-.!!) *
-	CitizenId!!* 3
-==!!4 6
-	citizenId!!7 @
-)!!@ A
-."" 
-FirstOrDefaultAsync"" 0
-(""0 1
-)""1 2
-;""2 3
-if&& 
-(&& 
-command&& 
-.&& 
-IsPhoneValid&& $
-)&&$ %
-return'' 
-await'' "
-PrepareOneTimePassword'' 3
-(''3 4&
-AuthenticationProviderType''4 N
-.''N O
-Person''O U
-,''U V
-user''W [
-.''[ \
-MobilePhones''\ h
-,''h i
-user''j n
-.''n o
-	CitizenId''o x
-.''x y
-ToString	''y Å
+smsService- 7
+)7 8
+{ 	
+_users 
+= 
+users 
+; 
+ProviderType 
+= 
+providerType '
+;' (
+_tokenHelper 
+= 
+tokenHelper &
+;& '
+} 	
+public 
+override 
+async 
+Task "
+<" #
+LoginUserResult# 2
+>2 3
+Login4 9
+(9 :
+LoginUserCommand: J
+commandK R
+)R S
+{ 	
+var 
+	citizenId 
+= 
+command #
+.# $
+AsCitizenId$ /
+(/ 0
+)0 1
+;1 2
+var 
+user 
+= 
+await 
+_users #
+.# $
+Query$ )
+() *
+)* +
+.   
+Where   "
+(  " #
+u  # $
+=>  % '
+u  ( )
+.  ) *
+	CitizenId  * 3
+==  4 6
+	citizenId  7 @
+)  @ A
+.!! 
+FirstOrDefaultAsync!! 0
+(!!0 1
+)!!1 2
+;!!2 3
+if%% 
+(%% 
+command%% 
+.%% 
+IsPhoneValid%% $
+)%%$ %
+return&& 
+await&& "
+PrepareOneTimePassword&& 3
+(&&3 4&
+AuthenticationProviderType&&4 N
+.&&N O
+Person&&O U
+,&&U V
+user&&W [
+.&&[ \
+MobilePhones&&\ h
+,&&h i
+user&&j n
+.&&n o
+	CitizenId&&o x
+.&&x y
+ToString	&&y Å
 (
-''Å Ç
+&&Å Ç
 )
-''Ç É
+&&Ç É
 )
-''É Ñ
+&&É Ñ
 ;
-''Ñ Ö
-else(( 
-return)) 
-new)) 
-LoginUserResult)) *
-{** 
-Message++ 
-=++ 
-$str++ G
-,++G H
-Status,, 
-=,, 
-LoginUserResult,, ,
-.,,, -
-LoginStatus,,- 8
-.,,8 9
-PhoneNumberRequired,,9 L
-,,,L M
-MobilePhones--  
-=--! "
-new--# &
-string--' -
-[--- .
-]--. /
-{--0 1
-user--2 6
-.--6 7
-MobilePhones--7 C
-}--D E
-}.. 
-;.. 
-}// 	
-public11 
-override11 
-async11 
-Task11 "
-<11" #
-SFwToken11# +
->11+ ,
-CreateToken11- 8
-(118 9
-VerifyOTPCommand119 I
-command11J Q
-)11Q R
-{22 	
-var33 
-	citizenId33 
-=33 
-long33  
-.33  !
-Parse33! &
-(33& '
-command33' .
-.33. /
-ExternalUserId33/ =
-)33= >
-;33> ?
-var44 
-user44 
-=44 
-await44 
-_users44 #
-.44# $
-GetAsync44$ ,
-(44, -
-u44- .
-=>44/ 1
-u442 3
-.443 4
-	CitizenId444 =
-==44> @
-	citizenId44A J
-)44J K
-;44K L
-user55 
-.55 &
-AuthenticationProviderType55 +
-=55, -
-ProviderType55. :
-.55: ;
-ToString55; C
-(55C D
-)55D E
-;55E F
-var77 
-claims77 
-=77 
-_users77 
-.77  
-	GetClaims77  )
-(77) *
-user77* .
-.77. /
-UserId77/ 5
-)775 6
-;776 7
-var88 
-accessToken88 
-=88 
-_tokenHelper88 *
-.88* +
-CreateToken88+ 6
-<886 7
-SFwToken887 ?
->88? @
-(88@ A
-user88A E
-,88E F
-claims88G M
-)88M N
-;88N O
-accessToken99 
-.99 
-Provider99  
-=99! "
-ProviderType99# /
-;99/ 0
-return:: 
-accessToken:: 
-;:: 
-};; 	
-}>> 
-}?? „S
+&&Ñ Ö
+else'' 
+return(( 
+new(( 
+LoginUserResult(( *
+{)) 
+Message** 
+=** 
+$str** G
+,**G H
+Status++ 
+=++ 
+LoginUserResult++ ,
+.++, -
+LoginStatus++- 8
+.++8 9
+PhoneNumberRequired++9 L
+,++L M
+MobilePhones,,  
+=,,! "
+new,,# &
+string,,' -
+[,,- .
+],,. /
+{,,0 1
+user,,2 6
+.,,6 7
+MobilePhones,,7 C
+},,D E
+}-- 
+;-- 
+}.. 	
+public00 
+override00 
+async00 
+Task00 "
+<00" #
+SFwToken00# +
+>00+ ,
+CreateToken00- 8
+(008 9
+VerifyOtpCommand009 I
+command00J Q
+)00Q R
+{11 	
+var22 
+	citizenId22 
+=22 
+long22  
+.22  !
+Parse22! &
+(22& '
+command22' .
+.22. /
+ExternalUserId22/ =
+)22= >
+;22> ?
+var33 
+user33 
+=33 
+await33 
+_users33 #
+.33# $
+GetAsync33$ ,
+(33, -
+u33- .
+=>33/ 1
+u332 3
+.333 4
+	CitizenId334 =
+==33> @
+	citizenId33A J
+)33J K
+;33K L
+user44 
+.44 &
+AuthenticationProviderType44 +
+=44, -
+ProviderType44. :
+.44: ;
+ToString44; C
+(44C D
+)44D E
+;44E F
+var66 
+claims66 
+=66 
+_users66 
+.66  
+	GetClaims66  )
+(66) *
+user66* .
+.66. /
+UserId66/ 5
+)665 6
+;666 7
+var77 
+accessToken77 
+=77 
+_tokenHelper77 *
+.77* +
+CreateToken77+ 6
+<776 7
+SFwToken777 ?
+>77? @
+(77@ A
+user77A E
+,77E F
+claims77G M
+)77M N
+;77N O
+accessToken88 
+.88 
+Provider88  
+=88! "
+ProviderType88# /
+;88/ 0
+return99 
+accessToken99 
+;99 
+}:: 	
+}== 
+}>> „S
 BE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Startup.cs
 	namespace 	
 Business

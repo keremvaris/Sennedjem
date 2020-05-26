@@ -1,5 +1,4 @@
-﻿
-using Core.Utilities.ElasticSearch.Models;
+﻿using Core.Utilities.ElasticSearch.Models;
 using Nest;
 using System;
 using System.Collections.Generic;

@@ -1,12 +1,10 @@
-﻿
-
-namespace Core.CrossCuttingConcerns.Logging.NLog.Loggers
+﻿namespace Core.CrossCuttingConcerns.Logging.NLog.Loggers
 {
-  public class FileLogger : LoggerServiceBase
-  {
-    public FileLogger() : base("JsonFileLogger")
+    public class FileLogger : LoggerServiceBase
     {
+        public FileLogger() : base("JsonFileLogger")
+        {
 
+        }
     }
-  }
 }

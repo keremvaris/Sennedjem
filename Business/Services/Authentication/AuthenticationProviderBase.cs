@@ -1,7 +1,6 @@
 ﻿using Business.Adapters.SmsService;
 using Business.Constants;
 using Core.Utilities.Results;
-using Core.Utilities.Security.Jwt;
 using Core.Utilities.Toolkit;
 using DataAccess.Abstract;
 using DataAccess.Entities;
@@ -24,7 +23,7 @@ namespace Business.Services.Authentication
         }
 
         public abstract Task<LoginUserResult> Login(LoginUserCommand command);
-        public abstract Task<SFwToken> CreateToken(VerifyOTPCommand command);
+        public abstract Task<SFwToken> CreateToken(VerifyOtpCommand command);
         protected virtual async Task<LoginUserResult> PrepareOneTimePassword(AuthenticationProviderType providerType, string cellPhone, string externalUserId)
         {
             var oneTimePassword = await _logins.Query()
@@ -62,7 +61,7 @@ namespace Business.Services.Authentication
             return new LoginUserResult { Message = Messages.SendMobileCode + mobileCode, Status = LoginUserResult.LoginStatus.Ok };
         }
 
-        public virtual async Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand command)
+        public virtual async Task<IDataResult<SFwToken>> Verify(VerifyOtpCommand command)
         {
             var externalUserId = command.ExternalUserId;
             var date = DateTime.Now;

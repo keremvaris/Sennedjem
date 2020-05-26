@@ -3,42 +3,39 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Commands
 {
-  public class CreateUserGroupCommand : IRequest<IResult>
-  {
-
-    public int GroupId { get; set; }
-    public int UserId { get; set; }
-
-    public class CreateUserGroupCommandHandler : IRequestHandler<CreateUserGroupCommand, IResult>
+    public class CreateUserGroupCommand : IRequest<IResult>
     {
-      private readonly IUserGroupRepository _userGroupDal;
 
-      public CreateUserGroupCommandHandler(IUserGroupRepository userGroupDal)
-      {
-        _userGroupDal = userGroupDal;
-      }
+        public int GroupId { get; set; }
+        public int UserId { get; set; }
 
-      public async Task<IResult> Handle(CreateUserGroupCommand request, CancellationToken cancellationToken)
-      {
-        var userGroup = new UserGroup
+        public class CreateUserGroupCommandHandler : IRequestHandler<CreateUserGroupCommand, IResult>
         {
-          GroupId = request.GroupId,
-          UserId = request.UserId
-        };
+            private readonly IUserGroupRepository _userGroupDal;
 
-        _userGroupDal.Add(userGroup);
-        await _userGroupDal.SaveChangesAsync();
+            public CreateUserGroupCommandHandler(IUserGroupRepository userGroupDal)
+            {
+                _userGroupDal = userGroupDal;
+            }
 
-        return new SuccessResult(Messages.UserGroupAdded);
-      }
+            public async Task<IResult> Handle(CreateUserGroupCommand request, CancellationToken cancellationToken)
+            {
+                var userGroup = new UserGroup
+                {
+                    GroupId = request.GroupId,
+                    UserId = request.UserId
+                };
+
+                _userGroupDal.Add(userGroup);
+                await _userGroupDal.SaveChangesAsync();
+
+                return new SuccessResult(Messages.UserGroupAdded);
+            }
+        }
     }
-  }
 }

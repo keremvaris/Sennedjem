@@ -21,9 +21,9 @@ qE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\Configuratio
 lE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\Configurations\UserEntityConfiguration.cs 8r	
 Çé
 qE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\Configurations\UserGroupEntityConfiguration.cs 8r	
-Çí
-jE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramework\Contexts\MsDbContext.cs 8r	
-xÇ 
+Çè
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramework\Contexts\MsDbContext.cs 8r	
+xÇ 
 oE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramework\Contexts\ProjectDbContext.cs
  8j	
  !"#r.$%&'(+,-./0123456789:<=>?@ABCEFxÇ
@@ -44,15 +44,14 @@ dE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramew
  !"#$%&'()Ç"%|
 `E:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\AuthenticationProviderType.csj	
 r
-â
-XE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Dtos\SelectionItem.cs 8j	
-r !"Ça
-IE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Log.cs 8r	
-v
-QE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\MobileLogin.cs 8jr	
-Ñ
+Ü
+XE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Dtos\SelectionItem.cs 8jr	
+Ç_
+IE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Log.cs 8r	
+t
+QE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\MobileLogin.cs 8j	
+rÑ
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\20200525161308_InitialCreate.cs 8r≥	
- !"$%&'()*+,-./013456789:;<=>?@ABCEFGHIJKLMNOPRSTUVWXYZ[\^_`abcdefghjklmnopqrstuvwxyz{|}~ÅÇÉÑÜáàâäåçéèëíîïóòöõùû†°£§•¶ßÇZ!$&()*+,.035789:;<=>@BEGIJKMORTVWY[^`bcegjlnopqrstuvwxyz|~ÅÜéëîóöù†£é
-_E:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\20200525163436_Login.cs 8r	
- Ç
-
+ !"$%&'()*+,-./013456789:;<=>?@ABCEFGHIJKLMNOPRSTUVWXYZ[\^_`abcdefghjklmnopqrstuvwxyz{|}~ÅÇÉÑÜáàâäåçéèëíîïóòöõùû†°£§•¶ßÇZ!$&()*+,.035789:;<=>@BEGIJKMORTVWY[^`bcegjlnopqrstuvwxyz|~ÅÜéëîóöù†£ç
+_E:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\20200525163436_Login.cs 8r	
+Ç	

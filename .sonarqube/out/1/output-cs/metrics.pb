@@ -1,56 +1,57 @@
 ñ
 ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\ApiDoc\AddAuthHeaderOperationFilter.cs 8j	
-r !"#$xÇ	 Ü
-NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\ApiDoc\EnumSchemaFilter.cs 8j
-r	xÇö
+r !"#$xÇ	 Ö
+NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\ApiDoc\EnumSchemaFilter.cs 8j	
+rxÇö
 ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Caching\CacheAspect.cs
  8j
 r 	 !"#$xÇ
  !ç
 `E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Caching\CacheRemoveAspect.cs 8j	
 rÇæ
-cE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Exception\ExceptionLogAspect.cs 8jr5	 "#$%&'(*+,-./0123456789:;<=>xÇ "#$&'-/1238;©
-XE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Logging\LogAspect.cs	 8jr0	
- "#$%&'()*+-./01245678xÇ%')*+15ü
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Exception\ExceptionLogAspect.cs 8jr5	 "#$%&'(*+,-./0123456789:;<=>xÇ "#$&'-/1238;ß
+XE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Logging\LogAspect.cs	 8jr.
+ !"#$%&'()+,-./023456xÇ#%'()/3ü
 dE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Performance\PerformanceAspect.cs 8j	
 r !"#$%xÇ "ù
 iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Transaction\TransactionScopeAspect.cs 8j	r
 xÇ†
-bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Validation\ValidationAspect.cs 8jr 
- !"#$%xÇ!{
-aE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Caching\ICacheManager.csj	r
-”
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Aspects\Autofac\Validation\ValidationAspect.cs 8jr 	
+ !"#$xÇ x
+aE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Caching\ICacheManager.csjr	
+”
 pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Caching\Microsoft\MemoryCacheManager.cs 8
 jr<
- !#$%&()*+-./0234568:;<=>@ABCDEFGHxÇ %*/456:<=@ABDƒ
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Caching\Redis\RedisCacheManager.cs 	8	j	
-r8 !#$%&'(*+,-/012346789;<=>@ABCDEÇ &',238=Bï
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\Layouts\JsonLayout.cs 8r	
-Ç∆
-mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\LoggerServiceBase.cs 8r5
- !"#$%&'()*+,-./0123456789xÇ!"&'+,0156Ö
+ !#$%&()*+-./0234568:;<=>@ABCDEFGHxÇ %*/456:<=@ABD¬
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Caching\Redis\RedisCacheManager.cs 	8	jr6	
+!"#$%&()*+-./01245679:;<>?@ABCÇ$%*016;@í
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\Layouts\JsonLayout.cs 8r	
+Ç√
+mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\LoggerServiceBase.cs 8r2	
+ !"#$%&'()*+,-./0123456xÇ#$()-.23Ö
 rE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\Loggers\DatabaseLogger.cs 8r		Å
 nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\Loggers\FileLogger.cs 8r		ê
-pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs 8r	
-Çq
+pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs 8r	
+Çq
 ]E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\LogDetail.cs 8r
 	
 {
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\LogDetailWithException.cs 8rs
 `E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\LogParameter.cs 8r		
-ù
-yE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Layouts\CustomJsonLayoutRenderer.cs 8r	
-Ç¿
+õ
+yE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Layouts\CustomJsonLayoutRenderer.cs 8r	
+Ç¿
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\LoggerServiceBase.cs 8jr1	
  !"#%&'()+,-./12345789:;<=xÇ!"'(-.349:Ö
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Loggers\DbLogger.cs 8j
-r	Ç~
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Loggers\FileLogger.cs 8r	
-ã
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Loggers\DbLogger.cs 8jr	
+Ç	~
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\Loggers\FileLogger.cs 8r		
+ã
 mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Logging\NLog\SerializableLogEvent.cs 8r	
-Çã
-eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Validation\ValidationTool.cs 8r	
-xÇá
+Çà
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\CrossCuttingConcerns\Validation\ValidationTool.cs 8r	
+xÇ	
+á
 hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\DataAccess\EntityFramework\EfEntityRepositoryBase.cs 8j[ri	
  "#$%&()*+-./02345789:<=>?@BCDEGHIJLMNOQRSTVWXYZ\]^_`abcdefghijklmnopqstuvwxyz{|}~x
 Ç$%*/49>?DINS\^_cghimnswxz|t
@@ -73,9 +74,9 @@ GE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Entities\IEntity.csr
 QE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ClaimExtensions.cs 8r	
  !"#Ç 
 [E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ClaimsPrincipalExtensions.cs 8r	
-Çî
-SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ContextExtensions.cs 8j !"&r	
-#$%'()*+,-./Ç%'*,x
+Çí
+SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ContextExtensions.cs 8j	
+ $r!"#%&'()*+,-Ç#%(*x
 TE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\DateTimeExtensions.cs 8r	
 xÇ
 k
@@ -87,15 +88,14 @@ _E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ExceptionMiddlew
 ]E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ServiceCollectionExtensions.cs 8r	
 xÇ~
 WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Business\BusinessRules.cs 8r	
-xÇ	≠
-cE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\ElasticSearchManager.cs 8râ	
- "$%&'(*+-/01234589;<=>?ABCDEFGHIJKLMNPQSTUVWXYZ[\]^_`abcdefghiklmopqsuvwyz{|}~ÄÅÇÖÜáàâäãéèêëíìïxÇ/ "$%&'*+128>CDHIKPUV[ablqsuv{|}ÄÅáâêëv
-]E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\IElasticSearch.csr	
-}
-gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\Models\ElasticSearchCong.cs 8r	
-É
-`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\Models\IndexModel.cs 	8	r	
-Çè
+xÇ	´
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\ElasticSearchManager.cs 8rà	
+!#$%&')*,./0123478:;<=>@ABCDEFGHIJKLMOPRSTUVWXYZ[\]^_`abcdefghjklnoprtuvxyz{|}ÄÅÑÖÜáàâäçéèêëíîxÇ.!#$%&)*017=BCGHJOTUZ`akprtuz{|ÄÜàèês
+]E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\IElasticSearch.csr	
+z
+gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\Models\ElasticSearchCong.cs 8r		Ä
+`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\ElasticSearch\Models\IndexModel.cs 	8	r
+Çè
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Interceptors\AspectInterceptorSelector.cs 8r	
 Ç¢
 `E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Interceptors\MethodInterception.cs 8r&	
@@ -148,21 +148,23 @@ VE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Results\SuccessRe
 Å
 eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Encyption\SecurityKeyHelper.cs 8r	
 Ç
-ä
-lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Encyption\SigningCredentialsHelper.cs 8r	
-Çò
+á
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Encyption\SigningCredentialsHelper.cs 8r	
+Ç	ò
 _E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Hashing\HashingHelper.cs	 8r	
  !"xÇ	
-n
-YE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\AccessToken.cs 8r	
-k
+l
+YE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\AccessToken.cs 8r		
+k
 ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\IAccessToken.cs8r		
-l
-ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\ITokenHelper.csr	
-À
-WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\JwtHelper.cs 8	jKrH	
- !#$%&'()*+-./012456789:;<=>?@BCDEFGHIJLOPRSxÇ &'()+-89;<?EFGHIJLOq
-ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\TokenOptions.cs 8r	
-ä
-WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Toolkit\RandomPassword.cs 8jr	
-xÇ
+j
+ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\ITokenHelper.csr
+	
+ 
+WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\JwtHelper.cs 8	jJrG	
+ "#$%&'()*,-./013456789:;<=>?ABCDEFGHIKNOQRxÇ%&'(*,78:;>DEFGHIKNn
+ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Security\Jwt\TokenOptions.cs 8r
+	
+à
+WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Utilities\Toolkit\RandomPassword.cs 8j	r
+xÇ

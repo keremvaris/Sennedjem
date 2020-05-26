@@ -1,8 +1,5 @@
 ﻿using Core.Utilities.Results;
-using Core.Utilities.Security.Jwt;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.Services.Authentication
@@ -14,7 +11,7 @@ namespace Business.Services.Authentication
             throw new NotImplementedException();
         }
 
-        public virtual Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand command)
+        public virtual Task<IDataResult<SFwToken>> Verify(VerifyOtpCommand command)
         {
             throw new NotImplementedException();
         }

@@ -6,8 +6,6 @@ using Core.Utilities.IoC;
 using Core.Utilities.Messages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Core.Aspects.Autofac.Logging
 {

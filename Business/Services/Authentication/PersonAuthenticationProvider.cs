@@ -1,5 +1,4 @@
 ﻿using Business.Adapters.SmsService;
-using Core.Entities.Concrete;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Entities;
@@ -46,7 +45,7 @@ namespace Business.Services.Authentication
                 };
         }
 
-        public override async Task<SFwToken> CreateToken(VerifyOTPCommand command)
+        public override async Task<SFwToken> CreateToken(VerifyOtpCommand command)
         {
             var citizenId = long.Parse(command.ExternalUserId);
             var user = await _users.GetAsync(u => u.CitizenId == citizenId);

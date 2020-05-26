@@ -95,14 +95,14 @@ qE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\Configuratio
 		7 > 
    !* +Ê
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramework\Contexts\MsDbContext.cs
-		  & 1
+ #, 7
 
-	 
-3 :a h
-K Xj w
+ 
+9 @g n
+Q ^p }
 
- '
-@ N  %Å
+  -
+F T # 1Å
 oE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramework\Contexts\ProjectDbContext.cs
  + ;(
 $ 1 '' 880 =
@@ -236,56 +236,53 @@ dE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Concrete\EntityFramew
  	¶
 XE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Dtos\SelectionItem.cs
 
- 
+		 
 
-	 
+ 
 
-	 
- 4 6
-& +C H
+ 
+! #: <
+, 1I N
 
-	 
-   
-) . 
-  
-
-  
+ 
+$ & 
+/ 4 
+  
+  
 
- 
+ 
 
-   á
+ á
 IE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\Log.cs
 
- 
+ 
+
+ 
+
+		 
 
 
 
- 
+ 
 
- 
-
- 
-
- ≥
+ ≥
 QE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Entities\MobileLogin.cs
 
- 
+ 
 
-
-
- 
+ 
 
-& .
+* 2
 
-  
+ $
 
- 
+ 
 
- 
+  
 
- 
+ 
 
- ö	
+ ö	
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\20200525161308_InitialCreate.cs
 
  &
@@ -332,12 +329,10 @@ gE:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\2020052
 ££ ≈
 _E:\src\NewGenSource\NorthwindBackend\Sennedjem\DataAccess\Migrations\Pg\20200525163436_Login.cs
 
- 
+ 
 
-  "
-4 D
-
-  
+  "
+4 D		  
 
-  $
-6 F  
+  $
+6 F  

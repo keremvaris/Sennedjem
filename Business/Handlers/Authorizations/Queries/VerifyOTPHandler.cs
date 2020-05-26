@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Business.Handlers.Authorizations.Queries
 {
 
-    public class VerifyOTPHandler : IRequestHandler<VerifyOTPCommand, IDataResult<SFwToken>>
+    public class VerifyOTPHandler : IRequestHandler<VerifyOtpCommand, IDataResult<SFwToken>>
     {
         private readonly IAuthenticationCoordinator coordinator;
 
@@ -24,7 +24,7 @@ namespace Business.Handlers.Authorizations.Queries
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         // [LogAspect(typeof(FileLogger))]
-        public async Task<IDataResult<SFwToken>> Handle(VerifyOTPCommand request, CancellationToken cancellationToken)
+        public async Task<IDataResult<SFwToken>> Handle(VerifyOtpCommand request, CancellationToken cancellationToken)
         {
             // Uygun providerı al ve login ol.
             var provider = coordinator.SelectProvider(request.Provider);

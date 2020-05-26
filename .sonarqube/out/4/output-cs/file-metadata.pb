@@ -59,7 +59,7 @@ jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication
 eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\ILoginDataProvider.csutf-8r
 iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserCommand.csutf-8q
 hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserResult.csutf-8r
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOTPCommand.csutf-8d
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOtpCommand.csutf-8d
 [E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\OASToken.csutf-8x
 oE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\PersonAuthenticationProvider.csutf-8K
 BE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Startup.csutf-8\

@@ -1,9 +1,6 @@
 ﻿using Core.Utilities.ElasticSearch.Models;
-using Core.Utilities.Results;
 using Nest;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Utilities.ElasticSearch
 {

@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(typeof(SFwToken), 200)]
         [AllowAnonymous]
         [HttpPost("verify")]
-        public async Task<IActionResult> Verification([FromBody]VerifyOTPCommand mobileLogin)
+        public async Task<IActionResult> Verification([FromBody]VerifyOtpCommand mobileLogin)
         {
             var result = await _mediator.Send(mobileLogin);
             if (result.Success)
