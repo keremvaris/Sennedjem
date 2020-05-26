@@ -1,4 +1,5 @@
 ﻿using Business.Handlers.Authorizations.Commands;
+using Business.Handlers.Authorizations.Queries;
 using Business.Services.Authentication;
 using Core.Utilities.Security.Jwt;
 using MediatR;
@@ -51,17 +52,18 @@ namespace WebAPI.Controllers
         /// <summary>
         /// Mobil Giriş.
         /// </summary>
-        /// <param name="mobileLogin"></param>
+        /// <param name="verifyCid"></param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(SFwToken), 200)]
+        //[ProducesResponseType(typeof(SFwToken), 200)]
         [AllowAnonymous]
         [HttpPost("verify")]
-        public async Task<IActionResult> Verification([FromBody]VerifyOtpCommand mobileLogin)
+        public async Task<IActionResult> Verification([FromBody]VerifyCidQuery verifyCid)
         {
-            var result = await _mediator.Send(mobileLogin);
+            var result = await _mediator.Send(verifyCid);
             if (result.Success)
-                return Ok(result.Data);
-            return Unauthorized(result.Message);
+                return Ok(result.Message);
+
+            return BadRequest(result.Message);
         }
 
         /// <summary>

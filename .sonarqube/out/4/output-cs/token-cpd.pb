@@ -4411,7 +4411,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 }"" 
 }## 
 }$$ ß
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.cs
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.cs
 	namespace 	
 Business
  
@@ -4429,7 +4429,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 class
 
  
-VerifyOTPHandler
+VerifyOtpHandler
 
  !
 :
@@ -4469,7 +4469,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 coordinator4 ?
 ;? @
 public 
-VerifyOTPHandler 
+VerifyOtpHandler 
 (  &
 IAuthenticationCoordinator  :
 coordinator; F

@@ -22,7 +22,7 @@ qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\LoginUserValidator.csutf-8p
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\MobileLoginValidator.csutf-8t
 kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\LoginUserHandler.csutf-8t
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.csutf-8y
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.csutf-8y
 pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\CreateGroupClaimCommand.csutf-8y
 pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\DeleteGroupClaimCommand.csutf-8y
 pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\UpdateGroupClaimCommand.csutf-8s

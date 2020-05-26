@@ -22,6 +22,7 @@ using Microsoft.Extensions.Hosting;
 using Core.Extensions;
 using AutoMapper;
 using Autofac;
+using Business.Adapters.PersonService;
 
 namespace Business
 {
@@ -69,6 +70,7 @@ namespace Business
             services.AddScoped<IPrincipal>(getPrincipal);
 
             services.AddSingleton<IActivityMonitor, ActivityMonitor>();
+            services.AddSingleton<IPersonService, PersonServiceManager>();
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(InstrumentationBehavior<,>));
 

@@ -41,7 +41,7 @@ gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 xÇ†
 kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\LoginUserHandler.cs 8j	r	
  !"#$Ç !ù
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.cs 8j	r
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.cs 8j	r
  !"ÇØ
 pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\CreateGroupClaimCommand.cs 8r&	
  !"#%&'()*+,-xÇ "#%)¢

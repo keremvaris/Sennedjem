@@ -223,7 +223,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 		 	   ! 01 AC NO ^ 	
   - 	  4   M m  $ .    -; < $ 	     /9 IS d %   !! 	!!
  !! !!  /!!1 6ƒ
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.cs
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.cs
  
  
  

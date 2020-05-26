@@ -542,7 +542,7 @@ kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations
 
 e v
    !!7 ?‰
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.cs
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.cs
 
 
 

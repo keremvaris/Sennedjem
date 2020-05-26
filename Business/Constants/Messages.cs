@@ -5,6 +5,9 @@
     /// </summary>
     public static class Messages
     {
+        public static string CouldNotBeVerifyCid => "Kimlik No Doğrulamadı.";
+        public static string VerifyCid => "Kimlik No Doğrulandı.";
+
         public static string OperationClaimExists => "Bu Operasyon izni zaten mevcut";
         public static string AuthorizationsDenied => "Yetkiniz Olmayan Bir Alana Giriş Yapmaya Çalıştığınız Tespit Edildi!";
 
