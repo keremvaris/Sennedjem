@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Business.Handlers.Authorizations.Queries
 {
 
-    public class VerifyOTPHandler : IRequestHandler<VerifyOtpCommand, IDataResult<SFwToken>>
+    public class VerifyOtpHandler : IRequestHandler<VerifyOtpCommand, IDataResult<SFwToken>>
     {
         private readonly IAuthenticationCoordinator coordinator;
 
-        public VerifyOTPHandler(IAuthenticationCoordinator coordinator)
+        public VerifyOtpHandler(IAuthenticationCoordinator coordinator)
         {
             this.coordinator = coordinator;
         }
