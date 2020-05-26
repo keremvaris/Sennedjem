@@ -1,6 +1,6 @@
 ﻿### Login
 
-Sisteme Person, Staff ve Agent'lar tarfından giriş yapılabilir. 
+Sisteme Person, Staff ve Agent'lar tarafından giriş yapılabilir. 
 Bu bölümde providerlara göre API kullanım akışları anlatılmaktadır.
 
 #### Person

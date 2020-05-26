@@ -2,18 +2,18 @@
 
 namespace Core.Utilities.Business
 {
-  public class BusinessRules
-  {
-    public static IResult Run(params IResult[] logics)
+    public static class BusinessRules
     {
-      foreach (var result in logics)
-      {
-        if (!result.Success)
+        public static IResult Run(params IResult[] logics)
         {
-          return result;
+            foreach (var result in logics)
+            {
+                if (!result.Success)
+                {
+                    return result;
+                }
+            }
+            return null;
         }
-      }
-      return null;
     }
-  }
 }

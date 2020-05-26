@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Compile Remove="Abstract\IBagisciDal.cs" />
+    <Compile Remove="Concrete\EntityFramework\ContextExtensions.cs" />
     <Compile Remove="Concrete\EntityFramework\PgBagisciDal.cs" />
   </ItemGroup>
 

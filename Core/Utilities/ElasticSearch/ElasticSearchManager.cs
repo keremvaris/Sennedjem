@@ -1,9 +1,8 @@
-﻿using Castle.Core.Configuration;
+﻿
 using Core.Utilities.ElasticSearch.Models;
 using Nest;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 
@@ -11,15 +10,15 @@ namespace Core.Utilities.ElasticSearch
 {
     public class ElasticSearchManager : IElasticSearch
     {
-        public Microsoft.Extensions.Configuration.IConfiguration Configuration;
-        ConnectionSettings connectionSettings;
+        public IConfiguration Configuration;
+        private readonly ConnectionSettings _connectionSettings;
 
-        public ElasticSearchManager(Microsoft.Extensions.Configuration.IConfiguration configuration)
+        public ElasticSearchManager(IConfiguration Configuration)
         {
-            Configuration = configuration;
-            var settings = configuration.GetSection("ElasticSearchCong").Get<ElasticSearchCong>();
+
+            var settings = Configuration.GetSection("ElasticSearchCong").Get<ElasticSearchCong>();
             Uri uri = new Uri(settings.ConnectionString);
-            connectionSettings = new ConnectionSettings(uri);
+            _connectionSettings = new ConnectionSettings(uri);
 
         }
 
@@ -59,26 +58,26 @@ namespace Core.Utilities.ElasticSearch
 
         public IReadOnlyDictionary<IndexName, IndexState> GetIndexList()
         {
-            var elasticClient = new ElasticClient(connectionSettings);
+            var elasticClient = new ElasticClient(_connectionSettings);
             return elasticClient.Indices.Get(new GetIndexRequest(Indices.All)).Indices;
         }
 
         public List<T> GetSearchByField<T>(string indexName, string field, string value, int from = 0, int size = 10) where T : class
         {
-                var elasticClient = GetElasticClient(indexName);
-                var searchResponse = elasticClient.Search<T>(s => s
-                            .AllIndices()
-                            .From(from)
-                            .Size(size)
-                            .Query(q => q.Match(
-                                m => m.Field(field)
-                                .Query(value)
-                                .Operator(Operator.And)
-                                )
-                             )
-                           );
+            var elasticClient = GetElasticClient(indexName);
+            var searchResponse = elasticClient.Search<T>(s => s
+                        .AllIndices()
+                        .From(from)
+                        .Size(size)
+                        .Query(q => q.Match(
+                            m => m.Field(field)
+                            .Query(value)
+                            .Operator(Operator.And)
+                            )
+                         )
+                       );
 
-                return searchResponse.Documents.ToList();          
+            return searchResponse.Documents.ToList();
         }
 
         public List<T> GetSearchBySimpleQueryString<T>(string indexName, string queryName, string query, string[] fields, int from = 0, int size = 10) where T : class
@@ -135,7 +134,7 @@ namespace Core.Utilities.ElasticSearch
         {
             if (string.IsNullOrEmpty(indexName))
             {
-                throw new ArgumentNullException("Index name cannot be null or empty ");
+                throw new ArgumentNullException(indexName, "Index name cannot be null or empty ");
             }
         }
 
@@ -143,7 +142,7 @@ namespace Core.Utilities.ElasticSearch
         private ElasticClient GetElasticClient(string indexName)
         {
             ControlIndexNameNullOrEmpty(indexName);
-            return new ElasticClient(connectionSettings);
+            return new ElasticClient(_connectionSettings);
         }
     }
 

@@ -10,7 +10,7 @@ namespace Core.Utilities.Toolkit
         {
             // Create a string of characters, numbers, special characters that allowed in the password  
             string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_-";
-            Random random = new Random();
+            var random = new Random();
 
             // Select one random character at a time from the string  
             // and create an array of chars  
@@ -24,7 +24,7 @@ namespace Core.Utilities.Toolkit
 
         public static int RandomNumberGenerator(int min = 100000, int max = 999999)
         {
-            Random random = new Random();
+            var random = new Random();
             return random.Next(min, max);
         }
     }

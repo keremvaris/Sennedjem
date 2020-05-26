@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Compile Remove="Handlers\Authorizations\Commands\xRegisterUser.cs" />
+    <Compile Remove="Helpers\EnumerableExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>

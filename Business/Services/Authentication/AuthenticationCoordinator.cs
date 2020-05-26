@@ -5,28 +5,32 @@ using System.Text;
 
 namespace Business.Services.Authentication
 {
-  public class AuthenticationCoordinator : IAuthenticationCoordinator
-  {
-    private readonly IServiceProvider serviceProvider;
-
-    public AuthenticationCoordinator(IServiceProvider serviceProvider)
+    /// <summary>
+    /// Çok hızlı yazmak zorunda kaldım, refactor gerekecek.
+    /// </summary>
+    public class AuthenticationCoordinator : IAuthenticationCoordinator
     {
-      this.serviceProvider = serviceProvider;
-    }
+        private readonly IServiceProvider serviceProvider;
 
-    // TODO: Çok hızlı yazmak zorunda kaldım, refactor gerekecek.
-    public IAuthenticationProvider SelectProvider(AuthenticationProviderType type)
-    {
-      switch (type)
-      {
-        case AuthenticationProviderType.Person:
-          return (IAuthenticationProvider)serviceProvider.GetService(typeof(PersonAuthenticationProvider));
-        case AuthenticationProviderType.Agent:
-          return (IAuthenticationProvider)serviceProvider.GetService(typeof(AgentAuthenticationProvider));
-        default:
-          throw new ApplicationException($"Authentication provider not found: {type}");
-      }
+        public AuthenticationCoordinator(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+        }
+
+
+
+        public IAuthenticationProvider SelectProvider(AuthenticationProviderType type)
+        {
+            switch (type)
+            {
+                case AuthenticationProviderType.Person:
+                    return (IAuthenticationProvider)serviceProvider.GetService(typeof(PersonAuthenticationProvider));
+                case AuthenticationProviderType.Agent:
+                    return (IAuthenticationProvider)serviceProvider.GetService(typeof(AgentAuthenticationProvider));
+                default:
+                    throw new ApplicationException($"Authentication provider not found: {type}");
+            }
+        }
     }
-  }
 
 }

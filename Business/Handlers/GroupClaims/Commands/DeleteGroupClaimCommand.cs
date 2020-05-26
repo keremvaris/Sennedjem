@@ -3,37 +3,34 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Business.Handlers.GroupClaims.Commands
 {
-  [SecuredOperation]
-  public class DeleteGroupClaimCommand : IRequest<IResult>
-  {
-    public int Id { get; set; }
-
-    public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
+    [SecuredOperation]
+    public class DeleteGroupClaimCommand : IRequest<IResult>
     {
-      private readonly IGroupClaimRepository _groupClaimDal;
+        public int Id { get; set; }
 
-      public DeleteGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
-      {
-        _groupClaimDal = groupClaimDal;
-      }
+        public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
+        {
+            private readonly IGroupClaimRepository _groupClaimDal;
 
-      public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
-      {
-        var groupClaimToDelete = await _groupClaimDal.GetAsync(x => x.GroupId == request.Id);
+            public DeleteGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
+            {
+                _groupClaimDal = groupClaimDal;
+            }
 
-        _groupClaimDal.Delete(groupClaimToDelete);
-        await _groupClaimDal.SaveChangesAsync();
+            public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
+            {
+                var groupClaimToDelete = await _groupClaimDal.GetAsync(x => x.GroupId == request.Id);
 
-        return new SuccessResult(Messages.GroupClaimDeleted);
-      }
+                _groupClaimDal.Delete(groupClaimToDelete);
+                await _groupClaimDal.SaveChangesAsync();
+
+                return new SuccessResult(Messages.GroupClaimDeleted);
+            }
+        }
     }
-  }
 }

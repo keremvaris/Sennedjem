@@ -61,46 +61,38 @@ namespace Business
         {
             var thisAssembly = Assembly.GetAssembly(typeof(SecuredOperation));
             services.AddMediatR(thisAssembly);
-            // Principle inject edebilmek icin 
+
             Func<IServiceProvider, ClaimsPrincipal> getPrincipal = (sp) =>
-                // Context olmadığı durumlarda Unknown diye bir kullanıcı dön.
+
                 sp.GetService<IHttpContextAccessor>().HttpContext?.User ?? new ClaimsPrincipal(new ClaimsIdentity("Unknown"));
 
             services.AddScoped<IPrincipal>(getPrincipal);
-            // ActiviyMonitor, basit bir profiler gibi çalışır.
+
             services.AddSingleton<IActivityMonitor, ActivityMonitor>();
-            // Pipeline'ı da kur. Mediator handle metotlarını saracak.
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(InstrumentationBehavior<,>));
 
-            // Validatorleri Otomatik register edebilmek için AutofacModule'de kuracağız.
-            // Temel corefx DI'nın bu bu tip bir özelliği yok.
 
-            // .Net 3.0 sonrası container üzerinden build çağırMAMAmız gerekiyormuş.
-            // ServiceTool un provider'i aspectlerde kullanildigi icin bir yerde set etmemiz gerekiyor.
-            // Bunu da Configure Services'de yapiyoruz.
             services.AddDependencyResolvers(Configuration, new ICoreModule[]
             {
-                                new CoreModule()
+               new CoreModule()
             });
 
-            // Authentication providerlari.
+
 
             services.AddTransient<IAuthenticationCoordinator, AuthenticationCoordinator>();
-            // services.AddTransient<FileLogger>();
-            // services.AddSingleton<ILogger, Logger>(sp => NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger());
 
-            // Core'dan Konfig yoneticisi 
             services.AddSingleton<ConfigurationManager>();
 
-            //user işlerini takip ettiği için bu hep burada register olacak
+
             services.AddTransient<ITokenHelper, JwtHelper>();
-            //RabbitMq
+
             services.AddTransient<IMessageBrokerHelper, MqQueueHelper>();
             services.AddTransient<IMessageConsumer, MqConsumerHelper>();
-            // Mappers
+
             services.AddAutoMapper(typeof(Business.ConfigurationManager));
 
-            // İsimleri varsa Display attribute'ından al.
+
             FluentValidation.ValidatorOptions.DisplayNameResolver = (type, memberInfo, expression) =>
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();
@@ -113,7 +105,7 @@ namespace Business
         /// <param name="services"></param> 
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
-            // Ortak konfigurasyon
+
             ConfigureServices(services);
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -129,7 +121,7 @@ namespace Business
         /// <param name="services"></param> 
         public void ConfigureProfilingServices(IServiceCollection services)
         {
-            // Ortak konfigurasyon
+
             ConfigureServices(services);
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();

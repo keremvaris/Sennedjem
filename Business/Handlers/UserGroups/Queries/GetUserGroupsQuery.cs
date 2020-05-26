@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Queries
 {
-  public class GetUserGroupsQuery : IRequest<IDataResult<IEnumerable<UserGroup>>>
-  {
-    class GetUserGroupsQueryHandler : IRequestHandler<GetUserGroupsQuery, IDataResult<IEnumerable<UserGroup>>>
+    public class GetUserGroupsQuery : IRequest<IDataResult<IEnumerable<UserGroup>>>
     {
-      private readonly IUserGroupRepository _userGroupDal;
+        public class GetUserGroupsQueryHandler : IRequestHandler<GetUserGroupsQuery, IDataResult<IEnumerable<UserGroup>>>
+        {
+            private readonly IUserGroupRepository _userGroupDal;
 
-      public GetUserGroupsQueryHandler(IUserGroupRepository userGroupDal)
-      {
-        _userGroupDal = userGroupDal;
-      }
+            public GetUserGroupsQueryHandler(IUserGroupRepository userGroupDal)
+            {
+                _userGroupDal = userGroupDal;
+            }
 
-      public async Task<IDataResult<IEnumerable<UserGroup>>> Handle(GetUserGroupsQuery request, CancellationToken cancellationToken)
-      {
-        return new SuccessDataResult<IEnumerable<UserGroup>>(await _userGroupDal.GetListAsync());
-      }
+            public async Task<IDataResult<IEnumerable<UserGroup>>> Handle(GetUserGroupsQuery request, CancellationToken cancellationToken)
+            {
+                return new SuccessDataResult<IEnumerable<UserGroup>>(await _userGroupDal.GetListAsync());
+            }
+        }
     }
-  }
 }

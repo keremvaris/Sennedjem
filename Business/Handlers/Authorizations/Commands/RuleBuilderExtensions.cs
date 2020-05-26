@@ -1,12 +1,9 @@
 ﻿using Business.Constants;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Business.ValidationRules.FluentValidation
 {
-  public static class RuleBuilderExtensions
+    public static class RuleBuilderExtensions
   {
     public static IRuleBuilder<T, string> Password<T>(this IRuleBuilder<T, string> ruleBuilder, int minimumLength = 8)
     {

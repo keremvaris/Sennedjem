@@ -1,6 +1,4 @@
-﻿
-using Business.Handlers.Authorizations.Commands;
-using Business.Handlers.Authorizations.Commands.RegisterAuth;
+﻿using Business.Handlers.Authorizations.Commands;
 using Business.Services.Authentication;
 using Core.Utilities.Security.Jwt;
 using MediatR;
@@ -20,7 +18,7 @@ namespace WebAPI.Controllers
     public class AuthController : Controller
     {
         private readonly IMediator _mediator;
-        private readonly IConfiguration configuration;
+        private readonly IConfiguration _configuration;
 
         /// <summary>
         /// Dependency injection constructor injection ile sağlanır.
@@ -30,7 +28,7 @@ namespace WebAPI.Controllers
         public AuthController(IMediator mediator, IConfiguration configuration)
         {
             _mediator = mediator;
-            this.configuration = configuration;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -106,44 +104,8 @@ namespace WebAPI.Controllers
         public IActionResult LoginTest()
         {
             var auth = Request.Headers["Authorization"];
-            var token = new JwtHelper(configuration).DecodeToken(auth);
+            var token = new JwtHelper(_configuration).DecodeToken(auth);
             return Ok(token);
         }
-
-        /*
-
-				/// <summary>
-				///  Kullanıcı Kayıt İşlemlerini yapar.
-				/// </summary>
-				/// <param name="createUser"></param>
-				/// <returns></returns>
-				[AllowAnonymous]
-				[HttpPost("register")]
-				public async Task<IActionResult> Register([FromBody]RegisterUser.Command createUser)
-				{
-					var result = await _mediator.Send(createUser);
-					if (result.Success)
-						return Ok(result);
-
-					return BadRequest(result);
-				}
-
-				///<summary>
-				///Parolamı Unuttum.
-				///</summary>
-				///<remarks>tckimlikno</remarks>
-				///<return></return>
-				///<response code="200"></response>   
-				[HttpPut("forgotpassword")]
-				public async Task<IActionResult> ForgotPassword([FromBody]ForgotPasswordCommand forgotPassword)
-				{
-					var result = await _mediator.Send(forgotPassword);
-					if (result.Success)
-						return Ok(result);
-
-					return BadRequest(result);
-				}
-
-			*/
     }
 }

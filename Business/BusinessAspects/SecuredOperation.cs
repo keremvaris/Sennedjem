@@ -6,39 +6,34 @@ using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Security;
 
 namespace Business.BusinessAspects.Autofac
 {
-  /// <summary>
-  /// Bu Aspect IHttpContextAccessor inject edilerek HttpContext'te bulunan kullanıcının rollerini kontrol eder 
-  /// Handler üzerinde [SecuredOperation("Product.List,Admin")] şeklinde yazılarak kontrol edilir.
-  /// Eğer aspecte geçerli bir yetki bulunamazsa exception fırlatır.
-  /// 
-  /// </summary>
+    /// <summary>
+    /// Bu Aspect IHttpContextAccessor inject edilerek HttpContext'te bulunan kullanıcının rollerini kontrol eder 
+    /// Handler üzerinde [SecuredOperation("Product.List,Admin")] şeklinde yazılarak kontrol edilir.
+    /// Eğer aspecte geçerli bir yetki bulunamazsa exception fırlatır.
+    /// 
+    /// </summary>
 
-  public class SecuredOperation : MethodInterception
-  {
-    private readonly IHttpContextAccessor _httpContextAccessor;
-
-    public SecuredOperation()
+    public class SecuredOperation : MethodInterception
     {
-      _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
-    }
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-    protected override void OnBefore(IInvocation invocation)
-    {
-      var roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
-      var operationName = invocation.TargetType.ReflectedType.Name;
-      if (roleClaims.Contains(operationName))
-        return;
+        public SecuredOperation()
+        {
+            _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
+        }
 
-      throw new Exception(Messages.AuthorizationsDenied);
-      #region DeadSampleCode
-      //var operationName = Assembly.GetExecutingAssembly().GetTypes()
-      //    .Where(x => x.Namespace.StartsWith("Business.Handlers") && (x.Name.EndsWith("Command") || x.Name.EndsWith("Query"))
-      //  && x.CustomAttributes.Any(a => a.AttributeType == typeof(SecuredOperation)))
-      //.Select(x => x.Name).ToString();
-      #endregion
+        protected override void OnBefore(IInvocation invocation)
+        {
+            var roleClaims = _httpContextAccessor.HttpContext.User.ClaimRoles();
+            var operationName = invocation.TargetType.ReflectedType.Name;
+            if (roleClaims.Contains(operationName))
+                return;
+
+            throw new SecurityException(Messages.AuthorizationsDenied);
+        }
     }
-  }
 }

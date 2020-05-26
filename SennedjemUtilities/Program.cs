@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 
 namespace SennedjemUtilities
 {
@@ -7,8 +6,12 @@ namespace SennedjemUtilities
     {
         static void Main(string[] args)
         {
-        
+
             Console.ReadLine();
+        }
+        protected Program()
+        {
+
         }
     }
 }

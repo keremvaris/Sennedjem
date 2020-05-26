@@ -1,16 +1,10 @@
 ﻿using Business.Constants;
 using Business.Services.Authentication;
-using Core.Aspects.Autofac.Logging;
-using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
-using Entities.Dtos;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +12,6 @@ namespace Business.Handlers.Authorizations.Commands
 {
     public class LoginUserQuery : IRequest<IDataResult<AccessToken>>
     {
-        //public UserForLoginDto UserForLogin { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 

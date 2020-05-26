@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Authentication
 {
-	public class AgentAuthenticationProvider : IAuthenticationProvider
-	{
-		public Task<LoginUserResult> Login(LoginUserCommand command)
-		{
-			throw new NotImplementedException();
-		}
+    public class AgentAuthenticationProvider : IAuthenticationProvider
+    {
+        public Task<LoginUserResult> Login(LoginUserCommand command)
+        {
+            throw new NotImplementedException();
+        }
 
-		public virtual async Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand command)
-		{
-			throw new NotImplementedException();
-		}
+        public virtual Task<IDataResult<SFwToken>> Verify(VerifyOTPCommand command)
+        {
+            throw new NotImplementedException();
+        }
 
-	}
+    }
 }

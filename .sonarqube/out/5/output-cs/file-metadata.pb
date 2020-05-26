@@ -1,0 +1,9 @@
+\
+SE:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\Controllers\AuthController.csutf-8b
+YE:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\Controllers\ManagementController.csutf-8P
+@E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\Program.cswindows-1254I
+@E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\Startup.csutf-8[
+PC:\Users\kerem\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8i
+^E:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\obj\Debug\netcoreapp3.1\\RefitStubs.g.csutf-8‚
+wE:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.csutf-8o
+dE:\src\NewGenSource\NorthwindBackend\Sennedjem\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfo.csutf-8

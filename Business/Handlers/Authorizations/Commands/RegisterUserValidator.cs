@@ -1,4 +1,5 @@
-﻿using Business.Handlers.Authorizations.Commands.RegisterAuth;
+﻿using Business.Handlers.Authorizations.Commands;
+
 using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation

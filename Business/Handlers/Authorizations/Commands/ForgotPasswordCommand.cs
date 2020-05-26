@@ -37,6 +37,8 @@ namespace Business.Handlers.Authorizations.Commands
             /// Aspectler her zaman hadler üzerinde kullanılmalıdır.
             /// Aşağıda validation, cacheremove ve log aspect örnekleri kullanılmıştır.
             /// eğer kategori başarıyla eklenmişse sadece mesaj döner.
+            ///  /*user.PasswordHash = passwordHash,
+            ///    user.PasswordSalt = passwordSalt,*/
             /// </summary>
             /// <param name="request"></param>
             /// <param name="cancellationToken"></param>
@@ -53,11 +55,10 @@ namespace Business.Handlers.Authorizations.Commands
                 var generatedPassword = RandomPassword.CreateRandomPassword(14);
                 HashingHelper.CreatePasswordHash(generatedPassword, out byte[] passwordSalt, out byte[] passwordHash);
 
-                /*user.PasswordHash = passwordHash,
-                user.PasswordSalt = passwordSalt,*/
+
 
                 _userDal.Update(user);
-                //TODO: Yeni Şifre SMS ya da Mail Atılsın
+
                 return new SuccessResult(Messages.SendPassword + " Yeni Parola:" + generatedPassword + "passwordHash" + passwordHash + "passwordSalt" + passwordSalt);
             }
         }

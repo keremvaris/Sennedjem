@@ -1,4 +1,5 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects.Autofac;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
@@ -7,17 +8,17 @@ using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
-using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Business.Handlers.Authorizations.Commands.RegisterAuth
+namespace Business.Handlers.Authorizations.Commands
 {
 
     public class RegisterUser
     {
+        [SecuredOperation]
         public class Command : IRequest<IResult>
         {
             public string Email { get; set; }
@@ -28,13 +29,11 @@ namespace Business.Handlers.Authorizations.Commands.RegisterAuth
         public class RegisterUserCommandHandler : IRequestHandler<Command, IResult>
         {
             private readonly IUserRepository _userDal;
-            private readonly ITokenHelper _tokenHelper;
 
-            public RegisterUserCommandHandler(IUserRepository userDal, ITokenHelper tokenHelper)
+
+            public RegisterUserCommandHandler(IUserRepository userDal)
             {
                 _userDal = userDal;
-                _tokenHelper = tokenHelper;
-
             }
 
 
@@ -50,8 +49,7 @@ namespace Business.Handlers.Authorizations.Commands.RegisterAuth
                     return new ErrorResult(Messages.NameAlreadyExist);
 
 
-                byte[] passwordHash, passwordSalt;
-                HashingHelper.CreatePasswordHash(request.Password, out passwordSalt, out passwordHash);
+                HashingHelper.CreatePasswordHash(request.Password, out byte[] passwordSalt, out byte[] passwordHash);
                 var user = new User
                 {
                     Email = request.Email,
