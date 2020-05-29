@@ -57,14 +57,14 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 			}
 		}
 
-		public DbSet<OperationClaim> OperationClaims { get; set; }
-		public DbSet<UserClaim> UserClaims { get; set; }
-		public DbSet<Group> Groups { get; set; }
-		public DbSet<UserGroup> UserGroups { get; set; }
-		public DbSet<User> Users { get; set; }
-		public DbSet<GroupClaim> GroupClaims { get; set; }
-		public DbSet<Log> Logs { get; set; }
-		public DbSet<MobileLogin> MobileLogins { get; set; }
+		public virtual DbSet<OperationClaim> OperationClaims { get; set; }
+		public virtual DbSet<UserClaim> UserClaims { get; set; }
+		public virtual DbSet<Group> Groups { get; set; }
+		public virtual DbSet<UserGroup> UserGroups { get; set; }
+		public virtual DbSet<User> Users { get; set; }
+		public virtual DbSet<GroupClaim> GroupClaims { get; set; }
+		public virtual DbSet<Log> Logs { get; set; }
+		public virtual DbSet<MobileLogin> MobileLogins { get; set; }
 
 	}
 }

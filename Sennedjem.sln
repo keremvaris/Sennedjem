@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityFiles", "UtilityFile
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SennedjemUtilities", "SennedjemUtilities\SennedjemUtilities.csproj", "{68AFDFAE-0B13-4D53-9762-58F1250CFC54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SennedjemTests", "SennedjemTests\SennedjemTests.csproj", "{7E026806-4E0B-4494-8009-56ACCB57AC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{68AFDFAE-0B13-4D53-9762-58F1250CFC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68AFDFAE-0B13-4D53-9762-58F1250CFC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68AFDFAE-0B13-4D53-9762-58F1250CFC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E026806-4E0B-4494-8009-56ACCB57AC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E026806-4E0B-4494-8009-56ACCB57AC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E026806-4E0B-4494-8009-56ACCB57AC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E026806-4E0B-4494-8009-56ACCB57AC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
