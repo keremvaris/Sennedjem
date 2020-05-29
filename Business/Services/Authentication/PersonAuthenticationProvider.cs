@@ -58,5 +58,18 @@ namespace Business.Services.Authentication
         }
 
 
+        public SFwToken CreateTokenSnc(VerifyOtpCommand command)
+        {
+            var citizenId = long.Parse(command.ExternalUserId);
+            var user =  _users.Get(u => u.CitizenId == citizenId);
+            user.AuthenticationProviderType = ProviderType.ToString();
+
+            var claims = _users.GetClaims(user.UserId);
+            var accessToken = _tokenHelper.CreateToken<SFwToken>(user, claims);
+            accessToken.Provider = ProviderType;
+            return accessToken;
+        }
+
+
     }
 }
