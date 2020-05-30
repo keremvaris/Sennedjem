@@ -12,6 +12,8 @@ using Core.Entities.Concrete;
 using SennedjemTests.Helpers;
 using System.Threading.Tasks;
 using Core.DataAccess;
+using Nest;
+using System.Linq.Expressions;
 
 namespace SennedjemTests.Services.Authentication
 {
@@ -22,60 +24,41 @@ namespace SennedjemTests.Services.Authentication
         Mock<IMobileLoginRepository> _mobileLoginRepository;
         Mock<ITokenHelper> _tokenHelper;
         Mock<ISmsService> _smsService;
-        Mock<IEntityRepository<User>> entityRepository;
+        Mock<IEntityRepository<User>> _entityRepository;
+        Mock<IAuthenticationProvider> provider;
 
         [SetUp]
         public void Setup()
         {
-            _userRepository = new Mock<IUserRepository>();
+            _userRepository = new Mock<IUserRepository>() { CallBase = true };
             _mobileLoginRepository = new Mock<IMobileLoginRepository>();
             _tokenHelper = new Mock<ITokenHelper>();
             _smsService = new Mock<ISmsService>();
-            entityRepository = new Mock<IEntityRepository<User>>();
+            _entityRepository = new Mock<IEntityRepository<User>>();
+            provider = new Mock<IAuthenticationProvider>();
         }
 
         [Test]
         public async Task CreateTokenAsync()
         {
             var user = DataHelper.GetUser("test");
-            user.CitizenId = 1111111;
 
-            _userRepository.Setup(x => x.GetAsync(a => a.CitizenId == 111111))
-                .Returns(Task.FromResult(new User() { CitizenId= 1111111 }));
+            _userRepository.
+                Setup(x => x.GetAsync(It.IsAny<Expression<Func<User, bool>>>())).Returns(() => Task.FromResult(user));
 
+            _userRepository.Setup(x => x.GetClaims(It.IsAny<int>()))
+                .Returns(new List<OperationClaim>() { new OperationClaim() { Id = 1, Name = "test" } });
 
-            var service = new PersonAuthenticationProvider(
-                AuthenticationProviderType.Person,
-                _userRepository.Object,
-                _mobileLoginRepository.Object,
-                _tokenHelper.Object,
-                _smsService.Object);
-
-
-            var command = new VerifyOtpCommand()
-            {
-                Code = 1,
-                ExternalUserId = "111111",
-                Provider = AuthenticationProviderType.Person,
-                ProviderSubType = "Person"
-            };
-
-            var result = await service.CreateToken(command);
-
-            _userRepository.Verify();
-
-
-        }
-
-        [Test]
-        public void CreateToken()
-        {
-            var user = DataHelper.GetUser("test");
-            user.CitizenId = 1111111;
-
-            _userRepository.Setup(x => x.Get(a => a.CitizenId == 111))
-                .Returns(user);
-
+            _tokenHelper.
+                Setup(x => x.CreateToken<SFwToken>(It.IsAny<User>(), It.IsAny<List<OperationClaim>>())).
+                Returns(() => new SFwToken()
+                {
+                    Expiration = DateTime.Now.AddMinutes(10),
+                    ExternalUserId = "1111111",
+                    OnBehalfOf = "true",
+                    Provider = AuthenticationProviderType.Person,
+                    Token = "User Token"
+                });
 
             var service = new PersonAuthenticationProvider(
                 AuthenticationProviderType.Person,
@@ -83,7 +66,6 @@ namespace SennedjemTests.Services.Authentication
                 _mobileLoginRepository.Object,
                 _tokenHelper.Object,
                 _smsService.Object);
-
 
             var command = new VerifyOtpCommand()
             {
@@ -93,9 +75,12 @@ namespace SennedjemTests.Services.Authentication
                 ProviderSubType = "Person"
             };
 
-            var result =  service.CreateTokenSnc(command);
 
 
+            var result = await service.CreateToken(command);
+
+            Assert.That(result.Token, Is.EqualTo("User Token"));
         }
+
     }
 }
