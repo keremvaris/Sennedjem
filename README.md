@@ -90,9 +90,9 @@ Business Katmanı
 
 İş kodlarının yazılacağı yerdir.
 
-**Business-\>DependencyResolvers-\>BusinessModule.cs** sınıfına
+**Business-\>Startup.cs** sınıfına
 **Autofac** için gerekli olan **Register** işlemi burada konfigüre
-edilir.
+edilir. Burası aynı zamanda Development, Staging, Production ortamlarının yönetildiği yerdir.
 
 ![](./sfwMedia/media/image8.png)
 
