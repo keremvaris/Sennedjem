@@ -60,19 +60,22 @@ Buna ek olarak özel bir mapping yapılacaksa
 özel bir durum yoksa yapılmasına gerek yoktur.
 
 Migrations için kullanacağınız veritabanına göre aşağıdaki komutları
-çalıştırarak migrationlarınızı yapabilirsiniz.
+çalıştırarak migrationlarınızı yapabilirsiniz. Burada dikkat etmeniz gereken Migration yaparken Mode seçmeniz gerekliliğidir.
+Örneğin Staging ve Production. Default olarak Staging seçilmesi önerilir. Development Modu zaten InMemory çalıştığı için özel bir migrationa ihtiyaç yoktur.
 
 **// PostgreSQL**
 
-Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg
-
-Update-Database -context ProjectDbContext
+$env:ASPNETCORE_ENVIRONMENT='Staging'
+Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg
+$env:ASPNETCORE_ENVIRONMENT='Staging'
+Update-Database -context ProjectDbContext
 
 **// Ms Sql Server**
 
-Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
-
-Update-Database -context MsDbContext
+$env:ASPNETCORE_ENVIRONMENT='Staging'
+Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
+$env:ASPNETCORE_ENVIRONMENT='Staging'
+Update-Database -context MsDbContext
 
 Migration işlemlerini yaparken **Default Project** kısmında
 **DataAccess** seçili olduğuna ve migrationun ismini
