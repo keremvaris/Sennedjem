@@ -66,15 +66,21 @@ Migrations için kullanacağınız veritabanına göre aşağıdaki komutları
 **// PostgreSQL**
 
 $env:ASPNETCORE_ENVIRONMENT='Staging'
+
 Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg
+
 $env:ASPNETCORE_ENVIRONMENT='Staging'
+
 Update-Database -context ProjectDbContext
 
 **// Ms Sql Server**
 
 $env:ASPNETCORE_ENVIRONMENT='Staging'
+
 Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
+
 $env:ASPNETCORE_ENVIRONMENT='Staging'
+
 Update-Database -context MsDbContext
 
 Migration işlemlerini yaparken **Default Project** kısmında
