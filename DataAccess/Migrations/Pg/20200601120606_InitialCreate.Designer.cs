@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations.Pg
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20200525161308_InitialCreate")]
+    [Migration("20200601120606_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace DataAccess.Migrations.Pg
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Core.Entities.Concrete.Group", b =>
@@ -103,6 +103,12 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("character varying(500)")
                         .HasMaxLength(500);
 
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("bytea");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("bytea");
+
                     b.Property<DateTime>("RecordDate")
                         .HasColumnType("timestamp without time zone");
 
@@ -176,10 +182,13 @@ namespace DataAccess.Migrations.Pg
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("Code")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasMaxLength(50);
 
                     b.Property<string>("ExternalUserId")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(20)")
+                        .HasMaxLength(20);
 
                     b.Property<bool>("IsSend")
                         .HasColumnType("boolean");
@@ -194,6 +203,8 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExternalUserId", "Provider");
 
                     b.ToTable("MobileLogins");
                 });

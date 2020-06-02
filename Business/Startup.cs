@@ -99,6 +99,7 @@ namespace Business
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();
             };
+            //FOR Migrations   services.AddDbContext<ProjectDbContext>();
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
-
+            services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
 
         }
@@ -129,7 +130,7 @@ namespace Business
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
 
-
+            services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
 
         }
@@ -143,7 +144,7 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
-
+            services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
 
         }
@@ -158,7 +159,7 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
-
+            services.AddTransient<IAnimalRepository, AnimalRepository>();
 
             services.AddDbContext<ProjectDbContext>();
         }

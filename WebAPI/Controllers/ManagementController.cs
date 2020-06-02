@@ -34,8 +34,5 @@ namespace WebAPI.Controllers
         {
             return Ok(monitor.Summarize());
         }
-
-
-
     }
 }

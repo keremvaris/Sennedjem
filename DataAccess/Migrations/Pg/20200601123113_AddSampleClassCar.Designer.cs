@@ -10,15 +10,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations.Pg
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20200525163436_Login")]
-    partial class Login
+    [Migration("20200601123113_AddSampleClassCar")]
+    partial class AddSampleClassCar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Core.Entities.Concrete.Group", b =>
@@ -182,10 +182,13 @@ namespace DataAccess.Migrations.Pg
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("Code")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasMaxLength(50);
 
                     b.Property<string>("ExternalUserId")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(20)")
+                        .HasMaxLength(20);
 
                     b.Property<bool>("IsSend")
                         .HasColumnType("boolean");
@@ -201,7 +204,39 @@ namespace DataAccess.Migrations.Pg
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ExternalUserId", "Provider");
+
                     b.ToTable("MobileLogins");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Animal", b =>
+                {
+                    b.Property<int>("AnimalId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("AnimalName")
+                        .HasColumnType("text");
+
+                    b.HasKey("AnimalId");
+
+                    b.ToTable("Animals");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Car", b =>
+                {
+                    b.Property<int>("CarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("CarName")
+                        .HasColumnType("integer");
+
+                    b.HasKey("CarId");
+
+                    b.ToTable("Cars");
                 });
 #pragma warning restore 612, 618
         }

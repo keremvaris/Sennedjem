@@ -49,7 +49,7 @@ namespace Core.DataAccess.EntityFramework
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
         {
-            return await context.Set<TEntity>().FirstOrDefaultAsync(expression);
+            return await context.Set<TEntity>().AsQueryable().FirstOrDefaultAsync(expression);
         }
 
         public IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> expression = null)

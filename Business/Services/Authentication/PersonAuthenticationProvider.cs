@@ -56,7 +56,5 @@ namespace Business.Services.Authentication
             accessToken.Provider = ProviderType;
             return accessToken;
         }
-
-
     }
 }

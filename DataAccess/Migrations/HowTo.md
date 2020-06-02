@@ -1,15 +1,20 @@
 ﻿// Eğer IDE'den örneğin staging'e migration yapılacaksa
 $env:ASPNETCORE_ENVIRONMENT='Staging'
+$env:ASPNETCORE_ENVIRONMENT='Production'
 
 
 // PostgreSQL
+$env:ASPNETCORE_ENVIRONMENT='Staging'
 Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg
+$env:ASPNETCORE_ENVIRONMENT='Staging'
 Update-Database -context ProjectDbContext
 
 dotnet ef migrations add InitialCreate --context ProjectDbContext --output-dir Migrations/Pg
 
 // Ms Sql Server
+$env:ASPNETCORE_ENVIRONMENT='Staging'
 Add-Migration InitialCreate -context MsDbContext -OutputDir Migrations/Ms
+$env:ASPNETCORE_ENVIRONMENT='Staging'
 Update-Database -context MsDbContext
 
 dotnet ef migrations add InitialCreate --context MsDbContext --output-dir Migrations/Ms

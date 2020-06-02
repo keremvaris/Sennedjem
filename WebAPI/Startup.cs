@@ -107,7 +107,9 @@ namespace WebAPI
                 case ApplicationMode.Production:
                     break;
             }
-
+            if (env.IsDevelopment() || env.IsStaging())
+            {
+            }
             app.UseDeveloperExceptionPage();
 
             app.ConfigureCustomExceptionMiddleware();

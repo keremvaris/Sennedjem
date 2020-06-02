@@ -4,8 +4,8 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>IIS_Staging</ActiveDebugProfile>
-    <ShowAllFiles>false</ShowAllFiles>
+    <ActiveDebugProfile>IIS_Development</ActiveDebugProfile>
+    <ShowAllFiles>true</ShowAllFiles>
     <NameOfLastUsedPublishProfile>CustomProfile</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

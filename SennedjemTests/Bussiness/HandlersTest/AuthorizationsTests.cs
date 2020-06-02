@@ -1,25 +1,20 @@
 ﻿
+using Business.Constants;
 using Business.Handlers.Authorizations.Commands;
-using Business.Services.Authentication;
-using Core.DataAccess;
 using Core.Entities.Concrete;
-using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.EntityFramework.Contexts;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
 using SennedjemTests.Helpers;
-using ServiceStack;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using static Business.Handlers.Authorizations.Commands.ForgotPasswordCommand;
 using static Business.Handlers.Authorizations.Commands.LoginUserQuery;
-
+using static Business.Handlers.Authorizations.Commands.RegisterUser;
 
 namespace SennedjemTests.Bussiness.HandlersTest
 {
@@ -31,8 +26,10 @@ namespace SennedjemTests.Bussiness.HandlersTest
 
         LoginUserQueryHandler loginUserQueryHandler;
         LoginUserQuery loginUserQuery;
-        Mock<IEntityRepository<User>> entityRepository;
-
+        RegisterUserCommandHandler registerUserCommandHandler;
+        RegisterUser.Command command;
+        ForgotPasswordCommandHandler forgotPasswordCommandHandler;
+        ForgotPasswordCommand forgotPasswordCommand;
 
         [SetUp]
         public void Setup()
@@ -40,42 +37,63 @@ namespace SennedjemTests.Bussiness.HandlersTest
             _userRepository = new Mock<IUserRepository>();
             _tokenHelper = new Mock<ITokenHelper>();
             loginUserQueryHandler = new LoginUserQueryHandler(_userRepository.Object, _tokenHelper.Object);
+            registerUserCommandHandler = new RegisterUserCommandHandler(_userRepository.Object);
+            forgotPasswordCommandHandler = new ForgotPasswordCommandHandler(_userRepository.Object);
         }
         [Test]
-        public void Handler_Login()
+        public async Task Handler_Login()
         {
             var user = DataHelper.GetUser("test");
+            HashingHelper.CreatePasswordHash("123456", out byte[] passwordSalt, out byte[] passwordHash);
+            user.PasswordSalt = passwordSalt;
+            user.PasswordHash = passwordHash;
+            _userRepository.
+                Setup(x => x.GetAsync(It.IsAny<Expression<Func<User, bool>>>())).Returns(() => Task.FromResult(user));
 
-            _userRepository.Setup(x => x.GetAsync(a => a.Email == user.Email))
-                  .Returns(Task.FromResult(new User()
-                  {
-                      Email = user.Email,
-                      UpdateContactDate = user.UpdateContactDate,
-                      Status = user.Status,
-                      RecordDate = user.RecordDate,
-                      Address = user.Address,
-                      AuthenticationProviderType = user.AuthenticationProviderType,
-                      BirthDate = user.BirthDate,
-                      CitizenId = user.CitizenId,
-                      FullName = user.FullName,
-                      Gender = user.Gender,
-                      MobilePhones = user.MobilePhones,
-                      Notes = user.Notes,
-                      PasswordHash = user.PasswordHash,
-                      PasswordSalt = user.PasswordSalt,
-                      UserId = user.UserId
-                  }));
 
+            _userRepository.Setup(x => x.GetClaims(It.IsAny<int>()))
+                .Returns(new List<OperationClaim>() { new OperationClaim() { Id = 1, Name = "test" } });
             loginUserQuery = new LoginUserQuery
             {
                 Email = user.Email,
                 Password = "123456"
             };
 
-            var result = loginUserQueryHandler.Handle(loginUserQuery, new System.Threading.CancellationToken()).Result;
+            var result = await loginUserQueryHandler.Handle(loginUserQuery, new System.Threading.CancellationToken());
 
             Assert.That(result.Success, Is.True);
 
+        }
+
+        [Test]
+        public async Task Handler_Register()
+        {
+            var registerUser = new User();
+            registerUser.Email = "test@test.com";
+            registerUser.FullName = "test test";
+            command = new RegisterUser.Command
+            {
+                Email = registerUser.Email,
+                FullName = registerUser.FullName,
+                Password = "123456"
+            };
+            var result = await registerUserCommandHandler.Handle(command, new System.Threading.CancellationToken());
+
+            Assert.That(result.Message, Is.EqualTo(Messages.Added));
+        }
+        [Test]
+        public async Task Handler_ForgotPassword()
+        {
+            var user = DataHelper.GetUser("test");
+            _userRepository.
+                  Setup(x => x.GetAsync(It.IsAny<Expression<Func<User, bool>>>())).Returns(() => Task.FromResult(user));
+            forgotPasswordCommand = new ForgotPasswordCommand
+            {
+                Email = user.Email,
+                TCKimlikNo = Convert.ToString(user.CitizenId)
+            };
+            var result = await forgotPasswordCommandHandler.Handle(forgotPasswordCommand, new System.Threading.CancellationToken());
+            Assert.That(result.Success, Is.True);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace SennedjemTests.DataAccess
         {
             var user = DataHelper.GetUser("test");
 
-            using (var contextDb=new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            using (var contextDb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
             {
                 var repository = new UserRepository(contextDb);
 
@@ -62,10 +62,6 @@ namespace SennedjemTests.DataAccess
                 Assert.NotNull(result);
                 Assert.That(result.Status, Is.True);
             }
-
-        
-
-
         }
 
         [Test]
@@ -88,12 +84,5 @@ namespace SennedjemTests.DataAccess
                 Assert.That(userList.Count(), Is.GreaterThan(0));
             }
         }
-
-
-
-       
-
-
-
     }
 }

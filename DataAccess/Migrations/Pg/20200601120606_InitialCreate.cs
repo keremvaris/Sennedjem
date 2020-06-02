@@ -55,8 +55,8 @@ namespace DataAccess.Migrations.Pg
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Provider = table.Column<int>(nullable: false),
-                    ExternalUserId = table.Column<string>(nullable: true),
-                    Code = table.Column<int>(nullable: false),
+                    ExternalUserId = table.Column<string>(maxLength: 20, nullable: false),
+                    Code = table.Column<int>(maxLength: 50, nullable: false),
                     SendDate = table.Column<DateTime>(nullable: false),
                     IsSend = table.Column<bool>(nullable: false),
                     IsUsed = table.Column<bool>(nullable: false)
@@ -119,12 +119,19 @@ namespace DataAccess.Migrations.Pg
                     RecordDate = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(maxLength: 200, nullable: true),
                     Notes = table.Column<string>(maxLength: 500, nullable: true),
-                    UpdateContactDate = table.Column<DateTime>(nullable: false)
+                    UpdateContactDate = table.Column<DateTime>(nullable: false),
+                    PasswordSalt = table.Column<byte[]>(nullable: true),
+                    PasswordHash = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MobileLogins_ExternalUserId_Provider",
+                table: "MobileLogins",
+                columns: new[] { "ExternalUserId", "Provider" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_CitizenId",

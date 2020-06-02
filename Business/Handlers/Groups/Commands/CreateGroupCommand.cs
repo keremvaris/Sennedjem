@@ -1,4 +1,5 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects.Autofac;
+using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Groups.Commands
 {
+    [SecuredOperation]
     public class CreateGroupCommand : IRequest<IResult>
     {
         public string GroupName { get; set; }

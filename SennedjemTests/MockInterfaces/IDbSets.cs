@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using DataAccess.Entities;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,6 @@ namespace SennedjemTests.MockInterfaces
         DbSet<GroupClaim> GroupClaims { get; set; }
         DbSet<Log> Logs { get; set; }
         DbSet<MobileLogin> MobileLogins { get; set; }
+        DbSet<Animal> Animals { get; set; }
     }
 }
