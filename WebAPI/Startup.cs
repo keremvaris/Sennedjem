@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 using Business.Helpers;
+using System;
 
 namespace WebAPI
 {
@@ -72,7 +73,8 @@ namespace WebAPI
                             ValidIssuer = tokenOptions.Issuer,
                             ValidAudience = tokenOptions.Audience,
                             ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey),
+                            ClockSkew = TimeSpan.Zero
                         };
                     });
             services.AddSwaggerGen(c =>
