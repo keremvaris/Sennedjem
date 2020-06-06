@@ -111,7 +111,7 @@ namespace SennedjemTests.Services.Authentication
 
             var command = new LoginUserCommand()
             {
-                ExternalUserId = "40363726056",
+                ExternalUserId = "12345678910",
                 Provider = AuthenticationProviderType.Person,
                 MobilePhone = user.MobilePhones,
                 Password = "123456"

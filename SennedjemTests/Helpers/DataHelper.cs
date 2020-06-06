@@ -17,7 +17,7 @@ namespace SennedjemTests.Helpers
                 UserId = 1,
                 Address = "test",
                 BirthDate = new DateTime(1988, 01, 01),
-                CitizenId = 40363726056,
+                CitizenId = 12345678910,
                 Email = "test@test.com",
                 FullName = string.Format("{0} {1} {2}", name, name, name),
                 Gender = 1,

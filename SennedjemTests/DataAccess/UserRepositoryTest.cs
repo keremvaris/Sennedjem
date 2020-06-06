@@ -1,21 +1,13 @@
-﻿using Core.DataAccess;
-using Core.DataAccess.EntityFramework;
-using Core.Entities.Concrete;
-using DataAccess.Abstract;
+﻿using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using Nest;
 using NUnit.Framework;
 using SennedjemTests.Helpers;
-using SennedjemTests.MockInterfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SennedjemTests.DataAccess
 {
@@ -37,7 +29,7 @@ namespace SennedjemTests.DataAccess
 
         }
 
-        [Test]
+        //[Test]
         public void Add()
         {
             var mockSet = new Mock<DbSet<User>>();
