@@ -16,9 +16,9 @@ SennedjemFw Nasıl Kullanılır.
 =============================
 **Yeni Güncelleme**
 SennedjemFw artık Vs2019 template projesi olarak kullanabilirsiniz. UtilityFiles için bulunan **SennedjemFw.zip** dosyasını  aşağıdaki gösterildiği şekilde kopyalayın
-![](./sfwMedia/media/projectTemplatesFolder.png)
+![](./media/projectTemplatesFolder.png)
 Vs2019 Create a New Project ekranında sennedjemFw aratın karşınıza proje template olarak gelecektir.
-![](./sfwMedia/media/createaNewProject.png)
+![](./media/createaNewProject.png)
 **SennedjemFw** nasıl
 kullanılacağıyla ilgili bir örnek yapmak istiyorum.
 
