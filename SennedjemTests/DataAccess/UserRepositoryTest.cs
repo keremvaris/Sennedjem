@@ -57,6 +57,43 @@ namespace SennedjemTests.DataAccess
         }
 
         [Test]
+        public void UpdateUser()
+        {
+            var user = DataHelper.GetUser("test");
+
+            using (var contextDb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var repository = new UserRepository(contextDb);
+                user.Address = "Update Addresses";
+                user.Email = "updateuser@test.com";
+                var result = repository.Update(user);
+                Assert.NotNull(result);
+                Assert.That(result.Status, Is.True);
+            }
+        }
+
+        [Test]
+        public void DeleteUser()
+        {
+            var user = DataHelper.GetUser("test");
+
+            using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+
+
+                contextdb.Users.Add(user);
+                contextdb.SaveChanges();
+            }
+            using (var contextDb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var repository = new UserRepository(contextDb);
+
+                repository.Delete(user);
+                var result = contextDb.SaveChanges();
+                Assert.That(result, Is.EqualTo(1));
+            }
+        }
+        [Test]
         public void GetUsers()
         {
             using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))

@@ -81,7 +81,7 @@ namespace SennedjemTests.Services.Authentication
 
             Assert.That(result.Token, Is.EqualTo("User Token"));
         }
-        [Test]
+        //[Test]
         public async Task Person_Authentication_Login()
         {
             var user = DataHelper.GetUser("test");

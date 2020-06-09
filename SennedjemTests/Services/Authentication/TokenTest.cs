@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using Microsoft.AspNetCore.Http;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace SennedjemTests.Services.Authentication
 {
@@ -15,7 +16,7 @@ namespace SennedjemTests.Services.Authentication
     public class TokenTest : BaseIntegrationTest
     {
         [Test]
-        public async System.Threading.Tasks.Task TokenAthorizeTest()
+        public async Task TokenAthorizeTest()
         {
             var token = MockJwtTokens.GenerateJwtToken(GetClaims());
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -27,7 +28,7 @@ namespace SennedjemTests.Services.Authentication
         }
 
         [Test]
-        public async System.Threading.Tasks.Task TokenExpiredTest()
+        public async Task TokenExpiredTest()
         {
             var token = MockJwtTokens.GenerateJwtToken(GetClaims());
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);

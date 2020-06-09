@@ -121,7 +121,7 @@ namespace WebAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/WebAPI/swagger/v1/swagger.json", "SFw");
+                c.SwaggerEndpoint("v1/swagger.json", "SFw");
 
             });
             app.UseCors("AllowOrigin");
