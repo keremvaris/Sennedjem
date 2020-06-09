@@ -15,12 +15,15 @@ Geliştirmede öncülük ettiği için https://github.com/Engindemirog **Engin D
 SennedjemFw Nasıl Kullanılır.
 =============================
 **Yeni Güncelleme**
+
 SennedjemFw artık Vs2019 template projesi olarak kullanabilirsiniz. UtilityFiles için bulunan **SennedjemFw.zip** dosyasını  aşağıdaki gösterildiği şekilde kopyalayın
 ![](./media/projectTemplatesFolder.png)
+
 Vs2019 Create a New Project ekranında sennedjemFw aratın karşınıza proje template olarak gelecektir.
 ![](./media/createaNewProject.png)
+
 **SennedjemFw** nasıl
-kullanılacağıyla ilgili bir örnek yapmak istiyorum.
+kullanılacağıyla ilgili bir örnek yapıya dokumanı takip ederek ulaşbilirsiniz.
 
 Öncelikle **UtiliyFiles** klasörü altında bulunan ve sürekli güncellemeye çalıştığım **SennedjemGen** isimli Visual Studio Extension
 kurulur.
