@@ -2,7 +2,7 @@
 using DataAccess.Entities;
 using MediatR;
 
-namespace Business.Services.Authentication
+namespace Business.Services.Authentication.Model
 {
     /// <summary>
     /// Farklı kullanıcı profilleri için sisteme giriş bilgilerini içerir.

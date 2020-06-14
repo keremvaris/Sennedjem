@@ -1,14 +1,13 @@
-﻿using Business.Constants;
+﻿using System.Security;
+using Business.Constants;
 using Castle.DynamicProxy;
 using Core.Extensions;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Security;
 
-namespace Business.BusinessAspects.Autofac
+namespace Business.BusinessAspects
 {
     /// <summary>
     /// Bu Aspect IHttpContextAccessor inject edilerek HttpContext'te bulunan kullanıcının rollerini kontrol eder 

@@ -1,4 +1,4 @@
-﻿namespace Business.ValidationRules
+﻿namespace Business.Helpers
 {
     public static class ValidationExtensions
     {

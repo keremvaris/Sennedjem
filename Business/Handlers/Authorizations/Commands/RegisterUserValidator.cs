@@ -1,8 +1,6 @@
-﻿using Business.Handlers.Authorizations.Commands;
+﻿using FluentValidation;
 
-using FluentValidation;
-
-namespace Business.ValidationRules.FluentValidation
+namespace Business.Handlers.Authorizations.Commands
 {
     /// <summary>
     /// Bu sınıf FluentValidation kütüphanesini kullanır. 

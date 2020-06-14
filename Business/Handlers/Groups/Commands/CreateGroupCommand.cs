@@ -1,4 +1,4 @@
-﻿using Business.BusinessAspects.Autofac;
+﻿using Business.BusinessAspects;
 using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;

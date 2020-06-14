@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Business.Services.Authentication.Model;
+using Core.Utilities.Results;
 using System;
 using System.Threading.Tasks;
 

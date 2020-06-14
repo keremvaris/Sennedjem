@@ -1,16 +1,17 @@
-﻿using Core.CrossCuttingConcerns.Caching;
+﻿using Core.ApiDoc;
+using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.Utilities.IoC;
+using Core.Utilities.Mail;
 using Core.Utilities.Messages;
+using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Diagnostics;
-using MediatR;
 using System.Reflection;
-using Core.Utilities.Mail;
-using Microsoft.Extensions.Configuration;
 
 namespace Core.DependencyResolvers
 {

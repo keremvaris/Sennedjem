@@ -1,4 +1,4 @@
-﻿namespace Business.Services.Authentication
+﻿namespace Business.Services.Authentication.Model
 {
     /// <summary>
     /// Login işlevinin dönüş verisidir.

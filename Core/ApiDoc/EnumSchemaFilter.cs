@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Linq;
 
-namespace Core
+namespace Core.ApiDoc
 {
     /// <summary>
     /// API'lerde Enum değerlerini ve isimlerini doğru gödermek için yapılan eklenti.

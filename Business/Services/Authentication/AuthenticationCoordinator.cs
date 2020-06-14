@@ -8,26 +8,23 @@ namespace Business.Services.Authentication
     /// </summary>
     public class AuthenticationCoordinator : IAuthenticationCoordinator
     {
-        private readonly IServiceProvider serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         public AuthenticationCoordinator(IServiceProvider serviceProvider)
         {
-            this.serviceProvider = serviceProvider;
+            _serviceProvider = serviceProvider;
         }
 
 
 
         public IAuthenticationProvider SelectProvider(AuthenticationProviderType type)
         {
-            switch (type)
+            return type switch
             {
-                case AuthenticationProviderType.Person:
-                    return (IAuthenticationProvider)serviceProvider.GetService(typeof(PersonAuthenticationProvider));
-                case AuthenticationProviderType.Agent:
-                    return (IAuthenticationProvider)serviceProvider.GetService(typeof(AgentAuthenticationProvider));
-                default:
-                    throw new ApplicationException($"Authentication provider not found: {type}");
-            }
+                AuthenticationProviderType.Person => (IAuthenticationProvider)_serviceProvider.GetService(typeof(PersonAuthenticationProvider)),
+                AuthenticationProviderType.Agent => (IAuthenticationProvider)_serviceProvider.GetService(typeof(AgentAuthenticationProvider)),
+                _ => throw new ApplicationException($"Authentication provider not found: {type}")
+            };
         }
     }
 

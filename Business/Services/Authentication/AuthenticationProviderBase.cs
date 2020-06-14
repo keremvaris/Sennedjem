@@ -1,5 +1,6 @@
 ﻿using Business.Adapters.SmsService;
 using Business.Constants;
+using Business.Services.Authentication.Model;
 using Core.Utilities.Results;
 using Core.Utilities.Toolkit;
 using DataAccess.Abstract;
