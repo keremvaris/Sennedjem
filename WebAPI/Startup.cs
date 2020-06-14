@@ -22,7 +22,7 @@ namespace WebAPI
     /// <summary>
     /// 
     /// </summary>
-    public partial class Startup : Business.BussinessStartup
+    public partial class Startup : Business.BusinessStartup
     {
         /// <summary>
         /// 
@@ -46,7 +46,6 @@ namespace WebAPI
         public override void ConfigureServices(IServiceCollection services)
         {
             // Business katmanında olan dependency tanımlarının bir metot üzerinden buraya implemente edilmesi.
-            services.AddBusiness();
 
             services.AddControllers()
 
