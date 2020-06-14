@@ -1,8 +1,7 @@
 ﻿using Business.Handlers.Authorizations.Commands;
 using Business.Handlers.Authorizations.Queries;
-using Business.Services.Authentication;
+using Business.Services.Authentication.Model;
 using Core.Utilities.Security.Jwt;
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;

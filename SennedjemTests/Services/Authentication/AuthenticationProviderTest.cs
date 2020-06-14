@@ -1,19 +1,18 @@
 ﻿using Business.Adapters.SmsService;
 using Business.Services.Authentication;
+using Business.Services.Authentication.Model;
+using Core.DataAccess;
+using Core.Entities.Concrete;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Entities;
 using Moq;
 using NUnit.Framework;
+using SennedjemTests.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Core.Entities.Concrete;
-using SennedjemTests.Helpers;
-using System.Threading.Tasks;
-using Core.DataAccess;
-using Nest;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace SennedjemTests.Services.Authentication
 {
@@ -25,7 +24,7 @@ namespace SennedjemTests.Services.Authentication
         Mock<ITokenHelper> _tokenHelper;
         Mock<ISmsService> _smsService;
         Mock<IEntityRepository<User>> _entityRepository;
-        Mock<IAuthenticationProvider> provider;
+        Mock<IAuthenticationProvider> _provider;
 
         [SetUp]
         public void Setup()
@@ -35,7 +34,7 @@ namespace SennedjemTests.Services.Authentication
             _tokenHelper = new Mock<ITokenHelper>();
             _smsService = new Mock<ISmsService>();
             _entityRepository = new Mock<IEntityRepository<User>>();
-            provider = new Mock<IAuthenticationProvider>();
+            _provider = new Mock<IAuthenticationProvider>();
         }
 
         [Test]

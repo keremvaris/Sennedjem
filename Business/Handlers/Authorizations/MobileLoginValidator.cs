@@ -1,8 +1,8 @@
-﻿using Business.Services.Authentication;
+﻿using Business.Services.Authentication.Model;
 using DataAccess.Entities;
 using FluentValidation;
 
-namespace Business.ValidationRules.FluentValidation
+namespace Business.Handlers.Authorizations
 {
     public class MobileLoginValidator : AbstractValidator<VerifyOtpCommand>
     {
