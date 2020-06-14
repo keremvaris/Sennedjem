@@ -16,19 +16,16 @@ namespace WebAPI.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : Controller
+    public class AuthController : BaseApiController
     {
-        private readonly IMediator _mediator;
         private readonly IConfiguration _configuration;
 
         /// <summary>
         /// Dependency injection constructor injection ile sağlanır.
         /// </summary>
-        /// <param name="mediator"></param>
         /// <param name="configuration"></param>
-        public AuthController(IMediator mediator, IConfiguration configuration)
+        public AuthController(IConfiguration configuration)
         {
-            _mediator = mediator;
             _configuration = configuration;
         }
 
@@ -40,9 +37,9 @@ namespace WebAPI.Controllers
         [ProducesResponseType(typeof(LoginUserResult), 200)]
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]LoginUserQuery loginModel)
+        public async Task<IActionResult> Login([FromBody] LoginUserQuery loginModel)
         {
-            var result = await _mediator.Send(loginModel);
+            var result = await Mediator.Send(loginModel);
             if (result.Success)
                 return Ok(result.Data);
             return Unauthorized(result.Message);
@@ -57,9 +54,9 @@ namespace WebAPI.Controllers
         //[ProducesResponseType(typeof(SFwToken), 200)]
         [AllowAnonymous]
         [HttpPost("verify")]
-        public async Task<IActionResult> Verification([FromBody]VerifyCidQuery verifyCid)
+        public async Task<IActionResult> Verification([FromBody] VerifyCidQuery verifyCid)
         {
-            var result = await _mediator.Send(verifyCid);
+            var result = await Mediator.Send(verifyCid);
             if (result.Success)
                 return Ok(result.Message);
 
@@ -73,9 +70,9 @@ namespace WebAPI.Controllers
         /// <returns></returns>        
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody]RegisterUser.Command createUser)
+        public async Task<IActionResult> Register([FromBody] RegisterUser.Command createUser)
         {
-            var result = await _mediator.Send(createUser);
+            var result = await Mediator.Send(createUser);
             if (result.Success)
                 return Ok(result);
 
@@ -88,9 +85,9 @@ namespace WebAPI.Controllers
         ///<return></return>
         ///<response code="200"></response>   
         [HttpPut("forgotpassword")]
-        public async Task<IActionResult> ForgotPassword([FromBody]ForgotPasswordCommand forgotPassword)
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordCommand forgotPassword)
         {
-            var result = await _mediator.Send(forgotPassword);
+            var result = await Mediator.Send(forgotPassword);
             if (result.Success)
                 return Ok(result);
 
