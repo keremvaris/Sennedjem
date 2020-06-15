@@ -23,6 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fakes\BeniOku.md" />
+    <None Remove="Fakes\BeniOku.md_" />
+    <None Remove="Workflow.md" />
+    <None Remove="Workflow.md_" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="5.2.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
