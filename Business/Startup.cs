@@ -90,7 +90,7 @@ namespace Business
 
             services.AddAutoMapper(typeof(ConfigurationManager));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetAssembly(typeof(SecuredOperation)));
 
 
             FluentValidation.ValidatorOptions.DisplayNameResolver = (type, memberInfo, expression) =>
