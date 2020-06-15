@@ -14,18 +14,8 @@ namespace WebAPI.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class AnimalsController : ControllerBase
+    public class AnimalsController : BaseApiController
     {
-        private readonly IMediator _mediator;
-        ///<summary>
-        ///CRUD Controller for Animals       
-        /// <param name="mediator"></param>     
-        /// </summary>
-        public AnimalsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-
         ///<summary>
         ///Animals listeler
         ///</summary>
@@ -35,7 +25,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public async Task<IActionResult> GetList()
         {
-            var result = await _mediator.Send(new GetAnimalsQuery());
+            var result = await Mediator.Send(new GetAnimalsQuery());
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -52,7 +42,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById(int animalId)
         {
-            var result = await _mediator.Send(new GetAnimalQuery { AnimalId = animalId });
+            var result = await Mediator.Send(new GetAnimalQuery { AnimalId = animalId });
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -68,7 +58,7 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromBody]CreateAnimalCommand createAnimal)
         {
-            var result = await _mediator.Send(createAnimal);
+            var result = await Mediator.Send(createAnimal);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -84,7 +74,7 @@ namespace WebAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody]UpdateAnimalCommand updateAnimal)
         {
-            var result = await _mediator.Send(updateAnimal);
+            var result = await Mediator.Send(updateAnimal);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -100,7 +90,7 @@ namespace WebAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeleteAnimalCommand deleteAnimal)
         {
-            var result = await _mediator.Send(deleteAnimal);
+            var result = await Mediator.Send(deleteAnimal);
             if (result.Success)
             {
                 return Ok(result.Message);

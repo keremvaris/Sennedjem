@@ -1,21 +1,21 @@
-﻿using Core.Extensions;
+﻿using Business;
+using Business.Helpers;
+using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Globalization;
 using System.IO;
 using System.Text.Json.Serialization;
-using Business;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Localization;
-using System.Globalization;
-using Business.Helpers;
-using System;
 
 namespace WebAPI
 {
@@ -45,6 +45,9 @@ namespace WebAPI
         /// <param name="services"></param>
         public override void ConfigureServices(IServiceCollection services)
         {
+            // Business katmanında olan dependency tanımlarının bir metot üzerinden buraya implemente edilmesi.
+            services.AddBusiness();
+
             services.AddControllers()
 
                 .AddJsonOptions(options =>

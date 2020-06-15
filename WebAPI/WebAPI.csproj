@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\BaseApiController.cs" />
     <Compile Remove="Controllers\ContactPreferencesController.cs" />
     <Compile Remove="Controllers\LookupController.cs" />
     <Compile Remove="SwaggerMessages.cs" />
