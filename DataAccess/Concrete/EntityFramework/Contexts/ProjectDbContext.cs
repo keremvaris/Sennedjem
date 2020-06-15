@@ -73,6 +73,6 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<Log> Logs { get; set; }
         public DbSet<MobileLogin> MobileLogins { get; set; }
         public DbSet<Animal> Animals { get; set; }
-        public DbSet<Car> Cars { get; set; }
+
     }
 }
