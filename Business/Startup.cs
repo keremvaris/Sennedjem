@@ -1,47 +1,46 @@
-﻿using Business.BusinessAspects.Autofac;
+﻿using Autofac;
+using AutoMapper;
+using Business.Adapters.PersonService;
+using Business.BusinessAspects;
 using Business.DependencyResolvers;
-
-using System.Reflection;
+using Business.Services.Authentication;
+using Core.DependencyResolvers;
+using Core.Extensions;
+using Core.Utilities.IoC;
+using Core.Utilities.MessageBrokers.RabbitMq;
+using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
-using Business.Services.Authentication;
-using Business.BusinessAspects;
-using System;
-using System.Security.Principal;
-using System.Security.Claims;
-using Core.Utilities.Security.Jwt;
-using Core.Utilities.MessageBrokers.RabbitMq;
-using Core.Utilities.IoC;
-using Core.DependencyResolvers;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Core.Extensions;
-using AutoMapper;
-using Autofac;
-using Business.Adapters.PersonService;
+using System;
+using System.Reflection;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace Business
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class BussinessStartup
+    public partial class BusinessStartup
     {
-        protected readonly IHostEnvironment hostEnvironment;
+        protected readonly IHostEnvironment HostEnvironment;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="hostEnvironment"></param>
-        public BussinessStartup(IConfiguration configuration, IHostEnvironment hostEnvironment)
+        public BusinessStartup(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             Configuration = configuration;
-            this.hostEnvironment = hostEnvironment;
+            HostEnvironment = hostEnvironment;
         }
 
         /// <summary>
@@ -60,8 +59,7 @@ namespace Business
         /// <param name="services"></param>
         public virtual void ConfigureServices(IServiceCollection services)
         {
-            var thisAssembly = Assembly.GetAssembly(typeof(SecuredOperation));
-            services.AddMediatR(thisAssembly);
+
 
             Func<IServiceProvider, ClaimsPrincipal> getPrincipal = (sp) =>
 
@@ -80,8 +78,6 @@ namespace Business
                new CoreModule()
             });
 
-
-
             services.AddTransient<IAuthenticationCoordinator, AuthenticationCoordinator>();
 
             services.AddSingleton<ConfigurationManager>();
@@ -92,7 +88,9 @@ namespace Business
             services.AddTransient<IMessageBrokerHelper, MqQueueHelper>();
             services.AddTransient<IMessageConsumer, MqConsumerHelper>();
 
-            services.AddAutoMapper(typeof(Business.ConfigurationManager));
+            services.AddAutoMapper(typeof(ConfigurationManager));
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
 
             FluentValidation.ValidatorOptions.DisplayNameResolver = (type, memberInfo, expression) =>
@@ -171,7 +169,7 @@ namespace Business
         /// <param name="builder"></param>
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new AutofacBusinessModule(new ConfigurationManager(Configuration, hostEnvironment)));
+            builder.RegisterModule(new AutofacBusinessModule(new ConfigurationManager(Configuration, HostEnvironment)));
 
         }
 

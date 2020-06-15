@@ -6,21 +6,21 @@ namespace Business.Adapters.PersonService
 {
     public class PersonServiceManager : IPersonService
     {
-        public async Task<bool> VerifyCid(long TCKimlikNo, string Ad, string Soyad, int DogumYili)
+        public async Task<bool> VerifyCid(long tCKimlikNo, string ad, string soyad, int dogumYili)
         {
-            return await Verify(TCKimlikNo, Ad, Soyad, DogumYili);
+            return await Verify(tCKimlikNo, ad, soyad, dogumYili);
         }
 
-        private static async Task<bool> Verify(long TCKimlikNo, string Ad, string Soyad, int DogumYili)
+        private static async Task<bool> Verify(long tCKimlikNo, string ad, string soyad, int dogumYili)
         {
             var locale = new CultureInfo("tr-TR", false);
             var svc = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
             {
                 var cmd = await svc.TCKimlikNoDogrulaAsync(
-                  TCKimlikNo,
-                  Ad.ToUpper(locale).ToString(),
-                  Soyad.ToUpper(locale).ToString(),
-                  DogumYili);
+                  tCKimlikNo,
+                  ad.ToUpper(locale),
+                  soyad.ToUpper(locale),
+                  dogumYili);
                 return cmd.Body.TCKimlikNoDogrulaResult;
             }
         }

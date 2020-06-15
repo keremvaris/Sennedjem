@@ -2,7 +2,7 @@
 using DataAccess.Entities;
 using MediatR;
 
-namespace Business.Services.Authentication
+namespace Business.Services.Authentication.Model
 {
     /// <summary>
     /// Kullanıcıya gönderilen One Time Password'ü kontrol etmek gönderilen komuttur.

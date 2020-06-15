@@ -1,6 +1,6 @@
 ﻿using Core.Entities;
 
-namespace Entities.Dtos
+namespace DataAccess.Entities.Dtos
 {
     /// <summary>
     /// Basit seçilebilir listeleri, API üzerinden tek bir şemayla dönebilmek için

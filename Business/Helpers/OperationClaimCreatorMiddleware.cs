@@ -1,4 +1,4 @@
-﻿using Business.BusinessAspects.Autofac;
+﻿using Business.BusinessAspects;
 using Business.Handlers.OperationClaims.Commands;
 using Core.Utilities.IoC;
 using MediatR;

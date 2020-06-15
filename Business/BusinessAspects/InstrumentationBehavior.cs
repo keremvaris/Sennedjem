@@ -26,24 +26,24 @@ namespace Business.BusinessAspects
     public class InstrumentationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly IActivityMonitor _monitor;
-        private readonly ILogger logger;
-        private readonly IPrincipal principal;
-        private readonly IEnumerable<IValidator<TRequest>> validators;
+        private readonly ILogger _logger;
+        private readonly IPrincipal _principal;
+        private readonly IEnumerable<IValidator<TRequest>> _validators;
 
         public InstrumentationBehavior(IActivityMonitor monitor, ILogger<TRequest> logger, IPrincipal principal,
 
           IEnumerable<IValidator<TRequest>> validators)
         {
             _monitor = monitor;
-            this.logger = logger;
-            this.principal = principal;
-            this.validators = validators;
+            _logger = logger;
+            _principal = principal;
+            _validators = validators;
         }
 
         protected void Tick(string actionName, int ticks = 1, long msecs = 0)
         {
-            if (principal != null)
-                _monitor.Tick(actionName, 1, msecs, "User." + (principal.Identity.Name ?? "?"));
+            if (_principal != null)
+                _monitor.Tick(actionName, 1, msecs, "User." + (_principal.Identity.Name ?? "?"));
             else
                 _monitor.Tick(actionName, 1, msecs);
         }
@@ -62,7 +62,7 @@ namespace Business.BusinessAspects
                 try
                 {
 
-                    var failures = validators
+                    var failures = _validators
                       .Select(v => v.Validate(request))
                       .SelectMany(result => result.Errors)
                       .Where(f => f != null)
@@ -94,7 +94,7 @@ namespace Business.BusinessAspects
 
 
                     sb.AppendLine(ex.ToString());
-                    logger.LogError(sb.ToString());
+                    _logger.LogError(sb.ToString());
                     throw;
                 }
             }

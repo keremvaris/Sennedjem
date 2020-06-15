@@ -1,8 +1,9 @@
-﻿using Business.Services.Authentication;
+﻿using Business.Helpers;
+using Business.Services.Authentication.Model;
 using DataAccess.Entities;
 using FluentValidation;
 
-namespace Business.ValidationRules.FluentValidation
+namespace Business.Handlers.Authorizations
 {
     /// <summary>
     /// Bu sınıf FluentValidation kütüphanesini kullanır. 

@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Core
+namespace Core.ApiDoc
 {
     /// <summary>
     /// Gereken API metotlarına Authorization bearer ekleyen filter.

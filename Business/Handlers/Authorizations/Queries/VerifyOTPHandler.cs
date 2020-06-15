@@ -1,4 +1,5 @@
 ﻿using Business.Services.Authentication;
+using Business.Services.Authentication.Model;
 using Core.Utilities.Results;
 using MediatR;
 using System.Threading;
@@ -9,11 +10,11 @@ namespace Business.Handlers.Authorizations.Queries
 
     public class VerifyOtpHandler : IRequestHandler<VerifyOtpCommand, IDataResult<SFwToken>>
     {
-        private readonly IAuthenticationCoordinator coordinator;
+        private readonly IAuthenticationCoordinator _coordinator;
 
         public VerifyOtpHandler(IAuthenticationCoordinator coordinator)
         {
-            this.coordinator = coordinator;
+            _coordinator = coordinator;
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace Business.Handlers.Authorizations.Queries
         public async Task<IDataResult<SFwToken>> Handle(VerifyOtpCommand request, CancellationToken cancellationToken)
         {
             // Uygun providerı al ve login ol.
-            var provider = coordinator.SelectProvider(request.Provider);
+            var provider = _coordinator.SelectProvider(request.Provider);
             return await provider.Verify(request);
         }
     }

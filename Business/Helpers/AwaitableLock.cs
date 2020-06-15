@@ -10,33 +10,33 @@ namespace Business.Helpers
     /// </summary>
     public class AwaitableLock
     {
-        private readonly SemaphoreSlim toLock;
+        private readonly SemaphoreSlim _toLock;
 
         public AwaitableLock()
         {
-            toLock = new SemaphoreSlim(1, 1);
+            _toLock = new SemaphoreSlim(1, 1);
         }
 
         public async Task<LockReleaser> Lock(TimeSpan timeout)
         {
-            if (await toLock.WaitAsync(timeout))
+            if (await _toLock.WaitAsync(timeout))
             {
-                return new LockReleaser(toLock);
+                return new LockReleaser(_toLock);
             }
             throw new TimeoutException();
         }
 
         public struct LockReleaser : IDisposable
         {
-            private readonly SemaphoreSlim toRelease;
+            private readonly SemaphoreSlim _toRelease;
 
             public LockReleaser(SemaphoreSlim toRelease)
             {
-                this.toRelease = toRelease;
+                _toRelease = toRelease;
             }
             public void Dispose()
             {
-                toRelease.Release();
+                _toRelease.Release();
             }
         }
     }

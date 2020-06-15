@@ -1,4 +1,5 @@
 ﻿using Business.Adapters.SmsService;
+using Business.Services.Authentication.Model;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Entities;
