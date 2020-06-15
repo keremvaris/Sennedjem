@@ -12,7 +12,6 @@ namespace WebAPI.Controllers
     /// <summary>
     /// Authorization işlemlerini yapar
     /// </summary>
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : BaseApiController

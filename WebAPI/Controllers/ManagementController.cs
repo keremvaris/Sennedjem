@@ -7,7 +7,7 @@ namespace WebAPI.Controllers
     /// <summary>
     /// Uygulamanın performans metriklerini sunar.
     /// </summary>
-    [Authorize]
+
     [Route("api/[controller]")]
     [ApiController]
     public class ManagementController : ControllerBase

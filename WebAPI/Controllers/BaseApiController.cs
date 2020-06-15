@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
     public class BaseApiController : Controller
     {
 
-        
+
         private IMediator _mediator;
 
         /// <summary>

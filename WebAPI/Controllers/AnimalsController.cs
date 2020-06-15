@@ -11,7 +11,6 @@ namespace WebAPI.Controllers
     /// <summary>
     /// Animal Controller
     /// </summary>
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AnimalsController : BaseApiController
@@ -23,6 +22,7 @@ namespace WebAPI.Controllers
         ///<return>Animals Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetAnimalsQuery());
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         /// <param name="createAnimal"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody]CreateAnimalCommand createAnimal)
+        public async Task<IActionResult> Add([FromBody] CreateAnimalCommand createAnimal)
         {
             var result = await Mediator.Send(createAnimal);
             if (result.Success)
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         /// <param name="updateAnimal"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody]UpdateAnimalCommand updateAnimal)
+        public async Task<IActionResult> Update([FromBody] UpdateAnimalCommand updateAnimal)
         {
             var result = await Mediator.Send(updateAnimal);
             if (result.Success)
@@ -88,7 +88,7 @@ namespace WebAPI.Controllers
         /// <param name="deleteAnimal"></param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody]DeleteAnimalCommand deleteAnimal)
+        public async Task<IActionResult> Delete([FromBody] DeleteAnimalCommand deleteAnimal)
         {
             var result = await Mediator.Send(deleteAnimal);
             if (result.Success)
