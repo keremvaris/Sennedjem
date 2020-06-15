@@ -3,10 +3,6 @@ Sennedjem CQRS (Command Query Responsibility Segregation) yaklaşımını benims
 
 UtilityFiles Klasörü altında kod üretecine, Visual Studio 2019 Template dosyasına ulaşabilirsiniz. 
 
-**SennedjemGen Code Generator**
-
-https://marketplace.visualstudio.com/items?itemName=SennedjemFwGen.SennedjemFwGen
-
 Kod üretecinin geliştirilmesinde örnek olarak Halil İbrahim Duymaz'ın https://github.com/irpg7/NLayeredCommandMenu bu deposundan faydalanılmıştır.
 Sennedjemgen.vsix dosyası Sennedjem Framework için tüm katmanların kod üretecidir. VS2019 için extension olarak hazırlanmıştır. Örnek kullanım videosuna youtube linki üzerinden erişim sağlayabilirsiniz. https://youtu.be/BAuzZNMaaJA
 
