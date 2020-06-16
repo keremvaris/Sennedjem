@@ -9,9 +9,9 @@ using Entities.Concrete;
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     /// <summary>
-    /// Bu context birden fazla provider için migration takibi yapýldýðý için
-    /// varsayýlan olarak Postg db'si üzerinden çalýþýr. Eðer sql geçmek isterseniz
-    /// AddDbContext eklerken bundan türeyen MsDbContext'i kullanýnýz.
+    /// Bu context birden fazla provider iï¿½in migration takibi yapï¿½ldï¿½ï¿½ï¿½ iï¿½in
+    /// varsayï¿½lan olarak Postg db'si ï¿½zerinden ï¿½alï¿½ï¿½ï¿½r. Eï¿½er sql geï¿½mek isterseniz
+    /// AddDbContext eklerken bundan tï¿½reyen MsDbContext'i kullanï¿½nï¿½z.
     /// </summary>
     public class ProjectDbContext : DbContext
     {
@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 
 
         /// <summary>
-        /// constructor da IConfiguration alýyoruz ki, birden fazla db ye parallel olarak
+        /// constructor da IConfiguration alï¿½yoruz ki, birden fazla db ye parallel olarak
         /// migration yaratabiliyoruz.
         /// </summary>
         /// <param name="options"></param>

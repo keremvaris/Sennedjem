@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using AutoMapper;
 using Business.Adapters.PersonService;
 using Business.BusinessAspects;

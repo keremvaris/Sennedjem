@@ -56,6 +56,7 @@ namespace WebAPI.Controllers
         /// <param name="createAnimal"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody] CreateAnimalCommand createAnimal)
         {
             var result = await Mediator.Send(createAnimal);

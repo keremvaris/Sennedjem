@@ -1,38 +1,50 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
+﻿using Entities.Concrete;
+using Microsoft.Extensions.Configuration;
+using Refit;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SennedjemUtilities
 {
     class Program
     {
-        public delegate void LogEventHandler(string msg);
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            LogEventHandler logEventHandlerFile = new LogEventHandler(FileLogger.WriteLog);
-            LogEventHandler logEventHandlerScreen = ScreenLogger.ShowLog;
-            logEventHandlerFile("File");
-            logEventHandlerScreen("Screen");
-            Console.ReadLine();
-        }
 
-        class FileLogger
-        {
-            public static void WriteLog(string s)
+            var getAnimals = await AnimalDataAsync();
+
+            foreach (var item in getAnimals)
             {
-
+                Console.WriteLine(item.AnimalId + " - " + item.AnimalName);
             }
+
+            Console.ReadKey();
         }
-        class ScreenLogger
+
+        public static async Task<List<Animal>> AnimalDataAsync()
         {
-            public static void ShowLog(string s)
+            IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.Staging.json", optional: true, reloadOnChange: true)
+                            .AddEnvironmentVariables()
+                            .Build();
+            List<Animal> animals = new List<Animal>();
+            var url = configuration.GetSection("Services")["AnimalServiceUrl"];
+            var svc = RestService.For<IAnimalDataService>(url);
+
+            await svc.GetAnimals().ContinueWith(ret =>
             {
+                if (ret.IsCompleted == true
+                 && ret.Status == TaskStatus.RanToCompletion)
+                {
+                    animals = ret.Result;
+                }
+            });
 
-            }
+            return animals;
         }
-
-        protected Program()
-        {
-        }
-
     }
+
+
 }
+
