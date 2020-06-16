@@ -23,10 +23,11 @@ Vs2019 Create a New Project ekranında sennedjemFw aratın karşınıza proje te
 ![](./media/createaNewProject.png)
 
 **SennedjemFw** nasıl
-kullanılacağıyla ilgili bir örnek yapıya dokumanı takip ederek ulaşbilirsiniz.
+kullanılacağıyla ilgili bir örnek yapıya dokumanı takip ederek ulaşabilirsiniz.
 
 Öncelikle **UtiliyFiles** klasörü altında bulunan ve sürekli güncellemeye çalıştığım **SennedjemGen** isimli Visual Studio Extension
-kurulur.
+kurulur. (Artık Marketplace üzerinden de ulaşılabilir halde)
+https://marketplace.visualstudio.com/items?itemName=SennedjemFwGen.SennedjemFwGen
 
 ![](./sfwMedia/media/image1.png)
 
