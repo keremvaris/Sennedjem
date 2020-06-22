@@ -26,7 +26,7 @@ namespace Core.Aspects.Autofac.Logging
         }
         protected override void OnBefore(IInvocation invocation)
         {
-            _loggerServiceBase.Info(GetLogDetail(invocation));
+            _loggerServiceBase?.Info(GetLogDetail(invocation));
         }
 
         private LogDetail GetLogDetail(IInvocation invocation)

@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.UserGroups.Commands;
 using Business.Handlers.UserGroups.Queries;
+using Core.Aspects.Autofac.Transaction;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using Moq;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using static Business.Handlers.UserGroups.Commands.CreateUserGroupCommand;
 using static Business.Handlers.UserGroups.Commands.DeleteUserGroupCommand;
 using static Business.Handlers.UserGroups.Commands.UpdateUserGroupCommand;
@@ -19,7 +21,7 @@ namespace SennedjemTests.Bussiness.HandlersTest
     public class UserGroupsTests
     {
         Mock<IUserGroupRepository> _userGroupRepository;
-        
+
         GetUserGroupsQueryHandler getUserGroupsQueryHandler;
         CreateUserGroupCommandHandler createUserGroupCommandHandler;
         UpdateUserGroupCommandHandler updateUserGroupCommandHandler;
@@ -83,8 +85,17 @@ namespace SennedjemTests.Bussiness.HandlersTest
             Assert.That(result.Success, Is.True);
         }
 
+        [Test]
+        [TransactionScopeAspectAsync]
+        public async Task Handler_TransactionScopeAspectAsyncTest()
+        {
+            await SomeMethodInTheCallStackAsync().ConfigureAwait(false);
 
+        }
 
-
+        private static async Task SomeMethodInTheCallStackAsync()
+        {
+            await Task.Delay(500).ConfigureAwait(false);
+        }
     }
 }

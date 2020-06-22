@@ -61,20 +61,20 @@ namespace Business.BusinessAspects
 
                 try
                 {
+                    /*
+                                        var failures = _validators
+                                          .Select(v => v.Validate(request))
+                                          .SelectMany(result => result.Errors)
+                                          .Where(f => f != null)
+                                          .ToList();
 
-                    var failures = _validators
-                      .Select(v => v.Validate(request))
-                      .SelectMany(result => result.Errors)
-                      .Where(f => f != null)
-                      .ToList();
+                                        if (failures.Count > 0)
+                                        {
 
-                    if (failures.Count > 0)
-                    {
-
-                        var arr = failures.Select(x => $"{Environment.NewLine} -- {x.PropertyName}: {x.ErrorMessage}");
-                        throw new ValidationException("Lütfen hataları düzeltiniz:" + string.Join(string.Empty, arr));
-                    }
-
+                                            var arr = failures.Select(x => $"{Environment.NewLine} -- {x.PropertyName}: {x.ErrorMessage}");
+                                            throw new ValidationException("Lütfen hataları düzeltiniz:" + string.Join(string.Empty, arr));
+                                        }
+                    */
                     var response = await next();
 
                     pr.End();

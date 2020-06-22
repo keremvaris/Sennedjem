@@ -1,5 +1,7 @@
 ﻿using Business.BusinessAspects;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
+using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -24,6 +26,7 @@ namespace Business.Handlers.Animals.Queries
 
             [PerformanceAspect(5)]
             //[CacheAspect(10)]
+            [LogAspect(typeof(DbLogger))]
             public async Task<IDataResult<IEnumerable<Animal>>> Handle(GetAnimalsQuery request, CancellationToken cancellationToken)
             {
                 return new SuccessDataResult<IEnumerable<Animal>>(await _animalRepository.GetListAsync());

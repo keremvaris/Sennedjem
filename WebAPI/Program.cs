@@ -22,6 +22,7 @@ namespace WebAPI
         /// <param name="args"></param> 
         public static void Main(string[] args)
         {
+            CreateHostBuilder(args).Build().Run();
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             try
             {
@@ -51,12 +52,12 @@ namespace WebAPI
                     {
                         webBuilder.UseStartup<Startup>();
                     })
-                    .ConfigureLogging(logging =>
-                    {
-                        logging.ClearProviders();
-                        logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
-                    })
-                    .UseNLog();
+        .ConfigureLogging(logging =>
+        {
+            logging.ClearProviders();
+            logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+        })
+        .UseNLog();
 
     }
 }

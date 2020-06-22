@@ -98,5 +98,21 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+        /// <summary>
+        /// Transactional Operation Test.
+        /// </summary>
+        /// <param name="transactionalCreateAnimal"></param>
+        /// <returns></returns>
+        [HttpPost("transactionalAdd")]
+        [AllowAnonymous]
+        public async Task<IActionResult> TransactionalAdd([FromBody] AnimalTransactionalOperationCommand transactionalCreateAnimal)
+        {
+            var result = await Mediator.Send(transactionalCreateAnimal);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }

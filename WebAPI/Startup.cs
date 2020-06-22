@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Helpers;
+using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encyption;
@@ -83,6 +84,9 @@ namespace WebAPI
             {
                 c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
             });
+
+            services.AddTransient<FileLogger>();
+            services.AddTransient<DbLogger>();
 
             base.ConfigureServices(services);
         }

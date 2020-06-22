@@ -3,16 +3,18 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
-using System.IO;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Microsoft.Extensions.DependencyInjection;
+using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace Business.Handlers.Animals.Commands
 {
@@ -20,20 +22,21 @@ namespace Business.Handlers.Animals.Commands
     /// 
     /// </summary>
     [SecuredOperation]
-    public class CreateAnimalCommand : IRequest<IResult>
+    public class AnimalTransactionalOperationCommand : IRequest<IResult>
     {
         ///Request'ten gelecek değerler buraya yazılır. Örneğin:
 
         public string AnimalName { get; set; }
 
-        public class CreateAnimalCommandHandler : IRequestHandler<CreateAnimalCommand, IResult>
+        public class AnimalTransactionalOperationCommandHandler : IRequestHandler<AnimalTransactionalOperationCommand, IResult>
         {
-            private readonly IAnimalRepository _animalRepository;
+            private IAnimalRepository _animalRepository;
 
-            public CreateAnimalCommandHandler(IAnimalRepository animalRepository)
+            public AnimalTransactionalOperationCommandHandler(IAnimalRepository animalRepository)
             {
                 _animalRepository = animalRepository;
             }
+
             /// <summary>
             ///            
             /// </summary>
@@ -43,7 +46,9 @@ namespace Business.Handlers.Animals.Commands
             [ValidationAspect(typeof(CreateAnimalValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
             [LogAspect(typeof(DbLogger))]
-            public async Task<IResult> Handle(CreateAnimalCommand request, CancellationToken cancellationToken)
+            // [TransactionScopeAspectAsync(typeof(ProjectDbContext))]
+            [TransactionScopeAspectAsync()]
+            public async Task<IResult> Handle(AnimalTransactionalOperationCommand request, CancellationToken cancellationToken)
             {
                 var isAnimalExits = await _animalRepository.GetAsync(u => u.AnimalName == request.AnimalName);
 
@@ -52,11 +57,14 @@ namespace Business.Handlers.Animals.Commands
 
                 var animal = new Animal
                 {
-                    //classın özellikleri buraya yazılır.
                     AnimalName = request.AnimalName
-
                 };
                 _animalRepository.Add(animal);
+                await _animalRepository.SaveChangesAsync();
+
+                var animalUpdate = await _animalRepository.GetAsync(a => a.AnimalId == 12);
+                animalUpdate.AnimalName = "Catx";
+                _animalRepository.Update(animalUpdate);
                 await _animalRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
