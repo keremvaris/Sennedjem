@@ -1,5 +1,7 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities;
+using Entities.Concrete;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,11 @@ namespace SennedjemUtilities
     {
         static async Task Main(string[] args)
         {
-
+            Console.WriteLine("Yeni Hayvan Kaydı İsteği Atıldı.\r\n");
+            await CreateAnimal();
+            Console.WriteLine("Tüm Hayvanlar Listeleniyor\r\n");
             var getAnimals = await AnimalDataAsync();
-
+            Console.WriteLine("AnimalId   AnimalName");
             foreach (var item in getAnimals)
             {
                 Console.WriteLine(item.AnimalId + " - " + item.AnimalName);
@@ -43,8 +47,24 @@ namespace SennedjemUtilities
 
             return animals;
         }
+
+        public static async Task CreateAnimal()
+        {
+            IConfiguration configuration = new ConfigurationBuilder()
+               .AddJsonFile("appsettings.Staging.json", optional: true, reloadOnChange: true)
+               .AddEnvironmentVariables()
+               .Build();
+
+            var animal = new AnimalDto()
+            {
+                AnimalName = "Bubalus bubalis"
+            };
+            var url = configuration.GetSection("Services")["AnimalServiceUrl"];
+            var svc = RestService.For<IAnimalDataService>(url);
+            await svc.AddAnimal(animal);
+
+            Console.WriteLine(animal.AnimalName + " Kaydı Başarıyla Eklendi.\r\n");
+        }
     }
-
-
 }
 

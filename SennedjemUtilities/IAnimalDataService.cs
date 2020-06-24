@@ -9,5 +9,8 @@ namespace SennedjemUtilities
     {
         [Get("/api/Animals/getall")]
         Task<List<Animal>> GetAnimals();
+
+        [Post("/api/Animals")]
+        Task AddAnimal([Body] AnimalDto animal);
     }
 }
