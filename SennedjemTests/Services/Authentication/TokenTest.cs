@@ -9,6 +9,7 @@ using System.Threading;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Threading.Tasks;
+using SennedjemTests.Helpers;
 
 namespace SennedjemTests.Services.Authentication
 {
@@ -18,7 +19,7 @@ namespace SennedjemTests.Services.Authentication
         [Test]
         public async Task TokenAthorizeTest()
         {
-            var token = MockJwtTokens.GenerateJwtToken(GetClaims());
+            var token = MockJwtTokens.GenerateJwtToken(ClaimsData.GetClaims());
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _client.GetAsync("api/animals/getall");
@@ -30,7 +31,7 @@ namespace SennedjemTests.Services.Authentication
         [Test]
         public async Task TokenExpiredTest()
         {
-            var token = MockJwtTokens.GenerateJwtToken(GetClaims());
+            var token = MockJwtTokens.GenerateJwtToken(ClaimsData.GetClaims());
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             Thread.Sleep(10000);
@@ -38,16 +39,6 @@ namespace SennedjemTests.Services.Authentication
             var response = await _client.GetAsync("api/animals/getall");
             Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
 
-        }
-
-        public List<Claim> GetClaims()
-        {
-            return new List<Claim>()
-            {
-                new Claim("username", "deneme"),
-                new Claim("email", "test@test.com")
-
-            };
         }
 
     }
