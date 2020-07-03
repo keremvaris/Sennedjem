@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using ServiceStack;
 
 namespace Core.DataAccess.EntityFramework
 {
@@ -123,5 +124,22 @@ namespace Core.DataAccess.EntityFramework
             }
             return result;
         }
+
+        public async Task<int> GetCountAsync(Expression<Func<TEntity, bool>> expression = null)
+        {
+            if (expression == null)
+                return await context.Set<TEntity>().CountAsync();
+            else
+                return await context.Set<TEntity>().CountAsync(expression);
+        }
+
+        public int GetCount(Expression<Func<TEntity, bool>> expression = null)
+        {
+            if (expression == null)
+                return context.Set<TEntity>().Count();
+            else
+                return context.Set<TEntity>().Count(expression);
+        }
+
     }
 }

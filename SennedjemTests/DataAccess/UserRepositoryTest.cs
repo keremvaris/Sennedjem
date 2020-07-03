@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using SennedjemTests.Helpers;
 using System;
 using System.Linq;
@@ -111,6 +112,49 @@ namespace SennedjemTests.DataAccess
                 var userRepository = new UserRepository(contextdb);
                 var userList = userRepository.GetList();
                 Assert.That(userList.Count(), Is.GreaterThan(0));
+            }
+        }
+
+
+        [Test]
+        public void GetCount()
+        {
+            using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var userlist = DataHelper.GetUserList();
+
+                foreach (var user in userlist)
+                    contextdb.Users.Add(user);
+
+                contextdb.SaveChanges();
+            }
+
+            using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var userRepository = new UserRepository(contextdb);
+                var userCount = userRepository.GetCount();
+                Assert.That(userCount, Is.EqualTo(5));
+            }
+        }
+
+        [Test]
+        public void GetCountWithExpression()
+        {
+            using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var userlist = DataHelper.GetUserList();
+
+                foreach (var user in userlist)
+                    contextdb.Users.Add(user);
+
+                contextdb.SaveChanges();
+            }
+
+            using (var contextdb = new ProjectDbContext(_dbContextOptionsBuilder, configuration.Object))
+            {
+                var userRepository = new UserRepository(contextdb);
+                var userCount = userRepository.GetCount(x=>x.UserId>3);
+                Assert.That(userCount, Is.EqualTo(2));
             }
         }
     }
