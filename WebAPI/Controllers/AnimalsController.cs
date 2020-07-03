@@ -1,5 +1,4 @@
-﻿
-using Business.Handlers.Animals.Commands;
+﻿using Business.Handlers.Animals.Commands;
 using Business.Handlers.Animals.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

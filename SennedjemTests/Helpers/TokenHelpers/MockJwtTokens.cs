@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
@@ -10,8 +9,8 @@ namespace SennedjemTests.Helpers.TokenHelpers
 {
     public static class MockJwtTokens
     {
-        public static string Issuer { get; } = "www.kizilay.org.tr";
-        public static string Audience { get; } = "www.kizilay.org.tr";
+        public static string Issuer { get; } = "www.keremvaris.com";
+        public static string Audience { get; } = "www.keremvaris.com";
         public static SecurityKey SecurityKey { get; }
         public static SigningCredentials SigningCredentials { get; }
 
@@ -26,9 +25,9 @@ namespace SennedjemTests.Helpers.TokenHelpers
 
         }
 
-        public static string GenerateJwtToken(IEnumerable<Claim> claims, double value=5000)
+        public static string GenerateJwtToken(IEnumerable<Claim> claims, double value = 5000)
         {
-            return s_tokenHandler.WriteToken(new JwtSecurityToken(Issuer,Audience, claims, DateTime.UtcNow, DateTime.UtcNow.AddSeconds(value), SigningCredentials));
+            return s_tokenHandler.WriteToken(new JwtSecurityToken(Issuer, Audience, claims, DateTime.UtcNow, DateTime.UtcNow.AddSeconds(value), SigningCredentials));
         }
     }
 }
