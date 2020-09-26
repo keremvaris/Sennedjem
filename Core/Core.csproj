@@ -11,30 +11,34 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="5.0.0" />
-    <PackageReference Include="FluentValidation" Version="8.6.2" />
-    <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="MailKit" Version="2.7.0" />
-    <PackageReference Include="MediatR" Version="8.0.2" />
-    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.2.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
+    <PackageReference Include="log4net" Version="2.0.11" />
+    <PackageReference Include="MailKit" Version="2.9.0" />
+    <PackageReference Include="MediatR" Version="8.1.0" />
+    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.3.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.8" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
-    <PackageReference Include="MimeKit" Version="2.8.0" />
+    <PackageReference Include="MimeKit" Version="2.9.2" />
     <PackageReference Include="MongoDB.Bson" Version="2.11.2" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
-    <PackageReference Include="NEST" Version="7.8.1" />
-    <PackageReference Include="NLog" Version="4.7.2" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.2" />
-    <PackageReference Include="RabbitMQ.Client" Version="6.1.0" />
-    <PackageReference Include="Refit" Version="5.1.67" />
-    <PackageReference Include="ServiceStack.Redis.Core" Version="5.9.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="NEST" Version="7.9.0" />
+    <PackageReference Include="NLog" Version="4.7.4" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.1" />
+    <PackageReference Include="Refit" Version="5.2.1" />
+    <PackageReference Include="Serilog" Version="2.10.1-dev-01249" />
+    <PackageReference Include="Serilog.Formatting.Elasticsearch" Version="8.4.0" />
+    <PackageReference Include="Serilog.Sinks.Http" Version="7.0.1" />
+    <PackageReference Include="Serilog.Sinks.PostgreSQL" Version="2.1.0" />
+    <PackageReference Include="ServiceStack.Redis.Core" Version="5.9.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />  
   </ItemGroup>
 

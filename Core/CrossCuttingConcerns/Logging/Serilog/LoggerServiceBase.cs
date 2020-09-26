@@ -6,7 +6,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog
     public abstract class LoggerServiceBase
     {
         private readonly ILogger _logger;
-        //protected abstract Logger GetLogger();
+        protected abstract Logger GetLogger();
         //public void Verbose(object message) => GetLogger().Verbose((string)message);
         //public void Fatal(object message) => GetLogger().Fatal((string)message);
         //public void Info(object message) => GetLogger().Information((string)message);
