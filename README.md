@@ -37,9 +37,11 @@ oluşturulmuştur.
 
 ![](./sfwMedia/media/image2.png)
 
-Bu sınıf üzerinde **Solution Explorer** üzerinde sağ tıklanır ve
-**Sennedjem Generate All Layers For Entity** yardımıyla sınıfa ait tüm
+**Solution Explorer** üzerinden ilgili sınıfa sağ tıklanır ve **Sennedjem Menu**
+altından **Sennedjem Generate All Layers For Entity** yardımıyla sınıfa ait tüm
 proje ağacı oluşturulur gerekli klasörleriyle birlikte oluşturulur.
+
+Eğer yeni bir Query veya Command sınıfına ihtiyaç duyulursa **Sennedjem Menu** aracılığı ile template sınıflar yaratılabilir.
 
 ![](./sfwMedia/media/image3.png)
 

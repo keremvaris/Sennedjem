@@ -4,6 +4,7 @@ using Business.Adapters.PersonService;
 using Business.BusinessAspects;
 using Business.DependencyResolvers;
 using Business.Services.Authentication;
+using Core.DataAccess.MongoDb.Concrete.Models;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
@@ -12,6 +13,8 @@ using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
+using DataAccess.Concrete.MongoDb;
+using DataAccess.Concrete.MongoDb.Context;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -114,6 +117,9 @@ namespace Business
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
+            services.AddSingleton<MongoDbContextBase, MongoDbContext>();
+           
+            services.AddTransient<ICustomerMongo>(x=> new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), "customers"));
 
         }
 
@@ -132,6 +138,8 @@ namespace Business
 
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
+
+            services.AddTransient<ICustomerMongo, CustomerMongoRepository>();
 
         }
         /// <summary>
