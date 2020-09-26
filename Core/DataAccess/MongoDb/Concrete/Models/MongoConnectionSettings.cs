@@ -11,7 +11,6 @@ namespace Core.DataAccess.MongoDb.Concrete.Models
 
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
-        public string Collection { get; set; }
         public MongoConnectionSettings(MongoClientSettings mongoClientSettings)
         {
             _mongoClientSettings = mongoClientSettings;

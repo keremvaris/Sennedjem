@@ -3,6 +3,7 @@ using Core.DataAccess.MongoDb.Concrete.Models;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Org.BouncyCastle.Operators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,8 @@ namespace Core.DataAccess.MongoDb.Abstract
     public abstract class MongoDbRepositoryBase<T> : IMongoDbRepository<T> where T : MongoBaseEntity
     {
         private readonly IMongoCollection<T> _collection;
-
-        protected MongoDbRepositoryBase(MongoConnectionSettings mongoConnectionSetting)
+        protected string collectionName;
+        protected MongoDbRepositoryBase(MongoConnectionSettings mongoConnectionSetting, string collectionName)
         {
             ConnectionSettingControl(mongoConnectionSetting);
 
@@ -25,8 +26,10 @@ namespace Core.DataAccess.MongoDb.Abstract
                  new MongoClient(mongoConnectionSetting.ConnectionString) :
                  new MongoClient(mongoConnectionSetting.GetMongoClientSettings());
 
+            this.collectionName = collectionName;
+
             var database = client.GetDatabase(mongoConnectionSetting.DatabaseName);
-            _collection = database.GetCollection<T>(mongoConnectionSetting.Collection);
+            _collection = database.GetCollection<T>(collectionName);
 
         }
 
@@ -126,15 +129,15 @@ namespace Core.DataAccess.MongoDb.Abstract
 
         private void ConnectionSettingControl(MongoConnectionSettings settings)
         {
-            if (settings.GetMongoClientSettings() != null &&
-               (string.IsNullOrEmpty(settings.Collection) || string.IsNullOrEmpty(settings.DatabaseName)))
-                throw new Exception("Value cannot be null or empty");
+            //if (settings.GetMongoClientSettings() != null &&
+            //   (string.IsNullOrEmpty(collectionName) || string.IsNullOrEmpty(settings.DatabaseName)))
+            //    throw new Exception("Value cannot be null or empty");
 
 
-            if (string.IsNullOrEmpty(settings.Collection) ||
-               string.IsNullOrEmpty(settings.ConnectionString) ||
-               string.IsNullOrEmpty(settings.DatabaseName))
-                throw new Exception("Value cannot be null or empty");
+            //if (string.IsNullOrEmpty(collectionName) ||
+            //   string.IsNullOrEmpty(settings.ConnectionString) ||
+            //   string.IsNullOrEmpty(settings.DatabaseName))
+            //    throw new Exception("Value cannot be null or empty");
 
         }
     }
