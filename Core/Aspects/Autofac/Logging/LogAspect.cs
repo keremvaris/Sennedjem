@@ -1,6 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using Core.CrossCuttingConcerns.Logging;
-using Core.CrossCuttingConcerns.Logging.NLog;
+using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Core.Utilities.Messages;

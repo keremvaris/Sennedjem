@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -42,7 +43,7 @@ namespace Business.Handlers.Animals.Commands
             /// <returns></returns>
             [ValidationAspect(typeof(CreateAnimalValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(DbLogger))]
+            [LogAspect(typeof(PostgreLogger))]
             public async Task<IResult> Handle(CreateAnimalCommand request, CancellationToken cancellationToken)
             {
                 var isAnimalExits = await _animalRepository.GetAsync(u => u.AnimalName == request.AnimalName);

@@ -4,6 +4,7 @@ using Business.Handlers.Products.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Core.Utilities.Results;
 
 namespace WebAPI.Controllers
 {
@@ -56,6 +57,8 @@ namespace WebAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
+        [ProducesResponseType(200, Type = typeof(SuccessResult))]
+        [ProducesResponseType(400, Type = typeof(ErrorResult))]
         public async Task<IActionResult> Add([FromBody] CreateProductCommand createProduct)
         {
             var result = await Mediator.Send(createProduct);
