@@ -19,6 +19,8 @@ namespace Core.DataAccess.MongoDb.Abstract
         protected string collectionName;
         protected MongoDbRepositoryBase(MongoConnectionSettings mongoConnectionSetting, string collectionName)
         {
+            this.collectionName = collectionName;
+
             ConnectionSettingControl(mongoConnectionSetting);
 
 
@@ -26,7 +28,7 @@ namespace Core.DataAccess.MongoDb.Abstract
                  new MongoClient(mongoConnectionSetting.ConnectionString) :
                  new MongoClient(mongoConnectionSetting.GetMongoClientSettings());
 
-            this.collectionName = collectionName;
+           
 
             var database = client.GetDatabase(mongoConnectionSetting.DatabaseName);
             _collection = database.GetCollection<T>(collectionName);
@@ -63,40 +65,40 @@ namespace Core.DataAccess.MongoDb.Abstract
             return await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public virtual void Insert(T entity)
+        public virtual void Add(T entity)
         {
             var options = new InsertOneOptions { BypassDocumentValidation = false };
             _collection.InsertOne(entity, options);
 
         }
 
-        public virtual async Task InsertAsync(T entity)
+        public virtual async Task AddAsync(T entity)
         {
             var options = new InsertOneOptions { BypassDocumentValidation = false };
             await _collection.InsertOneAsync(entity, options);
             
         }
 
-        public virtual void InsertMany(IEnumerable<T> entities)
+        public virtual void AddMany(IEnumerable<T> entities)
         {
             var options = new BulkWriteOptions { IsOrdered = false, BypassDocumentValidation = false };
             _collection.BulkWriteAsync((IEnumerable<WriteModel<T>>)entities, options);
         }
 
-        public virtual async Task InsertManyAsync(IEnumerable<T> entities)
+        public virtual async Task AddManyAsync(IEnumerable<T> entities)
         {
             var options = new BulkWriteOptions { IsOrdered = false, BypassDocumentValidation = false };
             await _collection.BulkWriteAsync((IEnumerable<WriteModel<T>>)entities, options);
         }
 
-        public virtual IQueryable<T> LoadRecords(Expression<Func<T, bool>> predicate = null)
+        public virtual IQueryable<T> GetList(Expression<Func<T, bool>> predicate = null)
         {
             return predicate == null
                ?  _collection.AsQueryable()
                :  _collection.AsQueryable().Where(predicate);
         }
 
-        public virtual async Task<IQueryable<T>> LoadRecordsAsync(Expression<Func<T, bool>> predicate = null)
+        public virtual async Task<IQueryable<T>> GetListAsync(Expression<Func<T, bool>> predicate = null)
         {
            return await Task.Run(() =>
             {
@@ -129,15 +131,15 @@ namespace Core.DataAccess.MongoDb.Abstract
 
         private void ConnectionSettingControl(MongoConnectionSettings settings)
         {
-            //if (settings.GetMongoClientSettings() != null &&
-            //   (string.IsNullOrEmpty(collectionName) || string.IsNullOrEmpty(settings.DatabaseName)))
-            //    throw new Exception("Value cannot be null or empty");
+            if (settings.GetMongoClientSettings() != null &&
+               (string.IsNullOrEmpty(collectionName) || string.IsNullOrEmpty(settings.DatabaseName)))
+                throw new Exception("Value cannot be null or empty");
 
 
-            //if (string.IsNullOrEmpty(collectionName) ||
-            //   string.IsNullOrEmpty(settings.ConnectionString) ||
-            //   string.IsNullOrEmpty(settings.DatabaseName))
-            //    throw new Exception("Value cannot be null or empty");
+            if (string.IsNullOrEmpty(collectionName) ||
+               string.IsNullOrEmpty(settings.ConnectionString) ||
+               string.IsNullOrEmpty(settings.DatabaseName))
+                throw new Exception("Value cannot be null or empty");
 
         }
     }

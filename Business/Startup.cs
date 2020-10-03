@@ -14,6 +14,7 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using DataAccess.Concrete.MongoDb;
+using DataAccess.Concrete.MongoDb.Collections;
 using DataAccess.Concrete.MongoDb.Context;
 using FluentValidation;
 using MediatR;
@@ -119,7 +120,7 @@ namespace Business
             services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
            
-            services.AddTransient<ICustomerMongo>(x=> new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), "customers"));
+            services.AddTransient<ICustomerMongoRepository>(x=> new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 
         }
 
@@ -139,7 +140,8 @@ namespace Business
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
 
-            services.AddTransient<ICustomerMongo, CustomerMongoRepository>();
+            services.AddSingleton<MongoDbContextBase, MongoDbContext>();
+            services.AddTransient<ICustomerMongoRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 
         }
         /// <summary>

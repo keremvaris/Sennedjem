@@ -12,7 +12,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {
     public class LogstashLogger : LoggerServiceBase
     {
-        protected override Logger GetLogger()
+        public LogstashLogger()
         {
             IConfiguration configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
 
@@ -27,7 +27,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
                         textFormatter:new ElasticsearchJsonFormatter()
                      )
                     .CreateLogger();
-            return seriLogConfig;
+            _logger = seriLogConfig;
         }
     }
 }

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using Serilog;
-using Serilog.Core;
 using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +9,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {
     public class PostgreLogger : LoggerServiceBase
     {
-        protected override Logger GetLogger()
+        public PostgreLogger()
         {
             IConfiguration configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
 
@@ -20,7 +19,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
             var seriLogConfig = new LoggerConfiguration()
                     .WriteTo.PostgreSQL(connectionString: logConfig.ConnectionString, tableName: "Log", needAutoCreateTable: true)
                     .CreateLogger();
-            return seriLogConfig;
+            _logger = seriLogConfig;
         }
     }
 }

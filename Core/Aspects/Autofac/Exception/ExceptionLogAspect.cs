@@ -4,9 +4,11 @@ using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Core.Utilities.Messages;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace Core.Aspects.Autofac.Exception
 {
@@ -23,8 +25,9 @@ namespace Core.Aspects.Autofac.Exception
             {
                 throw new ArgumentException(AspectMessages.WrongLoggerType);
             }
-
-            _loggerServiceBase = (LoggerServiceBase)ServiceTool.ServiceProvider.GetService(loggerService);
+   
+            _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
+          
         }
 
         protected override void OnException(IInvocation invocation, System.Exception e)
@@ -36,7 +39,7 @@ namespace Core.Aspects.Autofac.Exception
                   string.Join(Environment.NewLine, (e as AggregateException).InnerExceptions.Select(x => x.Message));
             else
                 logDetailWithException.ExceptionMessage = e.Message;
-            _loggerServiceBase.Error(logDetailWithException);
+            _loggerServiceBase.Error(JsonConvert.SerializeObject(logDetailWithException));
         }
 
         private LogDetailWithException GetLogDetail(IInvocation invocation)

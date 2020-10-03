@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataAccess.Concrete.MongoDb;
-using Microsoft.AspNetCore.Http;
+﻿using Business.Handlers.Customers.Commands;
+using Business.Handlers.Customers.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nest;
+using MongoDB.Bson;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -15,33 +13,92 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseApiController
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        ICustomerMongo _customerMongo;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="customerMongo"></param>
-        public CustomerController(ICustomerMongo customerMongo)
+        ///<summary>
+        ///Customer listeler
+        ///</summary>
+        ///<remarks>bla bla bla Animals</remarks>
+        ///<return>Animals Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getall")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetList()
         {
-            _customerMongo = customerMongo;
+            var result = await Mediator.Send(new GetCustomersQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
+        ///<summary>
+        ///Id sine göre detaylarını getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>Customer Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getbyid")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetById(ObjectId Id)
+        {
+            var result = await Mediator.Send(new GetCustomerQuery { Id = Id });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
         }
 
         /// <summary>
-        /// 
+        /// Customer Ekler.
         /// </summary>
+        /// <param name="createCustomer"></param>
         /// <returns></returns>
-
-        [HttpGet("GetAll")]
-        public IActionResult Get()
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Add([FromBody] CreateCustomerCommand createCustomer)
         {
-            var data = _customerMongo.LoadRecords();
-            return Ok(data);
+            var result = await Mediator.Send(createCustomer);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
         }
+
+        /// <summary>
+        /// Customer Günceller.
+        /// </summary>
+        /// <param name="updateCustomer"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateCustomerCommand updateCustomer)
+        {
+            var result = await Mediator.Send(updateCustomer);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+
+        /// <summary>
+        /// Customer Siler.
+        /// </summary>
+        /// <param name="deleteCustomer"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] DeleteCustomerCommand deleteCustomer)
+        {
+            var result = await Mediator.Send(deleteCustomer);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+
     }
 }

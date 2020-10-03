@@ -39,6 +39,7 @@ namespace WebAPI.Controllers
         ///<return>Animals Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getbyid")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int animalId)
         {
             var result = await Mediator.Send(new GetAnimalQuery { AnimalId = animalId });
