@@ -1,6 +1,8 @@
 ﻿
 using Business.BusinessAspects;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -25,6 +27,7 @@ namespace Business.Handlers.Products.Queries
 
             [PerformanceAspect(5)]
             //[CacheAspect(10)]
+            [LogAspect(typeof(PostgreSqlLogger))]
             public async Task<IDataResult<IEnumerable<Product>>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
             {
                 return new SuccessDataResult<IEnumerable<Product>>(await _productRepository.GetListAsync());

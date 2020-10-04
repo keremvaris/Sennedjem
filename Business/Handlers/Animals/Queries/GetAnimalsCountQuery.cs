@@ -26,7 +26,7 @@ namespace Business.Handlers.Animals.Queries
 
             [PerformanceAspect(5)]
             //[CacheAspect(10)]
-            [LogAspect(typeof(DbLogger))]
+            [LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<IEnumerable<Animal>>> Handle(GetAnimalsCountQuery request, CancellationToken cancellationToken)
             {
                 return new SuccessDataResult<IEnumerable<Animal>>(await _animalRepository.GetListAsync());

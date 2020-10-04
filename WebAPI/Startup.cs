@@ -86,7 +86,7 @@ namespace WebAPI
             });
 
             services.AddTransient<FileLogger>();
-            services.AddTransient<PostgreLogger>();
+            services.AddTransient<PostgreSqlLogger>();
 
             base.ConfigureServices(services);
         }

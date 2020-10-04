@@ -45,7 +45,7 @@ namespace Business.Handlers.Animals.Commands
             /// <returns></returns>
             [ValidationAspect(typeof(CreateAnimalValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(DbLogger))]
+            [LogAspect(typeof(FileLogger))]
             // [TransactionScopeAspectAsync(typeof(ProjectDbContext))]
             [TransactionScopeAspectAsync()]
             public async Task<IResult> Handle(AnimalTransactionalOperationCommand request, CancellationToken cancellationToken)

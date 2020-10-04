@@ -44,7 +44,7 @@ namespace Business.Handlers.Authorizations.Commands
             /// <returns></returns>
             //[ValidationAspect(typeof(CreateBagisciValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(DbLogger))]
+            [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
             {
                 var user = await _userDal.GetAsync(u => u.CitizenId == Convert.ToInt64(request.TCKimlikNo));
