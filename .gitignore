@@ -6,10 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-**appsettings.json
-**appsettings.Development.json
-**appsettings.Production.json
-**appsettings.Staging.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -264,3 +261,7 @@ __pycache__/
 *.pyc
 /Business/Workflow.md_
 /Business/Fakes/BeniOku.md_
+/WebAPI/appsettings.json
+/WebAPI/appsettings.Development.json
+/WebAPI/appsettings.Production.json
+/WebAPI/appsettings.Staging.json
