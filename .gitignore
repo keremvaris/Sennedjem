@@ -97,6 +97,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.json
 
 # Chutzpah Test files
 _Chutzpah*
@@ -359,8 +360,5 @@ MigrationBackup/
 
 /Business/Workflow.md_
 /Business/Fakes/BeniOku.md_
-/WebAPI/appsettings.json
-/WebAPI/appsettings.Development.json
-/WebAPI/appsettings.Production.json
-/WebAPI/appsettings.Staging.json
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
