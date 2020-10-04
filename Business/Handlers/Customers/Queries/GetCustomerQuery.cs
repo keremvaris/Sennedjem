@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 namespace Business.Handlers.Customers.Queries
 {
     [SecuredOperation]
-    public class GetCustomerQuery: IRequest<IDataResult<Customer>>
+    public class GetCustomerQuery : IRequest<IDataResult<Customer>>
     {
         public ObjectId Id { get; set; }
 
-        class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, IDataResult<Customer>>
+        public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, IDataResult<Customer>>
         {
             private readonly ICustomerMongoRepository _customerMongoRepository;
 
@@ -28,7 +28,7 @@ namespace Business.Handlers.Customers.Queries
             [LogAspect(typeof(MongoDbLogger))]
             public async Task<IDataResult<Customer>> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
             {
-                var customer = await _customerMongoRepository.GetByIdAsync(request.Id) ;
+                var customer = await _customerMongoRepository.GetByIdAsync(request.Id);
                 return new SuccessDataResult<Customer>(customer);
             }
         }

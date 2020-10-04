@@ -101,7 +101,7 @@ namespace Business
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();
             };
-            //FOR Migrations   services.AddDbContext<ProjectDbContext>();
+            
         }
 
         /// <summary>

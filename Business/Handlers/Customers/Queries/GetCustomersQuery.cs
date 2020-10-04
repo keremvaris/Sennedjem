@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 namespace Business.Handlers.Customers.Queries
 {
     [SecuredOperation]
-    public class GetCustomersQuery: IRequest<IDataResult<IEnumerable<Customer>>>
+    public class GetCustomersQuery : IRequest<IDataResult<IEnumerable<Customer>>>
     {
-        class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, IDataResult<IEnumerable<Customer>>>
+        public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, IDataResult<IEnumerable<Customer>>>
         {
             private readonly ICustomerMongoRepository _customerMongoRepository;
 

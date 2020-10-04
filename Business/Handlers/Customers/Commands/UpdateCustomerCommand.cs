@@ -25,7 +25,7 @@ namespace Business.Handlers.Customers.Commands
         public string Email { get; set; }
         public bool Active { get; set; }
         public List<int> Accounts { get; set; }
-        public object[] Tier_and_details { get; set; }
+        public string[] Tier_and_details { get; set; }
         public DateTime RecordDate { get; set; }
 
         public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, IResult>
@@ -45,7 +45,7 @@ namespace Business.Handlers.Customers.Commands
                 var customer = new Customer
                 {
                     //classın özellikleri buraya yazılır.
-                    Id=request.Id,
+                    Id = request.Id,
                     Username = request.Username,
                     Accounts = request.Accounts,
                     Active = request.Active,
