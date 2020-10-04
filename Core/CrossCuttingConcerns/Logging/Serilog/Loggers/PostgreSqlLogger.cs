@@ -7,9 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {
-    public class PostgreLogger : LoggerServiceBase
+    public class PostgreSqlLogger : LoggerServiceBase
     {
-        public PostgreLogger()
+        public PostgreSqlLogger()
         {
             IConfiguration configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
 

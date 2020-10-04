@@ -1,7 +1,7 @@
 ﻿using Business.BusinessAspects;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
-using Core.CrossCuttingConcerns.Logging.NLog.Loggers;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;

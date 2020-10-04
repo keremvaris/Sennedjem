@@ -14,7 +14,7 @@ namespace Business.Handlers.Customers.Commands
     {
         public ObjectId Id { get; set; }
 
-        class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, IResult>
+        public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, IResult>
         {
             private readonly ICustomerMongoRepository _customerMongoRepository;
 

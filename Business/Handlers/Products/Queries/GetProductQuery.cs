@@ -14,7 +14,7 @@ namespace Business.Handlers.Products.Queries
     {
         public int ProductId { get; set; }
 
-        class GetProductQueryHandler : IRequestHandler<GetProductQuery, IDataResult<Product>>
+        public class GetProductQueryHandler : IRequestHandler<GetProductQuery, IDataResult<Product>>
         {
             private readonly IProductRepository _productRepository;
 
