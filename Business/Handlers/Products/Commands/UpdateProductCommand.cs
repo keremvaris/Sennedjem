@@ -51,7 +51,7 @@ namespace Business.Handlers.Products.Commands
                 var isproductExits = await _productRepository.GetAsync(u => u.ProductId == request.ProductId);
 
                 //Tüm alanlar aşağıdaki örnekteki gibi yazılacak
-                //isproductExits.ProductName = request.ProductName,               
+                isproductExits.ProductName = request.ProductName;
 
                 _productRepository.Update(isproductExits);
                 await _productRepository.SaveChangesAsync();

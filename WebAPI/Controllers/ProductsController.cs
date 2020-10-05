@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         ///<return>Products Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetProductsQuery());
