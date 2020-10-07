@@ -30,9 +30,9 @@ namespace Business.Handlers.Customers.Commands
 
         public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, IResult>
         {
-            private readonly ICustomerMongoRepository _customerMongoRepository;
+            private readonly ICustomerRepository _customerMongoRepository;
 
-            public UpdateCustomerCommandHandler(ICustomerMongoRepository customerMongoRepository)
+            public UpdateCustomerCommandHandler(ICustomerRepository customerMongoRepository)
             {
                 _customerMongoRepository = customerMongoRepository;
             }

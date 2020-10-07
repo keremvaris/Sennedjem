@@ -33,9 +33,9 @@ namespace Business.Handlers.Customers.Commands
 
         public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, IResult>
         {
-            private readonly ICustomerMongoRepository _customerMongoRepository;
+            private readonly ICustomerRepository _customerMongoRepository;
 
-            public CreateCustomerCommandHandler(ICustomerMongoRepository customerMongoRepository)
+            public CreateCustomerCommandHandler(ICustomerRepository customerMongoRepository)
             {
                 _customerMongoRepository = customerMongoRepository;
             }

@@ -16,9 +16,9 @@ namespace Business.Handlers.Customers.Queries
     {
         public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, IDataResult<IEnumerable<Customer>>>
         {
-            private readonly ICustomerMongoRepository _customerMongoRepository;
+            private readonly ICustomerRepository _customerMongoRepository;
 
-            public GetCustomersQueryHandler(ICustomerMongoRepository customerMongoRepository)
+            public GetCustomersQueryHandler(ICustomerRepository customerMongoRepository)
             {
                 _customerMongoRepository = customerMongoRepository;
             }

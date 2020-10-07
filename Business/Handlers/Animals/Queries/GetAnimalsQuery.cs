@@ -26,11 +26,11 @@ namespace Business.Handlers.Animals.Queries
 
             [PerformanceAspect(5)]
             //[CacheAspect(10)]
-            [LogAspect(typeof(MongoDbLogger))]
+            [LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<IEnumerable<Animal>>> Handle(GetAnimalsQuery request, CancellationToken cancellationToken)
             {
-                throw new System.Exception("test exception");
-                //return new SuccessDataResult<IEnumerable<Animal>>(await _animalRepository.GetListAsync());
+                //throw new System.Exception("test exception");
+                return new SuccessDataResult<IEnumerable<Animal>>(await _animalRepository.GetListAsync());
             }
         }
     }

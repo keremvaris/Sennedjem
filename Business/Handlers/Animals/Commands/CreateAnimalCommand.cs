@@ -42,7 +42,7 @@ namespace Business.Handlers.Animals.Commands
             /// <returns></returns>
             [ValidationAspect(typeof(CreateAnimalValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(MongoDbLogger))]
+            [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(CreateAnimalCommand request, CancellationToken cancellationToken)
             {
                 var isAnimalExits = await _animalRepository.GetAsync(u => u.AnimalName == request.AnimalName);

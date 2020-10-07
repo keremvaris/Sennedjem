@@ -4,7 +4,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface ICustomerMongoRepository : IMongoDbRepository<Customer>
+    public interface ICustomerRepository : IMongoDbRepository<Customer>
     {
 
     }

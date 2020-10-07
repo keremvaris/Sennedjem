@@ -1,15 +1,12 @@
 ﻿using Core.DataAccess.MongoDb.Concrete.Models;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Concrete.MongoDb.Context
 {
     public abstract class MongoDbContextBase
     {
-        IConfiguration configuration;
-        public MongoConnectionSettings mongoConnectionSettings;
+        public readonly IConfiguration configuration;
+        public readonly MongoConnectionSettings mongoConnectionSettings;
 
         protected MongoDbContextBase(IConfiguration configuration)
         {

@@ -101,7 +101,7 @@ namespace Business
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();
             };
-            
+
         }
 
         /// <summary>
@@ -119,8 +119,8 @@ namespace Business
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
-           
-            services.AddTransient<ICustomerMongoRepository>(x=> new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
+
+            services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 
         }
 
@@ -139,9 +139,10 @@ namespace Business
 
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
+            services.AddDbContext<NewDbContext>();
 
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
-            services.AddTransient<ICustomerMongoRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
+            services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 
         }
         /// <summary>
@@ -157,6 +158,11 @@ namespace Business
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
+            services.AddDbContext<NewDbContext>();
+
+            services.AddSingleton<MongoDbContextBase, MongoDbContext>();
+            services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
+
 
         }
 
@@ -174,6 +180,11 @@ namespace Business
             services.AddTransient<IAnimalRepository, AnimalRepository>();
 
             services.AddDbContext<ProjectDbContext>();
+            services.AddDbContext<NewDbContext>();
+
+            services.AddSingleton<MongoDbContextBase, MongoDbContext>();
+            services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
+
         }
 
 
