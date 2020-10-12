@@ -1,124 +1,175 @@
-n
-`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\PersonService\IPersonService.csr	ï
-fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\PersonService\PersonServiceManager.cs 8r	
-Çi
-ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\SmsService\ISmsService.csr		
-Ö
-`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\SmsService\SmsServiceManager.cs 8r	
+≥
+`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\PersonService\IPersonService.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	ﬁ
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\PersonService\PersonServiceManager.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+ÇÆ
+ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\SmsService\ISmsService.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r		
+Œ
+`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Adapters\SmsService\SmsServiceManager.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
 Ç
-Ç
-ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\ActivityMonitor.cs> 8#j
-fghrø	 !#$%&'()*,./012345789;<=>?@ABCDFHIKLMNPQRUVWXZ[\]^_`abcdijlmopqrstvwxyz{|}ÄÅÇÑÖáàâäãåçéèêëìîïñóòôöõúûü†°¢£§¶ß®©™´¨≠ÆØ∞≤xÇM;>?ACDFHIKLMRUVW\^_`ablpqrtvwxz|}ÅÑÖáâãçèòôõûü†°¢¶®≠j
-[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\IActivityMonitor.csr		Â
-bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\InstrumentationBehavior.cs 8j	rJ	
-!#$%&'()+,-./01456789:<>?ABCDEGHJKLNPQSTUVWXZ\]`abcdefhxÇ%&'(-.078:<ABCDGJKNPQSWX\]`abµ
-SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\Profiler.cs 	8j!&r<	 "#$%'()*+-./02345789:;<=?@ABFGHKLxÇ"#$%'()*/49:;<Aï
-[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\SecuredOperation.cs 8jr	 !"$%&'xÇ !"$s
-NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\CofigurationManager.cs 8r	Çí
-ME:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Constants\Messages.cs 080jr6	 !"#$%&'()*-./1235679:;=>?ABCDE…
-dE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\DependencyResolvers\AutofacBusinessModule.cs 8	jr4	 "$%'()*,-./1345679;<=>?ACDEFGHIJKxÇ $')*,./134679;<>?ACEGY
-KE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Fakes\IFakeStore.csr	v
-PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Fakes\SFw\SFwInMemory.cs 8r	
-xÇ√
-qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\ForgotPasswordCommand.cs 8j!"#$%&'()*+,-r*	
-./0124567;=>?@AxÇ24567;=Æ
+œ
+ZE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\ActivityMonitor.cs> (08#@7H#R 0=0;5=0;10=0;20=0;30=1;60=0;90=0Z1=19;2=4;4=0;6=1;8=0;10=0;12=0jghir¡	
+ !"$%&'()*+-/012345689:<=>?@ABCDEGIJLMNOQRSVWXY[\]^_`abcdejkmnpqrstuwxyz{|}~ÄÅÇÉÖÜàâäãåçéèêëíîïñóòôöõúùü†°¢£§•ß®©™´¨≠ÆØ∞±≥xÇN <?@BDEGIJLMNSVWX]_`abcmqrsuwxy{}~ÄÇÖÜàäåéêôöúü†°¢£ß©ÆØ
+[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\IActivityMonitor.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r		•
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\InstrumentationBehavior.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=1;2=2;4=0;6=0;8=0;10=0;12=0jABCDEGJKr@	
+!#$%&'()+,-./01456789:<>?NPQSTUVWXZ\]`abcdefhxÇ%&'(-.078:<NPQSWX\]`ab˛
+SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\Profiler.cs 	(
+0
+8@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=8;2=1;4=0;6=0;8=0;10=0;12=0j!&r<	 "#$%'()*+-./02345789:;<=?@ABFGHKLxÇ"#$%'()*/49:;<A›
+[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\BusinessAspects\SecuredOperation.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=1;2=1;4=0;6=0;8=0;10=0;12=0jr
+ !#$%&xÇ !#Ω
+OE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\ConfigurationManager.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=3;2=0;4=0;6=0;8=0;10=0;12=0r	Çﬁ
+ME:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Constants\Messages.cs 2(30282@2H2R 0=0;5=0;10=0;20=0;30=1;60=0;90=0Z1=50;2=0;4=0;6=0;8=0;10=0;12=0jr8	 !"#$%&'()*+,-01245689:<=>@ABDEFGHõ
+dE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\DependencyResolvers\AutofacBusinessModule.cs (08	@	H	R 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=1;8=0;10=0;12=0jr<	
+ #%'(*+,-/01246789:<>?@ABDFGHIJKMNOPQRSTxÇ #'*,-/124679:<>?ABDFHJMû
+KE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Fakes\IFakeStore.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	ø
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Fakes\SFw\SFwInMemory.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=1;2=1;4=0;6=0;8=0;10=0;12=0r	
+xÇü
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Commands\AnimalTransactionalOperationCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=1;4=0;6=0;8=0;10=0;12=0j	(*+,-1r6	
+ !#$%&./0234578:;<=>?ABCDEFGHIxÇ%578<>?ABCDEÉ
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Commands\CreateAnimalCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=1;4=0;6=0;8=0;10=0;12=0j	%'()*7r.	
+!"#$+,-./023568:;<=>?@AxÇ#0238;<=Û
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Commands\DeleteAnimalCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0j !"#$%r 	&()*,-./012Ç*,-.¯
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Commands\UpdateAnimalCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0j !"#$%&'()01r!	*,-.3456789Ç.345‹
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Queries\GetAnimalQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	 !"#ÇÂ
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Queries\GetAnimalsCountQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0jr 	
+ !"#$Ç ·
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Animals\Queries\GetAnimalsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0j r 	
+!"#$%Ç!å
+qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\ForgotPasswordCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=5;2=1;4=0;6=0;8=0;10=0;12=0j!"#$%&'()*+,-r*	
+./01245679;<=>?xÇ245679;˜
 jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\LoginUserQuery.cs
- 8jr&	!"$%'(*+,-.xÇ
-!"$%'(*ª
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RegisterUser.cs	 8	r8	
-"#$%)*+,-.0145679:;<=?@ABCDExÇ
-$.01479?@Aô
-qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RegisterUserValidator.cs 8j
-	
-rÇõ
-qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RuleBuilderExtensions.cs 8r	
+ (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=5;2=1;4=0;6=0;8=0;10=0;12=0jr&	!"$%'(*+,-.xÇ
+!"$%'(*É
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RegisterUser.cs	 (08	@H	R 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=7;2=1;4=0;6=0;8=0;10=0;12=0r7	
+!"#$()*+,-/0345689:;<>?@ABCDxÇ
+#-/0368>?@·
+qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RegisterUserValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=1;2=0;4=0;6=0;8=0;10=0;12=0j
+	
+rÇ‰
+qE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Commands\RuleBuilderExtensions.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=1;2=0;4=0;6=0;8=0;10=0;12=0r	
 Ç
-≠
-eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\LoginUserValidator.cs 8j
+˜
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\LoginUserValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=1;6=0;8=0;10=0;12=0j
+	
+r  !"#$%&'()*+-xÇ !"$&È
+gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\MobileLoginValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=1;6=0;8=0;10=0;12=0r	
+xÇÈ
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\LoginUserHandler.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0j	r	
+ !"#$Ç !È
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyCidQuery.cs 
+(08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=9;2=1;4=0;6=0;8=0;10=0;12=0r!	
+ !"#$%xÇ!Á
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOTPHandler.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0j	r	 !"#Ç û
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Customers\Commands\CreateCustomerCommand.cs (08@HR 0=0;5=0;10=0;20=1;30=0;60=0;90=0Z1=19;2=1;4=0;6=0;8=0;10=0;12=0j+-./0>r@	
+ "#$&'()1235679:<=?@ABCDEFGIKLMNOPxÇ(79:?@ABCDEFGKLÂ
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Customers\Commands\DeleteCustomerCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	!"#$Çè
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Customers\Commands\UpdateCustomerCommand.cs (08@HR 0=0;5=0;10=0;20=1;30=0;60=0;90=0Z1=22;2=0;4=0;6=0;8=0;10=0;12=0j/r:	
+ !#$%&)*+,-.0123456789;>?@ABCÇ%0123456789>?·
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Customers\Queries\GetCustomerQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r 	
+ !"#$Ç ﬁ
+gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Customers\Queries\GetCustomersQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+ Ç¯
+pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\CreateGroupClaimCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=4;2=1;4=0;6=0;8=0;10=0;12=0r&	
+ !"#%&'()*+,-xÇ "#%)Î
+pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\DeleteGroupClaimCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ !"#$Ç Ò
+pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\UpdateGroupClaimCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0r#	
+ !#$%&'Ç !#›
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Queries\GetGroupClaimQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+Çﬁ
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Queries\GetGroupClaimsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+ÇÂ
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\CreateGroupCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r"
+ !"#$%Ç !ﬂ
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\DeleteGroupCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ !ÇÊ
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\UpdateGroupCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0r"	
+!"#$%&'Ç!"#’
+`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Queries\GetGroupQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+Ç‘
+aE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Queries\GetGroupsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+ÇÅ
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\CreateOperationClaimCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=4;2=1;4=0;6=0;8=0;10=0;12=0r'
+ !"#%&'()*+,-xÇ "#%)Ò
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\DeleteOperationClaimCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ Ç¯
+xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\UpdateOperationClaimCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0r"	
+ "#$%&Ç "Â
+rE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ÇÊ
+sE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+Çì
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Products\Commands\CreateProductCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=5;2=1;4=0;6=0;8=0;10=0;12=0j*,-./r8	
+ !"%&'()01234578:;<=>@ABCDFGHIJKLxÇ'(578:;=BCFGH¯
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Products\Commands\DeleteProductCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0j !"#$%&'r#	
+()*+,./01234Ç,./0Ä
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Products\Commands\UpdateProductCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0j$%&'()*+,-.5r'	
+ !"/0123689:;<=>Ç!3689:€
+dE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Products\Queries\GetProductQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r
+ !Ç‚
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Products\Queries\GetProductsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0jr 	
+ !"#$%Ç!Ó
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\CreateUserClaimCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0r"	
+ "#$%&Ç "Á
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\DeleteUserClaimCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ !ÇÔ
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\UpdateUserClaimCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0r#	
+ !"$%&'(Ç!"$€
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+Ç‹
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+ÇÓ
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\CreateUserGroupCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0r"	
+ "#%&'()Ç"#%Á
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\DeleteUserGroupCommand.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=4;2=0;4=0;6=0;8=0;10=0;12=0r	
+ !"ÇÔ
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\UpdateUserGroupCommand.cs (08@
+HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0r#	
+ "#$&'()Ç"#$µ
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupQuery.csR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r‹
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupsQuery.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+Çÿ
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\AwaitableLock.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=1;4=0;6=0;8=0;10=0;12=0j	
+r"!"#$%&'()*+xÇ#'Î
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\OperationClaimCreatorMiddleware.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=0;2=1;4=1;6=0;8=0;10=0;12=0j r#	!"#$%&'xÇ	!"#$ˆ
+WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\ValidationExtensions.cs) (08	@	H	R 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=2;4=0;6=0;8=0;10=0;12=0r3	
+ !"#$%&'()*,-/0123456789:xÇ	
+$%&'(),1256⁄
+nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AgentAuthenticationProvider.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+Ç„
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationCoordinator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0jr	
+Ç∂
+mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationProviderBase.cs (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=1;2=0;4=1;6=1;8=0;10=0;12=0jFOrP	
+ !"#$%&'()*+,-./0123456789:;<=>?ABCDEGIJKLMPQSTUXYZ[xÇ #%(*.37<>CDEGIKMPQSTUX¿
+mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationCoordinator.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	¿
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationProvider.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	
+Ü
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\ILoginDataProvider.cs (08@HR 0=0;5=0;10=0;20=1;30=0;60=0;90=0Z1=18;2=1;4=0;6=0;8=0;10=0;12=0j 	 !"%&'*+,/014569:;ADr 
+#(-27<>?BCEFGHIJKxÇBEFGÄ
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserCommand.cs (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=10;2=1;4=0;6=0;8=0;10=0;12=0j	
+-./r! !"#$%&'()*+,012345xÇ"#&'(,2⁄
+hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserResult.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0j	
+r“
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOTPCommand.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0j	r
+í
+oE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\PersonAuthenticationProvider.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=3;2=1;4=0;6=0;8=0;10=0;12=0jr2
+ !"&'()*+,-./12345789:;<=xÇ !&'),-345789:¬
+[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\SFwToken.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=6;2=0;4=0;6=0;8=0;10=0;12=0j	
+rÕ
+BE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Startup.cs: (	8@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=7;2=0;4=1;6=0;8=0;10=0;12=0j1 "')*+2489:;<=>?klmnÄÅÇîïñó©™´¨ø¡¬r¶	
+#$%,-./05@ADFHJKMPQRSUWZ\]_`adefgioprstuvwxy{}ÉÑÜáàâäåçéêëìòôöõúùûü†°£§ß≠ÆØ∞±≤≥¥∂∑π∫º√ƒ≈«… Ç[./DFHJKMPQUWZ\]_`adfrstuvwxy{Üáàâäåçéêëöõúùûü†°£§Ø∞±≤≥¥∂∑π∫≈‰
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\ValidationRules\FluentValidation\AnimalValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0j
 	
-r !"#$%&'()*,xÇ !#%†
-gE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\MobileLoginValidator.cs 8r	
-xÇ†
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\LoginUserHandler.cs 8j	r	
- !"#$Ç !ù
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Authorizations\Queries\VerifyOtpHandler.cs 8j	r
- !"ÇØ
-pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\CreateGroupClaimCommand.cs 8r&	
- !"#%&'()*+,-xÇ "#%)¢
-pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\DeleteGroupClaimCommand.cs 8r	
- !"#$Ç ®
-pE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Commands\UpdateGroupClaimCommand.cs 8r#	
- !#$%&'Ç !#î
-jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Queries\GetGroupClaimQuery.cs 8r	
-Çï
-kE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\GroupClaims\Queries\GetGroupClaimsQuery.cs 8r	
-Çö
-fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\CreateGroupCommand.cs 8r 	
- !"#Çñ
-fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\DeleteGroupCommand.cs 8r	
- !Çù
-fE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Commands\UpdateGroupCommand.cs 8r"	
-!"#$%&'Ç!"#å
-`E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Queries\GetGroupQuery.cs 8r	
-Çã
-aE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\Groups\Queries\GetGroupsQuery.cs 8r	
-Ç∏
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\CreateOperationClaimCommand.cs 8r'
- !"#%&'()*+,-xÇ "#%)®
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\DeleteOperationClaimCommand.cs 8r	
- ÇØ
-xE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Commands\UpdateOperationClaimCommand.cs 8r"	
- "#$%&Ç "ú
-rE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimQuery.cs 8r	
-Çù
-sE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\OperationClaims\Queries\GetOperationClaimsQuery.cs 8r	
-Ç•
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\CreateUserClaimCommand.cs 8r"	
- "#$%&Ç "û
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\DeleteUserClaimCommand.cs 8r	
- !Ç¶
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Commands\UpdateUserClaimCommand.cs 8r#	
- !"$%&'(Ç!"$í
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimQuery.cs 8r	
-Çì
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserClaims\Queries\GetUserClaimsQuery.cs 8r	
-Ç•
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\CreateUserGroupCommand.cs 8r"	
- "#%&'()Ç"#%û
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\DeleteUserGroupCommand.cs 8r	
- !"Ç¶
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Commands\UpdateUserGroupCommand.cs 8r#	
- "#$&'()Ç"#$t
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupQuery.csrì
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Handlers\UserGroups\Queries\GetUserGroupsQuery.cs 8r	
-Çè
-PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\AwaitableLock.cs 8j	
-r"!"#$%&'()*+xÇ#'¢
-bE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\OperationClaimCreatorMiddleware.cs 8j r#	!"#$%&'xÇ	!"#$¨
-WE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Helpers\ValidationExtensions.cs) 8	r2	
- !"#$%&'(*+-./012345678xÇ
-"#$%&'*/034ê
-nE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AgentAuthenticationProvider.cs 8r	
-Ç¢
-lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationCoordinator.cs 8jr	
- "xÇÏ
-mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\AuthenticationProviderBase.cs 8jENrO	
- !"#$%&'()*+,-./0123456789:;<=>@ABCDFHIJKLOPRSTWXYZxÇ"$')-26;=BCDFHJLOPRSTW{
-mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationCoordinator.csr	z
-jE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\IAuthenticationProvider.csr
-	
-º
-eE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\ILoginDataProvider.cs 8j 	 !"%&'*+,/014569:;ADr 
-#(-27<>?BCEFGHIJKxÇBEFGµ
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserCommand.cs 8j	,-.r 
- !"#$%&'()*+/01234xÇ!"%&'+1ë
-hE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\LoginUserResult.cs 8j	
-râ
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\Model\VerifyOtpCommand.cs 8j	r
-y
-[E:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\OASToken.cs 8j	
-r»
-oE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Services\Authentication\PersonAuthenticationProvider.cs 8jr1	
- !%&'()*+,-.012346789:=>xÇ %&(+,2346789Ø
-BE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\Startup.cs& 8j.#%&'.0456789:;fghivwxyÜáàâïñóò•ß®ry	
- !()*+,1<=>?ACEGILMNOSUXZ[]`abcdjkmnoprtz{}~ÄÉÖäãåçéèëìôöõúùû°¢©™´≠Ø∞Ç5*+>?ACEGILMSUXZ[]`bmnopr}~ÄÉåçéèëõúùû°´
+r Ç⁄
+mE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\ValidationRules\FluentValidation\CustomerValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0r	
+Ç
+Â
+lE:\src\NewGenSource\NorthwindBackend\Sennedjem\Business\ValidationRules\FluentValidation\ProductValidator.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=0;6=0;8=0;10=0;12=0j
+	
+r Ç

@@ -9,7 +9,6 @@ namespace Core.Utilities.ElasticSearch
 {
     public class ElasticSearchManager : IElasticSearch
     {
-        public IConfiguration Configuration;
         private readonly ConnectionSettings _connectionSettings;
 
         public ElasticSearchManager(IConfiguration Configuration)

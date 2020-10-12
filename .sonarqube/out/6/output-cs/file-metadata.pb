@@ -1,0 +1,22 @@
+Z
+XE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Api\AnimalContollerTest.csg
+eE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\Adapters\PersonManagerTest.csi
+gE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\Adapters\PersonServiceHelper.csf
+dE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\Adapters\SmsServiceHelper.csd
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\Adapters\SmsServiceTest.csm
+kE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\HandlersTest\AuthorizationsTests.csi
+gE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\HandlersTest\UserGroupsTests.csf
+dE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\ClaimExtensionTests.csk
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\CloneExtesionServiceTest.cs`
+^E:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\DataAccess\UserRepositoryTest.csU
+SE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\ClaimsData.csU
+SE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\DataHelper.csl
+jE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\TokenHelpers\BaseIntegrationTest .cse
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\TokenHelpers\MockJwtTokens.csY
+WE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\MockInterfaces\IDbSets.csu
+sE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Services\Authentication\AuthenticationProviderTest.csd
+bE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Services\Authentication\TokenTest.csv
+rC:\Users\kerem\.nuget\packages\microsoft.net.test.sdk\16.7.1\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs‰
+„E:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csj
+fE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\obj\Debug\netcoreapp3.1\\RefitStubs.g.csx
+tE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\obj\Debug\netcoreapp3.1\SennedjemTests.AssemblyInfo.cs

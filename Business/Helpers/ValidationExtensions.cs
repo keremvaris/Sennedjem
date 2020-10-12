@@ -1,4 +1,6 @@
-﻿namespace Business.Helpers
+﻿using System.Text.RegularExpressions;
+
+namespace Business.Helpers
 {
     public static class ValidationExtensions
     {
@@ -48,7 +50,7 @@
                 return false;
             else
             {
-                mobilePhone = System.Text.RegularExpressions.Regex.Replace(mobilePhone, "[^0-9]", "");
+                mobilePhone = Regex.Replace(mobilePhone, "[^0-9]", "");
                 return mobilePhone.StartsWith("05") && mobilePhone.Length == 11;
             }
         }

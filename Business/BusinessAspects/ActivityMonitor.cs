@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -163,7 +164,7 @@ namespace Business.BusinessAspects
                     }
                 }
 
-                using (var file = new System.IO.StreamWriter(_fileName, true))
+                using (var file = new StreamWriter(_fileName, true))
                 {
                     file.Write(sb.ToString());
                 }
