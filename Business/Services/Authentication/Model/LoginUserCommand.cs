@@ -1,6 +1,7 @@
 ﻿using Core.Utilities.Results;
 using DataAccess.Entities;
 using MediatR;
+using System.Text.RegularExpressions;
 
 namespace Business.Services.Authentication.Model
 {
@@ -35,7 +36,7 @@ namespace Business.Services.Authentication.Model
                 else
                 {
                     PostProcess();
-                    MobilePhone = System.Text.RegularExpressions.Regex.Replace(MobilePhone, "[^0-9]", "");
+                    MobilePhone = Regex.Replace(MobilePhone, "[^0-9]", "");
                     return MobilePhone.StartsWith("05") && MobilePhone.Length == 11;
                 }
             }
@@ -46,7 +47,7 @@ namespace Business.Services.Authentication.Model
         /// </summary>
         public void PostProcess()
         {
-            MobilePhone = System.Text.RegularExpressions.Regex.Replace(MobilePhone, "[^0-9]", "");
+            MobilePhone = Regex.Replace(MobilePhone, "[^0-9]", "");
         }
     }
 }
