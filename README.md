@@ -1,3 +1,4 @@
+[![Quality gate](http://localhost:9000/api/project_badges/quality_gate?project=SennedjemFw)](http://localhost:9000/dashboard?id=SennedjemFw)
 # SennedjemFw
 Sennedjem CQRS (Command Query Responsibility Segregation) yaklaşımını benimseyen ve SOLID prensiplerini ve Clean Architecture yöntemlerini odaklayan bir yazılım geliştirme alt yapısıdır.
 
