@@ -5,6 +5,7 @@ using DataAccess.Concrete.Configurations;
 using Microsoft.Extensions.Configuration;
 using System;
 using Entities.Concrete;
+using System.Reflection;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
@@ -44,13 +45,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new MobileLoginEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new GroupEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new UserGroupEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new UserClaimEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new GroupClaimEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new UserGroupEntityConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
