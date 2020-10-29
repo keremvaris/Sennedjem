@@ -7,7 +7,8 @@ bE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\Adapter
 kE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\HandlersTest\AuthorizationsTests.csutf-8p
 gE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Bussiness\HandlersTest\UserGroupsTests.csutf-8m
 dE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\ClaimExtensionTests.csutf-8r
-iE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\CloneExtesionServiceTest.csutf-8g
+iE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\CloneExtesionServiceTest.csutf-8l
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\EnumExtensionTests.csutf-8g
 ^E:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\DataAccess\UserRepositoryTest.csutf-8\
 SE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\ClaimsData.csutf-8\
 SE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Helpers\DataHelper.csutf-8s

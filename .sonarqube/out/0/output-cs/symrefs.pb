@@ -1026,7 +1026,25 @@ TE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\DateTimeExtensio
 F M
 
 
- / 6' .€
+ / 6' .¨
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\EnumExtensions.cs
+
+ &
+
+
+
+ +(
+
+
+, -
+
+4 5  (
+
+
+6 ? ' %9 B
+   
+   %(
+  % *9 >€
 NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ErrorDetails.cs
 
  

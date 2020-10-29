@@ -4,7 +4,7 @@
   <SonarOutputDir>E:\src\NewGenSource\NorthwindBackend\Sennedjem\.sonarqube\out</SonarOutputDir>
   <SonarBinDir>E:\src\NewGenSource\NorthwindBackend\Sennedjem\.sonarqube\bin</SonarBinDir>
   <SonarScannerWorkingDirectory>E:\src\NewGenSource\NorthwindBackend\Sennedjem</SonarScannerWorkingDirectory>
-  <HasBeginStepCommandLineCredentials>false</HasBeginStepCommandLineCredentials>
+  <HasBeginStepCommandLineCredentials>true</HasBeginStepCommandLineCredentials>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>7.6.0.21501</SonarQubeVersion>
   <SonarProjectKey>SennedjemFw</SonarProjectKey>
@@ -91,7 +91,9 @@
     <Property Name="sonar.core.id">BF41A1F2-AWj777TBjQhJdKvXVnn3</Property>
     <Property Name="sonar.core.startTime">12.10.2020 11:13:15</Property>
   </ServerSettings>
-  <LocalSettings />
+  <LocalSettings>
+    <Property Name="sonar.host.url">http://localhost:9000</Property>
+  </LocalSettings>
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>

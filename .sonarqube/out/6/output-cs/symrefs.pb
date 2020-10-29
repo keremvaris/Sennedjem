@@ -179,7 +179,21 @@ iE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\C
 
  -
   !7 <
-  ! ! 
+  ! !×
+cE:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\Core\Extensions\EnumExtensionTests.cs
+
+
+
+ #
+
+ &
+  #
+  &
+ ' ,
+
+ 
+
+  
 ^E:\src\NewGenSource\NorthwindBackend\Sennedjem\SennedjemTests\DataAccess\UserRepositoryTest.cs
 
  #~

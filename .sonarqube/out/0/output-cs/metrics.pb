@@ -108,7 +108,9 @@ SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ContextExtension
  $r!"#%&'()*+,-‚#%(*Á
 TE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\DateTimeExtensions.cs (08@HR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=1;4=0;6=0;8=0;10=0;12=0r	
 x‚
-´
+Î
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\EnumExtensions.cs	 (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=1;6=0;8=0;10=0;12=0r	
+x‚	´
 NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ErrorDetails.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=5;2=0;4=0;6=0;8=0;10=0;12=0r	
 ‚÷
 UE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ExceptionMiddleware.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=2;2=0;4=1;6=0;8=0;10=0;12=0r7	 #$%&'()*+,-./0123456789:;=>?@x‚%&')+,.01356:=Ã

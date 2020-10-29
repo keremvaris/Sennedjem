@@ -58,7 +58,8 @@ QE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ClaimExtensions.
 [E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ClaimsPrincipalExtensions.csZ
 XE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\CloneServiceExtensions.csU
 SE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ContextExtensions.csV
-TE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\DateTimeExtensions.csP
+TE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\DateTimeExtensions.csR
+PE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\EnumExtensions.csP
 NE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ErrorDetails.csW
 UE:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ExceptionMiddleware.csa
 _E:\src\NewGenSource\NorthwindBackend\Sennedjem\Core\Extensions\ExceptionMiddlewareExtensions.cs_
