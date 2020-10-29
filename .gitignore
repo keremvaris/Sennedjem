@@ -367,3 +367,4 @@ WebAPI/appsettings.json
 # ---- SonarQube
 .sonar/
 .scannerwork/
+.sonarqube/
