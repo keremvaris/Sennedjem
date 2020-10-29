@@ -1,3 +1,4 @@
+![](./media/2020-10-12_14-16-31.png)
 # SennedjemFw
 Sennedjem CQRS (Command Query Responsibility Segregation) yaklaşımını benimseyen ve SOLID prensiplerini ve Clean Architecture yöntemlerini odaklayan bir yazılım geliştirme alt yapısıdır.
 
