@@ -26,6 +26,7 @@ using System;
 using System.Reflection;
 using System.Security.Claims;
 using System.Security.Principal;
+//using MediatR.Extensions.Autofac.DependencyInjection;
 
 namespace Business
 {
@@ -94,7 +95,7 @@ namespace Business
 
             services.AddAutoMapper(typeof(ConfigurationManager));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetAssembly(typeof(SecuredOperation)));
+            services.AddMediatR(typeof(BusinessStartup).GetTypeInfo().Assembly);
 
 
             ValidatorOptions.DisplayNameResolver = (type, memberInfo, expression) =>
@@ -136,14 +137,12 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
-
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
-            services.AddDbContext<NewDbContext>();
-
+           
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
-
+          
         }
         /// <summary>
         /// Sahnelemede çağırılan konfigürasyondur.
@@ -158,8 +157,7 @@ namespace Business
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
-            services.AddDbContext<NewDbContext>();
-
+            
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 
@@ -180,8 +178,7 @@ namespace Business
             services.AddTransient<IAnimalRepository, AnimalRepository>();
 
             services.AddDbContext<ProjectDbContext>();
-            services.AddDbContext<NewDbContext>();
-
+            
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
 

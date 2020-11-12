@@ -8,9 +8,9 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class AnimalRepository : EfEntityRepositoryBase<Animal, NewDbContext>, IAnimalRepository
+    public class AnimalRepository : EfEntityRepositoryBase<Animal, ProjectDbContext>, IAnimalRepository
     {
-        public AnimalRepository(NewDbContext context) : base(context)
+        public AnimalRepository(ProjectDbContext context) : base(context)
         {
         }
     }
