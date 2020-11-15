@@ -1,13 +1,10 @@
 ﻿using Business.Adapters.SmsService;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SennedjemTests.Business.Adapters
 {
     public class SmsServiceHelper
     {
-        ISmsService smsService;
+        private readonly ISmsService smsService;
         public SmsServiceHelper(ISmsService smsService)
         {
             this.smsService = smsService;

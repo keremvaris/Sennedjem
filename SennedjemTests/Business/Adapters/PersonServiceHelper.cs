@@ -1,15 +1,11 @@
 ﻿using Business.Adapters.PersonService;
-using Nest;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 
 namespace SennedjemTests.Business.Adapters
 {
     public class PersonServiceHelper
     {
-        IPersonService _personService;
+        private readonly IPersonService _personService;
 
         public PersonServiceHelper(IPersonService personService)
         {

@@ -1,10 +1,7 @@
 ﻿using Business.Adapters.PersonService;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 
 namespace SennedjemTests.Business.Adapters
 {
@@ -40,12 +37,12 @@ namespace SennedjemTests.Business.Adapters
 
 
         [Test]
-        [TestCase(11111111111,"Test1","Test1",1987)]
+        [TestCase(11111111111, "Test1", "Test1", 1987)]
         public void VerifyCid_Success(long TCKimlikNo, string Ad, string Soyad, int DogumYili)
         {
 
             personService.
-                Setup(x => x.VerifyCid(TCKimlikNo,Ad,Soyad,DogumYili)).ReturnsAsync(true);
+                Setup(x => x.VerifyCid(TCKimlikNo, Ad, Soyad, DogumYili)).ReturnsAsync(true);
 
             var result = _personServiceHelper.VerifyId(TCKimlikNo, Ad, Soyad, DogumYili);
 
