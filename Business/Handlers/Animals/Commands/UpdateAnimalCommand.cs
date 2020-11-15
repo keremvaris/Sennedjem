@@ -46,7 +46,7 @@ namespace Business.Handlers.Animals.Commands
                 var isanimalExits = await _animalRepository.GetAsync(u => u.AnimalId == request.AnimalId);
 
                 //Tüm alanlar aşağıdaki örnekteki gibi yazılacak
-                //isanimalExits.AnimalName = request.AnimalName,               
+                isanimalExits.AnimalName = request.AnimalName;              
 
                 _animalRepository.Update(isanimalExits);
                 await _animalRepository.SaveChangesAsync();

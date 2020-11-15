@@ -15,7 +15,7 @@ namespace Business.Handlers.Animals.Queries
     {
         public int AnimalId { get; set; }
 
-        class GetAnimalQueryHandler : IRequestHandler<GetAnimalQuery, IDataResult<Animal>>
+        public class GetAnimalQueryHandler : IRequestHandler<GetAnimalQuery, IDataResult<Animal>>
         {
             private readonly IAnimalRepository _animalRepository;
 
