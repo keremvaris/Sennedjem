@@ -17,13 +17,8 @@ namespace Core.Aspects.Autofac.Transaction
         public TransactionScopeAspectAsync()
         {
         }
-        /*
-                public TransactionScopeAspectAsync(Type dbContextType)
-                {
-                    _dbContextType = dbContextType;
-                }
-        */
-        void InterceptDbContext(IInvocation invocation)
+
+        public void InterceptDbContext(IInvocation invocation)
         {
             var db = ServiceTool.ServiceProvider.GetService(_dbContextType) as DbContext;
             using (var transactionScope = db.Database.BeginTransaction())

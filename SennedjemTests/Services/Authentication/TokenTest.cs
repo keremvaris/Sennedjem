@@ -1,12 +1,7 @@
 ﻿using NUnit.Framework;
 using SennedjemTests.Helpers.TokenHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Claims;
 using System.Net.Http.Headers;
 using System.Threading;
-using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Threading.Tasks;
 using SennedjemTests.Helpers;

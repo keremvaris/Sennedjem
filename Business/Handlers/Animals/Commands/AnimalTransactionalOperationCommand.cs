@@ -10,11 +10,8 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace Business.Handlers.Animals.Commands
 {
@@ -30,7 +27,7 @@ namespace Business.Handlers.Animals.Commands
 
         public class AnimalTransactionalOperationCommandHandler : IRequestHandler<AnimalTransactionalOperationCommand, IResult>
         {
-            private IAnimalRepository _animalRepository;
+            private readonly IAnimalRepository _animalRepository;
 
             public AnimalTransactionalOperationCommandHandler(IAnimalRepository animalRepository)
             {

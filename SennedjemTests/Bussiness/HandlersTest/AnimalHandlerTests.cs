@@ -1,12 +1,10 @@
 ﻿using Business.Handlers.Animals.Queries;
 using DataAccess.Abstract;
-using MediatR;
 using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using static Business.Handlers.Animals.Queries.GetAnimalQuery;
 using Entities.Concrete;
@@ -91,7 +89,7 @@ namespace SennedjemTests.Bussiness.HandlersTest
             //Arrange
             CreateAnimalCommand command = new CreateAnimalCommand();
             command.AnimalName = "deneme";
-            
+
             _animalRepository.Setup(x => x.GetAsync(It.IsAny<Expression<Func<Animal, bool>>>()))
                .ReturnsAsync(rt);
 
@@ -114,7 +112,7 @@ namespace SennedjemTests.Bussiness.HandlersTest
             command.AnimalName = "deneme";
 
             _animalRepository.Setup(x => x.GetAsync(It.IsAny<Expression<Func<Animal, bool>>>()))
-               .ReturnsAsync(new Animal() {AnimalId=1, AnimalName="deneme" });
+               .ReturnsAsync(new Animal() { AnimalId = 1, AnimalName = "deneme" });
 
             _animalRepository.Setup(x => x.Add(It.IsAny<Animal>()))
                .Returns(new Animal());

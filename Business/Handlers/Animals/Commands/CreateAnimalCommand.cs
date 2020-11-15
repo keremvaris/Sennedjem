@@ -9,7 +9,6 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
