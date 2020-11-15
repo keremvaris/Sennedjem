@@ -16,7 +16,7 @@ using static Business.Handlers.Authorizations.Commands.ForgotPasswordCommand;
 using static Business.Handlers.Authorizations.Commands.LoginUserQuery;
 using static Business.Handlers.Authorizations.Commands.RegisterUser;
 
-namespace SennedjemTests.Bussiness.HandlersTest
+namespace SennedjemTests.Business.HandlersTest
 {
     [TestFixture]
     public class AuthorizationsTests

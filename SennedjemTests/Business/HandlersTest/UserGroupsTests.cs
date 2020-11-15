@@ -15,7 +15,7 @@ using static Business.Handlers.UserGroups.Commands.DeleteUserGroupCommand;
 using static Business.Handlers.UserGroups.Commands.UpdateUserGroupCommand;
 using static Business.Handlers.UserGroups.Queries.GetUserGroupsQuery;
 
-namespace SennedjemTests.Bussiness.HandlersTest
+namespace SennedjemTests.Business.HandlersTest
 {
     [TestFixture]
     public class UserGroupsTests

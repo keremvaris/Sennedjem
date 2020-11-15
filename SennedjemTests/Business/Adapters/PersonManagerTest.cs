@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace SennedjemTests.Bussiness.Adapters
+namespace SennedjemTests.Business.Adapters
 {
     [TestFixture]
     public class PersonManagerTest

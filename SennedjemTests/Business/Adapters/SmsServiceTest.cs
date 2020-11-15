@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SennedjemTests.Bussiness.Adapters
+namespace SennedjemTests.Business.Adapters
 {
     [TestFixture]
     public class SmsServiceTest

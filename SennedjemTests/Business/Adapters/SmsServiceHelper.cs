@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SennedjemTests.Bussiness.Adapters
+namespace SennedjemTests.Business.Adapters
 {
     public class SmsServiceHelper
     {

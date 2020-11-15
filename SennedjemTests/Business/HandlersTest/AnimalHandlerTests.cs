@@ -15,7 +15,7 @@ using Business.Constants;
 using static Business.Handlers.Animals.Commands.UpdateAnimalCommand;
 using static Business.Handlers.Animals.Commands.DeleteAnimalCommand;
 
-namespace SennedjemTests.Bussiness.HandlersTest
+namespace SennedjemTests.Business.HandlersTest
 {
     [TestFixture]
     public class AnimalHandlerTests

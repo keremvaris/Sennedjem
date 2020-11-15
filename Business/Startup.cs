@@ -4,7 +4,6 @@ using Business.Adapters.PersonService;
 using Business.BusinessAspects;
 using Business.DependencyResolvers;
 using Business.Services.Authentication;
-using Core.DataAccess.MongoDb.Concrete.Models;
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
@@ -62,6 +61,7 @@ namespace Business
         /// metotlar olduğu için bu metodu çağırmaz.
         /// </remarks>
         /// <param name="services"></param>
+
         public virtual void ConfigureServices(IServiceCollection services)
         {
 
@@ -98,7 +98,7 @@ namespace Business
             services.AddMediatR(typeof(BusinessStartup).GetTypeInfo().Assembly);
 
 
-            ValidatorOptions.DisplayNameResolver = (type, memberInfo, expression) =>
+            ValidatorOptions.Global.DisplayNameResolver = (type, memberInfo, expression) =>
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();
             };
