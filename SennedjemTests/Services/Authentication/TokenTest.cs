@@ -31,7 +31,7 @@ namespace SennedjemTests.Services.Authentication
 
             Thread.Sleep(10000);
 
-            var response = await _client.GetAsync("api/animals/getall");
+            var response = await _client.GetAsync("api/Animals/getall");
             Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
 
         }

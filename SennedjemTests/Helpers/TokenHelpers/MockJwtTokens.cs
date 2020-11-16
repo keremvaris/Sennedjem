@@ -25,7 +25,7 @@ namespace SennedjemTests.Helpers.TokenHelpers
 
         }
 
-        public static string GenerateJwtToken(IEnumerable<Claim> claims, double value = 5000)
+        public static string GenerateJwtToken(IEnumerable<Claim> claims, double value = 2)
         {
             return s_tokenHandler.WriteToken(new JwtSecurityToken(Issuer, Audience, claims, DateTime.UtcNow, DateTime.UtcNow.AddSeconds(value), SigningCredentials));
         }

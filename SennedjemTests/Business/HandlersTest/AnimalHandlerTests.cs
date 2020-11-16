@@ -14,6 +14,7 @@ using Business.Handlers.Animals.Commands;
 using Business.Constants;
 using static Business.Handlers.Animals.Commands.UpdateAnimalCommand;
 using static Business.Handlers.Animals.Commands.DeleteAnimalCommand;
+using System.Linq;
 
 namespace SennedjemTests.Business.HandlersTest
 {
@@ -109,10 +110,10 @@ namespace SennedjemTests.Business.HandlersTest
         {
             //Arrange
             CreateAnimalCommand command = new CreateAnimalCommand();
-            command.AnimalName = "deneme";
+            command.AnimalName = "test";
 
-            _animalRepository.Setup(x => x.GetAsync(It.IsAny<Expression<Func<Animal, bool>>>()))
-               .ReturnsAsync(new Animal() { AnimalId = 1, AnimalName = "deneme" });
+            _animalRepository.Setup(x => x.Query())
+                        .Returns(new List<Animal> { new Animal() { /*AnimalId = 1, AnimalName = "test"*/ } }.AsQueryable());
 
             _animalRepository.Setup(x => x.Add(It.IsAny<Animal>()))
                .Returns(new Animal());
