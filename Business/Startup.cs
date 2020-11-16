@@ -113,6 +113,7 @@ namespace Business
         {
 
             ConfigureServices(services);
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -133,6 +134,7 @@ namespace Business
         {
 
             ConfigureServices(services);
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -151,6 +153,7 @@ namespace Business
         public void ConfigureStagingServices(IServiceCollection services)
         {
             ConfigureServices(services);
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -171,6 +174,7 @@ namespace Business
         public void ConfigureProductionServices(IServiceCollection services)
         {
             ConfigureServices(services);
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
