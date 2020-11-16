@@ -113,7 +113,7 @@ namespace SennedjemTests.Business.HandlersTest
             command.AnimalName = "test";
 
             _animalRepository.Setup(x => x.Query())
-                        .Returns(new List<Animal> { new Animal() { /*AnimalId = 1, AnimalName = "test"*/ } }.AsQueryable());
+                        .Returns(new List<Animal> { new Animal() { AnimalId = 1, AnimalName = "test" } }.AsQueryable());
 
             _animalRepository.Setup(x => x.Add(It.IsAny<Animal>()))
                .Returns(new Animal());
