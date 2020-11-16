@@ -35,7 +35,7 @@ namespace Business.Handlers.Animals.Commands
             }
 
             /// <summary>
-            ///            
+            ///  Transanctional Operasyonlar InMemoryDb'de çalıştırılamaz.          
             /// </summary>
             /// <param name="request"></param>
             /// <param name="cancellationToken"></param>
@@ -43,7 +43,6 @@ namespace Business.Handlers.Animals.Commands
             [ValidationAspect(typeof(CreateAnimalValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
             [LogAspect(typeof(FileLogger))]
-            // [TransactionScopeAspectAsync(typeof(ProjectDbContext))]
             [TransactionScopeAspectAsync()]
             public async Task<IResult> Handle(AnimalTransactionalOperationCommand request, CancellationToken cancellationToken)
             {
@@ -57,12 +56,12 @@ namespace Business.Handlers.Animals.Commands
                     AnimalName = request.AnimalName
                 };
                 _animalRepository.Add(animal);
-                await _animalRepository.SaveChangesAsync();
+                _animalRepository.SaveChanges();
 
-                var animalUpdate = await _animalRepository.GetAsync(a => a.AnimalId == 12);
+                var animalUpdate = await _animalRepository.GetAsync(a => a.AnimalId == 2);
                 animalUpdate.AnimalName = "Catx";
                 _animalRepository.Update(animalUpdate);
-                await _animalRepository.SaveChangesAsync();
+                _animalRepository.SaveChanges();
                 return new SuccessResult(Messages.Added);
             }
         }

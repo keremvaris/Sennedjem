@@ -9,33 +9,33 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations.Ms
 {
-    [DbContext(typeof(NewDbContext))]
-    [Migration("20201007074506_InitialCreate")]
+    [DbContext(typeof(MsDbContext))]
+    [Migration("20201116174633_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Core.Entities.Concrete.Group", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("GroupName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Group");
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("Core.Entities.Concrete.GroupClaim", b =>
@@ -48,7 +48,24 @@ namespace DataAccess.Migrations.Ms
 
                     b.HasKey("GroupId", "ClaimId");
 
-                    b.ToTable("GroupClaim");
+                    b.ToTable("GroupClaims");
+                });
+
+            modelBuilder.Entity("Core.Entities.Concrete.OperationClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OperationClaims");
                 });
 
             modelBuilder.Entity("Core.Entities.Concrete.User", b =>
@@ -56,11 +73,11 @@ namespace DataAccess.Migrations.Ms
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -69,24 +86,24 @@ namespace DataAccess.Migrations.Ms
                         .HasColumnType("bigint");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("MobilePhones")
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
@@ -109,7 +126,7 @@ namespace DataAccess.Migrations.Ms
 
                     b.HasIndex("MobilePhones");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Core.Entities.Concrete.UserClaim", b =>
@@ -122,7 +139,7 @@ namespace DataAccess.Migrations.Ms
 
                     b.HasKey("UserId", "ClaimId");
 
-                    b.ToTable("UserClaim");
+                    b.ToTable("UserClaims");
                 });
 
             modelBuilder.Entity("Core.Entities.Concrete.UserGroup", b =>
@@ -135,7 +152,28 @@ namespace DataAccess.Migrations.Ms
 
                     b.HasKey("UserId", "GroupId");
 
-                    b.ToTable("UserGroup");
+                    b.ToTable("UserGroups");
+                });
+
+            modelBuilder.Entity("DataAccess.Entities.Log", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Audit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LogDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logs");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.MobileLogin", b =>
@@ -143,16 +181,16 @@ namespace DataAccess.Migrations.Ms
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int>("Code")
-                        .HasColumnType("int")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
 
                     b.Property<string>("ExternalUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("IsSend")
                         .HasColumnType("bit");
@@ -170,7 +208,7 @@ namespace DataAccess.Migrations.Ms
 
                     b.HasIndex("ExternalUserId", "Provider");
 
-                    b.ToTable("MobileLogin");
+                    b.ToTable("MobileLogins");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Animal", b =>
@@ -178,14 +216,49 @@ namespace DataAccess.Migrations.Ms
                     b.Property<int>("AnimalId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("AnimalName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("AnimalId");
 
                     b.ToTable("Animals");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Car", b =>
+                {
+                    b.Property<int>("CarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("CarName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CarId");
+
+                    b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Product", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("Products");
                 });
 #pragma warning restore 612, 618
         }

@@ -99,7 +99,9 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         /// <summary>
-        /// Transactional Operation Test.
+        /// Transactional Operation Test. 
+        /// Transanctional Operasyonlar InMemoryDb'de çalıştırılamaz.  
+        /// IISDevelopment ortamında çalıştırmayınız!
         /// </summary>
         /// <param name="transactionalCreateAnimal"></param>
         /// <returns></returns>

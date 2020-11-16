@@ -43,24 +43,6 @@ namespace WebAPI.Controllers
             return Unauthorized(result.Message);
         }
 
-
-        /// <summary>
-        /// Mobil Giriş.
-        /// </summary>
-        /// <param name="verifyCid"></param>
-        /// <returns></returns>
-        //[ProducesResponseType(typeof(SFwToken), 200)]
-        [AllowAnonymous]
-        [HttpPost("verify")]
-        public async Task<IActionResult> Verification([FromBody] VerifyCidQuery verifyCid)
-        {
-            var result = await Mediator.Send(verifyCid);
-            if (result.Success)
-                return Ok(result.Message);
-
-            return BadRequest(result.Message);
-        }
-
         /// <summary>
         ///  Kullanıcı Kayıt Metodu İşlemlerini yapar.
         /// </summary>
@@ -90,6 +72,24 @@ namespace WebAPI.Controllers
                 return Ok(result);
 
             return BadRequest(result);
+        }
+
+
+        /// <summary>
+        /// Mobil Giriş.
+        /// </summary>
+        /// <param name="verifyCid"></param>
+        /// <returns></returns>
+        //[ProducesResponseType(typeof(SFwToken), 200)]
+        [AllowAnonymous]
+        [HttpPost("verify")]
+        public async Task<IActionResult> Verification([FromBody] VerifyCidQuery verifyCid)
+        {
+            var result = await Mediator.Send(verifyCid);
+            if (result.Success)
+                return Ok(result.Message);
+
+            return BadRequest(result.Message);
         }
 
 

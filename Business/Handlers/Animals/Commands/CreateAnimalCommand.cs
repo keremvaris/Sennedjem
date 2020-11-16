@@ -9,6 +9,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -44,9 +45,9 @@ namespace Business.Handlers.Animals.Commands
             [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(CreateAnimalCommand request, CancellationToken cancellationToken)
             {
-                var isAnimalExits = await _animalRepository.GetAsync(u => u.AnimalName == request.AnimalName);
+                var isAnimalExits = _animalRepository.Query().Any(u => u.AnimalName == request.AnimalName);
 
-                if (isAnimalExits != null)
+                if (isAnimalExits)
                     return new ErrorResult(Messages.NameAlreadyExist);
 
                 var animal = new Animal

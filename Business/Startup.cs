@@ -113,6 +113,7 @@ namespace Business
         {
 
             ConfigureServices(services);
+            services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -133,6 +134,7 @@ namespace Business
         {
 
             ConfigureServices(services);
+            services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
@@ -151,12 +153,13 @@ namespace Business
         public void ConfigureStagingServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
-            services.AddDbContext<ProjectDbContext>();
+            services.AddDbContext<ProjectDbContext, MsDbContext>();
 
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
@@ -171,6 +174,7 @@ namespace Business
         public void ConfigureProductionServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
