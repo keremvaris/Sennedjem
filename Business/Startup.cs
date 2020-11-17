@@ -159,7 +159,7 @@ namespace Business
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
-            services.AddDbContext<ProjectDbContext, MsDbContext>();
+            services.AddDbContext<ProjectDbContext>();
 
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
