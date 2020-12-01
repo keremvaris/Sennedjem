@@ -142,5 +142,17 @@ namespace Core.DataAccess.MongoDb.Abstract
                 throw new Exception("Value cannot be null or empty");
 
         }
+
+        public bool Any(Expression<Func<T, bool>> predicate = null)
+        {
+            var data =  predicate == null
+                ? _collection.AsQueryable()
+                : _collection.AsQueryable().Where(predicate);
+
+            if (data.FirstOrDefault() == null)
+                return false;
+            else
+                return true;
+        }
     }
 }

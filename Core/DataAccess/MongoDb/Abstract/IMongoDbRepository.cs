@@ -25,6 +25,7 @@ namespace Core.DataAccess.MongoDb.Abstract
         Task UpdateAsync(T record, Expression<Func<T, bool>> predicate);
         Task DeleteAsync(ObjectId id);
         Task DeleteAsync(T record);
+        bool Any(Expression<Func<T, bool>> predicate = null);
 
 
 

@@ -4,12 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccess.Concrete.Configurations
 {
-  public class OperationClaimEntityConfiguration : IEntityTypeConfiguration<OperationClaim>
-  {
-    public void Configure(EntityTypeBuilder<OperationClaim> builder)
+    public class OperationClaimEntityConfiguration : IEntityTypeConfiguration<OperationClaim>
     {
-      builder.HasKey(x => x.Id);
-      builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
+        public void Configure(EntityTypeBuilder<OperationClaim> builder)
+        {
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
+            builder.Property(x => x.Alias).HasMaxLength(50);
+            builder.Property(x => x.Description).HasMaxLength(100);
+        }
     }
-  }
 }

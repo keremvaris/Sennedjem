@@ -9,12 +9,15 @@
   <ItemGroup>
     <Compile Remove="Abstract\**" />
     <Compile Remove="Concrete\**" />
+    <Compile Remove="Handlers\Cars\**" />
     <Compile Remove="RulesForBusiness\**" />
     <EmbeddedResource Remove="Abstract\**" />
     <EmbeddedResource Remove="Concrete\**" />
+    <EmbeddedResource Remove="Handlers\Cars\**" />
     <EmbeddedResource Remove="RulesForBusiness\**" />
     <None Remove="Abstract\**" />
     <None Remove="Concrete\**" />
+    <None Remove="Handlers\Cars\**" />
     <None Remove="RulesForBusiness\**" />
   </ItemGroup>
 
