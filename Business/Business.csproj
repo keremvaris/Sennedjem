@@ -44,8 +44,7 @@
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.8.0" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.0" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.8.0" />
-    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="5.1.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.0" />    
   </ItemGroup>
 
   <ItemGroup>
