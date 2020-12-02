@@ -1,9 +1,6 @@
-﻿using Core.DataAccess.MongoDb.Abstract;
-using Core.DataAccess.MongoDb.Concrete.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Core.DataAccess.MongoDb.Concrete.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Org.BouncyCastle.Operators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +25,7 @@ namespace Core.DataAccess.MongoDb.Abstract
                  new MongoClient(mongoConnectionSetting.ConnectionString) :
                  new MongoClient(mongoConnectionSetting.GetMongoClientSettings());
 
-           
+
 
             var database = client.GetDatabase(mongoConnectionSetting.DatabaseName);
             _collection = database.GetCollection<T>(collectionName);
@@ -37,7 +34,7 @@ namespace Core.DataAccess.MongoDb.Abstract
 
         public virtual void Delete(ObjectId id)
         {
-            _collection.FindOneAndDelete(x => x.Id==id);
+            _collection.FindOneAndDelete(x => x.Id == id);
         }
 
         public virtual void Delete(T record)
@@ -76,7 +73,7 @@ namespace Core.DataAccess.MongoDb.Abstract
         {
             var options = new InsertOneOptions { BypassDocumentValidation = false };
             await _collection.InsertOneAsync(entity, options);
-            
+
         }
 
         public virtual void AddMany(IEnumerable<T> entities)
@@ -94,19 +91,19 @@ namespace Core.DataAccess.MongoDb.Abstract
         public virtual IQueryable<T> GetList(Expression<Func<T, bool>> predicate = null)
         {
             return predicate == null
-               ?  _collection.AsQueryable()
-               :  _collection.AsQueryable().Where(predicate);
+               ? _collection.AsQueryable()
+               : _collection.AsQueryable().Where(predicate);
         }
 
         public virtual async Task<IQueryable<T>> GetListAsync(Expression<Func<T, bool>> predicate = null)
         {
-           return await Task.Run(() =>
-            {
-                return predicate == null
-               ? _collection.AsQueryable()
-               : _collection.AsQueryable().Where(predicate);
-            });
-            
+            return await Task.Run(() =>
+             {
+                 return predicate == null
+                ? _collection.AsQueryable()
+                : _collection.AsQueryable().Where(predicate);
+             });
+
         }
 
         public virtual void Update(ObjectId id, T record)
@@ -116,7 +113,7 @@ namespace Core.DataAccess.MongoDb.Abstract
 
         public virtual void Update(T record, Expression<Func<T, bool>> predicate)
         {
-             _collection.FindOneAndReplace(predicate, record);
+            _collection.FindOneAndReplace(predicate, record);
         }
 
         public virtual async Task UpdateAsync(ObjectId id, T record)
@@ -145,7 +142,7 @@ namespace Core.DataAccess.MongoDb.Abstract
 
         public bool Any(Expression<Func<T, bool>> predicate = null)
         {
-            var data =  predicate == null
+            var data = predicate == null
                 ? _collection.AsQueryable()
                 : _collection.AsQueryable().Where(predicate);
 
