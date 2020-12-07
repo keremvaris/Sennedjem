@@ -1,4 +1,5 @@
-﻿using Core.Entities.Concrete;
+﻿using Business.BusinessAspects;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserGroups.Queries
 {
+    [SecuredOperation]
     public class GetUserGroupsQuery : IRequest<IDataResult<IEnumerable<UserGroup>>>
     {
         public class GetUserGroupsQueryHandler : IRequestHandler<GetUserGroupsQuery, IDataResult<IEnumerable<UserGroup>>>

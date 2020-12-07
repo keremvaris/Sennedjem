@@ -1,4 +1,5 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects;
+using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.OperationClaims.Commands
 {
+    [SecuredOperation]
     public class CreateOperationClaimCommand : IRequest<IResult>
     {
         public string ClaimName { get; set; }

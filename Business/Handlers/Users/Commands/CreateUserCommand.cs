@@ -1,7 +1,7 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects;
+using Business.Constants;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
-using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
@@ -9,12 +9,12 @@ using Core.Utilities.Security.Hashing;
 using DataAccess.Abstract;
 using MediatR;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Business.Handlers.Users.Commands
 {
+    [SecuredOperation]
     public class CreateUserCommand : IRequest<IResult>
     {
 

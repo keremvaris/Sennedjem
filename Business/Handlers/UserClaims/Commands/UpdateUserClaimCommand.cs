@@ -1,4 +1,5 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects;
+using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserClaims.Commands
 {
+    [SecuredOperation]
     public class UpdateUserClaimCommand : IRequest<IResult>
     {
         public int Id { get; set; }

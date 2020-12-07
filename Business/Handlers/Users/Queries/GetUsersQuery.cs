@@ -1,4 +1,5 @@
-﻿using Core.Aspects.Autofac.Logging;
+﻿using Business.BusinessAspects;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Entities.Concrete;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Users.Queries
 {
+    [SecuredOperation]
     public class GetUsersQuery : IRequest<IDataResult<IEnumerable<User>>>
     {
         public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IDataResult<IEnumerable<User>>>

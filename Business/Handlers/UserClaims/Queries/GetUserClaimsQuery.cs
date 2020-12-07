@@ -1,4 +1,5 @@
-﻿using Core.Entities.Concrete;
+﻿using Business.BusinessAspects;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.UserClaims.Queries
 {
+    [SecuredOperation]
     public class GetUserClaimsQuery : IRequest<IDataResult<IEnumerable<UserClaim>>>
     {
 

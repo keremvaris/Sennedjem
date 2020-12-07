@@ -1,4 +1,5 @@
-﻿using Business.Constants;
+﻿using Business.BusinessAspects;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.OperationClaims.Commands
 {
+    [SecuredOperation]
     public class DeleteOperationClaimCommand : IRequest<IResult>
     {
         public int Id { get; set; }
