@@ -1,4 +1,5 @@
-﻿using Business.BusinessAspects;
+﻿using AutoMapper;
+using Business.BusinessAspects;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
@@ -11,28 +12,35 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
+using Core.Entities.Concrete.Dtos;
+using Core.Aspects.Autofac.Caching;
 
 namespace Business.Handlers.Users.Queries
 {
     [SecuredOperation]
-    public class GetUsersQuery : IRequest<IDataResult<IEnumerable<User>>>
+    public class GetUsersQuery : IRequest<IDataResult<IEnumerable<UserDto>>>
     {
-        public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IDataResult<IEnumerable<User>>>
+        public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IDataResult<IEnumerable<UserDto>>>
         {
             private readonly IUserRepository _userRepository;
+            private readonly IMapper _mapper;
 
-            public GetUsersQueryHandler(IUserRepository userRepository)
+            public GetUsersQueryHandler(IUserRepository userRepository, IMapper mapper)
             {
                 _userRepository = userRepository;
+                _mapper = mapper;
             }
 
             [PerformanceAspect(5)]
-            //[CacheAspect(10)]
+            [CacheAspect(10)]
             [LogAspect(typeof(FileLogger))]
-            public async Task<IDataResult<IEnumerable<User>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+            public async Task<IDataResult<IEnumerable<UserDto>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
             {
-                //throw new System.Exception("test exception");
-                return new SuccessDataResult<IEnumerable<User>>(await _userRepository.GetListAsync());
+                var userList = await _userRepository.GetListAsync();
+                var userDtoList = userList.Select(user => _mapper.Map<UserDto>(user)).ToList();
+
+                return new SuccessDataResult<IEnumerable<UserDto>>(userDtoList);
             }
         }
     }

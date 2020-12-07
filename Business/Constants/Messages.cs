@@ -5,6 +5,8 @@
     /// </summary>
     public static class Messages
     {
+        public static string StringLengthMustBeGreaterThanThree => "Lütfen En Az 3 Karakterden Oluşan Bir İfade Girin.";
+
         public static string CouldNotBeVerifyCid => "Kimlik No Doğrulamadı.";
         public static string VerifyCid => "Kimlik No Doğrulandı.";
 
