@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\ContactPreferencesController.cs" />
-    <Compile Remove="Controllers\LookupController.cs" />
     <Compile Remove="SwaggerMessages.cs" />
   </ItemGroup>
 

@@ -1,10 +1,14 @@
-﻿namespace Business.Constants
+﻿using System;
+
+namespace Business.Constants
 {
     /// <summary>
     /// Bu sınıf magic stringlerden kurtulmak daha okunur bir kod yazmak için oluşturulmuştur.
     /// </summary>
     public static class Messages
     {
+        public static string UnknownLookupName => "Geçerli Bir Lookup Tipi Bulunamadı";
+
         public static string StringLengthMustBeGreaterThanThree => "Lütfen En Az 3 Karakterden Oluşan Bir İfade Girin.";
 
         public static string CouldNotBeVerifyCid => "Kimlik No Doğrulamadı.";
