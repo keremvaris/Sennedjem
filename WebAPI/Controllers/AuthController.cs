@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         {
             var result = await Mediator.Send(loginModel);
             if (result.Success)
-                return Ok(result.Data);
+                return Ok(result);
             return Unauthorized(result.Message);
         }
 
