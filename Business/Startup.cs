@@ -118,6 +118,8 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
@@ -139,6 +141,8 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
 
@@ -158,6 +162,8 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
             services.AddDbContext<ProjectDbContext>();
 
@@ -179,6 +185,8 @@ namespace Business
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserClaimRepository, UserClaimRepository>();
             services.AddTransient<IOperationClaimRepository, OperationClaimRepository>();
+            services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
 
             services.AddDbContext<ProjectDbContext>();

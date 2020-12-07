@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         ///<summary>
         ///Grupları listeler
         ///</summary>
-        ///<remarks>bla bla bla Animals</remarks>
+        ///<remarks>bla bla bla Groups</remarks>
         ///<return>Grup Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Animal Ekler.
+        /// Group Ekler.
         /// </summary>
         /// <param name="createGroup"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Animal Günceller.
+        /// Group Günceller.
         /// </summary>
         /// <param name="updateGroup"></param>
         /// <returns></returns>
@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Animal Siler.
+        /// Group Siler.
         /// </summary>
         /// <param name="deleteGroup"></param>
         /// <returns></returns>

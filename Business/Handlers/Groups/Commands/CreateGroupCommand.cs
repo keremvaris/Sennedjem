@@ -12,7 +12,7 @@ namespace Business.Handlers.Groups.Commands
     [SecuredOperation]
     public class CreateGroupCommand : IRequest<IResult>
     {
-        public string GroupName { get; set; }
+        public string Name { get; set; }
         public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, IResult>
         {
             private readonly IGroupRepository _groupDal;
@@ -26,7 +26,7 @@ namespace Business.Handlers.Groups.Commands
             {
                 var group = new Group
                 {
-                    GroupName = request.GroupName
+                    GroupName = request.Name
                 };
                 _groupDal.Add(group);
                 await _groupDal.SaveChangesAsync();
