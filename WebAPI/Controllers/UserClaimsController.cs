@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
         /// <param name="createUserClaim"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserClaimCommand createUserClaim)
+        public async Task<IActionResult> Add([FromBody] CreateUserGroupClaimsCommand createUserClaim)
         {
             var result = await Mediator.Send(createUserClaim);
             if (result.Success)

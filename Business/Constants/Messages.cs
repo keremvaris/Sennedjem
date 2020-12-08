@@ -72,6 +72,7 @@ namespace Business.Constants
         public static string UserClaimDeleted => "Kullanıcı izni silindi.";
 
         public static string UserGroupAdded => "Kullanıcı gruba eklendi.";
+        public static string UserGroupsAdded => "Kullanıcı gruplara eklendi.";
         public static string UserGroupUpdated => "Kullanıcı grubu güncellendi.";
         public static string UserGroupDeleted => "Kullanıcı gruptan çıkarıldı.";
     }
