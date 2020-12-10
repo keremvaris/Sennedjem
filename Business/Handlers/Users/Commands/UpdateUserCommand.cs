@@ -13,7 +13,7 @@ namespace Business.Handlers.Users.Commands
     public class UpdateUserCommand : IRequest<IResult>
     {
 
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
@@ -42,7 +42,7 @@ namespace Business.Handlers.Users.Commands
 
             public async Task<IResult> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
             {
-                var isUserExits = await _userRepository.GetAsync(u => u.UserId == request.Id);
+                var isUserExits = await _userRepository.GetAsync(u => u.UserId == request.UserId);
 
                 //Tüm alanlar aşağıdaki örnekteki gibi yazılacak
                 isUserExits.FullName = request.FullName;

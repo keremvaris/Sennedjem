@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.OperationClaims.Commands;
 using Business.Handlers.OperationClaims.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -20,7 +21,7 @@ namespace WebAPI.Controllers
         ///<return>OperationClaims Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetOperationClaimsQuery());

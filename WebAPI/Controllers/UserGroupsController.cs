@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.UserGroups.Commands;
 using Business.Handlers.UserGroups.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,23 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("getbyuserid")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByUserId(int userId)
+        {
+            var result = await Mediator.Send(new GetUserGroupSelectedListQuery { UserId = userId });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
+        /// <summary>
         /// Animal Ekler.
         /// </summary>
         /// <param name="createUserGroup"></param>
@@ -56,6 +74,7 @@ namespace WebAPI.Controllers
         /// <param name="updateUserGroup"></param>
         /// <returns></returns>
         [HttpPut]
+        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody] UpdateUserGroupCommand updateUserGroup)
         {
             var result = await Mediator.Send(updateUserGroup);

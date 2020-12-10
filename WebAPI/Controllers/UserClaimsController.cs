@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.UserClaims.Commands;
 using Business.Handlers.UserClaims.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -71,6 +72,7 @@ namespace WebAPI.Controllers
         /// <param name="updateUserClaim"></param>
         /// <returns></returns>
         [HttpPut]
+        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody] UpdateUserClaimCommand updateUserClaim)
         {
             var result = await Mediator.Send(updateUserClaim);

@@ -12,7 +12,7 @@ namespace WebAPI.Controllers
     /// Sistem genelindeki basit lookupların her biri içi bir controller yazmak
     /// yerine lookup isminden liste almak için kullanılır.
     /// </summary>
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LookupController : ControllerBase
@@ -34,9 +34,9 @@ namespace WebAPI.Controllers
         ///<response code="200"></response>  
         [ProducesResponseType(typeof(IEnumerable<SelectionItem>), 200)]
         [HttpGet]
-        public async Task<IActionResult> Get(LookupType lookupType, int? parentId)
+        public async Task<IActionResult> Get(LookupType lookupType,int? userId, int? parentId)
         {
-            var result = await _mediator.Send(new Query { LookupType = lookupType, ParentId = parentId });
+            var result = await _mediator.Send(new Query { LookupType = lookupType, UserId=userId, ParentId = parentId });
             if (result.Success)
                 return Ok(result.Data);
             return Unauthorized(result.Message);

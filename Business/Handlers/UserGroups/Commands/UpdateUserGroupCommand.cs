@@ -4,6 +4,7 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace Business.Handlers.UserGroups.Commands
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int GroupId { get; set; }
+        public int[] GroupId { get; set; }
 
         public class UpdateUserGroupCommandHandler : IRequestHandler<UpdateUserGroupCommand, IResult>
         {
@@ -27,13 +28,10 @@ namespace Business.Handlers.UserGroups.Commands
 
             public async Task<IResult> Handle(UpdateUserGroupCommand request, CancellationToken cancellationToken)
             {
-                var userGroupToUpdate = new UserGroup
-                {
-                    GroupId = request.GroupId,
-                    UserId = request.UserId,
-                };
 
-                _userGroupDal.Update(userGroupToUpdate);
+                var userGroupList = request.GroupId.Select(x => new UserGroup() { GroupId = x, UserId = request.UserId });
+
+                await _userGroupDal.BulkInsert(request.UserId, userGroupList);
                 await _userGroupDal.SaveChangesAsync();
                 return new SuccessResult(Messages.UserGroupUpdated);
 

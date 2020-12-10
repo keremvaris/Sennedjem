@@ -121,7 +121,7 @@ namespace Business
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
-            services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>();
+            services.AddDbContext<ProjectDbContext, Fakes.SFw.SFwInMemory>(ServiceLifetime.Transient);
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
 
             services.AddTransient<ICustomerRepository>(x => new CustomerMongoRepository(x.GetRequiredService<MongoDbContextBase>(), Collections.Customers));
@@ -144,6 +144,7 @@ namespace Business
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
+            services.AddTransient<IUserGroupRepository, UserGroupRepository>();
             services.AddDbContext<ProjectDbContext>();
 
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();
@@ -165,6 +166,7 @@ namespace Business
             services.AddTransient<IGroupRepository, GroupRepository>();
             services.AddTransient<IGroupClaimRepository, GroupClaimRepository>();
             services.AddTransient<IAnimalRepository, AnimalRepository>();
+            services.AddTransient<IUserGroupRepository, UserGroupRepository>();
             services.AddDbContext<ProjectDbContext>();
 
             services.AddSingleton<MongoDbContextBase, MongoDbContext>();

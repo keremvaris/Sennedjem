@@ -118,7 +118,7 @@ namespace WebAPI
 
             app.UseDeveloperExceptionPage();
 
-            app.ConfigureCustomExceptionMiddleware();
+            //app.ConfigureCustomExceptionMiddleware();
 
             app.UseDbOperationClaimCreator();
             app.UseSwagger();

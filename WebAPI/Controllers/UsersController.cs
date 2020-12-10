@@ -72,6 +72,7 @@ namespace WebAPI.Controllers
         /// <param name="updateUser"></param>
         /// <returns></returns>
         [HttpPut]
+        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody] UpdateUserCommand updateUser)
         {
             var result = await Mediator.Send(updateUser);
@@ -85,12 +86,13 @@ namespace WebAPI.Controllers
         /// <summary>
         /// Animal Siler.
         /// </summary>
-        /// <param name="deleteUser"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeleteUserCommand deleteUser)
+        [HttpDelete("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await Mediator.Send(deleteUser);
+            var result = await Mediator.Send(new DeleteUserCommand { UserId = id });
             if (result.Success)
             {
                 return Ok(result.Message);
