@@ -57,10 +57,10 @@ namespace WebAPI.Controllers
         ///<remarks>bla bla bla </remarks>
         ///<return>GroupClaims Listesi</return>
         ///<response code="200"></response>  
-        [HttpGet("getgroupclaimsbyuserid")]
+        [HttpGet("getusergroupbyuserid")]
         public async Task<IActionResult> GetGroupClaimsByUserId(int id)
         {
-            var result = await Mediator.Send(new GetGroupClaimLookupByUserIdQuery { UserId = id });
+            var result = await Mediator.Send(new GetUserGroupLookupByUserIdQuery { UserId = id });
             if (result.Success)
             {
                 return Ok(result.Data);
