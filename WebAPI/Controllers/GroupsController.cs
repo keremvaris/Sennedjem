@@ -50,6 +50,23 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        ///<summary>
+        ///Id sine göre detaylarını getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>Grup Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getselectedlist")]
+        public async Task<IActionResult> Getselectedlist()
+        {
+            var result = await Mediator.Send(new GetGroupSelectListQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
         /// <summary>
         /// Group Ekler.
         /// </summary>
