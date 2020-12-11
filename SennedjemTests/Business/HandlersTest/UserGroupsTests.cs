@@ -63,7 +63,7 @@ namespace SennedjemTests.Business.HandlersTest
         public void Handler_UpdateUserGroup()
         {
             var updateUserCommand = new UpdateUserGroupCommand();
-            updateUserCommand.GroupId = 1;
+            updateUserCommand.GroupId = new int[]{1};
             updateUserCommand.UserId = 1;
 
             var result = updateUserGroupCommandHandler.
