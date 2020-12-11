@@ -39,10 +39,10 @@ namespace WebAPI.Controllers
         ///<remarks>bla bla bla </remarks>
         ///<return>UserClaims Listesi</return>
         ///<response code="200"></response>  
-        [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("getbyuserid")]
+        public async Task<IActionResult> GetByUserId(int userid)
         {
-            var result = await Mediator.Send(new GetUserClaimQuery { Id = id });
+            var result = await Mediator.Send(new GetUserClaimLookupQuery { UserId = userid });
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -50,13 +50,29 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        ///<summary>
+        ///Id sine göre detaylarını getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>UserClaims Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getoperationclaimbyuserid")]
+        public async Task<IActionResult> GetOperationClaimByUserId(int id)
+        {
+            var result = await Mediator.Send(new GetUserClaimLookupByUserIdQuery { Id = id });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
         /// <summary>
         /// GroupClaim Ekler.
         /// </summary>
         /// <param name="createUserClaim"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserGroupClaimsCommand createUserClaim)
+        public async Task<IActionResult> Add([FromBody] CreateUserClaimCommand createUserClaim)
         {
             var result = await Mediator.Send(createUserClaim);
             if (result.Success)

@@ -32,6 +32,23 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        ///<summary>
+        ///OperationClaims listeler
+        ///</summary>
+        ///<remarks>bla bla bla OperationClaims</remarks>
+        ///<return>OperationClaims Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getoperationclaimlookup")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetOperationClaimLookup()
+        {
+            var result = await Mediator.Send(new GetOperationClaimLookupQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
 
         /// <summary>
         /// OperationClaim Günceller.

@@ -26,7 +26,7 @@ namespace Business.Helpers
                 });
             }
             var operationClaims = (await mediator.Send(new GetOperationClaimsQuery())).Data;
-            await mediator.Send(new CreateUserClaimsCommand
+            await mediator.Send(new CreateUserClaimsInternalCommand
             {
                 UserId = 1,
                 OperationClaims = operationClaims

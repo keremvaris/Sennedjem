@@ -41,7 +41,26 @@ namespace WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetByUserId(int userId)
         {
-            var result = await Mediator.Send(new GetUserGroupSelectedListQuery { UserId = userId });
+            var result = await Mediator.Send(new GetUserGroupLookupQuery { UserId = userId });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
+
+
+        ///<summary>
+        ///Id sine göre detaylarını getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>GroupClaims Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getgroupclaimsbyuserid")]
+        public async Task<IActionResult> GetGroupClaimsByUserId(int id)
+        {
+            var result = await Mediator.Send(new GetGroupClaimLookupByUserIdQuery { UserId = id });
             if (result.Success)
             {
                 return Ok(result.Data);

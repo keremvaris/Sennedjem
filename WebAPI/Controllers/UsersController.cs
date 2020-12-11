@@ -14,10 +14,10 @@ namespace WebAPI.Controllers
     public class UsersController : BaseApiController
     {
         ///<summary>
-        ///Animals listeler
+        ///Users listeler
         ///</summary>
-        ///<remarks>bla bla bla Animals</remarks>
-        ///<return>Animals Listesi</return>
+        ///<remarks>bla bla bla Users</remarks>
+        ///<return>Users Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
         [AllowAnonymous]
@@ -32,10 +32,27 @@ namespace WebAPI.Controllers
         }
 
         ///<summary>
+        ///User Lookup
+        ///</summary>
+        ///<remarks>bla bla bla Users</remarks>
+        ///<return>Users Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getuserlookup")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserLookup()
+        {
+            var result = await Mediator.Send(new GetUserLookupQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+        ///<summary>
         ///Id sine göre detaylarını getirir.
         ///</summary>
         ///<remarks>bla bla bla </remarks>
-        ///<return>Animals Listesi</return>
+        ///<return>Users Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getbyid")]
         [AllowAnonymous]

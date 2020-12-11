@@ -14,21 +14,21 @@ namespace Business.Handlers.UserClaims.Commands
     /// Registers All Existing Operation Claims To Given User
     /// </summary>
 
-    public class CreateUserClaimsCommand : IRequest<IResult>
+    public class CreateUserClaimsInternalCommand : IRequest<IResult>
     {
         public int UserId { get; set; }
         public IEnumerable<OperationClaim> OperationClaims { get; set; }
 
-        public class CreateUserClaimsCommandHandler : IRequestHandler<CreateUserClaimsCommand, IResult>
+        public class CreateUserClaimsInternalCommandHandler : IRequestHandler<CreateUserClaimsInternalCommand, IResult>
         {
-            IUserClaimRepository _userClaimsRepository;
+            private readonly IUserClaimRepository _userClaimsRepository;
 
-            public CreateUserClaimsCommandHandler(IUserClaimRepository userClaimsRepository)
+            public CreateUserClaimsInternalCommandHandler(IUserClaimRepository userClaimsRepository)
             {
                 _userClaimsRepository = userClaimsRepository;
             }
 
-            public async Task<IResult> Handle(CreateUserClaimsCommand request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(CreateUserClaimsInternalCommand request, CancellationToken cancellationToken)
             {
 
                 foreach (var claim in request.OperationClaims)

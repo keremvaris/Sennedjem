@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 namespace Business.Handlers.UserClaims.Queries
 {
     [SecuredOperation]
-    public class GetUserClaimQuery : IRequest<IDataResult<IEnumerable<UserClaim>>>
+    public class GetUserClaimLookupQuery : IRequest<IDataResult<IEnumerable<UserClaim>>>
     {
-        public int Id { get; set; }
-        public class GetUserClaimQueryHandler : IRequestHandler<GetUserClaimQuery, IDataResult<IEnumerable<UserClaim>>>
+        public int UserId { get; set; }
+        public class GetUserClaimQueryHandler : IRequestHandler<GetUserClaimLookupQuery, IDataResult<IEnumerable<UserClaim>>>
         {
             private readonly IUserClaimRepository _userClaimDal;
 
@@ -23,9 +23,9 @@ namespace Business.Handlers.UserClaims.Queries
                 _userClaimDal = userClaimDal;
             }
 
-            public async Task<IDataResult<IEnumerable<UserClaim>>> Handle(GetUserClaimQuery request, CancellationToken cancellationToken)
+            public async Task<IDataResult<IEnumerable<UserClaim>>> Handle(GetUserClaimLookupQuery request, CancellationToken cancellationToken)
             {
-                var userClaims = await _userClaimDal.GetListAsync(x => x.UserId == request.Id);
+                var userClaims = await _userClaimDal.GetListAsync(x => x.UserId == request.UserId);
 
                 return new SuccessDataResult<IEnumerable<UserClaim>>(userClaims.ToList());
             }

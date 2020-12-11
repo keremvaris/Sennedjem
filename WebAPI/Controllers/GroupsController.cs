@@ -51,15 +51,15 @@ namespace WebAPI.Controllers
         }
 
         ///<summary>
-        ///Id sine göre detaylarını getirir.
+        ///Group Lookup
         ///</summary>
-        ///<remarks>bla bla bla </remarks>
-        ///<return>Grup Listesi</return>
+        ///<remarks>Group Lookup döner </remarks>
+        ///<return>Grup Lokup</return>
         ///<response code="200"></response>  
-        [HttpGet("getselectedlist")]
+        [HttpGet("getgrouplookup")]
         public async Task<IActionResult> Getselectedlist()
         {
-            var result = await Mediator.Send(new GetGroupSelectListQuery());
+            var result = await Mediator.Send(new GetGroupLookupQuery());
             if (result.Success)
             {
                 return Ok(result.Data);
