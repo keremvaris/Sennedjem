@@ -51,17 +51,13 @@ namespace Business.DependencyResolvers
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
 
-                            .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService") ||
-                            t.FullName.StartsWith("Business.Fakes.BloodTeamService"))
-                            ;
+                            .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService"));
                     break;
                 case ApplicationMode.Staging:
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
 
-                            .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService") ||
-                            t.FullName.StartsWith("Business.Fakes.BloodTeamService"))
-                            ;
+                            .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService"));
                     break;
                 case ApplicationMode.Production:
 
@@ -74,11 +70,6 @@ namespace Business.DependencyResolvers
                     break;
             }
 
-            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
-                {
-                    Selector = new AspectInterceptorSelector()
-                }).SingleInstance();
         }
     }
 }

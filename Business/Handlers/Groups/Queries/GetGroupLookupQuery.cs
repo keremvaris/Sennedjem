@@ -20,7 +20,8 @@ namespace Business.Handlers.Groups.Queries
             }
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetGroupLookupQuery request, CancellationToken cancellationToken)
             {
-                var groupList = _groupRepository.GetList().Select(x => new SelectionItem()
+                var list = await _groupRepository.GetListAsync();
+                var groupList = list.Select(x => new SelectionItem()
                 {
                     Id = x.Id.ToString(),
                     Label = x.GroupName

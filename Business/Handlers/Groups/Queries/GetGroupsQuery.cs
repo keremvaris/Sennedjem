@@ -4,6 +4,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +23,8 @@ namespace Business.Handlers.Groups.Queries
             }
             public async Task<IDataResult<IEnumerable<Group>>> Handle(GetGroupsQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<IEnumerable<Group>>(await _groupDal.GetListAsync());
+                var list = await _groupDal.GetListAsync();
+                return new SuccessDataResult<IEnumerable<Group>>(list.ToList());
             }
         }
     }

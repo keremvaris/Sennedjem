@@ -21,7 +21,9 @@ namespace Business.Handlers.Users.Queries
             }
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetUserLookupQuery request, CancellationToken cancellationToken)
             {
-                var userLookup = _userRepository.GetList().Select(x => new SelectionItem()
+                var list = await _userRepository.GetListAsync(x => x.Status);
+
+                var userLookup =list.Select(x => new SelectionItem()
                 {
                     Id = x.UserId.ToString(),
                     Label = x.FullName
