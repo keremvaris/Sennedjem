@@ -14,7 +14,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using static Business.Handlers.Authorizations.Commands.ForgotPasswordCommand;
 using static Business.Handlers.Authorizations.Commands.LoginUserQuery;
-using static Business.Handlers.Authorizations.Commands.RegisterUser;
+using static Business.Handlers.Authorizations.Commands.RegisterUserCommand;
 
 namespace SennedjemTests.Business.HandlersTest
 {
@@ -27,7 +27,7 @@ namespace SennedjemTests.Business.HandlersTest
         LoginUserQueryHandler loginUserQueryHandler;
         LoginUserQuery loginUserQuery;
         RegisterUserCommandHandler registerUserCommandHandler;
-        RegisterUser.Command command;
+        RegisterUserCommand command;
         ForgotPasswordCommandHandler forgotPasswordCommandHandler;
         ForgotPasswordCommand forgotPasswordCommand;
 
@@ -71,7 +71,7 @@ namespace SennedjemTests.Business.HandlersTest
             var registerUser = new User();
             registerUser.Email = "test@test.com";
             registerUser.FullName = "test test";
-            command = new RegisterUser.Command
+            command = new RegisterUserCommand
             {
                 Email = registerUser.Email,
                 FullName = registerUser.FullName,

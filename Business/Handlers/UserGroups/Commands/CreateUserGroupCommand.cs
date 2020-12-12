@@ -18,11 +18,11 @@ namespace Business.Handlers.UserGroups.Commands
 
         public class CreateUserGroupCommandHandler : IRequestHandler<CreateUserGroupCommand, IResult>
         {
-            private readonly IUserGroupRepository _userGroupDal;
+            private readonly IUserGroupRepository _userGroupRepository;
 
-            public CreateUserGroupCommandHandler(IUserGroupRepository userGroupDal)
+            public CreateUserGroupCommandHandler(IUserGroupRepository userGroupRepository)
             {
-                _userGroupDal = userGroupDal;
+                _userGroupRepository = userGroupRepository;
             }
 
             public async Task<IResult> Handle(CreateUserGroupCommand request, CancellationToken cancellationToken)
@@ -33,8 +33,8 @@ namespace Business.Handlers.UserGroups.Commands
                     UserId = request.UserId
                 };
 
-                _userGroupDal.Add(userGroup);
-                await _userGroupDal.SaveChangesAsync();
+                _userGroupRepository.Add(userGroup);
+                await _userGroupRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.UserGroupAdded);
             }

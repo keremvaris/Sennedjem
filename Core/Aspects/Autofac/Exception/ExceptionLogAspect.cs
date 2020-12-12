@@ -2,7 +2,6 @@
 using Core.CrossCuttingConcerns.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Utilities.Interceptors;
-using Core.Utilities.IoC;
 using Core.Utilities.Messages;
 using Newtonsoft.Json;
 using System;
@@ -25,9 +24,9 @@ namespace Core.Aspects.Autofac.Exception
             {
                 throw new ArgumentException(AspectMessages.WrongLoggerType);
             }
-   
+
             _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
-          
+
         }
 
         protected override void OnException(IInvocation invocation, System.Exception e)

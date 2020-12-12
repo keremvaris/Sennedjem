@@ -2,7 +2,6 @@
 using DataAccess.Abstract;
 using DataAccess.Entities.Dtos;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -23,7 +22,7 @@ namespace Business.Handlers.Users.Queries
             {
                 var list = await _userRepository.GetListAsync(x => x.Status);
 
-                var userLookup =list.Select(x => new SelectionItem()
+                var userLookup = list.Select(x => new SelectionItem()
                 {
                     Id = x.UserId.ToString(),
                     Label = x.FullName

@@ -1,5 +1,7 @@
 ﻿using Business.Constants;
 using Business.Services.Authentication;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.Jwt;
@@ -17,18 +19,18 @@ namespace Business.Handlers.Authorizations.Commands
 
         public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, IDataResult<AccessToken>>
         {
-            private readonly IUserRepository _userDal;
+            private readonly IUserRepository _userRepository;
             private readonly ITokenHelper _tokenHelper;
 
-            public LoginUserQueryHandler(IUserRepository userDal, ITokenHelper tokenHelper)
+            public LoginUserQueryHandler(IUserRepository userRepository, ITokenHelper tokenHelper)
             {
-                _userDal = userDal;
+                _userRepository = userRepository;
                 _tokenHelper = tokenHelper;
             }
-            //[LogAspect(typeof(FileLogger))]
+            [LogAspect(typeof(FileLogger))]
             public async Task<IDataResult<AccessToken>> Handle(LoginUserQuery request, CancellationToken cancellationToken)
             {
-                var user = await _userDal.GetAsync(u => u.Email == request.Email);
+                var user = await _userRepository.GetAsync(u => u.Email == request.Email);
 
                 if (user == null)
                     return new ErrorDataResult<AccessToken>(Messages.UserNotFound);
@@ -36,7 +38,7 @@ namespace Business.Handlers.Authorizations.Commands
                 if (!HashingHelper.VerifyPasswordHash(request.Password, user.PasswordSalt, user.PasswordHash))
                     return new ErrorDataResult<AccessToken>(Messages.PasswordError);
 
-                var claims = _userDal.GetClaims(user.UserId);
+                var claims = _userRepository.GetClaims(user.UserId);
                 var accessToken = _tokenHelper.CreateToken<SFwToken>(user, claims);
 
                 return new SuccessDataResult<AccessToken>(accessToken, Messages.SuccessfulLogin);

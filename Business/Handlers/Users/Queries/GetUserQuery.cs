@@ -2,7 +2,6 @@
 using Business.BusinessAspects;
 using Core.Aspects.Autofac.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
-using Core.Entities.Concrete;
 using Core.Entities.Concrete.Dtos;
 using Core.Utilities.Results;
 using DataAccess.Abstract;

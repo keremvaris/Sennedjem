@@ -14,18 +14,18 @@ namespace Business.Handlers.OperationClaims.Commands
         public int Id { get; set; }
         public class DeleteOperationClaimCommandHandler : IRequestHandler<DeleteOperationClaimCommand, IResult>
         {
-            private readonly IOperationClaimRepository _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimRepository;
 
-            public DeleteOperationClaimCommandHandler(IOperationClaimRepository operationClaimDal)
+            public DeleteOperationClaimCommandHandler(IOperationClaimRepository operationClaimRepository)
             {
-                _operationClaimDal = operationClaimDal;
+                _operationClaimRepository = operationClaimRepository;
             }
 
             public async Task<IResult> Handle(DeleteOperationClaimCommand request, CancellationToken cancellationToken)
             {
-                var claimToDelete = await _operationClaimDal.GetAsync(x => x.Id == request.Id);
-                _operationClaimDal.Delete(claimToDelete);
-                await _operationClaimDal.SaveChangesAsync();
+                var claimToDelete = await _operationClaimRepository.GetAsync(x => x.Id == request.Id);
+                _operationClaimRepository.Delete(claimToDelete);
+                await _operationClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.OperationClaimDeleted);
             }

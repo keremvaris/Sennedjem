@@ -1,7 +1,5 @@
-﻿using Core.Entities;
-using Entities.Concrete;
+﻿using Entities.Concrete;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;

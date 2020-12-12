@@ -17,11 +17,11 @@ namespace Business.Handlers.Groups.Commands
 
         public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, IResult>
         {
-            private readonly IGroupRepository _groupDal;
+            private readonly IGroupRepository _groupRepository;
 
-            public UpdateGroupCommandHandler(IGroupRepository groupDal)
+            public UpdateGroupCommandHandler(IGroupRepository groupRepository)
             {
-                _groupDal = groupDal;
+                _groupRepository = groupRepository;
             }
 
             public async Task<IResult> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
@@ -32,8 +32,8 @@ namespace Business.Handlers.Groups.Commands
                     GroupName = request.GroupName
                 };
 
-                _groupDal.Update(groupToUpdate);
-                await _groupDal.SaveChangesAsync();
+                _groupRepository.Update(groupToUpdate);
+                await _groupRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.GroupUpdated);
             }
         }

@@ -17,11 +17,11 @@ namespace Business.Handlers.GroupClaims.Commands
         public int ClaimId { get; set; }
         public class UpdateGroupClaimCommandHandler : IRequestHandler<UpdateGroupClaimCommand, IResult>
         {
-            private readonly IGroupClaimRepository _groupClaimDal;
+            private readonly IGroupClaimRepository _groupClaimRepository;
 
-            public UpdateGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
+            public UpdateGroupClaimCommandHandler(IGroupClaimRepository groupClaimRepository)
             {
-                _groupClaimDal = groupClaimDal;
+                _groupClaimRepository = groupClaimRepository;
             }
 
             public async Task<IResult> Handle(UpdateGroupClaimCommand request, CancellationToken cancellationToken)
@@ -31,8 +31,8 @@ namespace Business.Handlers.GroupClaims.Commands
                     ClaimId = request.ClaimId,
                     GroupId = request.GroupId,
                 };
-                _groupClaimDal.Update(entityToUpdate);
-                await _groupClaimDal.SaveChangesAsync();
+                _groupClaimRepository.Update(entityToUpdate);
+                await _groupClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.GroupClaimUpdated);
             }

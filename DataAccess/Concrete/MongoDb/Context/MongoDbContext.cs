@@ -1,5 +1,4 @@
-﻿using Core.DataAccess.MongoDb.Concrete.Models;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.MongoDb.Context
 {

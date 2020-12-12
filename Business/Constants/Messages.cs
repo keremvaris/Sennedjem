@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Business.Constants
+﻿namespace Business.Constants
 {
     /// <summary>
     /// Bu sınıf magic stringlerden kurtulmak daha okunur bir kod yazmak için oluşturulmuştur.

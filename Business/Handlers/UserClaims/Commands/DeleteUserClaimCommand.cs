@@ -14,19 +14,19 @@ namespace Business.Handlers.UserClaims.Commands
         public int Id { get; set; }
         public class DeleteUserClaimCommandHandler : IRequestHandler<DeleteUserClaimCommand, IResult>
         {
-            private readonly IUserClaimRepository _userClaimDal;
+            private readonly IUserClaimRepository _userClaimRepository;
 
-            public DeleteUserClaimCommandHandler(IUserClaimRepository userClaimDal)
+            public DeleteUserClaimCommandHandler(IUserClaimRepository userClaimRepository)
             {
-                _userClaimDal = userClaimDal;
+                _userClaimRepository = userClaimRepository;
             }
 
             public async Task<IResult> Handle(DeleteUserClaimCommand request, CancellationToken cancellationToken)
             {
-                var entityToDelete = await _userClaimDal.GetAsync(x => x.UserId == request.Id);
+                var entityToDelete = await _userClaimRepository.GetAsync(x => x.UserId == request.Id);
 
-                _userClaimDal.Delete(entityToDelete);
-                await _userClaimDal.SaveChangesAsync();
+                _userClaimRepository.Delete(entityToDelete);
+                await _userClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.UserClaimDeleted);
             }

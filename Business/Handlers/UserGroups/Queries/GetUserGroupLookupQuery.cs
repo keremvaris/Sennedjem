@@ -3,9 +3,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Entities.Dtos;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,16 +15,16 @@ namespace Business.Handlers.UserGroups.Queries
         public int UserId;
         public class GetUserGroupLookupQueryHandler : IRequestHandler<GetUserGroupLookupQuery, IDataResult<IEnumerable<SelectionItem>>>
         {
-            private readonly IUserGroupRepository _userGroupDal;
+            private readonly IUserGroupRepository _userGroupRepository;
 
-            public GetUserGroupLookupQueryHandler(IUserGroupRepository userGroupDal)
+            public GetUserGroupLookupQueryHandler(IUserGroupRepository userGroupRepository)
             {
-                _userGroupDal = userGroupDal;
+                _userGroupRepository = userGroupRepository;
             }
 
             public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetUserGroupLookupQuery request, CancellationToken cancellationToken)
             {
-                var data = await _userGroupDal.GetUserGroupSelectedList(request.UserId);
+                var data = await _userGroupRepository.GetUserGroupSelectedList(request.UserId);
                 return new SuccessDataResult<IEnumerable<SelectionItem>>(data);
 
             }

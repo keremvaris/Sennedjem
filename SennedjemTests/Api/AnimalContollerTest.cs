@@ -1,16 +1,13 @@
 ﻿using NUnit.Framework;
 using SennedjemTests.Helpers;
 using SennedjemTests.Helpers.TokenHelpers;
-using System;
-using System.Collections.Generic;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SennedjemTests.Api
 {
     [TestFixture]
-    public class AnimalContollerTest: BaseIntegrationTest
+    public class AnimalContollerTest : BaseIntegrationTest
     {
         [Test]
         public async Task GetAll()

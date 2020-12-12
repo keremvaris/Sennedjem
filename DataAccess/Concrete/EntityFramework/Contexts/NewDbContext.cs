@@ -1,10 +1,6 @@
-using Core.Entities.Concrete;
-using DataAccess.Entities;
-using Microsoft.EntityFrameworkCore;
-using DataAccess.Concrete.Configurations;
-using Microsoft.Extensions.Configuration;
-using System;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
@@ -40,7 +36,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         {
             this.configuration = configuration;
         }
-    
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

@@ -18,9 +18,9 @@ namespace Business.Handlers.OperationClaims.Queries
             {
                 _operationClaimRepository = operationClaimRepository;
             }
-            public async  Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetOperationClaimLookupQuery request, CancellationToken cancellationToken)
+            public async Task<IDataResult<IEnumerable<SelectionItem>>> Handle(GetOperationClaimLookupQuery request, CancellationToken cancellationToken)
             {
-                var list = await  _operationClaimRepository.GetListAsync();
+                var list = await _operationClaimRepository.GetListAsync();
 
                 var operationClaim = list.Select(x => new SelectionItem()
                 {

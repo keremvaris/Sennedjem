@@ -26,9 +26,9 @@
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -36,12 +36,12 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
-    <PackageReference Include="MimeKit" Version="2.10.0" />
-    <PackageReference Include="MongoDB.Bson" Version="2.11.4" />
-    <PackageReference Include="MongoDB.Driver" Version="2.11.4" />
-    <PackageReference Include="NEST" Version="7.10.0" />
+    <PackageReference Include="MimeKit" Version="2.10.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.11.5" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+    <PackageReference Include="NEST" Version="7.10.1" />
     <PackageReference Include="RabbitMQ.Client" Version="6.2.1" />
-    <PackageReference Include="Refit" Version="5.2.1" />
+    <PackageReference Include="Refit" Version="5.2.4" />
     <PackageReference Include="Serilog" Version="2.10.1-dev-01249" />
     <PackageReference Include="Serilog.Formatting.Elasticsearch" Version="8.4.1" />
     <PackageReference Include="Serilog.Sinks.Http" Version="7.2.0" />

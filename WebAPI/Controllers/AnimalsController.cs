@@ -1,9 +1,8 @@
 ﻿using Business.Handlers.Animals.Commands;
 using Business.Handlers.Animals.Queries;
-using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {

@@ -18,7 +18,7 @@ namespace SennedjemTests.Core.Extensions
 
             Assert.That(cloneUser, Is.TypeOf(typeof(User)));
             Assert.That(cloneUser.FullName, Is.EqualTo(_user.FullName));
-            
+
         }
 
     }

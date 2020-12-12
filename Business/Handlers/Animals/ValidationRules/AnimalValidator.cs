@@ -20,6 +20,8 @@ namespace Business.ValidationRules.FluentValidation
         public CreateAnimalValidator()
         {
             RuleFor(p => p.AnimalName).NotEmpty();
+            RuleFor(p => p.AnimalName).NotNull();
+
         }
     }
     public class UpdateAnimalValidator : AbstractValidator<UpdateAnimalCommand>
@@ -27,6 +29,7 @@ namespace Business.ValidationRules.FluentValidation
         public UpdateAnimalValidator()
         {
             RuleFor(p => p.AnimalName).NotEmpty();
+            RuleFor(p => p.AnimalName).NotNull();
         }
     }
 }

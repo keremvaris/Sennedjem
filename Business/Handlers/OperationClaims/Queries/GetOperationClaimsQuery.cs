@@ -14,16 +14,16 @@ namespace Business.Handlers.OperationClaims.Queries
     {
         public class GetOperationClaimsQueryHandler : IRequestHandler<GetOperationClaimsQuery, IDataResult<IEnumerable<OperationClaim>>>
         {
-            private readonly IOperationClaimRepository _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimRepository;
 
-            public GetOperationClaimsQueryHandler(IOperationClaimRepository operationClaimDal)
+            public GetOperationClaimsQueryHandler(IOperationClaimRepository operationClaimRepository)
             {
-                _operationClaimDal = operationClaimDal;
+                _operationClaimRepository = operationClaimRepository;
             }
 
             public async Task<IDataResult<IEnumerable<OperationClaim>>> Handle(GetOperationClaimsQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<IEnumerable<OperationClaim>>(await _operationClaimDal.GetListAsync());
+                return new SuccessDataResult<IEnumerable<OperationClaim>>(await _operationClaimRepository.GetListAsync());
             }
         }
     }

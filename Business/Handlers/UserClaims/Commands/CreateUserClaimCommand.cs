@@ -16,11 +16,11 @@ namespace Business.Handlers.UserClaims.Commands
         public int ClaimId { get; set; }
         public class CreateUserClaimCommandHandler : IRequestHandler<CreateUserClaimCommand, IResult>
         {
-            private readonly IUserClaimRepository _userClaimDal;
+            private readonly IUserClaimRepository _userClaimRepository;
 
-            public CreateUserClaimCommandHandler(IUserClaimRepository userClaimDal)
+            public CreateUserClaimCommandHandler(IUserClaimRepository userClaimRepository)
             {
-                _userClaimDal = userClaimDal;
+                _userClaimRepository = userClaimRepository;
             }
 
             public async Task<IResult> Handle(CreateUserClaimCommand request, CancellationToken cancellationToken)
@@ -30,8 +30,8 @@ namespace Business.Handlers.UserClaims.Commands
                     ClaimId = request.ClaimId,
                     UserId = request.UserId
                 };
-                _userClaimDal.Add(userClaim);
-                await _userClaimDal.SaveChangesAsync();
+                _userClaimRepository.Add(userClaim);
+                await _userClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.UserClaimCreated);
             }

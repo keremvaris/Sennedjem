@@ -1,8 +1,8 @@
 ﻿using Core.Utilities.ElasticSearch.Models;
+using Microsoft.Extensions.Configuration;
 using Nest;
 using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
 using System.Linq;
 
 namespace Core.Utilities.ElasticSearch

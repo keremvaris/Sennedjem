@@ -15,16 +15,16 @@ namespace Business.Handlers.Groups.Queries
 
         public class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, IDataResult<Group>>
         {
-            private readonly IGroupRepository _groupDal;
+            private readonly IGroupRepository _groupRepository;
 
-            public GetGroupQueryHandler(IGroupRepository groupDal)
+            public GetGroupQueryHandler(IGroupRepository groupRepository)
             {
-                _groupDal = groupDal;
+                _groupRepository = groupRepository;
             }
 
             public async Task<IDataResult<Group>> Handle(GetGroupQuery request, CancellationToken cancellationToken)
             {
-                var group = await _groupDal.GetAsync(x => x.Id == request.GroupId);
+                var group = await _groupRepository.GetAsync(x => x.Id == request.GroupId);
 
                 return new SuccessDataResult<Group>(group);
             }

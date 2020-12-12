@@ -1,9 +1,9 @@
-﻿using Core.Utilities.IoC;
+﻿using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
+using Core.Utilities.IoC;
 using Microsoft.Extensions.Configuration;
-using System;
-using Serilog;
-using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+using System;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {

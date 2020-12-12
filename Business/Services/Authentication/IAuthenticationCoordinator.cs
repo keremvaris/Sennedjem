@@ -2,8 +2,8 @@
 
 namespace Business.Services.Authentication
 {
-	public interface IAuthenticationCoordinator
-	{
-		IAuthenticationProvider SelectProvider(AuthenticationProviderType type);
-	}
+    public interface IAuthenticationCoordinator
+    {
+        IAuthenticationProvider SelectProvider(AuthenticationProviderType type);
+    }
 }

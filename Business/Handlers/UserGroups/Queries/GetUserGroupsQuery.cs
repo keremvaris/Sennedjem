@@ -14,16 +14,16 @@ namespace Business.Handlers.UserGroups.Queries
     {
         public class GetUserGroupsQueryHandler : IRequestHandler<GetUserGroupsQuery, IDataResult<IEnumerable<UserGroup>>>
         {
-            private readonly IUserGroupRepository _userGroupDal;
+            private readonly IUserGroupRepository _userGroupRepository;
 
-            public GetUserGroupsQueryHandler(IUserGroupRepository userGroupDal)
+            public GetUserGroupsQueryHandler(IUserGroupRepository userGroupRepository)
             {
-                _userGroupDal = userGroupDal;
+                _userGroupRepository = userGroupRepository;
             }
 
             public async Task<IDataResult<IEnumerable<UserGroup>>> Handle(GetUserGroupsQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<IEnumerable<UserGroup>>(await _userGroupDal.GetListAsync());
+                return new SuccessDataResult<IEnumerable<UserGroup>>(await _userGroupRepository.GetListAsync());
             }
         }
     }

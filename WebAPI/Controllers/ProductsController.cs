@@ -1,10 +1,10 @@
 ﻿
 using Business.Handlers.Products.Commands;
 using Business.Handlers.Products.Queries;
+using Core.Utilities.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Core.Utilities.Results;
 
 namespace WebAPI.Controllers
 {

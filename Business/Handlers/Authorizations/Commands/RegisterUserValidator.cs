@@ -13,7 +13,7 @@ namespace Business.Handlers.Authorizations.Commands
     /// Aspect olarak Hanler metodlarının üzerinde kullanılır.
     /// </summary>   
 
-    public class RegisterUserValidator : AbstractValidator<RegisterUser.Command>
+    public class RegisterUserValidator : AbstractValidator<RegisterUserCommand>
     {
         public RegisterUserValidator()
         {

@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-  public interface IOperationClaimRepository : IEntityRepository<OperationClaim>
-  {
-  }
+    public interface IOperationClaimRepository : IEntityRepository<OperationClaim>
+    {
+    }
 }

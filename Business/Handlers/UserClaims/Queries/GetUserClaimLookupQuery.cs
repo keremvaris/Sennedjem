@@ -16,16 +16,16 @@ namespace Business.Handlers.UserClaims.Queries
         public int UserId { get; set; }
         public class GetUserClaimQueryHandler : IRequestHandler<GetUserClaimLookupQuery, IDataResult<IEnumerable<UserClaim>>>
         {
-            private readonly IUserClaimRepository _userClaimDal;
+            private readonly IUserClaimRepository _userClaimRepository;
 
-            public GetUserClaimQueryHandler(IUserClaimRepository userClaimDal)
+            public GetUserClaimQueryHandler(IUserClaimRepository userClaimRepository)
             {
-                _userClaimDal = userClaimDal;
+                _userClaimRepository = userClaimRepository;
             }
 
             public async Task<IDataResult<IEnumerable<UserClaim>>> Handle(GetUserClaimLookupQuery request, CancellationToken cancellationToken)
             {
-                var userClaims = await _userClaimDal.GetListAsync(x => x.UserId == request.UserId);
+                var userClaims = await _userClaimRepository.GetListAsync(x => x.UserId == request.UserId);
 
                 return new SuccessDataResult<IEnumerable<UserClaim>>(userClaims.ToList());
             }

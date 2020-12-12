@@ -23,11 +23,11 @@ namespace Business.Handlers.Authorizations.Commands
         public class ForgotPasswordCommandHandler : IRequestHandler<ForgotPasswordCommand, IResult>
         {
 
-            private readonly IUserRepository _userDal;
+            private readonly IUserRepository _userRepository;
 
-            public ForgotPasswordCommandHandler(IUserRepository userDal)
+            public ForgotPasswordCommandHandler(IUserRepository userRepository)
             {
-                _userDal = userDal;
+                _userRepository = userRepository;
             }
 
             /// <summary>
@@ -47,14 +47,14 @@ namespace Business.Handlers.Authorizations.Commands
             [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
             {
-                var user = await _userDal.GetAsync(u => u.CitizenId == Convert.ToInt64(request.TCKimlikNo));
+                var user = await _userRepository.GetAsync(u => u.CitizenId == Convert.ToInt64(request.TCKimlikNo));
 
                 if (user == null)
                     return new ErrorResult(Messages.WrongCID);
                 var generatedPassword = RandomPassword.CreateRandomPassword(14);
                 HashingHelper.CreatePasswordHash(generatedPassword, out byte[] passwordSalt, out byte[] passwordHash);
 
-                _userDal.Update(user);
+                _userRepository.Update(user);
 
                 return new SuccessResult(Messages.SendPassword + " Yeni Parola:" + generatedPassword);
             }

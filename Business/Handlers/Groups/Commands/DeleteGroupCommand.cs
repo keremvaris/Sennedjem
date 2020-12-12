@@ -14,19 +14,19 @@ namespace Business.Handlers.Groups.Commands
         public int Id { get; set; }
         public class DeleteGroupCommandHandler : IRequestHandler<DeleteGroupCommand, IResult>
         {
-            private readonly IGroupRepository _groupDal;
+            private readonly IGroupRepository _groupRepository;
 
-            public DeleteGroupCommandHandler(IGroupRepository groupDal)
+            public DeleteGroupCommandHandler(IGroupRepository groupRepository)
             {
-                _groupDal = groupDal;
+                _groupRepository = groupRepository;
             }
 
             public async Task<IResult> Handle(DeleteGroupCommand request, CancellationToken cancellationToken)
             {
-                var groupToDelete = await _groupDal.GetAsync(x => x.Id == request.Id);
+                var groupToDelete = await _groupRepository.GetAsync(x => x.Id == request.Id);
 
-                _groupDal.Delete(groupToDelete);
-                await _groupDal.SaveChangesAsync();
+                _groupRepository.Delete(groupToDelete);
+                await _groupRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.GroupDeleted);
             }

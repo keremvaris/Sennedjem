@@ -23,7 +23,7 @@ namespace Core.DataAccess.MongoDb.Concrete.Models
         public MongoClientSettings GetMongoClientSettings()
         {
             return _mongoClientSettings;
-        } 
+        }
 
         //customer
         //person

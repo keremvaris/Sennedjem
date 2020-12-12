@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccess.MongoDb.Abstract
 {
-    public interface IMongoDbRepository<T> where T: MongoBaseEntity
+    public interface IMongoDbRepository<T> where T : MongoBaseEntity
     {
         void Add(T entity);
         IQueryable<T> GetList(Expression<Func<T, bool>> predicate = null);

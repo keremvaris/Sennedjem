@@ -7,7 +7,6 @@ using Core.Utilities.Messages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace Core.Aspects.Autofac.Logging
 {

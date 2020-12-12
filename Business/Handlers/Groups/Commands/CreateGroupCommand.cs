@@ -15,11 +15,11 @@ namespace Business.Handlers.Groups.Commands
         public string Name { get; set; }
         public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, IResult>
         {
-            private readonly IGroupRepository _groupDal;
+            private readonly IGroupRepository _groupRepository;
 
-            public CreateGroupCommandHandler(IGroupRepository groupDal)
+            public CreateGroupCommandHandler(IGroupRepository groupRepository)
             {
-                _groupDal = groupDal;
+                _groupRepository = groupRepository;
             }
 
             public async Task<IResult> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
@@ -28,8 +28,8 @@ namespace Business.Handlers.Groups.Commands
                 {
                     GroupName = request.Name
                 };
-                _groupDal.Add(group);
-                await _groupDal.SaveChangesAsync();
+                _groupRepository.Add(group);
+                await _groupRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.GroupAdded);
             }
         }

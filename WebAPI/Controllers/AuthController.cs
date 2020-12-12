@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
         /// <returns></returns>        
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUser.Command createUser)
+        public async Task<IActionResult> Register([FromBody] RegisterUserCommand createUser)
         {
             var result = await Mediator.Send(createUser);
             if (result.Success)
@@ -65,6 +65,7 @@ namespace WebAPI.Controllers
         ///<return></return>
         ///<response code="200"></response>   
         [HttpPut("forgotpassword")]
+        [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordCommand forgotPassword)
         {
             var result = await Mediator.Send(forgotPassword);

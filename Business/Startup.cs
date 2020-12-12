@@ -97,7 +97,6 @@ namespace Business
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(typeof(BusinessStartup).GetTypeInfo().Assembly);
 
-
             ValidatorOptions.Global.DisplayNameResolver = (type, memberInfo, expression) =>
             {
                 return memberInfo.GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?.GetName();

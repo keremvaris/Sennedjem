@@ -1,7 +1,6 @@
 ﻿using Business.Handlers.Lookups;
 using DataAccess.Entities.Dtos;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -34,9 +33,9 @@ namespace WebAPI.Controllers
         ///<response code="200"></response>  
         [ProducesResponseType(typeof(IEnumerable<SelectionItem>), 200)]
         [HttpGet]
-        public async Task<IActionResult> Get(LookupType lookupType,int? userId, int? parentId)
+        public async Task<IActionResult> Get(LookupType lookupType, int? userId, int? parentId)
         {
-            var result = await _mediator.Send(new Query { LookupType = lookupType, UserId=userId, ParentId = parentId });
+            var result = await _mediator.Send(new Query { LookupType = lookupType, UserId = userId, ParentId = parentId });
             if (result.Success)
                 return Ok(result.Data);
             return Unauthorized(result.Message);

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -26,6 +27,7 @@ namespace Core.DependencyResolvers
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Stopwatch>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
 
             services.AddSwaggerGen(c =>
             {

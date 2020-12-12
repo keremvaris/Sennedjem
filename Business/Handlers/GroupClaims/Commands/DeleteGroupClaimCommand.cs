@@ -15,19 +15,19 @@ namespace Business.Handlers.GroupClaims.Commands
 
         public class DeleteGroupClaimCommandHandler : IRequestHandler<DeleteGroupClaimCommand, IResult>
         {
-            private readonly IGroupClaimRepository _groupClaimDal;
+            private readonly IGroupClaimRepository _groupClaimRepository;
 
-            public DeleteGroupClaimCommandHandler(IGroupClaimRepository groupClaimDal)
+            public DeleteGroupClaimCommandHandler(IGroupClaimRepository groupClaimRepository)
             {
-                _groupClaimDal = groupClaimDal;
+                _groupClaimRepository = groupClaimRepository;
             }
 
             public async Task<IResult> Handle(DeleteGroupClaimCommand request, CancellationToken cancellationToken)
             {
-                var groupClaimToDelete = await _groupClaimDal.GetAsync(x => x.GroupId == request.Id);
+                var groupClaimToDelete = await _groupClaimRepository.GetAsync(x => x.GroupId == request.Id);
 
-                _groupClaimDal.Delete(groupClaimToDelete);
-                await _groupClaimDal.SaveChangesAsync();
+                _groupClaimRepository.Delete(groupClaimToDelete);
+                await _groupClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.GroupClaimDeleted);
             }

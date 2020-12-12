@@ -1,4 +1,5 @@
 ﻿
+using Business.BusinessAspects;
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
@@ -6,7 +7,6 @@ using DataAccess.Abstract;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using Business.BusinessAspects;
 
 namespace Business.Handlers.Animals.Commands
 {

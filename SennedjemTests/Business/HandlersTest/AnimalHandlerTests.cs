@@ -1,20 +1,20 @@
-﻿using Business.Handlers.Animals.Queries;
+﻿using Business.Constants;
+using Business.Handlers.Animals.Commands;
+using Business.Handlers.Animals.Queries;
 using DataAccess.Abstract;
+using Entities.Concrete;
 using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using static Business.Handlers.Animals.Queries.GetAnimalQuery;
-using Entities.Concrete;
-using static Business.Handlers.Animals.Queries.GetAnimalsQuery;
 using static Business.Handlers.Animals.Commands.CreateAnimalCommand;
-using Business.Handlers.Animals.Commands;
-using Business.Constants;
-using static Business.Handlers.Animals.Commands.UpdateAnimalCommand;
 using static Business.Handlers.Animals.Commands.DeleteAnimalCommand;
-using System.Linq;
+using static Business.Handlers.Animals.Commands.UpdateAnimalCommand;
+using static Business.Handlers.Animals.Queries.GetAnimalQuery;
+using static Business.Handlers.Animals.Queries.GetAnimalsQuery;
 
 namespace SennedjemTests.Business.HandlersTest
 {

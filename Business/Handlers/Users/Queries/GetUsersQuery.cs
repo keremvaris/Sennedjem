@@ -1,20 +1,17 @@
 ﻿using AutoMapper;
 using Business.BusinessAspects;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Performance;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
-using Core.Entities.Concrete;
+using Core.Entities.Concrete.Dtos;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Core.Entities.Concrete.Dtos;
-using Core.Aspects.Autofac.Caching;
 
 namespace Business.Handlers.Users.Queries
 {

@@ -2,7 +2,6 @@
 using Core.Utilities.Security.Hashing;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SennedjemTests.Helpers
 {

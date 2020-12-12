@@ -15,19 +15,19 @@ namespace Business.Handlers.UserGroups.Commands
 
         public class DeleteUserGroupCommandHandler : IRequestHandler<DeleteUserGroupCommand, IResult>
         {
-            private readonly IUserGroupRepository _userGroupDal;
+            private readonly IUserGroupRepository _userGroupRepository;
 
-            public DeleteUserGroupCommandHandler(IUserGroupRepository userGroupDal)
+            public DeleteUserGroupCommandHandler(IUserGroupRepository userGroupRepository)
             {
-                _userGroupDal = userGroupDal;
+                _userGroupRepository = userGroupRepository;
             }
 
             public async Task<IResult> Handle(DeleteUserGroupCommand request, CancellationToken cancellationToken)
             {
-                var entityToDelete = await _userGroupDal.GetAsync(x => x.UserId == request.Id);
+                var entityToDelete = await _userGroupRepository.GetAsync(x => x.UserId == request.Id);
 
-                _userGroupDal.Delete(entityToDelete);
-                await _userGroupDal.SaveChangesAsync();
+                _userGroupRepository.Delete(entityToDelete);
+                await _userGroupRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.UserGroupDeleted);
             }

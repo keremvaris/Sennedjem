@@ -19,11 +19,11 @@ namespace Business.Handlers.UserGroups.Commands
 
         public class UpdateUserGroupCommandHandler : IRequestHandler<UpdateUserGroupCommand, IResult>
         {
-            private readonly IUserGroupRepository _userGroupDal;
+            private readonly IUserGroupRepository _userGroupRepository;
 
-            public UpdateUserGroupCommandHandler(IUserGroupRepository userGroupDal)
+            public UpdateUserGroupCommandHandler(IUserGroupRepository userGroupRepository)
             {
-                _userGroupDal = userGroupDal;
+                _userGroupRepository = userGroupRepository;
             }
 
             public async Task<IResult> Handle(UpdateUserGroupCommand request, CancellationToken cancellationToken)
@@ -31,8 +31,8 @@ namespace Business.Handlers.UserGroups.Commands
 
                 var userGroupList = request.GroupId.Select(x => new UserGroup() { GroupId = x, UserId = request.UserId });
 
-                await _userGroupDal.BulkInsert(request.UserId, userGroupList);
-                await _userGroupDal.SaveChangesAsync();
+                await _userGroupRepository.BulkInsert(request.UserId, userGroupList);
+                await _userGroupRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.UserGroupUpdated);
 
             }

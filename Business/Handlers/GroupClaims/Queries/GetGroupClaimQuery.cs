@@ -15,16 +15,16 @@ namespace Business.Handlers.GroupClaims.Queries
 
         public class GetGroupClaimQueryHandler : IRequestHandler<GetGroupClaimQuery, IDataResult<GroupClaim>>
         {
-            private readonly IGroupClaimRepository _groupClaimDal;
+            private readonly IGroupClaimRepository _groupClaimRepository;
 
-            public GetGroupClaimQueryHandler(IGroupClaimRepository groupClaimDal)
+            public GetGroupClaimQueryHandler(IGroupClaimRepository groupClaimRepository)
             {
-                _groupClaimDal = groupClaimDal;
+                _groupClaimRepository = groupClaimRepository;
             }
 
             public async Task<IDataResult<GroupClaim>> Handle(GetGroupClaimQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<GroupClaim>(await _groupClaimDal.GetAsync(x => x.GroupId == request.Id));
+                return new SuccessDataResult<GroupClaim>(await _groupClaimRepository.GetAsync(x => x.GroupId == request.Id));
             }
         }
     }

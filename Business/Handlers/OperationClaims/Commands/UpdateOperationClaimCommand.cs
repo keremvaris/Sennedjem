@@ -1,6 +1,5 @@
 ﻿using Business.BusinessAspects;
 using Business.Constants;
-using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
@@ -17,21 +16,21 @@ namespace Business.Handlers.OperationClaims.Commands
         public string Description { get; set; }
         public class UpdateOperationClaimCommandHandler : IRequestHandler<UpdateOperationClaimCommand, IResult>
         {
-            private readonly IOperationClaimRepository _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimRepository;
 
-            public UpdateOperationClaimCommandHandler(IOperationClaimRepository operationClaimDal)
+            public UpdateOperationClaimCommandHandler(IOperationClaimRepository operationClaimRepository)
             {
-                _operationClaimDal = operationClaimDal;
+                _operationClaimRepository = operationClaimRepository;
             }
 
             public async Task<IResult> Handle(UpdateOperationClaimCommand request, CancellationToken cancellationToken)
             {
-                var isOperationClaimsExits = await _operationClaimDal.GetAsync(u => u.Id == request.Id);
+                var isOperationClaimsExits = await _operationClaimRepository.GetAsync(u => u.Id == request.Id);
                 isOperationClaimsExits.Alias = request.Alias;
                 isOperationClaimsExits.Description = request.Description;
 
-                _operationClaimDal.Update(isOperationClaimsExits);
-                await _operationClaimDal.SaveChangesAsync();
+                _operationClaimRepository.Update(isOperationClaimsExits);
+                await _operationClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.OperationClaimUpdated);
             }

@@ -1,7 +1,4 @@
 ﻿using Autofac;
-using Autofac.Extras.DynamicProxy;
-using Castle.DynamicProxy;
-using Core.Utilities.Interceptors;
 using FluentValidation;
 using MediatR;
 
@@ -43,26 +40,22 @@ namespace Business.DependencyResolvers
             {
                 case ApplicationMode.Development:
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-
                             .Where(t => t.FullName.StartsWith("Business.Fakes"))
                             ;
                     break;
                 case ApplicationMode.Profiling:
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-
                             .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService"));
                     break;
                 case ApplicationMode.Staging:
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-
                             .Where(t => t.FullName.StartsWith("Business.Fakes.SmsService"));
                     break;
                 case ApplicationMode.Production:
 
                     builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-
                                     .Where(t => t.FullName.StartsWith("Business.Adapters"))
                                     ;
                     break;

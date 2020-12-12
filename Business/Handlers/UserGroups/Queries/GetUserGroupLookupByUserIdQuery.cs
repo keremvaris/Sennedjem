@@ -1,12 +1,9 @@
 ﻿using Business.BusinessAspects;
-using Business.Handlers.OperationClaims.Queries;
-using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Entities.Dtos;
 using MediatR;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

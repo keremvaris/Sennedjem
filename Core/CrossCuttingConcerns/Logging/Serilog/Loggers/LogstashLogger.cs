@@ -1,12 +1,11 @@
-﻿using Core.Utilities.IoC;
+﻿using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
+using Core.Utilities.IoC;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Serilog.Core;
 using Serilog.Formatting.Elasticsearch;
 using Serilog.Sinks.Http.BatchFormatters;
 using System;
-using Microsoft.Extensions.DependencyInjection;
-using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
 {
@@ -23,8 +22,8 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
                     .WriteTo
                     .DurableHttpUsingFileSizeRolledBuffers(
                         requestUri: logConfig.URL,
-                        batchFormatter:new ArrayBatchFormatter(),
-                        textFormatter:new ElasticsearchJsonFormatter()
+                        batchFormatter: new ArrayBatchFormatter(),
+                        textFormatter: new ElasticsearchJsonFormatter()
                      )
                     .CreateLogger();
             _logger = seriLogConfig;

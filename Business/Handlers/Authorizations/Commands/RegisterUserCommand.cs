@@ -14,25 +14,22 @@ using System.Threading.Tasks;
 
 namespace Business.Handlers.Authorizations.Commands
 {
-
-    public class RegisterUser
+    [SecuredOperation]
+    public class RegisterUserCommand : IRequest<IResult>
     {
-        [SecuredOperation]
-        public class Command : IRequest<IResult>
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string FullName { get; set; }
+
+
+        public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, IResult>
         {
-            public string Email { get; set; }
-            public string Password { get; set; }
-            public string FullName { get; set; }
-
-        }
-        public class RegisterUserCommandHandler : IRequestHandler<Command, IResult>
-        {
-            private readonly IUserRepository _userDal;
+            private readonly IUserRepository _userRepository;
 
 
-            public RegisterUserCommandHandler(IUserRepository userDal)
+            public RegisterUserCommandHandler(IUserRepository userRepository)
             {
-                _userDal = userDal;
+                _userRepository = userRepository;
             }
 
 
@@ -40,9 +37,9 @@ namespace Business.Handlers.Authorizations.Commands
             [ValidationAspect(typeof(RegisterUserValidator), Priority = 1)]
             [CacheRemoveAspect("Get")]
             [LogAspect(typeof(FileLogger))]
-            public async Task<IResult> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<IResult> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
             {
-                var userExits = await _userDal.GetAsync(u => u.Email == request.Email);
+                var userExits = await _userRepository.GetAsync(u => u.Email == request.Email);
 
                 if (userExits != null)
                     return new ErrorResult(Messages.NameAlreadyExist);
@@ -59,8 +56,8 @@ namespace Business.Handlers.Authorizations.Commands
                     Status = true
                 };
 
-                _userDal.Add(user);
-                await _userDal.SaveChangesAsync();
+                _userRepository.Add(user);
+                await _userRepository.SaveChangesAsync();
                 return new SuccessResult(Messages.Added);
             }
         }

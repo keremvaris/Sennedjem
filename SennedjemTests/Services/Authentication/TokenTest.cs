@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
+using SennedjemTests.Helpers;
 using SennedjemTests.Helpers.TokenHelpers;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Threading;
-using System.Net;
 using System.Threading.Tasks;
-using SennedjemTests.Helpers;
 
 namespace SennedjemTests.Services.Authentication
 {

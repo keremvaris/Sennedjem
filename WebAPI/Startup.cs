@@ -46,6 +46,7 @@ namespace WebAPI
         /// <param name="services"></param>
         public override void ConfigureServices(IServiceCollection services)
         {
+
             // Business katmanında olan dependency tanımlarının bir metot üzerinden buraya implemente edilmesi.
 
             services.AddControllers()
@@ -54,8 +55,9 @@ namespace WebAPI
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                     options.JsonSerializerOptions.IgnoreNullValues = true;
-                })
-                ;
+                });
+
+
 
             services.AddCors(options =>
             {
@@ -83,6 +85,7 @@ namespace WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
+
             });
 
             services.AddTransient<FileLogger>();
@@ -118,7 +121,7 @@ namespace WebAPI
 
             app.UseDeveloperExceptionPage();
 
-            //app.ConfigureCustomExceptionMiddleware();
+            app.ConfigureCustomExceptionMiddleware();
 
             app.UseDbOperationClaimCreator();
             app.UseSwagger();

@@ -1,14 +1,13 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Threading;
 using System.Security.Principal;
-using FluentValidation;
-using System.Text.Json;
 using System.Text;
-using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Business.BusinessAspects
 {

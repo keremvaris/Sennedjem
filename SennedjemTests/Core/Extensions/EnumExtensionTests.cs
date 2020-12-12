@@ -18,12 +18,12 @@ namespace SennedjemTests.Core.Extensions
     public enum UserType
     {
         [System.ComponentModel.Description("Admin")]
-        Admin=1,
+        Admin = 1,
 
         [System.ComponentModel.Description("Guess")]
-        Guess =2,
+        Guess = 2,
 
         [System.ComponentModel.Description("Office")]
-        Office =3
+        Office = 3
     }
 }

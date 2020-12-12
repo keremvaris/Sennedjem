@@ -16,11 +16,11 @@ namespace Business.Handlers.GroupClaims.Commands
 
         public class CreateGroupClaimCommandHandler : IRequestHandler<CreateGroupClaimCommand, IResult>
         {
-            private readonly IOperationClaimRepository _operationClaimDal;
+            private readonly IOperationClaimRepository _operationClaimRepository;
 
-            public CreateGroupClaimCommandHandler(IOperationClaimRepository operationClaimDal)
+            public CreateGroupClaimCommandHandler(IOperationClaimRepository operationClaimRepository)
             {
-                _operationClaimDal = operationClaimDal;
+                _operationClaimRepository = operationClaimRepository;
             }
 
             public async Task<IResult> Handle(CreateGroupClaimCommand request, CancellationToken cancellationToken)
@@ -33,14 +33,14 @@ namespace Business.Handlers.GroupClaims.Commands
                 {
                     Name = request.ClaimName
                 };
-                _operationClaimDal.Add(operationClaim);
-                await _operationClaimDal.SaveChangesAsync();
+                _operationClaimRepository.Add(operationClaim);
+                await _operationClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.OperationClaimAdded);
             }
             private bool IsClaimExists(string claimName)
             {
-                return !(_operationClaimDal.Get(x => x.Name == claimName) is null);
+                return !(_operationClaimRepository.Get(x => x.Name == claimName) is null);
             }
         }
     }

@@ -15,16 +15,16 @@ namespace Business.Handlers.UserClaims.Queries
 
         public class GetUserClaimsQueryHandler : IRequestHandler<GetUserClaimsQuery, IDataResult<IEnumerable<UserClaim>>>
         {
-            private readonly IUserClaimRepository _userClaimDal;
+            private readonly IUserClaimRepository _userClaimRepository;
 
-            public GetUserClaimsQueryHandler(IUserClaimRepository userClaimDal)
+            public GetUserClaimsQueryHandler(IUserClaimRepository userClaimRepository)
             {
-                _userClaimDal = userClaimDal;
+                _userClaimRepository = userClaimRepository;
             }
 
             public async Task<IDataResult<IEnumerable<UserClaim>>> Handle(GetUserClaimsQuery request, CancellationToken cancellationToken)
             {
-                return new SuccessDataResult<IEnumerable<UserClaim>>(await _userClaimDal.GetListAsync());
+                return new SuccessDataResult<IEnumerable<UserClaim>>(await _userClaimRepository.GetListAsync());
             }
         }
     }

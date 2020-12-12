@@ -1,9 +1,8 @@
-﻿using System;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using ServiceStack;
+using System;
+using System.Text;
 
 namespace Core.Utilities.MessageBrokers.RabbitMq
 {

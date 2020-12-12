@@ -4,7 +4,6 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,11 +19,11 @@ namespace Business.Handlers.UserClaims.Commands
 
         public class UpdateUserClaimCommandHandler : IRequestHandler<UpdateUserClaimCommand, IResult>
         {
-            private readonly IUserClaimRepository _userClaimDal;
+            private readonly IUserClaimRepository _userClaimRepository;
 
-            public UpdateUserClaimCommandHandler(IUserClaimRepository userClaimDal)
+            public UpdateUserClaimCommandHandler(IUserClaimRepository userClaimRepository)
             {
-                _userClaimDal = userClaimDal;
+                _userClaimRepository = userClaimRepository;
             }
 
             public async Task<IResult> Handle(UpdateUserClaimCommand request, CancellationToken cancellationToken)
@@ -32,8 +31,8 @@ namespace Business.Handlers.UserClaims.Commands
 
                 var userList = request.ClaimId.Select(x => new UserClaim() { ClaimId = x, UserId = request.UserId });
 
-                await _userClaimDal.BulkInsert(request.UserId, userList);
-                await _userClaimDal.SaveChangesAsync();
+                await _userClaimRepository.BulkInsert(request.UserId, userList);
+                await _userClaimRepository.SaveChangesAsync();
 
                 return new SuccessResult(Messages.UserClaimUpdated);
             }

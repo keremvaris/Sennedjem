@@ -1,14 +1,11 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text;
-using Core.Extensions;
-using Org.BouncyCastle.Math.EC.Rfc7748;
-using System.Linq;
-using System.IdentityModel.Tokens.Jwt;
-using NUnit.Framework.Internal;
+﻿using Core.Extensions;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 
 namespace SennedjemTests.Core.Extensions
 {
@@ -22,7 +19,7 @@ namespace SennedjemTests.Core.Extensions
         public void Setup()
         {
             claimList = new List<Claim>();
-            roles =new string[3] { "Admin", "User", "MasterUser"};
+            roles = new string[3] { "Admin", "User", "MasterUser" };
         }
 
         [Test]
