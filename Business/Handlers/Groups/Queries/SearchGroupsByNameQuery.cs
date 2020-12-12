@@ -18,7 +18,7 @@ namespace Business.Handlers.Groups.Queries
         public string GroupName { get; set; }
         public class SearchGroupsByNameQueryHandler : IRequestHandler<SearchGroupsByNameQuery, IDataResult<IEnumerable<Group>>>
         {
-            IGroupRepository _groupRepository;
+            private readonly IGroupRepository _groupRepository;
 
             public SearchGroupsByNameQueryHandler(IGroupRepository groupRepository)
             {

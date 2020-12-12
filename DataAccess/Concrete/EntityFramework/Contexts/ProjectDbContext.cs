@@ -54,10 +54,6 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             }
         }
 
-        //public ProjectDbContext()
-        //{
-        //    throw new ArgumentException();
-        //}
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<Group> Groups { get; set; }

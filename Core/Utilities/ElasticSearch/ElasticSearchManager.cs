@@ -29,7 +29,6 @@ namespace Core.Utilities.ElasticSearch
         {
             var elasticClient = GetElasticClient(indexModel.IndexName);
 
-            var aa = elasticClient.Indices.Get(new GetIndexRequest(Indices.All));
 
             var response = elasticClient.Indices.Create(indexModel.IndexName, se =>
                   se.Settings(a => a.NumberOfReplicas(indexModel.NumberOfReplicas)

@@ -12,7 +12,7 @@ namespace Business.Handlers.UserGroups.Queries
     [SecuredOperation]
     public class GetUserGroupLookupQuery : IRequest<IDataResult<IEnumerable<SelectionItem>>>
     {
-        public int UserId;
+        public int UserId { get; set; }
         public class GetUserGroupLookupQueryHandler : IRequestHandler<GetUserGroupLookupQuery, IDataResult<IEnumerable<SelectionItem>>>
         {
             private readonly IUserGroupRepository _userGroupRepository;

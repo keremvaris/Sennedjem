@@ -10,14 +10,17 @@
     <Compile Remove="Abstract\**" />
     <Compile Remove="Concrete\**" />
     <Compile Remove="Handlers\Cars\**" />
+    <Compile Remove="Handlers\Lookups\**" />
     <Compile Remove="RulesForBusiness\**" />
     <EmbeddedResource Remove="Abstract\**" />
     <EmbeddedResource Remove="Concrete\**" />
     <EmbeddedResource Remove="Handlers\Cars\**" />
+    <EmbeddedResource Remove="Handlers\Lookups\**" />
     <EmbeddedResource Remove="RulesForBusiness\**" />
     <None Remove="Abstract\**" />
     <None Remove="Concrete\**" />
     <None Remove="Handlers\Cars\**" />
+    <None Remove="Handlers\Lookups\**" />
     <None Remove="RulesForBusiness\**" />
   </ItemGroup>
 

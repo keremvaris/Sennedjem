@@ -45,10 +45,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
             }
         }
 
-        //public ProjectDbContext()
-        //{
-        //    throw new ArgumentException();
-        //}
+
 
         public DbSet<Animal> Animals { get; set; }
 

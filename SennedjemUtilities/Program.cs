@@ -9,6 +9,10 @@ namespace SennedjemUtilities
 {
     class Program
     {
+        protected Program()
+        {
+
+        }
         static async Task Main(string[] args)
         {
             Console.WriteLine("Yeni Hayvan Kaydı İsteği Atıldı.\r\n");
@@ -36,7 +40,7 @@ namespace SennedjemUtilities
 
             await svc.GetAnimals().ContinueWith(ret =>
             {
-                if (ret.IsCompleted == true
+                if (ret.IsCompleted
                  && ret.Status == TaskStatus.RanToCompletion)
                 {
                     animals = ret.Result;
