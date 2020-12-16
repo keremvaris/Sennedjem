@@ -1,5 +1,7 @@
 ﻿using Business.BusinessAspects;
 using Business.Constants;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -17,6 +19,7 @@ namespace Business.Handlers.UserClaims.Commands
         public int UserId { get; set; }
         public int[] ClaimId { get; set; }
 
+        
         public class UpdateUserClaimCommandHandler : IRequestHandler<UpdateUserClaimCommand, IResult>
         {
             private readonly IUserClaimRepository _userClaimRepository;
@@ -26,6 +29,7 @@ namespace Business.Handlers.UserClaims.Commands
                 _userClaimRepository = userClaimRepository;
             }
 
+            [LogAspect(typeof(FileLogger))]
             public async Task<IResult> Handle(UpdateUserClaimCommand request, CancellationToken cancellationToken)
             {
 

@@ -20,7 +20,6 @@ namespace WebAPI.Controllers
         ///<return>Users Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetUsersQuery());
@@ -38,7 +37,6 @@ namespace WebAPI.Controllers
         ///<return>Users Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getuserlookup")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetUserLookup()
         {
             var result = await Mediator.Send(new GetUserLookupQuery());
@@ -55,7 +53,6 @@ namespace WebAPI.Controllers
         ///<return>Users Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getbyid")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetById(int userId)
         {
             var result = await Mediator.Send(new GetUserQuery { UserId = userId });
@@ -72,7 +69,6 @@ namespace WebAPI.Controllers
         /// <param name="createUser"></param>
         /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody] CreateUserCommand createUser)
         {
             var result = await Mediator.Send(createUser);
@@ -89,7 +85,6 @@ namespace WebAPI.Controllers
         /// <param name="updateUser"></param>
         /// <returns></returns>
         [HttpPut]
-        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody] UpdateUserCommand updateUser)
         {
             var result = await Mediator.Send(updateUser);
@@ -106,7 +101,6 @@ namespace WebAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        [AllowAnonymous]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await Mediator.Send(new DeleteUserCommand { UserId = id });

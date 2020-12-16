@@ -22,7 +22,6 @@ namespace WebAPI.Controllers
         ///<return>Animals Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetCustomersQuery());
@@ -40,7 +39,6 @@ namespace WebAPI.Controllers
         ///<return>Customer Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getbyid")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetById(ObjectId Id)
         {
             var result = await Mediator.Send(new GetCustomerQuery { Id = Id });
@@ -57,7 +55,6 @@ namespace WebAPI.Controllers
         /// <param name="createCustomer"></param>
         /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody] CreateCustomerCommand createCustomer)
         {
             var result = await Mediator.Send(createCustomer);

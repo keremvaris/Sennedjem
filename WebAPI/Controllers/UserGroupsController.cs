@@ -68,6 +68,23 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        ///<summary>
+        ///Id sine göre detaylarını getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>GroupClaims Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getusersingroupbygroupid")]
+        public async Task<IActionResult> GetUsersInGroupByGroupid(int id)
+        {
+            var result = await Mediator.Send(new GetUsersInGroupLookupByGroupId {  GroupId = id });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
         /// <summary>
         /// Animal Ekler.
         /// </summary>
@@ -85,13 +102,30 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Animal Günceller.
+        /// UserGroup Günceller.
         /// </summary>
         /// <param name="updateUserGroup"></param>
         /// <returns></returns>
         [HttpPut]
         [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody] UpdateUserGroupCommand updateUserGroup)
+        {
+            var result = await Mediator.Send(updateUserGroup);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+
+        /// <summary>
+        /// Animal Günceller.
+        /// </summary>
+        /// <param name="updateUserGroup"></param>
+        /// <returns></returns>
+        [HttpPut("updatebygroupid")]
+        [AllowAnonymous]
+        public async Task<IActionResult> UpdateByGroupId([FromBody] UpdateUserGroupByGroupIdCommand updateUserGroup)
         {
             var result = await Mediator.Send(updateUserGroup);
             if (result.Success)

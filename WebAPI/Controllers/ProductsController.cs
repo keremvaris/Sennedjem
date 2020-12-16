@@ -22,10 +22,28 @@ namespace WebAPI.Controllers
         ///<return>Products Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        //[AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetProductsQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
+
+        ///<summary>
+        ///Grupları listeler
+        ///</summary>
+        ///<remarks>bla bla bla Groups</remarks>
+        ///<return>Grup Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getproductdtolist")]
+        //[AllowAnonymous]
+        public async Task<IActionResult> GetProductDtoList()
+        {
+            var result = await Mediator.Send(new GetProdcutDtoListQuery());
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -56,7 +74,6 @@ namespace WebAPI.Controllers
         /// <param name="createProduct"></param>
         /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
         [ProducesResponseType(200, Type = typeof(SuccessResult))]
         [ProducesResponseType(400, Type = typeof(ErrorResult))]
         public async Task<IActionResult> Add([FromBody] CreateProductCommand createProduct)

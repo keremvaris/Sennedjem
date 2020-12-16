@@ -1,31 +1,46 @@
-﻿using Business.Handlers.UserClaims.Commands;
-using Business.Handlers.UserClaims.Queries;
-using Microsoft.AspNetCore.Authorization;
+﻿
+using Business.Handlers.Categories.Commands;
+using Business.Handlers.Categories.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
     /// <summary>
-    /// 
+    /// Categories Controller Authorize olmayacaksa [AllowAnonymous] Kullanılır.
     /// </summary>
-    ///  
     [Route("api/[controller]")]
     [ApiController]
-    public class UserClaimsController : BaseApiController
+    public class CategoriesController : BaseApiController
     {
-
         ///<summary>
-        ///UserClaims listeler
+        ///Categorie listeler
         ///</summary>
-        ///<remarks>bla bla bla Animals</remarks>
-        ///<return>UserClaims Listesi</return>
+        ///<remarks>bla bla bla Categories</remarks>
+        ///<return>Categories Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        //[AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
-            var result = await Mediator.Send(new GetUserClaimsQuery());
+            var result = await Mediator.Send(new GetCategoriesQuery());
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
+        ///<summary>
+        ///Category lookup listeler
+        ///</summary>
+        ///<remarks>bla bla bla Categories</remarks>
+        ///<return>Categories Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getcategorylookupquery")]
+        public async Task<IActionResult> GetCategoryLookUpQuery()
+        {
+            var result = await Mediator.Send(new GetCategoryLookUpQuery());
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -37,12 +52,12 @@ namespace WebAPI.Controllers
         ///Id sine göre detaylarını getirir.
         ///</summary>
         ///<remarks>bla bla bla </remarks>
-        ///<return>UserClaims Listesi</return>
+        ///<return>Categorie Listesi</return>
         ///<response code="200"></response>  
-        [HttpGet("getbyuserid")]
-        public async Task<IActionResult> GetByUserId(int userid)
+        [HttpGet("getbyid")]
+        public async Task<IActionResult> GetById(int categoryId)
         {
-            var result = await Mediator.Send(new GetUserClaimLookupQuery { UserId = userid });
+            var result = await Mediator.Send(new GetCategoryQuery { CategoryId = categoryId });
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -50,31 +65,15 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        ///<summary>
-        ///Id sine göre detaylarını getirir.
-        ///</summary>
-        ///<remarks>bla bla bla </remarks>
-        ///<return>UserClaims Listesi</return>
-        ///<response code="200"></response>  
-        [HttpGet("getoperationclaimbyuserid")]
-        public async Task<IActionResult> GetOperationClaimByUserId(int id)
-        {
-            var result = await Mediator.Send(new GetUserClaimLookupByUserIdQuery { Id = id });
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result.Message);
-        }
         /// <summary>
-        /// GroupClaim Ekler.
+        /// Category Ekler.
         /// </summary>
-        /// <param name="createUserClaim"></param>
+        /// <param name="createCategory"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CreateUserClaimCommand createUserClaim)
+        public async Task<IActionResult> Add([FromBody] CreateCategoryCommand createCategory)
         {
-            var result = await Mediator.Send(createUserClaim);
+            var result = await Mediator.Send(createCategory);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -83,14 +82,14 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// GroupClaim Günceller.
+        /// Category Günceller.
         /// </summary>
-        /// <param name="updateUserClaim"></param>
+        /// <param name="updateCategory"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateUserClaimCommand updateUserClaim)
+        public async Task<IActionResult> Update([FromBody] UpdateCategoryCommand updateCategory)
         {
-            var result = await Mediator.Send(updateUserClaim);
+            var result = await Mediator.Send(updateCategory);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -99,14 +98,14 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// GroupClaim Siler.
+        /// Category Siler.
         /// </summary>
-        /// <param name="deleteUserClaim"></param>
+        /// <param name="deleteCategory"></param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeleteUserClaimCommand deleteUserClaim)
+        public async Task<IActionResult> Delete([FromBody] DeleteCategoryCommand deleteCategory)
         {
-            var result = await Mediator.Send(deleteUserClaim);
+            var result = await Mediator.Send(deleteCategory);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -115,4 +114,3 @@ namespace WebAPI.Controllers
         }
     }
 }
-

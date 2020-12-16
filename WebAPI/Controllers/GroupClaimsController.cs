@@ -48,6 +48,23 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        ///<summary>
+        ///Grup Id sine göre Claimsleri getirir.
+        ///</summary>
+        ///<remarks>bla bla bla </remarks>
+        ///<return>GroupClaims Listesi</return>
+        ///<response code="200"></response>  
+        [HttpGet("getgroupclaimsbygroupid")]
+        public async Task<IActionResult> GetGroupClaimsByGroupId(int id)
+        {
+            var result = await Mediator.Send(new GetGroupClaimsLookupByGroupIdQuery { GroupId = id });
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
 
         /// <summary>
         /// GroupClaim Ekler.

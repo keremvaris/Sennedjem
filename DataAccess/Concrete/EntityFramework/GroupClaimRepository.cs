@@ -16,6 +16,14 @@ namespace DataAccess.Concrete.EntityFramework
         {
         }
 
+        public async Task BulkInsert(int groupId, IEnumerable<GroupClaim> groupClaims)
+        {
+            var dbList = await context.GroupClaims.Where(x => x.GroupId == groupId).ToListAsync();
+
+            context.GroupClaims.RemoveRange(dbList);
+            await context.GroupClaims.AddRangeAsync(groupClaims);
+        }
+
         public async Task<IEnumerable<SelectionItem>> GetGroupClaimsSelectedList(int groupId)
         {
             var list = await (from gc in context.GroupClaims

@@ -21,7 +21,6 @@ namespace WebAPI.Controllers
         ///<return>OperationClaims Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getall")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetOperationClaimsQuery());
@@ -39,7 +38,6 @@ namespace WebAPI.Controllers
         ///<return>OperationClaims Listesi</return>
         ///<response code="200"></response>  
         [HttpGet("getoperationclaimlookup")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetOperationClaimLookup()
         {
             var result = await Mediator.Send(new GetOperationClaimLookupQuery());

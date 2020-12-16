@@ -1,5 +1,6 @@
 ﻿using Business.Handlers.Groups.Commands;
 using Business.Handlers.Groups.Queries;
+using Business.Handlers.Products.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -31,6 +32,9 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+
+       
+
 
         ///<summary>
         ///Id sine göre detaylarını getirir.
